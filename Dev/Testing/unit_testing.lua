@@ -28,7 +28,7 @@ function UnitTesting:TestApiHookUps()
 	for hookupFunctionName, apiFunction in pairs(API.FunctionDefs) do
 		local apiNamespace = API.NamespaceDefs[hookupFunctionName]
 		
-		if API:IsHookupSupported(hookupFunctionName) then
+		if API:IsIncluded(hookupFunctionName) then
 			if API:ResolveApiNamespace(apiNamespace) then
 				if API:ResolveApiFunction(apiNamespace, apiFunction) then
 					--Log:Dev(API:CreateApiString(apiNamespace, apiFunction) .. " as " .. hookupFunctionName, 0x88FF88)

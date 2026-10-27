@@ -7,7 +7,7 @@ Frogtome.Core.Core = {}
 local Core = Frogtome.Core.Core
 local DungeonData = Frogtome.Data.DungeonData
 local InfoData = Frogtome.Data.InfoData
-local LevelData = Frogtome.Data.LevelData
+local XpData = Frogtome.Data.XpData
 local QuestData = Frogtome.Data.QuestData
 local Utils = Frogtome.Misc.Utils
 local ZoneData = Frogtome.Data.ZoneData
@@ -894,7 +894,7 @@ function Core:GetNeededXp()
 end
 
 function Core:GetNeededXpForLevel(level)
-	return LevelData.NeededLevelXps[level]
+	return XpData.NeededLevelXps[level]
 end
 
 -- Returns the numerical proportion of XP earned by the current character for their current level.
@@ -924,7 +924,7 @@ function Core:GetLifetimeXp()
 	
 	local lifetimeXp = currentXp
 	for completedLevel = 1, currentLevel - 1 do
-		lifetimeXp = lifetimeXp + LevelData.NeededLevelXps[completedLevel]
+		lifetimeXp = lifetimeXp + XpData.NeededLevelXps[completedLevel]
 	end
 	
 	return lifetimeXp
@@ -934,7 +934,7 @@ end
 function Core:GetLifetimeXpNeeded()
 	local lifetimeXpNeeded = 0
 	for level = 1, Core:GetMaxLevel() do
-		lifetimeXpNeeded = lifetimeXpNeeded + LevelData.NeededLevelXps[level]
+		lifetimeXpNeeded = lifetimeXpNeeded + XpData.NeededLevelXps[level]
 	end
 	
 	return lifetimeXpNeeded

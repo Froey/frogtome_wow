@@ -8,6 +8,7 @@ local Characters = Frogtome.Core.Characters
 local Core = Frogtome.Core.Core
 local Log = Frogtome.Misc.Log
 local SavedData = Frogtome.Data.SavedData
+local XP = Frogtome.Core.XP
 
 -----------------------------
 -- Saved Data Interactions --
@@ -182,6 +183,7 @@ function Characters:GenerateCurrentCharacter()
 	character.NeededXp = Core:GetNeededXp()
 	character.RestedXp = Core:GetRestedXp()
 	character.IsResting = Core:IsResting()
+	character.WellRestedRank = XP:GetWellRestedRank()
 	
 	if Core:IsFirstProfessionLearned() then
 		character.FirstProfession = Characters:GenerateCurrentProfessionInfo(Core:GetFirstProfessionIndex())

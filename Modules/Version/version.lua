@@ -25,8 +25,8 @@ Version.VERSION_IS_BETA = "IsBeta"
 Version.CURRENT_VERSION = {
 	[Version.VERSION_MAJOR_ID] = 1,
 	[Version.VERSION_MINOR_ID] = 0,
-	[Version.VERSION_PATCH_ID] = 0,
-	[Version.VERSION_IS_BETA] = false
+	[Version.VERSION_PATCH_ID] = 1,
+	[Version.VERSION_IS_BETA] = true
 }
 
 function Version:GetCurrentMajorId()
@@ -64,7 +64,7 @@ end
 -------------------------
 
 function Version:CreateComparableVersionId(major, minor, patch)
-	return (major * 10000) + (minor * 100) + patch
+	return (major * ((Version.VERSION_MINOR_ID_MAX_VALUE + 1) * (Version.VERSION_PATCH_ID_MAX_VALUE + 1))) + (minor * (Version.VERSION_PATCH_ID_MAX_VALUE + 1)) + patch
 end
 
 function Version:CheckAndPerformUpgrades()

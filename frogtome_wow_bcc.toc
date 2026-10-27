@@ -1,6 +1,6 @@
-## Interface: 16001
+## Interface: 20506
 ## Title: |cff6bd43aFrogtome|r
-## Version: 1.0.1
+## Version: 1.0.1 (BETA)
 ## Notes: Collection of account, character, and grind-related information - all in one lightweight addon!
 ## Author: Froey
 ## IconTexture: Interface\AddOns\frogtome_wow\Resources\Icons\frogtome.tga
@@ -29,6 +29,7 @@ Libs/LibDBIcon-1.0/LibDbIcon-1.0.lua
 Data/saved_data.lua
 
 # Other (Static) Data
+Data/project_data.lua
 Data/info_data.lua
 Data/gold_data.lua
 Data/level_data.lua
@@ -57,7 +58,10 @@ Modules/Misc/log.lua
 # -- Core Functionality --
 # ------------------------
 
-# The "core" of all functionality: API calls, fundamental information gathering, etc.
+# Root API functionality
+Modules/Core/api.lua
+
+# The "core" of all functionality: Fundamental information gathering, data organization, etc.
 Modules/Core/core.lua
 
 # "Listener" functionality that helps UI respond to in-game events
@@ -103,9 +107,9 @@ Modules/UI/main_frame.lua
 Dev/dev.lua
 
 # Test suites for testing this addon and verifying expected functionality
-Dev/Testing/testing.lua
 Dev/Testing/unit_testing.lua
 Dev/Testing/functional_testing.lua
+Dev/Testing/testing.lua
 
 # ------------------
 # -- Main Process --

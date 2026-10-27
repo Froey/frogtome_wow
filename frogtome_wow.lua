@@ -16,6 +16,7 @@ local SavedData = Frogtome.Data.SavedData
 local Session = Frogtome.Core.Session
 local Settings = Frogtome.Settings.Settings
 local Strings = Frogtome.UI.Strings
+local Testing = Frogtome.Dev.Testing.Testing
 local UI = Frogtome.UI.UI
 local Upgrade = Frogtome.Version.Upgrade
 local Utils = Frogtome.Misc.Utils
@@ -26,6 +27,15 @@ local Version = Frogtome.Version.Version
 -------------------------------
 
 function Main:Initialize()
+	-- Confirm that Frogtome can run within this context. If not, perform tests that might help make that so.
+	local _, projectName, isProjectSupported = Utils:GetContext()
+	if not isProjectSupported then
+		Log:Special("Frogtome does not support this version of the game. Running tests and halting initialization...", 0xFF3333)
+		Testing:TestAll()
+		
+		return
+	end
+	
 	-- Perform any upgrades needed for this version of Frogtome
 	Version:CheckAndPerformUpgrades()
 	

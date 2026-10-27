@@ -8,5 +8,12 @@ end
 Frogtome.Dev.Testing.Testing = {}
 
 local Testing = Frogtome.Dev.Testing.Testing
+local UnitTesting = Frogtome.Dev.Testing.UnitTesting
 
--- TODO
+function Testing:TestAll()
+	local passed = true
+	
+	passed = passed and UnitTesting:TestAll()
+	
+	return passed
+end

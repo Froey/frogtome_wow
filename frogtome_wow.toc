@@ -1,6 +1,6 @@
 ## Interface: 16001
 ## Title: |cff6bd43aFrogtome|r
-## Version: 1.0.0
+## Version: 1.0.1
 ## Notes: For limited distribution and testing.
 ## Author: Froey
 ## IconTexture: Interface\AddOns\frogtome_wow\Resources\Icons\frogtome.tga

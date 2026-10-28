@@ -44,7 +44,19 @@ end
 function CharactersPage:GetSortedProfessionSlots(character)
 	local profession1 = character.FirstProfession
 	local profession2 = character.SecondProfession
-	if not profession1 or (profession1 and profession2 and UIData.ProfessionDisplayOrders[profession1.Name] > UIData.ProfessionDisplayOrders[profession2.Name]) then
+	
+	local shouldSwapOrder = not profession1
+	if profession1 and profession2 then
+		local profession1Order = UIData.ProfessionDisplayOrders[profession1.Name]
+		local profession2Order = UIData.ProfessionDisplayOrders[profession2.Name]
+		
+		shouldSwapOrder = shouldSwapOrder or not profession1Order
+		if profession1Order and profession2Order then
+			shouldSwapOrder = shouldSwapOrder or profession1Order > profession2Order
+		end
+	end
+	
+	if shouldSwapOrder then
 		profession1 = character.SecondProfession
 		profession2 = character.FirstProfession
 	end
@@ -395,11 +407,11 @@ function CharactersPage:UpdateExpandedFrameView()
 				if character.WellRestedRank > 0 then
 					UI:ApplyTextWidgetFont(row.CharacterWellRestedRankText, UIConfig.CHARACTERS_PAGE_RESTED_OVERCAP_COLOR)
 				else
-					UI:ApplyTextWidgetFont(row.CharacterWellRestedRankText, UIConfig.GLOBAL_DISABLED_DATA_TEXT_COLOR)
+					UI:ApplyTextWidgetFont(row.CharacterWellRestedRankText, UIConfig.GLOBAL_DATA_TEXT_COLOR)
 				end
 			else
 				row.CharacterWellRestedRankText:SetText(Strings:Get("CHARACTERS_PAGE_UNKNOWN_WELL_RESTED_RANK"))
-				UI:ApplyTextWidgetFont(row.CharacterWellRestedRankText, UIConfig.GLOBAL_DISABLED_DATA_TEXT_COLOR)
+				UI:ApplyTextWidgetFont(row.CharacterWellRestedRankText, UIConfig.GLOBAL_DATA_TEXT_COLOR)
 			end
 			
 			-- On initial load, this fraction can be undefined (needed XP can be 0)
@@ -408,7 +420,8 @@ function CharactersPage:UpdateExpandedFrameView()
 				local remainingRestedCapFraction = 1 - currentRestedCapFraction
 				
 				if remainingRestedCapFraction < 0 then
-					-- This can happen due to Legacy Talents in WoWF. We should be able to properly support it now, but just in case we can't...
+					-- This can happen due to (unhandled) Legacy Talents in WoWF or something like experience-squishing in Retail.
+					-- This SHOULDN'T be needed often, if at all, but this should be a catch-all fallback in case we need it.
 					row.CharacterRestCapPercentageText:SetText(Strings:Get("CHARACTERS_PAGE_CURRENT_RESTED_OVERCAPPED"))
 					UI:ApplyTextWidgetFont(row.CharacterRestCapPercentageText, UIConfig.CHARACTERS_PAGE_RESTED_OVERCAP_COLOR)
 				elseif remainingRestedCapFraction == 0 then
@@ -639,11 +652,11 @@ function CharactersPage:UpdateCondensedFrameView()
 				if character.WellRestedRank > 0 then
 					UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterWellRestedRankText, UIConfig.CHARACTERS_PAGE_RESTED_OVERCAP_COLOR)
 				else
-					UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterWellRestedRankText, UIConfig.GLOBAL_DISABLED_DATA_TEXT_COLOR)
+					UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterWellRestedRankText, UIConfig.GLOBAL_DATA_TEXT_COLOR)
 				end
 			else
 				CharactersPage.Page.CondensedFrameView.CharacterWellRestedRankText:SetText(Strings:Get("CHARACTERS_PAGE_UNKNOWN_WELL_RESTED_RANK"))
-				UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterWellRestedRankText, UIConfig.GLOBAL_DISABLED_DATA_TEXT_COLOR)
+				UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterWellRestedRankText, UIConfig.GLOBAL_DATA_TEXT_COLOR)
 			end
 			
 			-- On initial load, this fraction can be undefined (needed XP can be 0)
@@ -652,7 +665,8 @@ function CharactersPage:UpdateCondensedFrameView()
 				local remainingRestedCapFraction = 1 - currentRestedCapFraction
 				
 				if remainingRestedCapFraction < 0 then
-					-- This can happen due to Legacy Talents in WoWF. We should be able to properly support it now, but just in case we can't...
+					-- This can happen due to (unhandled) Legacy Talents in WoWF or something like experience-squishing in Retail.
+					-- This SHOULDN'T be needed often, if at all, but this should be a catch-all fallback in case we need it.
 					CharactersPage.Page.CondensedFrameView.CharacterRestCapPercentageText:SetText(Strings:Get("CHARACTERS_PAGE_CURRENT_RESTED_OVERCAPPED"))
 					UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterRestCapPercentageText, UIConfig.CHARACTERS_PAGE_RESTED_OVERCAP_COLOR)
 				elseif remainingRestedCapFraction == 0 then
@@ -786,7 +800,7 @@ function CharactersPage:SetExperienceViewActive(active)
 	CharactersPage.Page.ExpandedFrameView.ExperienceViewRestedCapTimeHeaderText:SetShown(active)
 	
 	for _, row in ipairs(CharactersPage.Page.ExpandedFrameView.TableFrame.TableRows) do
-		row.CharacterXpPercentageText:SetShown(active)
+		row.CharacterWellRestedRankText:SetShown(active)
 		row.CharacterRestCapPercentageText:SetShown(active)
 		row.CharacterRestCapTimeText:SetShown(active)
 	end
@@ -1072,7 +1086,7 @@ function CharactersPage:BuildCondensedFrameView(page)
 	view.CharacterNameText:SetWordWrap(false)
 	view.CharacterNameText:SetJustifyH("LEFT")
 	
-	view.CharacterXpPercentageText = UI:CreateTableText(experienceTableParams, view, "", UIConfig.GLOBAL_DATA_TEXT_COLOR, 1, 1)
+	view.CharacterWellRestedRankText = UI:CreateTableText(experienceTableParams, view, "", UIConfig.GLOBAL_DATA_TEXT_COLOR, 1, 1)
 	view.CharacterRestCapPercentageText = UI:CreateTableText(experienceTableParams, view, "", UIConfig.GLOBAL_DATA_TEXT_COLOR, 2, 1)
 	view.CharacterRestCapTimeText = UI:CreateTableText(experienceTableParams, view, "", UIConfig.GLOBAL_DATA_TEXT_COLOR, 3, 1)
 	

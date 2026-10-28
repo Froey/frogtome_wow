@@ -4,12 +4,13 @@ if not Frogtome.Core then
 end
 Frogtome.Core.Core = {}
 
+local API = Frogtome.Core.API
 local Core = Frogtome.Core.Core
 local DungeonData = Frogtome.Data.DungeonData
 local InfoData = Frogtome.Data.InfoData
-local XpData = Frogtome.Data.XpData
 local QuestData = Frogtome.Data.QuestData
 local Utils = Frogtome.Misc.Utils
+local XpData = Frogtome.Data.XpData
 local ZoneData = Frogtome.Data.ZoneData
 
 --------------------------------------
@@ -18,18 +19,34 @@ local ZoneData = Frogtome.Data.ZoneData
 
 -- Returns whether or not the current character is fully loaded.
 function Core:IsFullyLoaded()
-	-- The character's name will simply be akin to "Unknown" if it's still being loaded in
-	return Core:GetLastName() ~= nil
+	if API:IsSupported("GetCharacterLastName") then
+		-- The character's name will simply be akin to "Unknown" if it's still being loaded in
+		return API.GetCharacterLastName() ~= nil
+	elseif API:IsSupported("GetCharacterGuid") then
+		-- The next best thing we have otherwise is the GUID, which... may or may not cause bugs
+		return API.GetCharacterGuid() ~= nil
+	else
+		-- Good luck.
+		return true
+	end
 end
 
 -- Returns the GUID of the current character.
 function Core:GetGUID()
-	return UnitGUID("player")
+	if API:IsSupported("GetCharacterGuid") then
+		return API.GetCharacterGuid()
+	else
+		return "N/A"
+	end
 end
 
 -- Returns the server of the current player.
 function Core:GetServer()
-	return GetRealmName()
+	if API:IsSupported("GetCharacterRealm") then
+		return API.GetCharacterRealm()
+	else
+		return "N/A"
+	end
 end
 
 -- Returns the ruleset for the current character's server.
@@ -53,20 +70,33 @@ end
 
 -- Returns the first name of the current character.
 function Core:GetFirstName()
-	local firstName, lastName = UnitName("player")
-	return firstName
+	if API:IsSupported("GetCharacterFirstName") then
+		return API.GetCharacterFirstName()
+	else
+		return "Unknown"
+	end
 end
 
 -- Returns the last name of the current character.
 function Core:GetLastName()
-	local firstName, lastName = UnitName("player")
-	return lastName
+	if API:IsSupported("GetCharacterLastName") then
+		return API.GetCharacterLastName()
+	else
+		return "Unknown"
+	end
 end
 
 -- Returns the full name of the current character.
 function Core:GetFullName()
-	local firstName, lastName = UnitName("player")
-	return firstName .. " " .. lastName
+	if API:IsSupported("GetCharacterFirstName") then
+		if API:IsSupported("GetCharacterLastName") then
+			return API.GetCharacterFirstName() .. " " .. API.GetCharacterLastName()
+		else
+			return API.GetCharacterFirstName()
+		end
+	else
+		return "Unknown"
+	end
 end
 
 -- Returns the numerical ID for the current character's body type (or sex, if you prefer).

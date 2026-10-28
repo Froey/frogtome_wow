@@ -5,6 +5,7 @@ end
 Frogtome.Core.API = {}
 
 local API = Frogtome.Core.API
+local Log = Frogtome.Misc.Log
 
 ----------------------------------------
 -- Local Configurables and Attributes --
@@ -200,7 +201,7 @@ API:HookUp({}, nil, "IsAltKeyDown", 0, nil, "IsAltKeyDown")
 API:HookUp({}, nil, "GetRealmName", 0, nil, "GetCharacterRealm")
 API:HookUp({}, nil, "UnitGUID", 1, { "player" }, "GetCharacterGuid")
 API:HookUp({}, nil, "UnitName", 1, { "player" }, "GetCharacterFirstName", 1)
-API:HookUp({5}, nil, "UnitName", 1, { "player" }, "GetCharacterLastName", 2)
+API:HookUp({1, 5}, nil, "UnitName", 1, { "player" }, "GetCharacterLastName", 2)
 API:HookUp({}, nil, "UnitSex", 1, { "player" }, "GetCharacterBodyTypeId")
 API:HookUp({}, nil, "UnitFactionGroup", 1, { "player" }, "GetCharacterFactionDataString")
 API:HookUp({}, nil, "UnitRace", 1, { "player" }, "GetCharacterRaceDataString")
@@ -241,12 +242,6 @@ API:HookUp({}, nil, "GetProfessionInfo", 1, nil, "GetCharacterProfessionMaxSkill
 API:HookUp({}, nil, "GetQuestLogRewardXP", 1, nil, "GetQuestXp")
 API:HookUp({}, nil, "GetQuestLogRewardMoney", 1, nil, "GetQuestMoneyInCopper")
 
--------------------------------------------
--- Supported API Calls: General (Traits) --
--------------------------------------------
-
-API:HookUp({5}, nil, "NodeName", 2, nil, "GetTraitTreeNodeName")
-
 --------------------------------------
 -- Supported API Calls: C_Container --
 --------------------------------------
@@ -269,8 +264,16 @@ API:HookUp({5}, "C_QuestLog", "GetQuestIDForQuestWatchIndex", 1, nil, "GetQuestI
 -- Supported API Calls: C_Traits --
 -----------------------------------
 
-API:HookUp({5}, "C_Traits", "GetConfigIDsByType", 1, nil, "GetTraitConfigIdsFromTypeId")
+API:HookUp({1, 5}, "C_Traits", "GetConfigIDsByType", 1, nil, "GetTraitConfigIdsFromTypeId")
 API:HookUp({}, "C_Traits", "GetConfigIDBySystemID", 1, nil, "GetTraitConfigIdFromSystemId")
 API:HookUp({}, "C_Traits", "GetConfigInfo", 1, nil, "GetTraitConfigInfo")
 API:HookUp({}, "C_Traits", "GetTreeNodes", 1, nil, "GetTraitTreeNodeIds")
 API:HookUp({}, "C_Traits", "GetNodeInfo", 2, nil, "GetTraitTreeNodeInfo")
+API:HookUp({}, "C_Traits", "GetEntryInfo", 2, nil, "GetTraitTreeNodeEntryInfo")
+API:HookUp({}, "C_Traits", "GetDefinitionInfo", 1, nil, "GetTraitTreeNodeEntryDefinitionInfo")
+
+----------------------------------
+-- Supported API Calls: C_Spell --
+----------------------------------
+
+API:HookUp({}, "C_Spell", "GetSpellName", 1, nil, "GetSpellName")

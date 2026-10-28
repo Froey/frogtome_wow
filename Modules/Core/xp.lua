@@ -28,6 +28,9 @@ XP.WellRestedNodeDiscoveryByTypeCeiling = 5
 XP.WellRestedNodeDiscoveryBySystemFloor = 1
 XP.WellRestedNodeDiscoveryBySystemCeiling = 200
 
+XP.ExpectedWellRestedNodeName = "Well Rested"
+XP.ExpectedWellRestedNodeMaxRanks = 5
+
 -----------------------
 -- Earned Experience --
 -----------------------
@@ -224,12 +227,60 @@ function XP:GetRemainingRestedCapTimeInDaysPlusHours(lastKnownRestedXp, neededXp
 	end
 	
 	local remainingRestedCapTimeInDays = math.floor(remainingRestedCapTimeInHours / 24)
-	remainingRestedCapTimeInHours = remainingRestedCapTimeInHours / 24
+	remainingRestedCapTimeInHours = remainingRestedCapTimeInHours % 24
+	
+	return remainingRestedCapTimeInDays, remainingRestedCapTimeInHours
 end
 
 -----------------------
 -- Well Rested Trait --
 -----------------------
+
+-- TODO: This stretches WELL BEYOND the scope of this module. This should probably be moved to elsewhere.
+function XP:GetNodeName(configId, nodeId, node)
+	if not API:AreAllSupported({ "GetTraitTreeNodeEntryInfo", "GetTraitTreeNodeEntryDefinitionInfo" }) then
+		return nil
+	end
+	
+	local entryId = nil
+	if node.activeEntry then
+		entryId = node.activeEntry.entryID
+	elseif node.entryIDs then
+		entryId = node.entryIDs[1]
+	end
+	if not entryId then
+		return nil
+	end
+	
+	local entry = API.GetTraitTreeNodeEntryInfo(configId, entryId)
+	if not entry then
+		return nil
+	end
+	
+	local definitionId = entry.definitionID
+	if not definitionId then
+		return nil
+	end
+	
+	local definition = API.GetTraitTreeNodeEntryDefinitionInfo(definitionId)
+	if not definition then
+		return nil
+	end
+	
+	-- We have something we can return the name of
+	
+	local overrideName = definition.overrideName
+	if overrideName and overrideName ~= "" then
+		return overrideName
+	end
+	
+	local spellId = definition.spellID
+	if spellId and API:IsSupported("GetSpellName") then
+		return API.GetSpellName(spellId)
+	end
+	
+	return nil
+end
 
 function XP:DiscoverWellRestedNode()
 	local foundConfigIds = {}
@@ -237,13 +288,13 @@ function XP:DiscoverWellRestedNode()
 	-- Very debug-like code for the time being, while we figure out if Well Rested has a permanent ID
 	
 	-- Attempt to collect possible "Well Rested" traits by type
-	if API:IsSupported("GetTraitConfigIdFromTypeId") then
+	if API:IsSupported("GetTraitConfigIdsFromTypeId") then
 		for typeId = XP.WellRestedNodeDiscoveryByTypeFloor, XP.WellRestedNodeDiscoveryByTypeCeiling do
 			local configIds = API.GetTraitConfigIdsFromTypeId(typeId)
 			if configIds then
 				for _, configId in ipairs(configIds) do
 					if foundConfigIds[configId] == nil then
-						foundConfigIds[configId] = "Type ID: " + tostring(typeId)
+						foundConfigIds[configId] = "Type ID: " .. tostring(typeId)
 					end
 				end
 			end
@@ -257,7 +308,7 @@ function XP:DiscoverWellRestedNode()
 		for systemId = XP.WellRestedNodeDiscoveryBySystemFloor, XP.WellRestedNodeDiscoveryBySystemCeiling do
 			local configId = API.GetTraitConfigIdFromSystemId(systemId)
 			if configId and foundConfigIds[configId] == nil then
-				foundConfigIds[configId] = "System ID: " + tostring(systemId)
+				foundConfigIds[configId] = "System ID: " .. tostring(systemId)
 			end
 		end
 	else
@@ -270,18 +321,18 @@ function XP:DiscoverWellRestedNode()
 	}
 	
 	-- Get the actual "Well Rested" trait
-	if API:AreAllSupported({ "GetTraitConfigInfo", "GetTraitTreeNodeIds", "GetTraitTreeNodeInfo", "GetTraitTreeNodeName" }) then
-		for _, configId in ipairs(foundConfigIds) do
+	if API:AreAllSupported({ "GetTraitConfigInfo", "GetTraitTreeNodeIds", "GetTraitTreeNodeInfo" }) then
+		for configId, _ in pairs(foundConfigIds) do
 			local configInfo = API.GetTraitConfigInfo(configId)
 			if configInfo and configInfo.treeIDs then
-				for _, configTreeId in ipairs(configInfo.treeIDs) do
+				for _, treeId in ipairs(configInfo.treeIDs) do
 					local nodeIds = API.GetTraitTreeNodeIds(treeId)
 					if nodeIds then
 						for _, nodeId in ipairs(nodeIds) do
 							local node = API.GetTraitTreeNodeInfo(configId, nodeId)
 							if node then
-								local nodeName = API.GetTraitTreeNodeName(configId, node)
-								if nodeName == "Well Rested" and node.maxRanks == 5 then
+								local nodeName = XP:GetNodeName(configId, nodeId, node)
+								if nodeName == XP.ExpectedWellRestedNodeName and node.maxRanks == XP.ExpectedWellRestedNodeMaxRanks then
 									Log:Dev("Found \"Well Rested\": " .. tostring(configId) .. ", " .. tostring(nodeId))
 									XP.CachedWellRestedNodeInfo = {
 										["ConfigId"] = configId,
@@ -312,13 +363,13 @@ function XP:GetWellRestedRank(forceCacheReset)
 		XP:DiscoverWellRestedNode()
 	end
 	
-	if not XP.CachedWellRestedNodeInfo.ConfigId or not not XP.CachedWellRestedNodeInfo.NodeId then
+	if not XP.CachedWellRestedNodeInfo.ConfigId or not XP.CachedWellRestedNodeInfo.NodeId then
 		-- We don't have what we need to get info for "Well Rested". Return a default of zero
 		return 0
 	end
 	
-	local wellRestedConfigId = Traits.CachedWellRestedNodeInfo.ConfigId
-	local wellRestedNodeId = Traits.CachedWellRestedNodeInfo.NodeId
+	local wellRestedConfigId = XP.CachedWellRestedNodeInfo.ConfigId
+	local wellRestedNodeId = XP.CachedWellRestedNodeInfo.NodeId
 	local wellRestedNode = API.GetTraitTreeNodeInfo(wellRestedConfigId, wellRestedNodeId)
 	
 	if wellRestedNode.ranksPurchased then

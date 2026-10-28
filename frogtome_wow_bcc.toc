@@ -32,7 +32,7 @@ Data/saved_data.lua
 Data/project_data.lua
 Data/info_data.lua
 Data/gold_data.lua
-Data/level_data.lua
+Data/xp_data.lua
 Data/zone_data.lua
 Data/quest_data.lua
 Data/dungeon_data.lua
@@ -63,6 +63,7 @@ Modules/Core/api.lua
 
 # The "core" of all functionality: Fundamental information gathering, data organization, etc.
 Modules/Core/core.lua
+Modules/Core/xp.lua
 
 # "Listener" functionality that helps UI respond to in-game events
 Modules/Core/event.lua

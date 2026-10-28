@@ -66,12 +66,12 @@ function API:Call(apiFunction, ...)
 	if API.UseProtectedCalls then
 		local results = { pcall(apiFunction, unpack(apiFunctionArgs)) }
 		if select(1, unpack(results)) then
-			print("Protected call succeeded!")
+			Log:Trace("API call succeeded.")
 			
 			table.remove(results, 1)
 			return results
 		else
-			print("PROTECTED CALL FAILED.")
+			Log:Error("API call failed unexpectedly.")
 		end
 	else
 		return { apiFunction(unpack(apiFunctionArgs)) }
@@ -106,14 +106,14 @@ function API:HookUp(projectExclusions, apiNamespace, apiFunction, apiFunctionExp
 		
 		-- Confirm that we have the expected number of arguments
 		if #allApiFunctionArgs ~= apiFunctionExpectedArgCount then
-			print(tostring(apiNamespace) .. "." .. tostring(apiFunction) .. ": Expected " .. tostring(apiFunctionExpectedArgCount) .. " args, got " .. tostring(#allApiFunctionArgs) .. ".")
+			Log:Error(tostring(apiNamespace) .. "." .. tostring(apiFunction) .. ": Expected " .. tostring(apiFunctionExpectedArgCount) .. " args, got " .. tostring(#allApiFunctionArgs) .. ".")
 			return
 		end
 		
 		-- Attempt to execute the function
 		local apiFunctionResolved, _, resolvedApiFunction = API:ResolveApiFunction(apiNamespace, apiFunction)
 		if not apiFunctionResolved then
-			print("Failed to call " .. API:CreateApiString(apiNamespace, apiFunction) .. " - doesn't exist.")
+			Log:Error("Failed to call " .. API:CreateApiString(apiNamespace, apiFunction) .. " - doesn't exist.")
 		end
 		local returnValues = API:Call(resolvedApiFunction, unpack(allApiFunctionArgs))
 		
@@ -137,8 +137,8 @@ end
 -- API Verification --
 ----------------------
 
--- Returns whether or not the provided hookup is supported for this project/flavor of the game.
-function API:IsHookupSupported(hookupFunctionName)
+-- Returns whether or not the provided hookup is included for this project/flavor of the game.
+function API:IsIncluded(hookupFunctionName)
 	local hookupFunctionExclusions = API.ExclusionDefs[hookupFunctionName]
 	if #hookupFunctionExclusions > 0 then
 		for _, exclusion in ipairs(hookupFunctionExclusions) do
@@ -151,27 +151,32 @@ function API:IsHookupSupported(hookupFunctionName)
 	return true
 end
 
+function API:AreAllIncluded(hookupFunctionNames)
+	for _, hookupFunctionName in ipairs(hookupFunctionNames) do
+		if not API:IsIncluded(hookupFunctionName) then
+			return false
+		end
+	end
+	
+	return true
+end
+
 -- Returns whether or not the provided hookup can be successfully resolved to its intended API.
-function API:IsHookupSuccessful(hookupFunctionName)
+function API:IsSupported(hookupFunctionName, ignoreInclusion)
+	if not ignoreInclusion and not API:IsIncluded(hookupFunctionName) then
+		return false
+	end
+	
 	local apiNamespace = API.NamespaceDefs[hookupFunctionName]
 	local apiFunction = API.FunctionDefs[hookupFunctionName]
 	
 	return API:ResolveApiFunction(apiNamespace, apiFunction)
 end
 
--- Returns whether or not all expected hookups exist and are supported.
-function API:VerifyApiHookups()
-	for hookupFunctionName, apiFunction in pairs(API.FunctionDefs) do
-		local apiNamespace = API.NamespaceDefs[hookupFunctionName]
-		
-		-- Only bother if the hookup is actually supported
-		if API:IsHookupSupported(hookupFunctionName) then
-			-- Verify that we can resolve the function
-			local resolved = API:ResolveApiFunction(apiNamespace, apiFunction)
-			if not apiNamespaceResolved then
-				print(API:CreateApiString(apiNamespace, apiFunction) .. " is not supported for projectId=" .. tostring(WOW_PROJECT_ID))
-				return false
-			end
+function API:AreAllSupported(hookupFunctionNames, ignoreInclusion)
+	for _, hookupFunctionName in ipairs(hookupFunctionNames) do
+		if not API:IsSupported(hookupFunctionName, ignoreInclusion) then
+			return false
 		end
 	end
 	
@@ -209,8 +214,10 @@ API:HookUp({}, nil, "GetMoney", 1, { "player" }, "GetCharacterMoneyInCopper")
 
 API:HookUp({}, nil, "UnitLevel", 1, { "player" }, "GetCharacterLevel")
 API:HookUp({}, nil, "GetMaxPlayerLevel", 0, nil, "GetCharacterMaxLevel")
-API:HookUp({}, nil, "GetXPExhaustion", 0, nil, "GetCharacterRestedXp")
+API:HookUp({}, nil, "UnitXP", 1, { "player" }, "GetCharacterXp")
+API:HookUp({}, nil, "UnitXPMax", 1, { "player" }, "GetCharacterNeededXp")
 API:HookUp({}, nil, "IsResting", 0, nil, "IsCharacterResting")
+API:HookUp({}, nil, "GetXPExhaustion", 0, nil, "GetCharacterRestedXp")
 API:HookUp({}, nil, "GetRestState", 0, nil, "GetCharacterRestedXpMultiplier", 3)
 
 -----------------------------------------------
@@ -234,6 +241,12 @@ API:HookUp({}, nil, "GetProfessionInfo", 1, nil, "GetCharacterProfessionMaxSkill
 API:HookUp({}, nil, "GetQuestLogRewardXP", 1, nil, "GetQuestXp")
 API:HookUp({}, nil, "GetQuestLogRewardMoney", 1, nil, "GetQuestMoneyInCopper")
 
+-------------------------------------------
+-- Supported API Calls: General (Traits) --
+-------------------------------------------
+
+API:HookUp({5}, nil, "NodeName", 2, nil, "GetTraitTreeNodeName")
+
 --------------------------------------
 -- Supported API Calls: C_Container --
 --------------------------------------
@@ -251,3 +264,13 @@ API:HookUp({5}, "C_QuestLog", "GetNumQuestLogEntries", 0, nil, "GetCharacterQues
 API:HookUp({5}, "C_QuestLog", "GetInfo", 1, nil, "GetQuestInfo")
 API:HookUp({5}, "C_QuestLog", "IsComplete", 1, nil, "IsQuestReadyForTurnInForCharacter")
 API:HookUp({5}, "C_QuestLog", "GetQuestIDForQuestWatchIndex", 1, nil, "GetQuestIdAtCharacterWatchIndex")
+
+-----------------------------------
+-- Supported API Calls: C_Traits --
+-----------------------------------
+
+API:HookUp({5}, "C_Traits", "GetConfigIDsByType", 1, nil, "GetTraitConfigIdsFromTypeId")
+API:HookUp({}, "C_Traits", "GetConfigIDBySystemID", 1, nil, "GetTraitConfigIdFromSystemId")
+API:HookUp({}, "C_Traits", "GetConfigInfo", 1, nil, "GetTraitConfigInfo")
+API:HookUp({}, "C_Traits", "GetTreeNodes", 1, nil, "GetTraitTreeNodeIds")
+API:HookUp({}, "C_Traits", "GetNodeInfo", 2, nil, "GetTraitTreeNodeInfo")

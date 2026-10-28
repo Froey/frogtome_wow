@@ -2,12 +2,12 @@ local _, Frogtome = ...
 if not Frogtome.Data then
 	Frogtome.Data = {}
 end
-Frogtome.Data.LevelData = {}
+Frogtome.Data.XpData = {}
 
-local LevelData = Frogtome.Data.LevelData
+local XpData = Frogtome.Data.XpData
 
 -- A dictionary of the XP needed to level up at each level, by level.
-LevelData.NeededLevelXps = {
+XpData.NeededLevelXps = {
 	[1] = 400,
 	[2] = 900,
 	[3] = 1400,

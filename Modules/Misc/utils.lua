@@ -141,9 +141,28 @@ function Utils:Percentage(numerator, denominator, decimals)
 	return Utils:Round(fraction * 100, decimals)
 end
 
+-- Creates the percent value of the fraction, rounding to the provided number of decimal places.
+function Utils:PercentageFromFraction(fraction, decimals)
+	if fraction == nil then
+		return nil
+	end
+	
+	return Utils:Round(fraction * 100, decimals)
+end
+
 -- Creates a string representing the percent value of the numerator over the denominator, rounding to the provided number of decimal places.
 function Utils:PercentageString(numerator, denominator, decimals)
 	local percentage = Utils:Percentage(numerator, denominator, decimals)
+	if percentage == nil then
+		return "N/A"
+	end
+	
+	return tostring(percentage) .. "%"
+end
+
+-- Creates a string representing the percent value of the fraction, rounding to the provided number of decimal places.
+function Utils:PercentageStringFromFraction(fraction, decimals)
+	local percentage = Utils:PercentageFromFraction(fraction, decimals)
 	if percentage == nil then
 		return "N/A"
 	end

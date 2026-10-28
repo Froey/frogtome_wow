@@ -39,9 +39,16 @@ function FarmingPage:CalculateResultingLevelAndXps(xp)
 	end
 	
 	local currentXp = Core:GetCurrentXp() + xp
-	local neededXp = Core:GetNeededXp()
+	if currentXp == nil then
+		currentXp = 0
+	end
 	
-	while currentXp >= neededXp do
+	local neededXp = Core:GetNeededXp()
+	if neededXp == nil then
+		neededXp = 0
+	end
+	
+	while not neededXp == 0 and currentXp >= neededXp do
 		level = level + 1
 		if level >= Core:GetMaxLevel() then
 			currentXp = 0

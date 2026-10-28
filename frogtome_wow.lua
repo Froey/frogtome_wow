@@ -22,15 +22,21 @@ local Upgrade = Frogtome.Version.Upgrade
 local Utils = Frogtome.Misc.Utils
 local Version = Frogtome.Version.Version
 
+---------------------------
+-- Project/Version Check --
+---------------------------
+
+local _, projectName, isProjectSupported = Utils:GetContext()
+Main.IsSupported = isProjectSupported
+
 -------------------------------
 -- Overarching Functionality --
 -------------------------------
 
 function Main:Initialize()
-	-- Confirm that Frogtome can run within this context. If not, perform tests that might help make that so.
-	local _, projectName, isProjectSupported = Utils:GetContext()
-	if not isProjectSupported then
-		Log:Special("Frogtome does not support this version of the game. Running tests and halting initialization...", 0xFF3333)
+	-- If Frogtome is not supported in this context, run tests that might help make it so, but otherwise bail.
+	if not Main.IsSupported then
+		Log:Special("Frogtome does not support this version of the game. Running tests but halting initialization...", 0xFF3333)
 		Testing:TestAll()
 		
 		return
@@ -75,6 +81,8 @@ function Main:Initialize()
 		-- The main frame should start hidden normally, and this Toggle() call will trigger page selection
 		MainFrame:Toggle()
 	end
+	
+	Testing:TestAll()
 end
 
 -----------------------------
@@ -286,11 +294,13 @@ end
 -- Slash Command Configuration --
 ---------------------------------
 
-SLASH_FROGTOME1 = "/frogtome"
-SLASH_FROGTOME2 = "/ft"
-SLASH_FROGTOME3 = "/frog"
-SlashCmdList.FROGTOME = function(args)
-	Main:OnSlashCommand(args)
+if Main.IsSupported then
+	SLASH_FROGTOME1 = "/frogtome"
+	SLASH_FROGTOME2 = "/ft"
+	SLASH_FROGTOME3 = "/frog"
+	SlashCmdList.FROGTOME = function(args)
+		Main:OnSlashCommand(args)
+	end
 end
 
 ------------------------
@@ -344,11 +354,13 @@ if LDB then
 	})
 end
 
-local LibDBIcon = LibStub:GetLibrary("LibDBIcon-1.0")
-if FrogtomeBroker and LibDBIcon then
-	if Settings:IsShowingMinimapIcon() then
-		SavedData:InitializeSavedData()
-		LibDBIcon:Register("Frogtome", FrogtomeBroker, SavedData:GetGlobalSavedData())
+if Main.IsSupported then
+	local LibDBIcon = LibStub:GetLibrary("LibDBIcon-1.0")
+	if FrogtomeBroker and LibDBIcon then
+		if Settings:IsShowingMinimapIcon() then
+			SavedData:InitializeSavedData()
+			LibDBIcon:Register("Frogtome", FrogtomeBroker, SavedData:GetGlobalSavedData())
+		end
 	end
 end
 

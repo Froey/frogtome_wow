@@ -99,7 +99,7 @@ function Version:CheckAndPerformUpgrades()
 	
 	-- Run through each bridge sequentially
 	for upgradeBridgeIndex, upgradeBridge in ipairs(upgradeBridges) do
-		Log:Error("Running upgrade bridge " .. tostring(upgradeBridgeIndex) .. " of " .. tostring(#upgradeBridges) .. "...")
+		Log:Debug("Running upgrade bridge " .. tostring(upgradeBridgeIndex) .. " of " .. tostring(#upgradeBridges) .. "...")
 		upgradeBridge.UpgradeBridgeFunction(Version.CURRENT_VERSION)
 	end
 	

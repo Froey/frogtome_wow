@@ -1,4 +1,4 @@
-## Interface: 20506
+## Interface: 16001, 20506, 120105
 ## Title: |cff6bd43aFrogtome|r
 ## Version: 1.0.1 (BETA)
 ## Notes: Collection of account, character, and grind-related information - all in one lightweight addon!

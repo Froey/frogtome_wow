@@ -330,11 +330,9 @@ if LDB then
 			end
 			
 			if button == "LeftButton" then
-				Settings:SetShowingCondensedView(false)
 				MainFrame:Toggle()
 			elseif button == "RightButton" then
-				Settings:SetShowingCondensedView(true)
-				MainFrame:Toggle()
+				Settings:SetShowingCondensedView(not Settings:IsShowingCondensedView())
 			end
 		end,
 		

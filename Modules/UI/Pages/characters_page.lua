@@ -7,7 +7,7 @@ if not Frogtome.UI.Pages then
 end
 Frogtome.UI.Pages.Characters = {}
 
-local Characters = Frogtome.Core.Characters
+local Character = Frogtome.Core.Character
 local CharactersPage = Frogtome.UI.Pages.Characters
 local Core = Frogtome.Core.Core
 local Event = Frogtome.Core.Event
@@ -130,7 +130,7 @@ function CharactersPage:AddCharacterRow()
 	row.CharacterLevelText = UI:CreateTableText(generalTableParams, tableFrame, "", UIConfig.GLOBAL_DATA_TEXT_COLOR, 2, rowIndex)
 	row.CharacterNameText = UI:CreateTableText(generalTableParams, tableFrame, "", UIConfig.GLOBAL_DATA_TEXT_COLOR, 3, rowIndex)
 	UI:ApplyTooltipToWidget(row.CharacterNameText, "ANCHOR_RIGHT", function()
-		return CharactersPage:GetCharacterTooltip(Characters:GetSortedCharacters(Settings:IsShowingRealmCharactersOnlyInCharactersPage())[row.CharacterIndex])
+		return CharactersPage:GetCharacterTooltip(Character:GetSortedCharacters(Settings:IsShowingRealmCharactersOnlyInCharactersPage())[row.CharacterIndex])
 	end)
 
 	row.CharacterNameText:SetWidth(UIConfig.CHARACTERS_PAGE_NAME_MAX_WIDTH)
@@ -152,7 +152,7 @@ function CharactersPage:AddCharacterRow()
 	
 	row.CharacterGuildText = UI:CreateTableText(infoTableParams, tableFrame, "", UIConfig.GLOBAL_DATA_TEXT_COLOR, 3, rowIndex)
 	UI:ApplyTooltipToWidget(row.CharacterGuildText, "ANCHOR_RIGHT", function()
-		return CharactersPage:GetGuildTooltip(Characters:GetSortedCharacters(Settings:IsShowingRealmCharactersOnlyInCharactersPage())[row.CharacterIndex])
+		return CharactersPage:GetGuildTooltip(Character:GetSortedCharacters(Settings:IsShowingRealmCharactersOnlyInCharactersPage())[row.CharacterIndex])
 	end)
 	row.CharacterGuildText:SetShown(CharactersPage.InfoViewActive)
 	
@@ -331,7 +331,7 @@ end
 
 function CharactersPage:UpdateExpandedFrameView()
 	local currentTimeSeconds = time()
-	local characters = Characters:GetSortedCharacters(Settings:IsShowingRealmCharactersOnlyInCharactersPage())
+	local characters = Character:GetSortedCharacters(Settings:IsShowingRealmCharactersOnlyInCharactersPage())
 	local rows = CharactersPage.Page.ExpandedFrameView.TableFrame.TableRows
 	
 	while #characters > #rows do
@@ -595,7 +595,7 @@ function CharactersPage:UpdateExpandedFrameView()
 		row.CharacterGuidText:SetText(string.sub(character.GUID, 8))
 		UI:ApplyTextWidgetFont(row.CharacterGuidText, UIData.ClassColors[character.Class])
 		
-		row.CharacterRemoveButton:SetEnabled(character.GUID ~= Core:GetGUID())
+		row.CharacterRemoveButton:SetEnabled(character.GUID ~= Character:GetGuid())
 	end
 	
 	-- Update the sizing of the table panel
@@ -606,7 +606,7 @@ end
 
 function CharactersPage:UpdateCondensedFrameView()
 	local currentTimeSeconds = time()
-	local character = Characters:GetCharacter(Core:GetGUID())
+	local character = Character:GetCharacter(Character:GetGuid())
 	
 	-- This update might be before the first character info package is written, in the case of a new character
 	if not character then
@@ -647,84 +647,84 @@ function CharactersPage:UpdateCondensedFrameView()
 	-- Experience
 	
 	if not XP:IsMaxLevel(character.Level) then
-			if character.WellRestedRank then
-				CharactersPage.Page.CondensedFrameView.CharacterWellRestedRankText:SetText(tostring(character.WellRestedRank))
-				if character.WellRestedRank > 0 then
-					UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterWellRestedRankText, UIConfig.CHARACTERS_PAGE_RESTED_OVERCAP_COLOR)
-				else
-					UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterWellRestedRankText, UIConfig.GLOBAL_DATA_TEXT_COLOR)
-				end
+		if character.WellRestedRank then
+			CharactersPage.Page.CondensedFrameView.CharacterWellRestedRankText:SetText(tostring(character.WellRestedRank))
+			if character.WellRestedRank > 0 then
+				UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterWellRestedRankText, UIConfig.CHARACTERS_PAGE_RESTED_OVERCAP_COLOR)
 			else
-				CharactersPage.Page.CondensedFrameView.CharacterWellRestedRankText:SetText(Strings:Get("CHARACTERS_PAGE_UNKNOWN_WELL_RESTED_RANK"))
 				UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterWellRestedRankText, UIConfig.GLOBAL_DATA_TEXT_COLOR)
 			end
+		else
+			CharactersPage.Page.CondensedFrameView.CharacterWellRestedRankText:SetText(Strings:Get("CHARACTERS_PAGE_UNKNOWN_WELL_RESTED_RANK"))
+			UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterWellRestedRankText, UIConfig.GLOBAL_DATA_TEXT_COLOR)
+		end
+		
+		-- On initial load, this fraction can be undefined (needed XP can be 0)
+		if character.RestedXp and character.NeededXp and character.NeededXp > 0 then
+			local currentRestedCapFraction = XP:GetCurrentRestedCapFraction(character.RestedXp, character.NeededXp, character.WellRestedRank)
+			local remainingRestedCapFraction = 1 - currentRestedCapFraction
 			
-			-- On initial load, this fraction can be undefined (needed XP can be 0)
-			if character.RestedXp and character.NeededXp and character.NeededXp > 0 then
-				local currentRestedCapFraction = XP:GetCurrentRestedCapFraction(character.RestedXp, character.NeededXp, character.WellRestedRank)
-				local remainingRestedCapFraction = 1 - currentRestedCapFraction
+			if remainingRestedCapFraction < 0 then
+				-- This can happen due to (unhandled) Legacy Talents in WoWF or something like experience-squishing in Retail.
+				-- This SHOULDN'T be needed often, if at all, but this should be a catch-all fallback in case we need it.
+				CharactersPage.Page.CondensedFrameView.CharacterRestCapPercentageText:SetText(Strings:Get("CHARACTERS_PAGE_CURRENT_RESTED_OVERCAPPED"))
+				UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterRestCapPercentageText, UIConfig.CHARACTERS_PAGE_RESTED_OVERCAP_COLOR)
+			elseif remainingRestedCapFraction == 0 then
+				CharactersPage.Page.CondensedFrameView.CharacterRestCapPercentageText:SetText(Strings:Get("CHARACTERS_PAGE_CURRENT_RESTED_CAPPED"))
+				UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterRestCapPercentageText, UIConfig.CHARACTERS_PAGE_RESTED_CAP_COLOR)
+			else
+				CharactersPage.Page.CondensedFrameView.CharacterRestCapPercentageText:SetText(Utils:PercentageStringFromFraction(currentRestedCapFraction, 0))
+				UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterRestCapPercentageText, UIConfig.GLOBAL_DATA_TEXT_COLOR)
+			end
+			
+			local timeSinceCharacterSnapshotInHours = (currentTimeSeconds - character.Timestamp) / 60 / 60
+			local remainingRestedCapTimeInDays, remainingRestedCapTimeInHours = XP:GetRemainingRestedCapTimeInDaysPlusHours(character.RestedXp, character.NeededXp, character.WellRestedRank, character.IsResting, timeSinceCharacterSnapshotInHours)
+			
+			if remainingRestedCapTimeInDays > 0 or remainingRestedCapTimeInHours > 0 then
+				local remainingRestedCapTimeString
 				
-				if remainingRestedCapFraction < 0 then
-					-- This can happen due to (unhandled) Legacy Talents in WoWF or something like experience-squishing in Retail.
-					-- This SHOULDN'T be needed often, if at all, but this should be a catch-all fallback in case we need it.
-					CharactersPage.Page.CondensedFrameView.CharacterRestCapPercentageText:SetText(Strings:Get("CHARACTERS_PAGE_CURRENT_RESTED_OVERCAPPED"))
-					UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterRestCapPercentageText, UIConfig.CHARACTERS_PAGE_RESTED_OVERCAP_COLOR)
-				elseif remainingRestedCapFraction == 0 then
-					CharactersPage.Page.CondensedFrameView.CharacterRestCapPercentageText:SetText(Strings:Get("CHARACTERS_PAGE_CURRENT_RESTED_CAPPED"))
-					UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterRestCapPercentageText, UIConfig.CHARACTERS_PAGE_RESTED_CAP_COLOR)
+				if remainingRestedCapTimeInHours == 1 then
+					remainingRestedCapTimeString = tostring(remainingRestedCapTimeInHours) .. " " .. Strings:Get("CHARACTERS_PAGE_EST_RESTED_HOURS_SINGULAR")
 				else
-					CharactersPage.Page.CondensedFrameView.CharacterRestCapPercentageText:SetText(Utils:PercentageStringFromFraction(currentRestedCapFraction, 0))
-					UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterRestCapPercentageText, UIConfig.GLOBAL_DATA_TEXT_COLOR)
+					remainingRestedCapTimeString = tostring(remainingRestedCapTimeInHours) .. " " .. Strings:Get("CHARACTERS_PAGE_EST_RESTED_HOURS_PLURAL")
 				end
 				
-				local timeSinceCharacterSnapshotInHours = (currentTimeSeconds - character.Timestamp) / 60 / 60
-				local remainingRestedCapTimeInDays, remainingRestedCapTimeInHours = XP:GetRemainingRestedCapTimeInDaysPlusHours(character.RestedXp, character.NeededXp, character.WellRestedRank, character.IsResting, timeSinceCharacterSnapshotInHours)
+				if remainingRestedCapTimeInDays > 0 then
+					if remainingRestedCapTimeInDays == 1 then
+						remainingRestedCapTimeString = tostring(remainingRestedCapTimeInDays) .. " " .. Strings:Get("CHARACTERS_PAGE_EST_RESTED_DAYS_SINGULAR") .. " " .. remainingRestedCapTimeString
+					else
+						remainingRestedCapTimeString = tostring(remainingRestedCapTimeInDays) .. " " .. Strings:Get("CHARACTERS_PAGE_EST_RESTED_DAYS_PLURAL") .. " " .. remainingRestedCapTimeString
+					end
+				end
 				
-				if remainingRestedCapTimeInDays > 0 or remainingRestedCapTimeInHours > 0 then
-					local remainingRestedCapTimeString
-					
-					if remainingRestedCapTimeInHours == 1 then
-						remainingRestedCapTimeString = tostring(remainingRestedCapTimeInHours) .. " " .. Strings:Get("CHARACTERS_PAGE_EST_RESTED_HOURS_SINGULAR")
-					else
-						remainingRestedCapTimeString = tostring(remainingRestedCapTimeInHours) .. " " .. Strings:Get("CHARACTERS_PAGE_EST_RESTED_HOURS_PLURAL")
-					end
-					
-					if remainingRestedCapTimeInDays > 0 then
-						if remainingRestedCapTimeInDays == 1 then
-							remainingRestedCapTimeString = tostring(remainingRestedCapTimeInDays) .. " " .. Strings:Get("CHARACTERS_PAGE_EST_RESTED_DAYS_SINGULAR") .. " " .. remainingRestedCapTimeString
-						else
-							remainingRestedCapTimeString = tostring(remainingRestedCapTimeInDays) .. " " .. Strings:Get("CHARACTERS_PAGE_EST_RESTED_DAYS_PLURAL") .. " " .. remainingRestedCapTimeString
-						end
-					end
-					
-					CharactersPage.Page.CondensedFrameView.CharacterRestCapTimeText:SetText(remainingRestedCapTimeString)
-					
-					if character.IsResting then
-						UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterRestCapTimeText, UIConfig.GLOBAL_RESTED_EXP_COLOR)
-					else
-						UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterRestCapTimeText, UIConfig.GLOBAL_EXP_COLOR)
-					end
+				CharactersPage.Page.CondensedFrameView.CharacterRestCapTimeText:SetText(remainingRestedCapTimeString)
+				
+				if character.IsResting then
+					UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterRestCapTimeText, UIConfig.GLOBAL_RESTED_EXP_COLOR)
 				else
-					CharactersPage.Page.CondensedFrameView.CharacterRestCapTimeText:SetText(Strings:Get("CHARACTERS_PAGE_EST_RESTED_CAPPED"))
-					UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterRestCapTimeText, UIConfig.CHARACTERS_PAGE_RESTED_CAP_COLOR)
+					UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterRestCapTimeText, UIConfig.GLOBAL_EXP_COLOR)
 				end
 			else
-				CharactersPage.Page.CondensedFrameView.CharacterRestCapPercentageText:SetText(Strings:Get("CHARACTERS_PAGE_UNKNOWN_XP"))
-				UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterRestCapPercentageText, UIConfig.GLOBAL_DISABLED_DATA_TEXT_COLOR)
-				
-				CharactersPage.Page.CondensedFrameView.CharacterRestCapTimeText:SetText(Strings:Get("CHARACTERS_PAGE_UNKNOWN_XP"))
-				UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterRestCapTimeText, UIConfig.GLOBAL_DISABLED_DATA_TEXT_COLOR)
+				CharactersPage.Page.CondensedFrameView.CharacterRestCapTimeText:SetText(Strings:Get("CHARACTERS_PAGE_EST_RESTED_CAPPED"))
+				UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterRestCapTimeText, UIConfig.CHARACTERS_PAGE_RESTED_CAP_COLOR)
 			end
 		else
-			CharactersPage.Page.CondensedFrameView.CharacterWellRestedRankText:SetText(Strings:Get("CHARACTERS_PAGE_MAX_LEVEL"))
-			UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterWellRestedRankText, UIConfig.GLOBAL_DISABLED_DATA_TEXT_COLOR)
-			
-			CharactersPage.Page.CondensedFrameView.CharacterRestCapPercentageText:SetText(Strings:Get("CHARACTERS_PAGE_MAX_LEVEL"))
+			CharactersPage.Page.CondensedFrameView.CharacterRestCapPercentageText:SetText(Strings:Get("CHARACTERS_PAGE_UNKNOWN_XP"))
 			UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterRestCapPercentageText, UIConfig.GLOBAL_DISABLED_DATA_TEXT_COLOR)
 			
-			CharactersPage.Page.CondensedFrameView.CharacterRestCapTimeText:SetText(Strings:Get("CHARACTERS_PAGE_MAX_LEVEL"))
+			CharactersPage.Page.CondensedFrameView.CharacterRestCapTimeText:SetText(Strings:Get("CHARACTERS_PAGE_UNKNOWN_XP"))
 			UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterRestCapTimeText, UIConfig.GLOBAL_DISABLED_DATA_TEXT_COLOR)
 		end
+	else
+		CharactersPage.Page.CondensedFrameView.CharacterWellRestedRankText:SetText(Strings:Get("CHARACTERS_PAGE_MAX_LEVEL"))
+		UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterWellRestedRankText, UIConfig.GLOBAL_DISABLED_DATA_TEXT_COLOR)
+		
+		CharactersPage.Page.CondensedFrameView.CharacterRestCapPercentageText:SetText(Strings:Get("CHARACTERS_PAGE_MAX_LEVEL"))
+		UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterRestCapPercentageText, UIConfig.GLOBAL_DISABLED_DATA_TEXT_COLOR)
+		
+		CharactersPage.Page.CondensedFrameView.CharacterRestCapTimeText:SetText(Strings:Get("CHARACTERS_PAGE_MAX_LEVEL"))
+		UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterRestCapTimeText, UIConfig.GLOBAL_DISABLED_DATA_TEXT_COLOR)
+	end
 end
 
 function CharactersPage:UpdateDisplay(force)
@@ -745,11 +745,11 @@ end
 ----------------------------------
 
 function CharactersPage:SwapCharacterOrdersAtIndexes(index1, index2)
-	local characters = Characters:GetSortedCharacters(Settings:IsShowingRealmCharactersOnlyInCharactersPage())
+	local characters = Character:GetSortedCharacters(Settings:IsShowingRealmCharactersOnlyInCharactersPage())
 	local character1 = characters[index1]
 	local character2 = characters[index2]
 	
-	Characters:SwapCharacterOrders(character1, character2)
+	Character:SwapCharacterOrders(character1, character2)
 end
 
 function CharactersPage:MoveCharacterUp(index)
@@ -769,10 +769,10 @@ function CharactersPage:MoveCharacterDown(index)
 end
 
 function CharactersPage:RemoveCharacter(index)
-	local characters = Characters:GetSortedCharacters(Settings:IsShowingRealmCharactersOnlyInCharactersPage())
+	local characters = Character:GetSortedCharacters(Settings:IsShowingRealmCharactersOnlyInCharactersPage())
 	local character = characters[index]
 	
-	Characters:RemoveCharacter(character.GUID)
+	Character:RemoveCharacter(character.GUID)
 	
 	CharactersPage:DeleteCharacterRow(CharactersPage.Page.ExpandedFrameView.TableFrame)
 	CharactersPage:UpdateDisplay()
@@ -902,7 +902,7 @@ function CharactersPage:OnPageShown()
 	
 	CharactersPage:SelectView(CharactersPage.CurrentViewId)
 	
-	Characters:UpdateCurrentCharacter()
+	Character:UpdateCurrentCharacter()
 	CharactersPage:UpdateDisplay(true)
 end
 
@@ -931,7 +931,7 @@ function CharactersPage:OnEditModeViewButtonClicked()
 end
 
 function CharactersPage:OnCharacterUpdateEvent()
-	Characters:UpdateCurrentCharacter()
+	Character:UpdateCurrentCharacter()
 	CharactersPage:UpdateDisplay()
 end
 
@@ -1079,7 +1079,7 @@ function CharactersPage:BuildCondensedFrameView(page)
 	view.CharacterLevelText = UI:CreateTableText(generalTableParams, view, "", UIConfig.GLOBAL_DATA_TEXT_COLOR, 2, 1)
 	view.CharacterNameText = UI:CreateTableText(generalTableParams, view, "", UIConfig.GLOBAL_DATA_TEXT_COLOR, 3, 1)
 	UI:ApplyTooltipToWidget(view.CharacterNameText, "ANCHOR_RIGHT", function()
-		return CharactersPage:GetCharacterTooltip(Characters:GetCharacter(Core:GetGUID()))
+		return CharactersPage:GetCharacterTooltip(Character:GetCharacter(Core:GetGUID()))
 	end)
 
 	view.CharacterNameText:SetWidth(UIConfig.CHARACTERS_PAGE_NAME_MAX_WIDTH)

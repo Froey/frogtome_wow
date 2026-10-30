@@ -195,7 +195,7 @@ function Session:UpdateSession()
 		-- Pass on this update - more are coming, and all snapshots following this update are now accurate...
 		-- ... though if this is quite a bit into the new session, some sort of load event was probably missed altogether.
 		if Session:GetSessionTimeSeconds() >= 5 then
-			Log:Warn("Load took longer than expected - session-related metrics may be inaccurate.")
+			Log:Dev("Load took longer than expected - session-related metrics may be inaccurate.")
 		end
 		Session.LoadComplete = true
 		Session:RelinquishLock()

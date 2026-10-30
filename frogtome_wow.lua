@@ -1,8 +1,9 @@
 local _, Frogtome = ...
 Frogtome.Main = {}
 
+local Character = Frogtome.Core.Character
 local CharactersPage = Frogtome.UI.Pages.Characters
-local Core = Frogtome.Core.Core
+local Context = Frogtome.Version.Context
 local Dev = Frogtome.Dev.Dev
 local FarmingPage = Frogtome.UI.Pages.Farming
 local FunctionalTesting = Frogtome.Dev.Testing.FunctionalTesting
@@ -22,20 +23,13 @@ local Upgrade = Frogtome.Version.Upgrade
 local Utils = Frogtome.Misc.Utils
 local Version = Frogtome.Version.Version
 
----------------------------
--- Project/Version Check --
----------------------------
-
-local _, projectName, isProjectSupported = Utils:GetContext()
-Main.IsSupported = isProjectSupported
-
 -------------------------------
 -- Overarching Functionality --
 -------------------------------
 
 function Main:Initialize()
 	-- If Frogtome is not supported in this context, run tests that might help make it so, but otherwise bail.
-	if not Main.IsSupported then
+	if not Context:IsProjectSupported() then
 		Log:Special("Frogtome does not support this version of the game. Running tests but halting initialization...", 0xFF3333)
 		Testing:TestAll()
 		
@@ -70,9 +64,9 @@ function Main:Initialize()
 	Log:Info("Finished all startup steps!")
 	if Settings:IsShowingWelcomeMessage() then
 		if Upgrade.IS_FIRST_TIME_LAUNCH then
-			Log:Special("Welcome to Frogtome, " .. Core:GetFirstName() .. "!\nTo get started, use the Frogtome minimap icon or type:\n  /frogtome\nFor a list of all slash commands, type:\n  /frogtome help\nThis startup message will no longer appear.")
+			Log:Special("Welcome to Frogtome, " .. Character:GetFirstName() .. "!\nTo get started, use the Frogtome minimap icon or type:\n  /frogtome\nFor a list of all slash commands, type:\n  /frogtome help\nThis startup message will no longer appear.")
 		else
-			Log:Special("Welcome back, " .. Core:GetFirstName() .. "!")
+			Log:Special("Welcome back, " .. Character:GetFirstName() .. "!")
 		end
 	end
 	
@@ -294,7 +288,7 @@ end
 -- Slash Command Configuration --
 ---------------------------------
 
-if Main.IsSupported then
+if Context:IsProjectSupported() then
 	SLASH_FROGTOME1 = "/frogtome"
 	SLASH_FROGTOME2 = "/ft"
 	SLASH_FROGTOME3 = "/frog"
@@ -354,7 +348,7 @@ if LDB then
 	})
 end
 
-if Main.IsSupported then
+if Context:IsProjectSupported() then
 	local LibDBIcon = LibStub:GetLibrary("LibDBIcon-1.0")
 	if FrogtomeBroker and LibDBIcon then
 		if Settings:IsShowingMinimapIcon() then

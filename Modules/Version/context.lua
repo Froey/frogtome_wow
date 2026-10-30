@@ -7,15 +7,17 @@ Frogtome.Version.Context = {}
 local API = Frogtome.Core.API
 local Context = Frogtome.Version.Context
 
----------------------------------
--- Context-Related Definitions --
----------------------------------
+----------------------------------------
+-- Local Configurables and Attributes --
+----------------------------------------
 
+-- Project IDs
 Context.RETAIL_ID = 1
 Context.CLASSIC_ID = 2
 Context.BCC_ID = 5
 Context.FOREVER_ID = 18
 
+-- Project Support Definitions
 Context.CONTEXT_DEFS = {
 	[Context.RETAIL_ID] = {
 		["ID"] = Context.RETAIL_ID,
@@ -39,11 +41,11 @@ Context.CONTEXT_DEFS = {
 	}
 }
 
--------------------------------------------
--- Established Context for This Instance --
--------------------------------------------
-
+-- Actively-In-Use Context
 Context.Context = Context.CONTEXT_DEFS[WOW_PROJECT_ID]
+
+-- Function Dependencies
+Context.DependencyBundles = {}
 
 -----------------------------
 -- Basic Context Functions --
@@ -93,16 +95,23 @@ end
 -- Context Dependency Functions --
 ----------------------------------
 
-function Context:CreateDependencyBundle(permittedProjects, ...)
-	return {
+function Context:SetDependencies(dependentModule, dependentFunction, permittedProjects, apiDependencies)
+	-- TODO: There are maybe some shenanigans that can happen here to get module/function name automatically... if we dare
+	
+	if not Context.DependencyBundles[dependentModule] then
+		Context.DependencyBundles[dependentModule] = {}
+	end
+	
+	Context.DependencyBundles[dependentModule][dependentFunction] = {
 		PermittedProjects = permittedProjects,
-		ApiDependencies = { ... },
+		ApiDependencies = apiDependencies,
 		DependenciesChecked = false,
 		DependenciesVerified = false
 	}
 end
 
-function Context:CheckDependencies(dependencyBundle)
+function Context:CheckDependencies(dependentModule, dependentFunction)
+	local dependencyBundle = Context.DependencyBundles[dependentModule][dependentFunction]
 	if not dependencyBundle then
 		return true
 	end
@@ -158,15 +167,15 @@ API:HookUp({}, nil, "IsAltKeyDown", 0, nil, "IsAltKeyDown")
 -- Supported API Calls: General (Character) --
 ----------------------------------------------
 
-API:HookUp({}, nil, "GetRealmName", 0, nil, "GetCharacterRealm")
+API:HookUp({}, nil, "GetRealmName", 0, nil, "GetCharacterServer")
 API:HookUp({}, nil, "UnitGUID", 1, { "player" }, "GetCharacterGuid")
 API:HookUp({}, nil, "UnitName", 1, { "player" }, "GetCharacterFirstName", 1)
 API:HookUp({Context.RETAIL_ID, Context.BCC_ID}, nil, "UnitName", 1, { "player" }, "GetCharacterLastName", 2)
 API:HookUp({}, nil, "UnitSex", 1, { "player" }, "GetCharacterBodyTypeId")
-API:HookUp({}, nil, "UnitFactionGroup", 1, { "player" }, "GetCharacterFactionDataString")
-API:HookUp({}, nil, "UnitRace", 1, { "player" }, "GetCharacterRaceDataString")
-API:HookUp({}, nil, "UnitClass", 1, { "player" }, "GetCharacterClassId")
-API:HookUp({}, nil, "GetGuildInfo", 1, { "player" }, "GetCharacterGuildName")
+API:HookUp({}, nil, "UnitFactionGroup", 1, { "player" }, "GetCharacterFactionDataString", 1)
+API:HookUp({}, nil, "UnitRace", 1, { "player" }, "GetCharacterRaceDataString", 1)
+API:HookUp({}, nil, "UnitClass", 1, { "player" }, "GetCharacterClassId", 3)
+API:HookUp({}, nil, "GetGuildInfo", 1, { "player" }, "GetCharacterGuildName", 1)
 API:HookUp({}, nil, "GetMoney", 1, { "player" }, "GetCharacterMoneyInCopper")
 
 ---------------------------------------

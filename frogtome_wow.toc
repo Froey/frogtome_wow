@@ -72,7 +72,7 @@ Modules/Core/xp.lua
 Modules/Core/event.lua
 
 # The rest of all functionality, supporting all the different pages
-Modules/Core/characters.lua
+Modules/Core/character.lua
 Modules/Core/session.lua
 Modules/Core/notes.lua
 Modules/Core/fun_facts.lua

@@ -278,27 +278,23 @@ function FunctionalTesting:Run(corebasicinfo, coremoney, coreinventory, coreques
 	
 	print("---- NEW TEST EXECUTION ----")
 	
-	if Core:IsFullyLoaded() then
-		if corebasicinfo then
-			FunctionalTesting:TestCoreBasicInfo()
-		end
-		if coremoney then
-			FunctionalTesting:TestCoreMoney()
-		end
-		if coreinventory then
-			FunctionalTesting:TestCoreInventory()
-		end
-		if corequestinfo then
-			FunctionalTesting:TestCoreQuestInfo()
-		end
-		if corequestlog then
-			FunctionalTesting:TestCoreQuestLog()
-		end
-		if corelevelsandxp then
-			FunctionalTesting:TestCoreLevelsAndXp()
-		end
-	else
-		print("<< Character not fully loaded. Skipping. >>")
+	if corebasicinfo then
+		FunctionalTesting:TestCoreBasicInfo()
+	end
+	if coremoney then
+		FunctionalTesting:TestCoreMoney()
+	end
+	if coreinventory then
+		FunctionalTesting:TestCoreInventory()
+	end
+	if corequestinfo then
+		FunctionalTesting:TestCoreQuestInfo()
+	end
+	if corequestlog then
+		FunctionalTesting:TestCoreQuestLog()
+	end
+	if corelevelsandxp then
+		FunctionalTesting:TestCoreLevelsAndXp()
 	end
 	
 	print("---- End Test Execution ----")

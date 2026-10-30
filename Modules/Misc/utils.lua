@@ -4,21 +4,7 @@ if not Frogtome.Misc then
 end
 Frogtome.Misc.Utils = {}
 
-local ProjectData = Frogtome.Data.ProjectData
 local Utils = Frogtome.Misc.Utils
-
--------------------
--- Context Utils --
--------------------
-
--- Returns contextual information about the World of Warcraft projec that is currently running.
-function Utils:GetContext()
-	local projectId = WOW_PROJECT_ID
-	local projectName = ProjectData.ProjectNames[projectId]
-	local isProjectSupported = ProjectData.ProjectSupport[projectId]
-	
-	return projectId, projectName, isProjectSupported
-end
 
 -----------------
 -- Color Utils --

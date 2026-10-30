@@ -29,7 +29,6 @@ Libs/LibDBIcon-1.0/LibDbIcon-1.0.lua
 Data/saved_data.lua
 
 # Other (Static) Data
-Data/project_data.lua
 Data/info_data.lua
 Data/gold_data.lua
 Data/xp_data.lua
@@ -54,12 +53,16 @@ Modules/Settings/hidden_settings.lua
 Modules/Misc/utils.lua
 Modules/Misc/log.lua
 
+# ---------------------------
+# -- Context Determination --
+# ---------------------------
+
+Modules/Core/api.lua
+Modules/Version/context.lua
+
 # ------------------------
 # -- Core Functionality --
 # ------------------------
-
-# Root API functionality
-Modules/Core/api.lua
 
 # The "core" of all functionality: Fundamental information gathering, data organization, etc.
 Modules/Core/core.lua

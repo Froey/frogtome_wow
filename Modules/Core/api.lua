@@ -62,7 +62,7 @@ end
 
 -- Executes an actual call for an API function.
 function API:Call(apiFunction, ...)
-	local apiFunctionArgs = {...}
+	local apiFunctionArgs = { ... }
 	
 	if API.UseProtectedCalls then
 		local results = { pcall(apiFunction, unpack(apiFunctionArgs)) }
@@ -86,7 +86,7 @@ function API:HookUp(projectExclusions, apiNamespace, apiFunction, apiFunctionExp
 	API.NamespaceDefs[hookupFunctionName] = apiNamespace
 	API.FunctionDefs[hookupFunctionName] = apiFunction
 	
-	local returnIndexes = {...}
+	local returnIndexes = { ... }
 	
 	-- Wrap the abstract hookup of this API function within our own function for calling it
 	API[hookupFunctionName] = function(...)
@@ -100,7 +100,7 @@ function API:HookUp(projectExclusions, apiNamespace, apiFunction, apiFunctionExp
 		end
 		
 		-- Include arguments supplied dynamically from elsewhere in the code
-		local apiFunctionSuppliedArgs = {...}
+		local apiFunctionSuppliedArgs = { ... }
 		for _, apiFunctionSuppliedArg in ipairs(apiFunctionSuppliedArgs) do
 			table.insert(allApiFunctionArgs, apiFunctionSuppliedArg)
 		end
@@ -183,97 +183,3 @@ function API:AreAllSupported(hookupFunctionNames, ignoreInclusion)
 	
 	return true
 end
-
--------------------------------------------
--- Supported API Calls: General (System) --
--------------------------------------------
-
-API:HookUp({}, nil, "GetTime", 0, nil, "GetTimeInSeconds")
-
-API:HookUp({}, nil, "IsShiftKeyDown", 0, nil, "IsShiftKeyDown")
-API:HookUp({}, nil, "IsControlKeyDown", 0, nil, "IsControlKeyDown")
-API:HookUp({}, nil, "IsAltKeyDown", 0, nil, "IsAltKeyDown")
-
-----------------------------------------------
--- Supported API Calls: General (Character) --
-----------------------------------------------
-
-API:HookUp({}, nil, "GetRealmName", 0, nil, "GetCharacterRealm")
-API:HookUp({}, nil, "UnitGUID", 1, { "player" }, "GetCharacterGuid")
-API:HookUp({}, nil, "UnitName", 1, { "player" }, "GetCharacterFirstName", 1)
-API:HookUp({1, 5}, nil, "UnitName", 1, { "player" }, "GetCharacterLastName", 2)
-API:HookUp({}, nil, "UnitSex", 1, { "player" }, "GetCharacterBodyTypeId")
-API:HookUp({}, nil, "UnitFactionGroup", 1, { "player" }, "GetCharacterFactionDataString")
-API:HookUp({}, nil, "UnitRace", 1, { "player" }, "GetCharacterRaceDataString")
-API:HookUp({}, nil, "UnitClass", 1, { "player" }, "GetCharacterClassId")
-API:HookUp({}, nil, "GetGuildInfo", 1, { "player" }, "GetCharacterGuildName")
-API:HookUp({}, nil, "GetMoney", 1, { "player" }, "GetCharacterMoneyInCopper")
-
----------------------------------------
--- Supported API Calls: General (XP) --
----------------------------------------
-
-API:HookUp({}, nil, "UnitLevel", 1, { "player" }, "GetCharacterLevel")
-API:HookUp({}, nil, "GetMaxPlayerLevel", 0, nil, "GetCharacterMaxLevel")
-API:HookUp({}, nil, "UnitXP", 1, { "player" }, "GetCharacterXp")
-API:HookUp({}, nil, "UnitXPMax", 1, { "player" }, "GetCharacterNeededXp")
-API:HookUp({}, nil, "IsResting", 0, nil, "IsCharacterResting")
-API:HookUp({}, nil, "GetXPExhaustion", 0, nil, "GetCharacterRestedXp")
-API:HookUp({}, nil, "GetRestState", 0, nil, "GetCharacterRestedXpMultiplier", 3)
-
------------------------------------------------
--- Supported API Calls: General (Profession) --
------------------------------------------------
-
-API:HookUp({}, nil, "GetProfessions", 0, nil, "GetCharacterFirstProfessionIndex", 1)
-API:HookUp({}, nil, "GetProfessions", 0, nil, "GetCharacterSecondProfessionIndex", 2)
-API:HookUp({}, nil, "GetProfessions", 0, nil, "GetCharacterFishingProfessionIndex", 3)
-API:HookUp({}, nil, "GetProfessions", 0, nil, "GetCharacterCookingProfessionIndex", 4)
-API:HookUp({}, nil, "GetProfessions", 0, nil, "GetCharacterFirstAidProfessionIndex", 5)
-
-API:HookUp({}, nil, "GetProfessionInfo", 1, nil, "GetCharacterProfessionName", 1)
-API:HookUp({}, nil, "GetProfessionInfo", 1, nil, "GetCharacterProfessionSkill", 3)
-API:HookUp({}, nil, "GetProfessionInfo", 1, nil, "GetCharacterProfessionMaxSkill", 4)
-
-------------------------------------------
--- Supported API Calls: General (Quest) --
-------------------------------------------
-
-API:HookUp({}, nil, "GetQuestLogRewardXP", 1, nil, "GetQuestXp")
-API:HookUp({}, nil, "GetQuestLogRewardMoney", 1, nil, "GetQuestMoneyInCopper")
-
---------------------------------------
--- Supported API Calls: C_Container --
---------------------------------------
-
-API:HookUp({}, "C_Container", "GetContainerNumSlots", 1, nil, "GetCharacterContainerSize")
-API:HookUp({}, "C_Container", "GetContainerNumFreeSlots", 1, nil, "GetCharacterContainerAvailableSpace")
-
--------------------------------------
--- Supported API Calls: C_QuestLog --
--------------------------------------
-
-API:HookUp({5}, "C_QuestLog", "GetQuestType", 1, nil, "GetQuestType")
-API:HookUp({}, "C_QuestLog", "IsQuestFlaggedCompleted", 1, nil, "IsQuestCompletedForCharacter")
-API:HookUp({5}, "C_QuestLog", "GetNumQuestLogEntries", 0, nil, "GetCharacterQuestLogSize")
-API:HookUp({5}, "C_QuestLog", "GetInfo", 1, nil, "GetQuestInfo")
-API:HookUp({5}, "C_QuestLog", "IsComplete", 1, nil, "IsQuestReadyForTurnInForCharacter")
-API:HookUp({5}, "C_QuestLog", "GetQuestIDForQuestWatchIndex", 1, nil, "GetQuestIdAtCharacterWatchIndex")
-
------------------------------------
--- Supported API Calls: C_Traits --
------------------------------------
-
-API:HookUp({1, 5}, "C_Traits", "GetConfigIDsByType", 1, nil, "GetTraitConfigIdsFromTypeId")
-API:HookUp({}, "C_Traits", "GetConfigIDBySystemID", 1, nil, "GetTraitConfigIdFromSystemId")
-API:HookUp({}, "C_Traits", "GetConfigInfo", 1, nil, "GetTraitConfigInfo")
-API:HookUp({}, "C_Traits", "GetTreeNodes", 1, nil, "GetTraitTreeNodeIds")
-API:HookUp({}, "C_Traits", "GetNodeInfo", 2, nil, "GetTraitTreeNodeInfo")
-API:HookUp({}, "C_Traits", "GetEntryInfo", 2, nil, "GetTraitTreeNodeEntryInfo")
-API:HookUp({}, "C_Traits", "GetDefinitionInfo", 1, nil, "GetTraitTreeNodeEntryDefinitionInfo")
-
-----------------------------------
--- Supported API Calls: C_Spell --
-----------------------------------
-
-API:HookUp({}, "C_Spell", "GetSpellName", 1, nil, "GetSpellName")

@@ -279,20 +279,34 @@ function FarmingPage:UpdateExpandedFrameView(xpChanged, moneyChanged, miscellane
 		
 		local questLogCompletedXpValue = AbbreviateNumbers(Quest:GetQuestLogTurnInAbleXpReward(trackedOnly))
 		FarmingPage.Page.ExpandedFrameView.XpView.QuestLogCurrentXpValueText:SetText(questLogCompletedXpValue)
-		local questLogPendingLevel, questLogPendingCurrentXp, questLogPendingNeededXp, questLogPendingXpColor = FarmingPage:CalculateResultingLevelAndXps(Quest:GetQuestLogTurnInAbleXpReward(trackedOnly))
+		
+		local turnInAbleXp = Quest:GetQuestLogTurnInAbleXpReward(trackedOnly)
+		local questLogPendingLevel, questLogPendingCurrentXp, questLogPendingNeededXp, questLogPendingXpColor = FarmingPage:CalculateResultingLevelAndXps(turnInAbleXp)
 		local questLogPendingXpTurnIn = Strings:Get("FARMING_PAGE_TURN_IN_RESULT_MAX_LEVEL")
 		if questLogPendingLevel < XP:GetMaxLevel() then
-			questLogPendingXpTurnIn = Strings:Get("FARMING_PAGE_TURN_IN_RESULT_LEVEL_LABEL") .. " " .. questLogPendingLevel .. " (" .. Utils:PercentageString(questLogPendingCurrentXp, questLogPendingNeededXp, 0) .. ")"
+			if turnInAbleXp > 0 then
+				questLogPendingXpTurnIn = Strings:Get("FARMING_PAGE_TURN_IN_RESULT_LEVEL_LABEL") .. " " .. questLogPendingLevel .. " (" .. Utils:PercentageString(questLogPendingCurrentXp, questLogPendingNeededXp, 0) .. ")"
+			else
+				questLogPendingXpTurnIn = Strings:Get("FARMING_PAGE_TURN_IN_RESULT_NO_CHANGE")
+				questLogPendingXpColor = UIConfig.GLOBAL_DISABLED_DATA_TEXT_COLOR
+			end
 		end
 		FarmingPage.Page.ExpandedFrameView.XpView.QuestLogCurrentXpTurnInText:SetText(questLogPendingXpTurnIn)
 		UI:ApplyTextWidgetFont(FarmingPage.Page.ExpandedFrameView.XpView.QuestLogCurrentXpTurnInText, questLogPendingXpColor)
 		
 		local questLogTotalXpValue = AbbreviateNumbers(Quest:GetQuestLogTotalXpReward(trackedOnly))
 		FarmingPage.Page.ExpandedFrameView.XpView.QuestLogTotalXpValueText:SetText(questLogTotalXpValue)
-		local questLogPossibleLevel, questLogPossibleCurrentXp, questLogPossibleNeededXp, questLogPossibleXpColor = FarmingPage:CalculateResultingLevelAndXps(Quest:GetQuestLogTotalXpReward(trackedOnly))
+		
+		local totalPossibleXp = Quest:GetQuestLogTotalXpReward(trackedOnly)
+		local questLogPossibleLevel, questLogPossibleCurrentXp, questLogPossibleNeededXp, questLogPossibleXpColor = FarmingPage:CalculateResultingLevelAndXps(totalPossibleXp)
 		local questLogPossibleXpTurnIn = Strings:Get("FARMING_PAGE_TURN_IN_RESULT_MAX_LEVEL")
 		if questLogPossibleLevel < XP:GetMaxLevel() then
-			questLogPossibleXpTurnIn = Strings:Get("FARMING_PAGE_TURN_IN_RESULT_LEVEL_LABEL") .. " " .. questLogPossibleLevel .. " (" .. Utils:PercentageString(questLogPossibleCurrentXp, questLogPossibleNeededXp, 0) .. ")"
+			if totalPossibleXp > 0 then
+				questLogPossibleXpTurnIn = Strings:Get("FARMING_PAGE_TURN_IN_RESULT_LEVEL_LABEL") .. " " .. questLogPossibleLevel .. " (" .. Utils:PercentageString(questLogPossibleCurrentXp, questLogPossibleNeededXp, 0) .. ")"
+			else
+				questLogPossibleXpTurnIn = Strings:Get("FARMING_PAGE_TURN_IN_RESULT_NO_CHANGE")
+				questLogPossibleXpColor = UIConfig.GLOBAL_DISABLED_DATA_TEXT_COLOR
+			end
 		end
 		FarmingPage.Page.ExpandedFrameView.XpView.QuestLogTotalXpTurnInText:SetText(questLogPossibleXpTurnIn)
 		UI:ApplyTextWidgetFont(FarmingPage.Page.ExpandedFrameView.XpView.QuestLogTotalXpTurnInText, questLogPossibleXpColor)
@@ -407,18 +421,30 @@ function FarmingPage:UpdateCondensedFrameView(xpChanged, moneyChanged, miscellan
 	if miscellaneousChange then
 		local trackedOnly = Settings:IsShowingDataForTrackedQuestOnlyInFarmingPage()
 		
-		local questLogPendingLevel, questLogPendingCurrentXp, questLogPendingNeededXp, questLogPendingXpColor = FarmingPage:CalculateResultingLevelAndXps(Quest:GetQuestLogTurnInAbleXpReward(trackedOnly))
+		local turnInAbleXp = Quest:GetQuestLogTurnInAbleXpReward(trackedOnly)
+		local questLogPendingLevel, questLogPendingCurrentXp, questLogPendingNeededXp, questLogPendingXpColor = FarmingPage:CalculateResultingLevelAndXps(turnInAbleXp)
 		local questLogPendingXpTurnIn = Strings:Get("FARMING_PAGE_CONDENSED_TURN_IN_RESULT_COMPLETED_LABEL") .. " " .. Strings:Get("FARMING_PAGE_TURN_IN_RESULT_MAX_LEVEL")
 		if questLogPendingLevel < XP:GetMaxLevel() then
-			questLogPendingXpTurnIn = Strings:Get("FARMING_PAGE_CONDENSED_TURN_IN_RESULT_COMPLETED_LABEL") .. " " .. Strings:Get("FARMING_PAGE_TURN_IN_RESULT_LEVEL_LABEL") .. " " .. questLogPendingLevel .. " (" .. Utils:PercentageString(questLogPendingCurrentXp, questLogPendingNeededXp, 1) .. ")"
+			if turnInAbleXp > 0 then
+				questLogPendingXpTurnIn = Strings:Get("FARMING_PAGE_CONDENSED_TURN_IN_RESULT_COMPLETED_LABEL") .. " " .. Strings:Get("FARMING_PAGE_TURN_IN_RESULT_LEVEL_LABEL") .. " " .. questLogPendingLevel .. " (" .. Utils:PercentageString(questLogPendingCurrentXp, questLogPendingNeededXp, 1) .. ")"
+			else
+				questLogPendingXpTurnIn = Strings:Get("FARMING_PAGE_CONDENSED_TURN_IN_RESULT_COMPLETED_LABEL") .. " " .. Strings:Get("FARMING_PAGE_TURN_IN_RESULT_NO_CHANGE")
+				questLogPendingXpColor = UIConfig.GLOBAL_DISABLED_DATA_TEXT_COLOR
+			end
 		end
 		FarmingPage.Page.CondensedFrameView.XpView.QuestLogCurrentXpTurnInText:SetText(questLogPendingXpTurnIn)
 		UI:ApplyTextWidgetFont(FarmingPage.Page.CondensedFrameView.XpView.QuestLogCurrentXpTurnInText, questLogPendingXpColor)
 		
-		local questLogPossibleLevel, questLogPossibleCurrentXp, questLogPossibleNeededXp, questLogPossibleXpColor = FarmingPage:CalculateResultingLevelAndXps(Quest:GetQuestLogTotalXpReward(trackedOnly))
+		local totalPossibleXp = Quest:GetQuestLogTotalXpReward(trackedOnly)
+		local questLogPossibleLevel, questLogPossibleCurrentXp, questLogPossibleNeededXp, questLogPossibleXpColor = FarmingPage:CalculateResultingLevelAndXps(totalPossibleXp)
 		local questLogPossibleXpTurnIn = Strings:Get("FARMING_PAGE_CONDENSED_TURN_IN_RESULT_TOTAL_LABEL") .. " " .. Strings:Get("FARMING_PAGE_TURN_IN_RESULT_MAX_LEVEL")
 		if questLogPossibleLevel < XP:GetMaxLevel() then
-			questLogPossibleXpTurnIn = Strings:Get("FARMING_PAGE_CONDENSED_TURN_IN_RESULT_TOTAL_LABEL") .. " " .. Strings:Get("FARMING_PAGE_TURN_IN_RESULT_LEVEL_LABEL") .. " " .. questLogPossibleLevel .. " (" .. Utils:PercentageString(questLogPossibleCurrentXp, questLogPossibleNeededXp, 1) .. ")"
+			if totalPossibleXp > 0 then
+				questLogPossibleXpTurnIn = Strings:Get("FARMING_PAGE_CONDENSED_TURN_IN_RESULT_TOTAL_LABEL") .. " " .. Strings:Get("FARMING_PAGE_TURN_IN_RESULT_LEVEL_LABEL") .. " " .. questLogPossibleLevel .. " (" .. Utils:PercentageString(questLogPossibleCurrentXp, questLogPossibleNeededXp, 1) .. ")"
+			else
+				questLogPossibleXpTurnIn = Strings:Get("FARMING_PAGE_CONDENSED_TURN_IN_RESULT_TOTAL_LABEL") .. " " .. Strings:Get("FARMING_PAGE_TURN_IN_RESULT_NO_CHANGE")
+				questLogPossibleXpColor = UIConfig.GLOBAL_DISABLED_DATA_TEXT_COLOR
+			end
 		end
 		FarmingPage.Page.CondensedFrameView.XpView.QuestLogTotalXpTurnInText:SetText(questLogPossibleXpTurnIn)
 		UI:ApplyTextWidgetFont(FarmingPage.Page.CondensedFrameView.XpView.QuestLogTotalXpTurnInText, questLogPossibleXpColor)

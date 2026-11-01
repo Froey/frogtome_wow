@@ -4,7 +4,7 @@ if not Frogtome.Core then
 end
 Frogtome.Core.Money = {}
 
-local API = Frogtome.Core.API
+local API = Frogtome.Root.API
 local Context = Frogtome.Version.Context
 local Money = Frogtome.Core.Money
 
@@ -215,19 +215,49 @@ end
 ----------------------------
 
 -- Returns the decorative string of coins corresponding to the provided value of copper, using the provided resolution for coin icons.
+Context:SetDependencies(
+	Money.CONTEXT_MODULE,
+	"CopperToCoinString",
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
+	{ "GetCoinStringFromCopper" }
+)
 function Money:CopperToCoinString(copper, coinIconResolution)
+	if not Context:CheckDependencies(Money.CONTEXT_MODULE, "CopperToCoinString") then
+		return nil
+	end
+	
 	copper = math.floor(copper)
-	return C_CurrencyInfo.GetCoinTextureString(copper, coinIconResolution)
+	return API.GetCoinStringFromCopper(copper, coinIconResolution)
 end
 
 -- Returns the decorative string of coins corresponding to the provided value of silver, using the provided resolution for coin icons.
+Context:SetDependencies(
+	Money.CONTEXT_MODULE,
+	"SilverToCoinString",
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
+	{ "GetCoinStringFromCopper" }
+)
 function Money:SilverToCoinString(silver, coinIconResolution)
+	if not Context:CheckDependencies(Money.CONTEXT_MODULE, "SilverToCoinString") then
+		return nil
+	end
+	
 	local copper = Money:SilverToWholeCopper(silver)
-	return C_CurrencyInfo.GetCoinTextureString(copper, coinIconResolution)
+	return API.GetCoinStringFromCopper(copper, coinIconResolution)
 end
 
 -- Returns the decorative string of coins corresponding to the provided value of gold, using the provided resolution for coin icons.
+Context:SetDependencies(
+	Money.CONTEXT_MODULE,
+	"GoldToCoinString",
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
+	{ "GetCoinStringFromCopper" }
+)
 function Money:GoldToCoinString(gold, coinIconResolution)
+	if not Context:CheckDependencies(Money.CONTEXT_MODULE, "GoldToCoinString") then
+		return nil
+	end
+	
 	local copper = Money:GoldToWholeCopper(gold)
-	return C_CurrencyInfo.GetCoinTextureString(copper, coinIconResolution)
+	return API.GetCoinStringFromCopper(copper, coinIconResolution)
 end

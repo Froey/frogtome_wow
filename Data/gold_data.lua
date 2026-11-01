@@ -6,6 +6,10 @@ Frogtome.Data.GoldData = {}
 
 local GoldData = Frogtome.Data.GoldData
 
+----------------------
+-- Data Definitions --
+----------------------
+
 GoldData.GoldGoals = {
 	{
 		["Name"] = "Normal Riding",

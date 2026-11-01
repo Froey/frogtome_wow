@@ -4,11 +4,10 @@ if not Frogtome.Core then
 end
 Frogtome.Core.XP = {}
 
-local API = Frogtome.Core.API
+local API = Frogtome.Root.API
 local Context = Frogtome.Version.Context
-local Log = Frogtome.Misc.Log
 local Trait = Frogtome.Core.Trait
-local Utils = Frogtome.Misc.Utils
+local Utils = Frogtome.Root.Utils
 local XP = Frogtome.Core.XP
 local XpData = Frogtome.Data.XpData
 

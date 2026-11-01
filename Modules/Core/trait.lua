@@ -4,10 +4,11 @@ if not Frogtome.Core then
 end
 Frogtome.Core.Trait = {}
 
-local API = Frogtome.Core.API
-local Log = Frogtome.Misc.Log
+local API = Frogtome.Root.API
+local Context = Frogtome.Version.Context
+local Log = Frogtome.Root.Log
 local Trait = Frogtome.Core.Trait
-local Utils = Frogtome.Misc.Utils
+local Utils = Frogtome.Root.Utils
 
 ----------------------------------------
 -- Local Configurables and Attributes --
@@ -28,8 +29,14 @@ Trait.ExpectedWellRestedNodeMaxRanks = 5
 -- Core Data Functions --
 -------------------------
 
+Context:SetDependencies(
+	Trait.CONTEXT_MODULE,
+	"GetNodeName",
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
+	{ "GetTraitTreeNodeEntryInfo", "GetTraitTreeNodeEntryDefinitionInfo" }
+)
 function Trait:GetNodeName(configId, nodeId, node)
-	if not API:AreAllSupported({ "GetTraitTreeNodeEntryInfo", "GetTraitTreeNodeEntryDefinitionInfo" }) then
+	if not Context:CheckDependencies(Trait.CONTEXT_MODULE, "GetNodeName") then
 		return nil
 	end
 	
@@ -65,6 +72,8 @@ function Trait:GetNodeName(configId, nodeId, node)
 		return overrideName
 	end
 	
+	-- If we happen to have support for getting a spell's name, try that if needed
+	
 	local spellId = definition.spellID
 	if spellId and API:IsSupported("GetSpellName") then
 		return API.GetSpellName(spellId)
@@ -73,10 +82,38 @@ function Trait:GetNodeName(configId, nodeId, node)
 	return nil
 end
 
-function Trait:FindNode(expectedNodeName, expectedNodeMaxRanks)
-	local foundConfigIds = {}
+Context:SetDependencies(
+	Trait.CONTEXT_MODULE,
+	"GetNodeRank",
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
+	{ "GetTraitTreeNodeInfo" }
+)
+function Trait:GetNodeRank(configId, nodeId)
+	if not Context:CheckDependencies(Trait.CONTEXT_MODULE, "GetNodeRank") then
+		return 0
+	end
 	
-	-- Very debug-like code for the time being, while we figure out if Well Rested has a permanent ID
+	local node = API.GetTraitTreeNodeInfo(wellRestedConfigId, wellRestedNodeId)
+	
+	if node.ranksPurchased then
+		return node.ranksPurchased
+	else
+		return node.currentRank
+	end
+end
+
+Context:SetDependencies(
+	Trait.CONTEXT_MODULE,
+	"FindNode",
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
+	{ "GetTraitConfigInfo", "GetTraitTreeNodeIds", "GetTraitTreeNodeInfo" }
+)
+function Trait:FindNode(expectedNodeName, expectedNodeMaxRanks)
+	if not Context:CheckDependencies(Trait.CONTEXT_MODULE, "FindNode") then
+		return nil
+	end
+	
+	local foundConfigIds = {}
 	
 	-- Attempt to collect possible trait nodes by type
 	if API:IsSupported("GetTraitConfigIdsFromTypeId") then
@@ -107,34 +144,30 @@ function Trait:FindNode(expectedNodeName, expectedNodeMaxRanks)
 	end
 	
 	-- Get the actual trait node, caching its info if successful
-	if API:AreAllSupported({ "GetTraitConfigInfo", "GetTraitTreeNodeIds", "GetTraitTreeNodeInfo" }) then
-		for configId, _ in pairs(foundConfigIds) do
-			local configInfo = API.GetTraitConfigInfo(configId)
-			if configInfo and configInfo.treeIDs then
-				for _, treeId in ipairs(configInfo.treeIDs) do
-					local nodeIds = API.GetTraitTreeNodeIds(treeId)
-					if nodeIds then
-						for _, nodeId in ipairs(nodeIds) do
-							local node = API.GetTraitTreeNodeInfo(configId, nodeId)
-							if node then
-								local nodeName = Trait:GetNodeName(configId, nodeId, node)
-								if nodeName == expectedNodeName and node.maxRanks == expectedNodeMaxRanks then
-									Log:Dev("Found \"" .. expectedNodeName .. "\": config=" .. tostring(configId) .. ", node=" .. tostring(nodeId))
-									return {
-										["ConfigId"] = configId,
-										["NodeId"] = nodeId
-									}
-								else
-									-- debug code for narrowing it down?
-								end
+	for configId, _ in pairs(foundConfigIds) do
+		local configInfo = API.GetTraitConfigInfo(configId)
+		if configInfo and configInfo.treeIDs then
+			for _, treeId in ipairs(configInfo.treeIDs) do
+				local nodeIds = API.GetTraitTreeNodeIds(treeId)
+				if nodeIds then
+					for _, nodeId in ipairs(nodeIds) do
+						local node = API.GetTraitTreeNodeInfo(configId, nodeId)
+						if node then
+							local nodeName = Trait:GetNodeName(configId, nodeId, node)
+							if nodeName == expectedNodeName and node.maxRanks == expectedNodeMaxRanks then
+								Log:Dev("Found \"" .. expectedNodeName .. "\": config=" .. tostring(configId) .. ", node=" .. tostring(nodeId))
+								return {
+									["ConfigId"] = configId,
+									["NodeId"] = nodeId
+								}
+							else
+								-- debug code for narrowing it down?
 							end
 						end
 					end
 				end
 			end
 		end
-	else
-		Log:Dev("Did not have necessary dependencies to search trait trees for \"" .. expectedNodeName .. "\".")
 	end
 	
 	Log:Dev("Did not find \"" .. expectedNodeName .. "\".")
@@ -157,13 +190,5 @@ function Trait:GetWellRestedRank(forceCacheReset)
 		return 0
 	end
 	
-	local wellRestedConfigId = Trait.CachedWellRestedNodeInfo.ConfigId
-	local wellRestedNodeId = Trait.CachedWellRestedNodeInfo.NodeId
-	local wellRestedNode = API.GetTraitTreeNodeInfo(wellRestedConfigId, wellRestedNodeId)
-	
-	if wellRestedNode.ranksPurchased then
-		return wellRestedNode.ranksPurchased
-	else
-		return wellRestedNode.currentRank
-	end
+	return Trait:GetNodeRank(Trait.CachedWellRestedNodeInfo.ConfigId, Trait.CachedWellRestedNodeInfo.NodeId)
 end

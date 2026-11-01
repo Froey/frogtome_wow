@@ -4,7 +4,7 @@ if not Frogtome.Core then
 end
 Frogtome.Core.Inventory = {}
 
-local API = Frogtome.Core.API
+local API = Frogtome.Root.API
 local Context = Frogtome.Version.Context
 local Inventory = Frogtome.Core.Inventory
 

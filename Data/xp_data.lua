@@ -6,6 +6,10 @@ Frogtome.Data.XpData = {}
 
 local XpData = Frogtome.Data.XpData
 
+----------------------
+-- Data Definitions --
+----------------------
+
 -- A dictionary of the XP needed to level up at each level, by level.
 XpData.NeededLevelXps = {
 	[1] = 400,

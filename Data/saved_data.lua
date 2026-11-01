@@ -6,6 +6,10 @@ Frogtome.Data.SavedData = {}
 
 local SavedData = Frogtome.Data.SavedData
 
+----------------------------
+-- Data Backend Functions --
+----------------------------
+
 -- Returns whether or not saved data is loaded (either because the addon has loaded before it or because it simply does not exist).
 function SavedData:IsSavedDataLoaded()
 	return not FrogtomeSavedData or not FrogtomeCharSpecificSavedData

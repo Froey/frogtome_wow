@@ -4,7 +4,7 @@ if not Frogtome.Core then
 end
 Frogtome.Core.Quest = {}
 
-local API = Frogtome.Core.API
+local API = Frogtome.Root.API
 local Context = Frogtome.Version.Context
 local Quest = Frogtome.Core.Quest
 local QuestData = Frogtome.Data.QuestData

@@ -6,6 +6,10 @@ Frogtome.Data.InfoData = {}
 
 local InfoData = Frogtome.Data.InfoData
 
+----------------------
+-- Data Definitions --
+----------------------
+
 -- A dictionary of body types (or sexes, if you prefer) based on their associated ID.
 InfoData.BodyTypes = {
 	[1] = "Unknown",

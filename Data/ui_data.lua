@@ -6,6 +6,10 @@ Frogtome.Data.UIData = {}
 
 local UIData = Frogtome.Data.UIData
 
+----------------------
+-- Data Definitions --
+----------------------
+
 -- A dictionary of class colors by class ID.
 UIData.ClassColors = {
 	[1] = 0xFFC69B6D, -- Warrior

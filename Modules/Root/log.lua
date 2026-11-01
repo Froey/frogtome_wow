@@ -1,12 +1,12 @@
 local _, Frogtome = ...
-if not Frogtome.Misc then
-	Frogtome.Misc = {}
+if not Frogtome.Root then
+	Frogtome.Root = {}
 end
-Frogtome.Misc.Log = {}
+Frogtome.Root.Log = {}
 
 local HiddenSettings = Frogtome.Settings.HiddenSettings
-local Log = Frogtome.Misc.Log
-local Utils = Frogtome.Misc.Utils
+local Log = Frogtome.Root.Log
+local Utils = Frogtome.Root.Utils
 
 ----------------
 -- Log Levels --

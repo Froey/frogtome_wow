@@ -4,10 +4,10 @@ if not Frogtome.UI then
 end
 Frogtome.UI.UI = {}
 
-local Log = Frogtome.Misc.Log
+local Log = Frogtome.Root.Log
 local UI = Frogtome.UI.UI
 local UIConfig = Frogtome.UI.UIConfig
-local Utils = Frogtome.Misc.Utils
+local Utils = Frogtome.Root.Utils
 
 --------------------
 -- Font Functions --

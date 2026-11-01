@@ -4,13 +4,12 @@ if not Frogtome.Core then
 end
 Frogtome.Core.Character = {}
 
-local API = Frogtome.Core.API
+local API = Frogtome.Root.API
 local Character = Frogtome.Core.Character
 local Context = Frogtome.Version.Context
-local Core = Frogtome.Core.Core
 local InfoData = Frogtome.Data.InfoData
 local Inventory = Frogtome.Core.Inventory
-local Log = Frogtome.Misc.Log
+local Log = Frogtome.Root.Log
 local Money = Frogtome.Core.Money
 local Profession = Frogtome.Core.Profession
 local SavedData = Frogtome.Data.SavedData
@@ -350,7 +349,9 @@ function Character:GenerateCurrentCharacter()
 	local character = {}
 	
 	character.Order = -1
-	character.Timestamp = time() -- TODO: put into API
+	
+	-- This shouldn't need checked against context - this should ABSOLUTELY exist, always.
+	character.Timestamp = API.GetEpochTimeInSeconds()
 	
 	character.GUID = Character:GetGuid()
 	character.Server = Character:GetServer()

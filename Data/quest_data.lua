@@ -6,6 +6,10 @@ Frogtome.Data.QuestData = {}
 
 local QuestData = Frogtome.Data.QuestData
 
+----------------------
+-- Data Definitions --
+----------------------
+
 QuestData.Quests = {
 	[2] = {
 		["ID"] = 2,

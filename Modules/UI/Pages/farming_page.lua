@@ -7,20 +7,19 @@ if not Frogtome.UI.Pages then
 end
 Frogtome.UI.Pages.Farming = {}
 
-local Core = Frogtome.Core.Core
-local Event = Frogtome.Core.Event
+local Event = Frogtome.Root.Event
 local FarmingPage = Frogtome.UI.Pages.Farming
 local GoldData = Frogtome.Data.GoldData
 local HiddenSettings = Frogtome.Settings.HiddenSettings
-local Log = Frogtome.Misc.Log
+local Log = Frogtome.Root.Log
 local Money = Frogtome.Core.Money
 local Quest = Frogtome.Core.Quest
-local Session = Frogtome.Core.Session
+local Session = Frogtome.Features.Session
 local Settings = Frogtome.Settings.Settings
 local Strings = Frogtome.UI.Strings
 local UI = Frogtome.UI.UI
 local UIConfig = Frogtome.UI.UIConfig
-local Utils = Frogtome.Misc.Utils
+local Utils = Frogtome.Root.Utils
 local XP = Frogtome.Core.XP
 
 ----------------------------------

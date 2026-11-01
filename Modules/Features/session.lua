@@ -1,15 +1,15 @@
 local _, Frogtome = ...
-if not Frogtome.Core then
-	Frogtome.Core = {}
+if not Frogtome.Features then
+	Frogtome.Features = {}
 end
-Frogtome.Core.Session = {}
+Frogtome.Features.Session = {}
 
-local Core = Frogtome.Core.Core
-local Log = Frogtome.Misc.Log
+local API = Frogtome.Root.API
+local Log = Frogtome.Root.Log
 local Money = Frogtome.Core.Money
 local Quest = Frogtome.Core.Quest
-local Session = Frogtome.Core.Session
-local Utils = Frogtome.Misc.Utils
+local Session = Frogtome.Features.Session
+local Utils = Frogtome.Root.Utils
 local XP = Frogtome.Core.XP
 local XpData = Frogtome.Data.XpData
 
@@ -57,7 +57,10 @@ function Session:ResetSession()
 	local session = {}
 	Session.Session = session
 	
-	session.StartTimeSeconds = GetTime() -- TODO: Move into API
+	session.StartTimeSeconds = -1
+	if API:IsSupported("GetSystemTimeInSeconds") then
+		session.StartTimeSeconds = API.GetSystemTimeInSeconds()
+	end
 	session.PauseTimeSeconds = nil
 	
 	session.SessionLevels = 0
@@ -107,14 +110,23 @@ end
 function Session:TogglePausedSession()
 	local session = Session.Session
 	
-	if Session:IsSessionPaused() then
-		-- Resume the session (with the original elapsed time)
-		local elapsedSessionTimeSeconds = session.PauseTimeSeconds - session.StartTimeSeconds
-		session.StartTimeSeconds = GetTime() - elapsedSessionTimeSeconds
-		session.PauseTimeSeconds = nil
+	if API:IsSupported("GetSystemTimeInSeconds") then
+		if Session:IsSessionPaused() then
+			-- Resume the session (with the original elapsed time)
+			local elapsedSessionTimeSeconds = session.PauseTimeSeconds - session.StartTimeSeconds
+			session.StartTimeSeconds = API.GetSystemTimeInSeconds() - elapsedSessionTimeSeconds
+			session.PauseTimeSeconds = nil
+		else
+			-- Pause the session
+			session.PauseTimeSeconds = API.GetSystemTimeInSeconds()
+		end
 	else
-		-- Pause the session
-		session.PauseTimeSeconds = GetTime()
+		if Session:IsSessionPaused() then
+			session.StartTimeSeconds = -1
+			session.PauseTimeSeconds = nil
+		else
+			session.PauseTimeSeconds = -1
+		end
 	end
 end
 
@@ -323,14 +335,18 @@ end
 function Session:GetSessionTimeSeconds()
 	local session = Session.Session
 	
-	if not session.StartTimeSeconds then
+	if not session.StartTimeSeconds or session.StartTimeSeconds == -1 then
 		return nil
 	end
 	
-	if Session:IsSessionPaused() then
-		return session.PauseTimeSeconds - session.StartTimeSeconds
+	if API:IsSupported("GetSystemTimeInSeconds") then
+		if Session:IsSessionPaused() then
+			return session.PauseTimeSeconds - session.StartTimeSeconds
+		else
+			return API.GetSystemTimeInSeconds() - session.StartTimeSeconds
+		end
 	else
-		return GetTime() - session.StartTimeSeconds -- TODO: move into api
+		return -1
 	end
 end
 

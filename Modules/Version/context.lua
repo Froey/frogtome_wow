@@ -4,7 +4,7 @@ if not Frogtome.Version then
 end
 Frogtome.Version.Context = {}
 
-local API = Frogtome.Core.API
+local API = Frogtome.Root.API
 local Context = Frogtome.Version.Context
 
 ----------------------------------------
@@ -32,7 +32,7 @@ Context.CONTEXT_DEFS = {
 	[Context.BCC_ID] = {
 		["ID"] = Context.BCC_ID,
 		["Label"] = "BCC Anniversary",
-		["Supported"] = false
+		["Supported"] = true
 	},
 	[Context.FOREVER_ID] = {
 		["ID"] = Context.FOREVER_ID,
@@ -157,7 +157,8 @@ end
 -- Supported API Calls: General (System) --
 -------------------------------------------
 
-API:HookUp({}, nil, "GetTime", 0, nil, "GetTimeInSeconds")
+API:HookUp({}, nil, "time", 0, nil, "GetEpochTimeInSeconds")
+API:HookUp({}, nil, "GetTime", 0, nil, "GetSystemTimeInSeconds")
 
 API:HookUp({}, nil, "IsShiftKeyDown", 0, nil, "IsShiftKeyDown")
 API:HookUp({}, nil, "IsControlKeyDown", 0, nil, "IsControlKeyDown")
@@ -212,12 +213,24 @@ API:HookUp({}, nil, "GetProfessionInfo", 1, nil, "GetCharacterProfessionMaxSkill
 API:HookUp({}, nil, "GetQuestLogRewardXP", 1, nil, "GetQuestXp", 1)
 API:HookUp({}, nil, "GetQuestLogRewardMoney", 1, nil, "GetQuestMoneyInCopper")
 
+-----------------------------------------
+-- Supported API Calls: General (Zone) --
+-----------------------------------------
+
+API:HookUp({}, nil, "GetZoneText", 0, nil, "GetCharacterZone")
+
 --------------------------------------
 -- Supported API Calls: C_Container --
 --------------------------------------
 
 API:HookUp({}, "C_Container", "GetContainerNumSlots", 1, nil, "GetCharacterContainerSize")
 API:HookUp({}, "C_Container", "GetContainerNumFreeSlots", 1, nil, "GetCharacterContainerAvailableSpace", 1)
+
+-----------------------------------------
+-- Supported API Calls: C_CurrencyInfo --
+-----------------------------------------
+
+API:HookUp({}, "C_CurrencyInfo", "GetCoinTextureString", 2, nil, "GetCoinStringFromCopper")
 
 -------------------------------------
 -- Supported API Calls: C_QuestLog --

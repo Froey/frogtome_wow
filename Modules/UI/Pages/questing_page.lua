@@ -7,18 +7,17 @@ if not Frogtome.UI.Pages then
 end
 Frogtome.UI.Pages.Questing = {}
 
-local Core = Frogtome.Core.Core
 local Dungeon = Frogtome.Core.Dungeon
 local DungeonData = Frogtome.Data.DungeonData
-local Event = Frogtome.Core.Event
-local Log = Frogtome.Misc.Log
+local Event = Frogtome.Root.Event
+local Log = Frogtome.Root.Log
 local Quest = Frogtome.Core.Quest
 local QuestingPage = Frogtome.UI.Pages.Questing
 local Settings = Frogtome.Settings.Settings
 local Strings = Frogtome.UI.Strings
 local UI = Frogtome.UI.UI
 local UIConfig = Frogtome.UI.UIConfig
-local Utils = Frogtome.Misc.Utils
+local Utils = Frogtome.Root.Utils
 local XP = Frogtome.Core.XP
 local Zone = Frogtome.Core.Zone
 local ZoneData = Frogtome.Data.ZoneData

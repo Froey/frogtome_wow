@@ -5,7 +5,7 @@ end
 Frogtome.Version.Version = {}
 
 local HiddenSettings = Frogtome.Settings.HiddenSettings
-local Log = Frogtome.Misc.Log
+local Log = Frogtome.Root.Log
 local Upgrade = Frogtome.Version.Upgrade
 local Version = Frogtome.Version.Version
 

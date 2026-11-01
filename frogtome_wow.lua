@@ -6,21 +6,19 @@ local CharactersPage = Frogtome.UI.Pages.Characters
 local Context = Frogtome.Version.Context
 local Dev = Frogtome.Dev.Dev
 local FarmingPage = Frogtome.UI.Pages.Farming
-local FunctionalTesting = Frogtome.Dev.Testing.FunctionalTesting
-local FunFacts = Frogtome.Core.FunFacts
+local FunFacts = Frogtome.Features.FunFacts
 local HiddenSettings = Frogtome.Settings.HiddenSettings
-local Log = Frogtome.Misc.Log
+local Log = Frogtome.Root.Log
 local Main = Frogtome.Main
 local MainFrame = Frogtome.UI.MainFrame
 local NotesPage = Frogtome.UI.Pages.Notes
 local SavedData = Frogtome.Data.SavedData
-local Session = Frogtome.Core.Session
+local Session = Frogtome.Features.Session
 local Settings = Frogtome.Settings.Settings
 local Strings = Frogtome.UI.Strings
 local Testing = Frogtome.Dev.Testing.Testing
 local UI = Frogtome.UI.UI
 local Upgrade = Frogtome.Version.Upgrade
-local Utils = Frogtome.Misc.Utils
 local Version = Frogtome.Version.Version
 
 -------------------------------
@@ -342,8 +340,8 @@ if LDB then
 		
 		OnTooltipShow = function(tooltip)
 			tooltip:AddLine("|cff6bd43aFrogtome|r (" .. Version:GetCurrentLabel(true) .. ")")
-			tooltip:AddLine("|cff888888(Left Click):|r |cffffffffUses the expanded view.")
-			tooltip:AddLine("|cff888888(Right Click):|r |cffffffffUses the condensed view.")
+			tooltip:AddLine("|cff888888(Left Click):|r |cffffffffShow/hide Frogtome.")
+			tooltip:AddLine("|cff888888(Right Click):|r |cffffffffExpand/condense Frogtome.")
 		end
 	})
 end

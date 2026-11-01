@@ -8,13 +8,13 @@ end
 Frogtome.UI.Pages.Notes = {}
 
 local HiddenSettings = Frogtome.Settings.HiddenSettings
-local Log = Frogtome.Misc.Log
-local Notes = Frogtome.Core.Notes
+local Log = Frogtome.Root.Log
+local Notes = Frogtome.Features.Notes
 local NotesPage = Frogtome.UI.Pages.Notes
 local Strings = Frogtome.UI.Strings
 local UI = Frogtome.UI.UI
 local UIConfig = Frogtome.UI.UIConfig
-local Utils = Frogtome.Misc.Utils
+local Utils = Frogtome.Root.Utils
 
 ------------------------
 -- Core Functionality --

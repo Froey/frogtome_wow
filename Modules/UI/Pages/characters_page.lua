@@ -9,17 +9,16 @@ Frogtome.UI.Pages.Characters = {}
 
 local Character = Frogtome.Core.Character
 local CharactersPage = Frogtome.UI.Pages.Characters
-local Core = Frogtome.Core.Core
-local Event = Frogtome.Core.Event
+local Event = Frogtome.Root.Event
 local HiddenSettings = Frogtome.Settings.HiddenSettings
-local Log = Frogtome.Misc.Log
+local Log = Frogtome.Root.Log
 local Money = Frogtome.Core.Money
 local Settings = Frogtome.Settings.Settings
 local Strings = Frogtome.UI.Strings
 local UI = Frogtome.UI.UI
 local UIConfig = Frogtome.UI.UIConfig
 local UIData = Frogtome.Data.UIData
-local Utils = Frogtome.Misc.Utils
+local Utils = Frogtome.Root.Utils
 local XP = Frogtome.Core.XP
 
 ----------------------------------
@@ -358,9 +357,9 @@ function CharactersPage:UpdateExpandedFrameView()
 		end
 		
 		if Settings:IsShowingFactionColorsByAllegianceInCharactersPage() then
-			if (Core:GetFactionDataString() == "Alliance" and character.Faction == "Alliance") or (Core:GetFactionDataString() == "Horde" and character.Faction == "Horde") then
+			if (Character:GetFactionDataString() == "Alliance" and character.Faction == "Alliance") or (Character:GetFactionDataString() == "Horde" and character.Faction == "Horde") then
 				UI:ApplyTextWidgetFont(row.CharacterFactionText, UIConfig.GLOBAL_FRIENDLY_COLOR)
-			elseif (Core:GetFactionDataString() == "Alliance" and character.Faction ~= "Alliance") or (Core:GetFactionDataString() == "Horde" and character.Faction ~= "Horde") then
+			elseif (Character:GetFactionDataString() == "Alliance" and character.Faction ~= "Alliance") or (Character:GetFactionDataString() == "Horde" and character.Faction ~= "Horde") then
 				UI:ApplyTextWidgetFont(row.CharacterFactionText, UIConfig.GLOBAL_UNFRIENDLY_COLOR)
 			end
 		else
@@ -526,7 +525,7 @@ function CharactersPage:UpdateExpandedFrameView()
 		
 		-- Money
 		
-		row.CharacterMoneyText:SetText(Money:CopperToCoinString(character.Money))
+		row.CharacterMoneyText:SetText(Money:CopperToCoinString(character.Money, UIConfig.CHARACTERS_PAGE_COIN_ICON_RES))
 		
 		-- Primary Professions
 		
@@ -623,9 +622,9 @@ function CharactersPage:UpdateCondensedFrameView()
 	end
 	
 	if Settings:IsShowingFactionColorsByAllegianceInCharactersPage() then
-		if (Core:GetFactionDataString() == "Alliance" and character.Faction == "Alliance") or (Core:GetFactionDataString() == "Horde" and character.Faction == "Horde") then
+		if (Character:GetFactionDataString() == "Alliance" and character.Faction == "Alliance") or (Character:GetFactionDataString() == "Horde" and character.Faction == "Horde") then
 			UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterFactionText, UIConfig.GLOBAL_FRIENDLY_COLOR)
-		elseif (Core:GetFactionDataString() == "Alliance" and character.Faction ~= "Alliance") or (Core:GetFactionDataString() == "Horde" and character.Faction ~= "Horde") then
+		elseif (Character:GetFactionDataString() == "Alliance" and character.Faction ~= "Alliance") or (Character:GetFactionDataString() == "Horde" and character.Faction ~= "Horde") then
 			UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterFactionText, UIConfig.GLOBAL_UNFRIENDLY_COLOR)
 		end
 	else
@@ -1080,7 +1079,7 @@ function CharactersPage:BuildCondensedFrameView(page)
 	view.CharacterLevelText = UI:CreateTableText(generalTableParams, view, "", UIConfig.GLOBAL_DATA_TEXT_COLOR, 2, 1)
 	view.CharacterNameText = UI:CreateTableText(generalTableParams, view, "", UIConfig.GLOBAL_DATA_TEXT_COLOR, 3, 1)
 	UI:ApplyTooltipToWidget(view.CharacterNameText, "ANCHOR_RIGHT", function()
-		return CharactersPage:GetCharacterTooltip(Character:GetCharacter(Core:GetGUID()))
+		return CharactersPage:GetCharacterTooltip(Character:GetCharacter(Character:GetGUID()))
 	end)
 
 	view.CharacterNameText:SetWidth(UIConfig.CHARACTERS_PAGE_NAME_MAX_WIDTH)

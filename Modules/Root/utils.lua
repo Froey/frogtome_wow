@@ -1,10 +1,10 @@
 local _, Frogtome = ...
-if not Frogtome.Misc then
-	Frogtome.Misc = {}
+if not Frogtome.Root then
+	Frogtome.Root = {}
 end
-Frogtome.Misc.Utils = {}
+Frogtome.Root.Utils = {}
 
-local Utils = Frogtome.Misc.Utils
+local Utils = Frogtome.Root.Utils
 
 -----------------
 -- Color Utils --

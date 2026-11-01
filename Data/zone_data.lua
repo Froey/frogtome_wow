@@ -6,6 +6,10 @@ Frogtome.Data.ZoneData = {}
 
 local ZoneData = Frogtome.Data.ZoneData
 
+----------------------
+-- Data Definitions --
+----------------------
+
 -- A dictionary of all zones in the game, including the expected approproate level ranges for each zone.
 ZoneData.Zones = {
 	{

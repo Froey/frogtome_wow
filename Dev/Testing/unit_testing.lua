@@ -7,20 +7,16 @@ if not Frogtome.Dev.Testing then
 end
 Frogtome.Dev.Testing.UnitTesting = {}
 
-local API = Frogtome.Core.API
-local Log = Frogtome.Misc.Log
+local API = Frogtome.Root.API
+local Log = Frogtome.Root.Log
 local UnitTesting = Frogtome.Dev.Testing.UnitTesting
+
+---------------------------
+-- Individual Test Cases --
+---------------------------
 
 -- TODO: Some money-related unit testing can definitely be done here
 -- TODO: Other testing should include XP-related proportions and XP-per-time calculations
-
-function UnitTesting:TestAll()
-	local passed = true
-	
-	passed = passed and UnitTesting:TestApiHookUps()
-	
-	return passed
-end
 
 function UnitTesting:TestApiHookUps()
 	local allHookupsGood = true
@@ -46,4 +42,16 @@ function UnitTesting:TestApiHookUps()
 	end
 	
 	return allHookupsGood
+end
+
+--------------------------
+-- Test Suite Execution --
+--------------------------
+
+function UnitTesting:TestAll()
+	local passed = true
+	
+	passed = passed and UnitTesting:TestApiHookUps()
+	
+	return passed
 end

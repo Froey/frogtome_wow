@@ -1,11 +1,11 @@
 local _, Frogtome = ...
-if not Frogtome.Core then
-	Frogtome.Core = {}
+if not Frogtome.Root then
+	Frogtome.Root = {}
 end
-Frogtome.Core.API = {}
+Frogtome.Root.API = {}
 
-local API = Frogtome.Core.API
-local Log = Frogtome.Misc.Log
+local API = Frogtome.Root.API
+local Log = Frogtome.Root.Log
 
 ----------------------------------------
 -- Local Configurables and Attributes --

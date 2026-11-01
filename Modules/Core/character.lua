@@ -31,7 +31,7 @@ Character.CONTEXT_MODULE = "Frogtome.Core.Character"
 Context:SetDependencies(
 	Character.CONTEXT_MODULE,
 	"GetGuid",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "GetCharacterGuid" }
 )
 function Character:GetGuid()
@@ -46,7 +46,7 @@ end
 Context:SetDependencies(
 	Character.CONTEXT_MODULE,
 	"GetServer",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "GetCharacterServer" }
 )
 function Character:GetServer()
@@ -90,7 +90,7 @@ end
 Context:SetDependencies(
 	Character.CONTEXT_MODULE,
 	"GetFaction",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "GetCharacterFactionDataString" }
 )
 function Character:GetFaction()
@@ -105,7 +105,7 @@ end
 Context:SetDependencies(
 	Character.CONTEXT_MODULE,
 	"GetRace",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "GetCharacterRaceDataString" }
 )
 function Character:GetRace()
@@ -120,7 +120,7 @@ end
 Context:SetDependencies(
 	Character.CONTEXT_MODULE,
 	"GetClassId",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "GetCharacterClassId" }
 )
 function Character:GetClassId()
@@ -135,7 +135,7 @@ end
 Context:SetDependencies(
 	Character.CONTEXT_MODULE,
 	"GetBodyType",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "GetCharacterBodyTypeId" }
 )
 function Character:GetBodyType()
@@ -150,7 +150,7 @@ end
 Context:SetDependencies(
 	Character.CONTEXT_MODULE,
 	"GetFirstName",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "GetCharacterFirstName" }
 )
 function Character:GetFirstName()
@@ -192,7 +192,7 @@ end
 Context:SetDependencies(
 	Character.CONTEXT_MODULE,
 	"GetGuildName",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "GetCharacterGuildName" }
 )
 function Character:GetGuildName()

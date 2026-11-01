@@ -32,7 +32,7 @@ XP.BaseRestedCapTimeWhenNotRestingInHours = XP.BaseRestedCapTimeWhenRestingInHou
 Context:SetDependencies(
 	XP.CONTEXT_MODULE,
 	"GetCurrentLevel",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "GetCharacterLevel" }
 )
 function XP:GetCurrentLevel()
@@ -50,7 +50,7 @@ end
 Context:SetDependencies(
 	XP.CONTEXT_MODULE,
 	"GetMaxLevel",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "GetCharacterMaxLevel" }
 )
 function XP:GetMaxLevel()
@@ -86,7 +86,7 @@ end
 Context:SetDependencies(
 	XP.CONTEXT_MODULE,
 	"GetCurrentXp",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "GetCharacterXp" }
 )
 function XP:GetCurrentXp()
@@ -104,7 +104,7 @@ end
 Context:SetDependencies(
 	XP.CONTEXT_MODULE,
 	"GetNeededXp",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "GetCharacterNeededXp" }
 )
 function XP:GetNeededXp(level)
@@ -188,7 +188,7 @@ end
 Context:SetDependencies(
 	XP.CONTEXT_MODULE,
 	"IsResting",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "IsCharacterResting" }
 )
 function XP:IsResting()
@@ -202,7 +202,7 @@ end
 Context:SetDependencies(
 	XP.CONTEXT_MODULE,
 	"GetRestedXp",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "GetCharacterRestedXp" }
 )
 function XP:GetRestedXp()
@@ -225,7 +225,7 @@ end
 Context:SetDependencies(
 	XP.CONTEXT_MODULE,
 	"GetXpMultiplier",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "GetCharacterRestedXpMultiplier" }
 )
 function XP:GetXpMultiplier()

@@ -22,7 +22,7 @@ Inventory.CONTEXT_MODULE = "Frogtome.Core.Inventory"
 Context:SetDependencies(
 	Inventory.CONTEXT_MODULE,
 	"GetContainerSize",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "GetCharacterContainerSize" }
 )
 function Inventory:GetContainerSize(index)
@@ -44,7 +44,7 @@ end
 Context:SetDependencies(
 	Inventory.CONTEXT_MODULE,
 	"GetContainerRemainingSpace",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "GetCharacterContainerAvailableSpace" }
 )
 function Inventory:GetContainerRemainingSpace(index)

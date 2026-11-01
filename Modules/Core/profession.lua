@@ -22,7 +22,7 @@ Profession.CONTEXT_MODULE = "Frogtome.Core.Profession"
 Context:SetDependencies(
 	Profession.CONTEXT_MODULE,
 	"GetFirstProfessionIndex",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "GetCharacterFirstProfessionIndex" }
 )
 function Profession:GetFirstProfessionIndex()
@@ -37,7 +37,7 @@ end
 Context:SetDependencies(
 	Profession.CONTEXT_MODULE,
 	"GetSecondProfessionIndex",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "GetCharacterSecondProfessionIndex" }
 )
 function Profession:GetSecondProfessionIndex()
@@ -52,7 +52,7 @@ end
 Context:SetDependencies(
 	Profession.CONTEXT_MODULE,
 	"GetFirstSecondaryProfessionIndex",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "GetCharacterFirstSecondaryProfessionIndex" }
 )
 function Profession:GetFirstSecondaryProfessionIndex()
@@ -67,7 +67,7 @@ end
 Context:SetDependencies(
 	Profession.CONTEXT_MODULE,
 	"GetSecondSecondaryProfessionIndex",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "GetCharacterSecondSecondaryProfessionIndex" }
 )
 function Profession:GetSecondSecondaryProfessionIndex()
@@ -82,7 +82,7 @@ end
 Context:SetDependencies(
 	Profession.CONTEXT_MODULE,
 	"GetThirdSecondaryProfessionIndex",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "GetCharacterThirdSecondaryProfessionIndex" }
 )
 function Profession:GetThirdSecondaryProfessionIndex()
@@ -112,7 +112,7 @@ end
 Context:SetDependencies(
 	Profession.CONTEXT_MODULE,
 	"GetCookingProfessionIndex",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{}
 )
 function Profession:GetCookingProfessionIndex()
@@ -133,7 +133,7 @@ end
 Context:SetDependencies(
 	Profession.CONTEXT_MODULE,
 	"GetFishingProfessionIndex",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{}
 )
 function Profession:GetFishingProfessionIndex()
@@ -154,7 +154,7 @@ end
 Context:SetDependencies(
 	Profession.CONTEXT_MODULE,
 	"GetFirstAidProfessionIndex",
-	{ Context.FOREVER_ID }, 
+	{ Context.BCC_ID, Context.FOREVER_ID }, 
 	{}
 )
 function Profession:GetFirstAidProfessionIndex()
@@ -162,7 +162,7 @@ function Profession:GetFirstAidProfessionIndex()
 		return nil
 	end
 	
-	return Profession:GetThirdProfessionIndex()
+	return Profession:GetThirdSecondaryProfessionIndex()
 end
 
 -- Returns the index of the archaeology profession for the current player.
@@ -177,7 +177,7 @@ function Profession:GetArchaeologyProfessionIndex()
 		return nil
 	end
 	
-	return Profession:GetFirstProfessionIndex()
+	return Profession:GetFirstSecondaryProfessionIndex()
 end
 
 -- Returns whether or not the "first" profession has been learned by the current player.
@@ -214,7 +214,7 @@ end
 Context:SetDependencies(
 	Profession.CONTEXT_MODULE,
 	"GetProfessionName",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "GetCharacterProfessionName" }
 )
 function Profession:GetProfessionName(professionIndex)
@@ -233,7 +233,7 @@ end
 Context:SetDependencies(
 	Profession.CONTEXT_MODULE,
 	"GetProfessionCurrentSkill",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "GetCharacterProfessionSkill" }
 )
 function Profession:GetProfessionCurrentSkill(professionIndex)
@@ -252,7 +252,7 @@ end
 Context:SetDependencies(
 	Profession.CONTEXT_MODULE,
 	"GetProfessionMaxSkill",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "GetCharacterProfessionMaxSkill" }
 )
 function Profession:GetProfessionMaxSkill(professionIndex)

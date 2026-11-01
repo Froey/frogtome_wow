@@ -6,7 +6,7 @@ Frogtome.Core.Dungeon = {}
 
 local Character = Frogtome.Core.Character
 local Dungeon = Frogtome.Core.Dungeon
-local DungeonData = Frogtome.Core.Dungeon
+local DungeonData = Frogtome.Data.DungeonData
 local Quest = Frogtome.Core.Quest
 local QuestData = Frogtome.Data.QuestData
 local XP = Frogtome.Core.XP

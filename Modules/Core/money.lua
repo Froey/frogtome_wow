@@ -30,7 +30,7 @@ Money.GOLD_TO_SILVER_RATE = 100
 Context:SetDependencies(
 	Money.CONTEXT_MODULE,
 	"GetMoneyInWholeCopper",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "GetCharacterMoneyInCopper" }
 )
 function Money:GetMoneyInWholeCopper()

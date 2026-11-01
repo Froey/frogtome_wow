@@ -5,13 +5,13 @@ end
 Frogtome.Core.Session = {}
 
 local Core = Frogtome.Core.Core
-local LevelData = Frogtome.Data.LevelData
 local Log = Frogtome.Misc.Log
 local Money = Frogtome.Core.Money
 local Quest = Frogtome.Core.Quest
 local Session = Frogtome.Core.Session
 local Utils = Frogtome.Misc.Utils
 local XP = Frogtome.Core.XP
+local XpData = Frogtome.Data.XpData
 
 ------------------------
 -- Session Management --
@@ -121,7 +121,7 @@ end
 -- Updates the session's timer as well as all session metrics.
 function Session:UpdateSession()
 	if not Session:ClaimLock() then
-		Log.Error("Cannot update the session!")
+		Log:Error("Cannot update the session!")
 		return
 	end
 	
@@ -221,7 +221,7 @@ function Session:UpdateSession()
 		if changedLevel then
 			-- It's possible (though ridiculously improbable) multiple level-ups were experienced at once, so make sure ALL XP progress is tracked.
 			for completedLevel = oldLevel, newLevel - 1 do
-				newCurrentXp = newCurrentXp + LevelData.NeededLevelXps[completedLevel]
+				newCurrentXp = newCurrentXp + XpData.NeededLevelXps[completedLevel]
 			end
 		end
 		

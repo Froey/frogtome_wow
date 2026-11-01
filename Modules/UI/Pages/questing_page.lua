@@ -133,7 +133,7 @@ function QuestingPage:CreateZoneQuestCompletionTooltip(zone)
 		}
 	end
 	
-	local quests = Core:GetIncompleteZoneQuestsForFaction(zone, nil, true)
+	local quests = Zone:GetIncompleteZoneQuestsForFaction(zone, nil, true)
 	if #quests == 0 then
 		return {
 			{
@@ -590,7 +590,7 @@ function QuestingPage:UpdateExpandedFrameView()
 	for dungeonRowIndex, dungeonRow in ipairs(dungeonRows) do
 		if dungeonRowIndex <= #dungeons then
 			local dungeon = dungeons[dungeonRowIndex]
-			local dungeonZone = Core:GetDungeonZone(dungeon)
+			local dungeonZone = Dungeon:GetDungeonZone(dungeon)
 			
 			local dungeonLevelRangeText, dungeonLevelRangeColor = QuestingPage:CreateLevelRangeString(dungeon.MinLevel, dungeon.MaxLevel)
 			dungeonRow.DungeonLevelRange:SetText(dungeonLevelRangeText)

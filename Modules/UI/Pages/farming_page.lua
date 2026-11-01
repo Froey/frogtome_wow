@@ -218,7 +218,7 @@ function FarmingPage:UpdateExpandedFrameView(xpChanged, moneyChanged, miscellane
 		FarmingPage.Page.ExpandedFrameView.XpView.AverageQuestXpValueText:SetText(averageQuestXpValue)
 		local averageQuestXpNeeded = Strings:Get("FARMING_PAGE_UNKNOWN_VALUE")
 		if Session:GetQuestXp() > 0 then
-			averageQuestXpNeeded = AbbreviateNumbers(math.ceil(Core:GetRemainingXp() / Session:GetAverageQuestXp()))
+			averageQuestXpNeeded = AbbreviateNumbers(math.ceil(XP:GetRemainingXp() / Session:GetAverageQuestXp()))
 		end
 		FarmingPage.Page.ExpandedFrameView.XpView.AverageQuestXpNeededText:SetText(averageQuestXpNeeded)
 		
@@ -231,7 +231,7 @@ function FarmingPage:UpdateExpandedFrameView(xpChanged, moneyChanged, miscellane
 		FarmingPage.Page.ExpandedFrameView.XpView.AverageOtherXpValueText:SetText(averageOtherXpValue)
 		local averageOtherXpNeeded = Strings:Get("FARMING_PAGE_UNKNOWN_VALUE")
 		if Session:GetOtherXp() > 0 then
-			averageOtherXpNeeded = AbbreviateNumbers(math.ceil(Core:GetRemainingXp() / Session:GetAverageOtherXp()))
+			averageOtherXpNeeded = AbbreviateNumbers(math.ceil(XP:GetRemainingXp() / Session:GetAverageOtherXp()))
 		end
 		FarmingPage.Page.ExpandedFrameView.XpView.AverageOtherXpNeededText:SetText(averageOtherXpNeeded)
 	end
@@ -540,7 +540,7 @@ function FarmingPage:OnResetButtonClicked()
 	end
 	
 	Session:UpdateSession()
-	FarmingPage:UpdateDisplay(true, false, false, false, true)
+	FarmingPage:UpdateDisplay(true, true, true, true, true)
 end
 
 -----------------------

@@ -58,7 +58,7 @@ end
 Context:SetDependencies(
 	Quest.CONTEXT_MODULE,
 	"HasCompletedQuest",
-	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "IsQuestCompletedForCharacter" }
 )
 function Quest:HasCompletedQuest(questId, includeLinked)
@@ -223,7 +223,7 @@ function Quest:IsOnQuest(questId, includeLinked)
 	end
 	
 	-- Check linked quests
-	if includeLinked and QuestData.Quest[questId] then
+	if includeLinked and QuestData.Quests[questId] then
 		for _, linkedQuestId in ipairs(QuestData.Quests[questId].LinkedQuests) do
 			if Quest:IsOnQuest(linkedQuestId, false) then
 				return true
@@ -499,7 +499,7 @@ Context:SetDependencies(
 )
 function Quest:GetTurnInAbleQuestsInQuestLog(trackedOnly)
 	if not Context:CheckDependencies(Quest.CONTEXT_MODULE, "GetTurnInAbleQuestsInQuestLog") then
-		return 0
+		return {}
 	end
 	
 	local quests = {}
@@ -523,7 +523,7 @@ Context:SetDependencies(
 )
 function Quest:GetTurnInAbleQuestIdsInQuestLog(trackedOnly)
 	if not Context:CheckDependencies(Quest.CONTEXT_MODULE, "GetTurnInAbleQuestIdsInQuestLog") then
-		return 0
+		return {}
 	end
 	
 	local questIds = {}

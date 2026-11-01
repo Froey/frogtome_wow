@@ -69,6 +69,9 @@ function Character:GetRuleset()
 	end
 	
 	local server = Character:GetServer():lower()
+	if server:find("rp", 1, true) and server:find("pvp", 1, true) then
+		return "RP-PvP"
+	end
 	if server:find("pve", 1, true) then
 		return "PvE"
 	end

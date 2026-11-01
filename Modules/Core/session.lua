@@ -7,8 +7,11 @@ Frogtome.Core.Session = {}
 local Core = Frogtome.Core.Core
 local LevelData = Frogtome.Data.LevelData
 local Log = Frogtome.Misc.Log
+local Money = Frogtome.Core.Money
+local Quest = Frogtome.Core.Quest
 local Session = Frogtome.Core.Session
 local Utils = Frogtome.Misc.Utils
+local XP = Frogtome.Core.XP
 
 ------------------------
 -- Session Management --
@@ -54,7 +57,7 @@ function Session:ResetSession()
 	local session = {}
 	Session.Session = session
 	
-	session.StartTimeSeconds = GetTime()
+	session.StartTimeSeconds = GetTime() -- TODO: Move into API
 	session.PauseTimeSeconds = nil
 	
 	session.SessionLevels = 0
@@ -78,19 +81,19 @@ function Session:ResetSession()
 	
 	-- The session update process will handle cases where the character may not yet be fully loaded
 	
-	session.LastKnownLevel = Core:GetCurrentLevel()
+	session.LastKnownLevel = XP:GetCurrentLevel()
 	
-	session.LastKnownCurrentXp = Core:GetCurrentXp()
-	session.LastKnownNeededXp = Core:GetNeededXp()
-	session.LastKnownRemainingXp = Core:GetRemainingXp()
+	session.LastKnownCurrentXp = XP:GetCurrentXp()
+	session.LastKnownNeededXp = XP:GetNeededXp()
+	session.LastKnownRemainingXp = XP:GetRemainingXp()
 	
-	session.LastKnownTurnInAbleQuestXp = Core:GetQuestLogTurnInAbleXpReward()
-	session.LastKnownTotalQuestXp = Core:GetQuestLogTotalXpReward()
+	session.LastKnownTurnInAbleQuestXp = Quest:GetQuestLogTurnInAbleXpReward()
+	session.LastKnownTotalQuestXp = Quest:GetQuestLogTotalXpReward()
 	
-	session.LastKnownCopper = Core:GetMoneyInWholeCopper()
+	session.LastKnownCopper = Money:GetMoneyInWholeCopper()
 	
-	session.LastKnownTurnInAbleQuestCopper = Core:GetQuestLogTurnInAbleMonetaryRewardInWholeCopper()
-	session.LastKnownTotalQuestCopper = Core:GetQuestLogTotalMonetaryRewardInWholeCopper()
+	session.LastKnownTurnInAbleQuestCopper = Quest:GetQuestLogTurnInAbleMonetaryRewardInWholeCopper()
+	session.LastKnownTotalQuestCopper = Quest:GetQuestLogTotalMonetaryRewardInWholeCopper()
 	
 	Session:RelinquishLock()
 end
@@ -127,39 +130,39 @@ function Session:UpdateSession()
 	-- First, snapshot before-and-after information that we can derive other information out of.
 	
 	local oldLevel = session.LastKnownLevel
-	local newLevel = Core:GetCurrentLevel()
+	local newLevel = XP:GetCurrentLevel()
 	session.LastKnownLevel = newLevel
 	
 	local oldCurrentXp = session.LastKnownCurrentXp
-	local newCurrentXp = Core:GetCurrentXp()
+	local newCurrentXp = XP:GetCurrentXp()
 	session.LastKnownCurrentXp = newCurrentXp
 	
 	local oldNeededXp = session.LastKnownNeededXp
-	local newNeededXp = Core:GetNeededXp()
+	local newNeededXp = XP:GetNeededXp()
 	session.LastKnownNeededXp = newNeededXp
 	
 	local oldRemainingXp = session.LastKnownRemainingXp
-	local newRemainingXp = Core:GetRemainingXp()
+	local newRemainingXp = XP:GetRemainingXp()
 	session.LastKnownRemainingXp = newRemainingXp
 	
 	local oldTurnInAbleQuestXp = session.LastKnownTurnInAbleQuestXp
-	local newTurnInAbleQuestXp = Core:GetQuestLogTurnInAbleXpReward()
+	local newTurnInAbleQuestXp = Quest:GetQuestLogTurnInAbleXpReward()
 	session.LastKnownTurnInAbleQuestXp = newTurnInAbleQuestXp
 	
 	local oldTotalQuestXp = session.LastKnownTotalQuestXp
-	local newTotalQuestXp = Core:GetQuestLogTotalXpReward()
+	local newTotalQuestXp = Quest:GetQuestLogTotalXpReward()
 	session.LastKnownTotalQuestXp = newTotalQuestXp
 	
 	local oldCopper = session.LastKnownCopper
-	local newCopper = Core:GetMoneyInWholeCopper()
+	local newCopper = Money:GetMoneyInWholeCopper()
 	session.LastKnownCopper = newCopper
 	
 	local oldTurnInAbleQuestCopper = session.LastKnownTurnInAbleQuestCopper
-	local newTurnInAbleQuestCopper = Core:GetQuestLogTurnInAbleMonetaryRewardInWholeCopper()
+	local newTurnInAbleQuestCopper = Quest:GetQuestLogTurnInAbleMonetaryRewardInWholeCopper()
 	session.LastKnownTurnInAbleQuestCopper = newTurnInAbleQuestCopper
 	
 	local oldTotalQuestCopper = session.LastKnownTotalQuestCopper
-	local newTotalQuestCopper = Core:GetQuestLogTotalMonetaryRewardInWholeCopper()
+	local newTotalQuestCopper = Quest:GetQuestLogTotalMonetaryRewardInWholeCopper()
 	session.LastKnownTotalQuestCopper = newTotalQuestCopper
 	
 	-- Check if we're mid load or something of the sort - if so, let it do its thing and don't try to check for changes
@@ -327,7 +330,7 @@ function Session:GetSessionTimeSeconds()
 	if Session:IsSessionPaused() then
 		return session.PauseTimeSeconds - session.StartTimeSeconds
 	else
-		return GetTime() - session.StartTimeSeconds
+		return GetTime() - session.StartTimeSeconds -- TODO: move into api
 	end
 end
 

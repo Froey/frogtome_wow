@@ -13,6 +13,7 @@ local Core = Frogtome.Core.Core
 local Event = Frogtome.Core.Event
 local HiddenSettings = Frogtome.Settings.HiddenSettings
 local Log = Frogtome.Misc.Log
+local Money = Frogtome.Core.Money
 local Settings = Frogtome.Settings.Settings
 local Strings = Frogtome.UI.Strings
 local UI = Frogtome.UI.UI
@@ -27,7 +28,7 @@ local XP = Frogtome.Core.XP
 
 function CharactersPage:GetCharacterTooltip(character)
 	if not character then
-		return Core:GetFullName()
+		return Character:GetFullName()
 	end
 	
 	return character.FullName
@@ -35,7 +36,7 @@ end
 
 function CharactersPage:GetGuildTooltip(character)
 	if not character then
-		return Core:GetGuildName()
+		return Character:GetGuildName()
 	end
 	
 	return character.Guild
@@ -211,7 +212,7 @@ function CharactersPage:AddCharacterRow()
 	row.CharacterProfession1Icon, row.CharacterProfession1IconTexture = UI:CreateTableTexture(professionTableParams, tableFrame, UIData.ProfessionIcons["Unknown"], UIConfig.CHARACTERS_PAGE_PROFESSION_ICON_RES, UIConfig.CHARACTERS_PAGE_PROFESSION_ICON_RES, 1, rowIndex, 0, 1)
 	row.CharacterProfession1Icon:SetShown(CharactersPage.ProfessionViewActive)
 	UI:ApplyTooltipToWidget(row.CharacterProfession1Icon, "ANCHOR_RIGHT", function()
-		return CharactersPage:GetProfessionSlot1Tooltip(Characters:GetSortedCharacters(Settings:IsShowingRealmCharactersOnlyInCharactersPage())[row.CharacterIndex])
+		return CharactersPage:GetProfessionSlot1Tooltip(Character:GetSortedCharacters(Settings:IsShowingRealmCharactersOnlyInCharactersPage())[row.CharacterIndex])
 	end)
 	
 	row.CharacterProfession1SkillText = UI:CreateTableText(professionTableParams, tableFrame, "", UIConfig.GLOBAL_DATA_TEXT_COLOR, 2, rowIndex)
@@ -220,7 +221,7 @@ function CharactersPage:AddCharacterRow()
 	row.CharacterProfession2Icon, row.CharacterProfession2IconTexture = UI:CreateTableTexture(professionTableParams, tableFrame, UIData.ProfessionIcons["Unknown"], UIConfig.CHARACTERS_PAGE_PROFESSION_ICON_RES, UIConfig.CHARACTERS_PAGE_PROFESSION_ICON_RES, 3, rowIndex, 0, 1)
 	row.CharacterProfession2Icon:SetShown(CharactersPage.ProfessionViewActive)
 	UI:ApplyTooltipToWidget(row.CharacterProfession2Icon, "ANCHOR_RIGHT", function()
-		return CharactersPage:GetProfessionSlot2Tooltip(Characters:GetSortedCharacters(Settings:IsShowingRealmCharactersOnlyInCharactersPage())[row.CharacterIndex])
+		return CharactersPage:GetProfessionSlot2Tooltip(Character:GetSortedCharacters(Settings:IsShowingRealmCharactersOnlyInCharactersPage())[row.CharacterIndex])
 	end)
 	
 	row.CharacterProfession2SkillText = UI:CreateTableText(professionTableParams, tableFrame, "", UIConfig.GLOBAL_DATA_TEXT_COLOR, 4, rowIndex)
@@ -229,7 +230,7 @@ function CharactersPage:AddCharacterRow()
 	row.CharacterCookingIcon, row.CharacterCookingIconTexture = UI:CreateTableTexture(professionTableParams, tableFrame, UIData.ProfessionIcons["Cooking"], UIConfig.CHARACTERS_PAGE_PROFESSION_ICON_RES, UIConfig.CHARACTERS_PAGE_PROFESSION_ICON_RES, 5, rowIndex, 0, 1)
 	row.CharacterCookingIcon:SetShown(CharactersPage.ProfessionViewActive)
 	UI:ApplyTooltipToWidget(row.CharacterCookingIcon, "ANCHOR_RIGHT", function()
-		return CharactersPage:GetCookingTooltip(Characters:GetSortedCharacters(Settings:IsShowingRealmCharactersOnlyInCharactersPage())[row.CharacterIndex])
+		return CharactersPage:GetCookingTooltip(Character:GetSortedCharacters(Settings:IsShowingRealmCharactersOnlyInCharactersPage())[row.CharacterIndex])
 	end)
 	
 	row.CharacterCookingSkillText = UI:CreateTableText(professionTableParams, tableFrame, "", UIConfig.GLOBAL_DATA_TEXT_COLOR, 6, rowIndex)
@@ -238,7 +239,7 @@ function CharactersPage:AddCharacterRow()
 	row.CharacterFishingIcon, row.CharacterFishingIconTexture = UI:CreateTableTexture(professionTableParams, tableFrame, UIData.ProfessionIcons["Fishing"], UIConfig.CHARACTERS_PAGE_PROFESSION_ICON_RES, UIConfig.CHARACTERS_PAGE_PROFESSION_ICON_RES, 7, rowIndex, 0, 1)
 	row.CharacterFishingIcon:SetShown(CharactersPage.ProfessionViewActive)
 	UI:ApplyTooltipToWidget(row.CharacterFishingIcon, "ANCHOR_RIGHT", function()
-		return CharactersPage:GetFishingTooltip(Characters:GetSortedCharacters(Settings:IsShowingRealmCharactersOnlyInCharactersPage())[row.CharacterIndex])
+		return CharactersPage:GetFishingTooltip(Character:GetSortedCharacters(Settings:IsShowingRealmCharactersOnlyInCharactersPage())[row.CharacterIndex])
 	end)
 	
 	row.CharacterFishingSkillText = UI:CreateTableText(professionTableParams, tableFrame, "", UIConfig.GLOBAL_DATA_TEXT_COLOR, 8, rowIndex)
@@ -247,7 +248,7 @@ function CharactersPage:AddCharacterRow()
 	row.CharacterFirstAidIcon, row.CharacterFirstAidIconTexture = UI:CreateTableTexture(professionTableParams, tableFrame, UIData.ProfessionIcons["First Aid"], UIConfig.CHARACTERS_PAGE_PROFESSION_ICON_RES, UIConfig.CHARACTERS_PAGE_PROFESSION_ICON_RES, 9, rowIndex, 0, 1)
 	row.CharacterFirstAidIcon:SetShown(CharactersPage.ProfessionViewActive)
 	UI:ApplyTooltipToWidget(row.CharacterFirstAidIcon, "ANCHOR_RIGHT", function()
-		return CharactersPage:GetFirstAidTooltip(Characters:GetSortedCharacters(Settings:IsShowingRealmCharactersOnlyInCharactersPage())[row.CharacterIndex])
+		return CharactersPage:GetFirstAidTooltip(Character:GetSortedCharacters(Settings:IsShowingRealmCharactersOnlyInCharactersPage())[row.CharacterIndex])
 	end)
 	
 	row.CharacterFirstAidSkillText = UI:CreateTableText(professionTableParams, tableFrame, "", UIConfig.GLOBAL_DATA_TEXT_COLOR, 10, rowIndex)
@@ -525,7 +526,7 @@ function CharactersPage:UpdateExpandedFrameView()
 		
 		-- Money
 		
-		row.CharacterMoneyText:SetText(Utils:CopperToCoinString(character.Money))
+		row.CharacterMoneyText:SetText(Money:CopperToCoinString(character.Money))
 		
 		-- Primary Professions
 		

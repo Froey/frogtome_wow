@@ -67,7 +67,7 @@ function Context:IsRetailProject()
 	return Context.Context.ID == Context.RETAIL_ID
 end
 
-function Context:IsClassic()
+function Context:IsClassicProject()
 	if not Context.Context then
 		return false
 	end
@@ -75,7 +75,7 @@ function Context:IsClassic()
 	return Context.Context.ID == Context.CLASSIC_ID
 end
 
-function Context:IsBCC()
+function Context:IsBCCProject()
 	if not Context.Context then
 		return false
 	end
@@ -83,7 +83,7 @@ function Context:IsBCC()
 	return Context.Context.ID == Context.BCC_ID
 end
 
-function Context:IsForever()
+function Context:IsForeverProject()
 	if not Context.Context then
 		return false
 	end
@@ -196,9 +196,10 @@ API:HookUp({}, nil, "GetRestState", 0, nil, "GetCharacterRestedXpMultiplier", 3)
 
 API:HookUp({}, nil, "GetProfessions", 0, nil, "GetCharacterFirstProfessionIndex", 1)
 API:HookUp({}, nil, "GetProfessions", 0, nil, "GetCharacterSecondProfessionIndex", 2)
-API:HookUp({}, nil, "GetProfessions", 0, nil, "GetCharacterFishingProfessionIndex", 3)
-API:HookUp({}, nil, "GetProfessions", 0, nil, "GetCharacterCookingProfessionIndex", 4)
-API:HookUp({}, nil, "GetProfessions", 0, nil, "GetCharacterFirstAidProfessionIndex", 5)
+API:HookUp({}, nil, "GetProfessions", 0, nil, "GetCharacterFirstSecondaryProfessionIndex", 3)
+API:HookUp({}, nil, "GetProfessions", 0, nil, "GetCharacterSecondSecondaryProfessionIndex", 4)
+API:HookUp({}, nil, "GetProfessions", 0, nil, "GetCharacterThirdSecondaryProfessionIndex", 5)
+API:HookUp({ Context.RETAIL_ID, Context.FOREVER_ID }, nil, "GetProfessions", 0, nil, "GetCharacterFourthSecondaryProfessionIndex", 6)
 
 API:HookUp({}, nil, "GetProfessionInfo", 1, nil, "GetCharacterProfessionName", 1)
 API:HookUp({}, nil, "GetProfessionInfo", 1, nil, "GetCharacterProfessionSkill", 3)
@@ -208,7 +209,7 @@ API:HookUp({}, nil, "GetProfessionInfo", 1, nil, "GetCharacterProfessionMaxSkill
 -- Supported API Calls: General (Quest) --
 ------------------------------------------
 
-API:HookUp({}, nil, "GetQuestLogRewardXP", 1, nil, "GetQuestXp")
+API:HookUp({}, nil, "GetQuestLogRewardXP", 1, nil, "GetQuestXp", 1)
 API:HookUp({}, nil, "GetQuestLogRewardMoney", 1, nil, "GetQuestMoneyInCopper")
 
 --------------------------------------
@@ -216,7 +217,7 @@ API:HookUp({}, nil, "GetQuestLogRewardMoney", 1, nil, "GetQuestMoneyInCopper")
 --------------------------------------
 
 API:HookUp({}, "C_Container", "GetContainerNumSlots", 1, nil, "GetCharacterContainerSize")
-API:HookUp({}, "C_Container", "GetContainerNumFreeSlots", 1, nil, "GetCharacterContainerAvailableSpace")
+API:HookUp({}, "C_Container", "GetContainerNumFreeSlots", 1, nil, "GetCharacterContainerAvailableSpace", 1)
 
 -------------------------------------
 -- Supported API Calls: C_QuestLog --
@@ -225,7 +226,7 @@ API:HookUp({}, "C_Container", "GetContainerNumFreeSlots", 1, nil, "GetCharacterC
 API:HookUp({Context.BCC_ID}, "C_QuestLog", "GetQuestType", 1, nil, "GetQuestType")
 API:HookUp({}, "C_QuestLog", "IsQuestFlaggedCompleted", 1, nil, "IsQuestCompletedForCharacter")
 API:HookUp({Context.BCC_ID}, "C_QuestLog", "GetNumQuestLogEntries", 0, nil, "GetCharacterQuestLogSize")
-API:HookUp({Context.BCC_ID}, "C_QuestLog", "GetInfo", 1, nil, "GetQuestInfo")
+API:HookUp({Context.BCC_ID}, "C_QuestLog", "GetInfo", 1, nil, "GetQuestInfoFromCharacterQuestLog")
 API:HookUp({Context.BCC_ID}, "C_QuestLog", "IsComplete", 1, nil, "IsQuestReadyForTurnInForCharacter")
 API:HookUp({Context.BCC_ID}, "C_QuestLog", "GetQuestIDForQuestWatchIndex", 1, nil, "GetQuestIdAtCharacterWatchIndex")
 

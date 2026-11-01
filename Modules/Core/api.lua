@@ -11,8 +11,6 @@ local Log = Frogtome.Misc.Log
 -- Local Configurables and Attributes --
 ----------------------------------------
 
-API.UseProtectedCalls = false
-
 API.ExclusionDefs = {}
 API.NamespaceDefs = {}
 API.FunctionDefs = {}
@@ -60,33 +58,12 @@ function API:ResolveApiFunction(apiNamespace, apiFunction)
 	return resolvedApiFunction ~= nill, resolvedApiNamespace, resolvedApiFunction
 end
 
--- Executes an actual call for an API function.
-function API:Call(apiFunction, ...)
-	local apiFunctionArgs = { ... }
-	
-	if API.UseProtectedCalls then
-		local results = { pcall(apiFunction, unpack(apiFunctionArgs)) }
-		if select(1, unpack(results)) then
-			Log:Trace("API call succeeded.")
-			
-			table.remove(results, 1)
-			return results
-		else
-			Log:Error("API call failed unexpectedly.")
-		end
-	else
-		return { apiFunction(unpack(apiFunctionArgs)) }
-	end
-end
-
 -- Registers the provided information as a callable function in the API.
-function API:HookUp(projectExclusions, apiNamespace, apiFunction, apiFunctionExpectedArgCount, apiFunctionForcedArgs, hookupFunctionName, ...)
+function API:HookUp(projectExclusions, apiNamespace, apiFunction, apiFunctionExpectedArgCount, apiFunctionForcedArgs, hookupFunctionName, returnValueIndex)
 	-- Track exclusions, namespace, and function, for if/when we want to test their existence
 	API.ExclusionDefs[hookupFunctionName] = projectExclusions
 	API.NamespaceDefs[hookupFunctionName] = apiNamespace
 	API.FunctionDefs[hookupFunctionName] = apiFunction
-	
-	local returnIndexes = { ... }
 	
 	-- Wrap the abstract hookup of this API function within our own function for calling it
 	API[hookupFunctionName] = function(...)
@@ -111,26 +88,18 @@ function API:HookUp(projectExclusions, apiNamespace, apiFunction, apiFunctionExp
 			return
 		end
 		
-		-- Attempt to execute the function
+		-- Confirm that the API we want to call actually exists
 		local apiFunctionResolved, _, resolvedApiFunction = API:ResolveApiFunction(apiNamespace, apiFunction)
 		if not apiFunctionResolved then
 			Log:Error("Failed to call " .. API:CreateApiString(apiNamespace, apiFunction) .. " - doesn't exist.")
 		end
-		local returnValues = API:Call(resolvedApiFunction, unpack(allApiFunctionArgs))
 		
-		-- Parse the output for relevancy; the hook-up has declared what we care about
-		local resolvedReturnValues = {}
-		if #returnIndexes > 0 then
-			for _, returnIndex in ipairs(returnIndexes) do
-				table.insert(resolvedReturnValues, (select(returnIndex, unpack(returnValues))))
-			end
+		-- Execute the actual call, and return the specific desired return value if directed
+		if returnValueIndex then
+			return select(returnValueIndex, resolvedApiFunction(unpack(allApiFunctionArgs)))
 		else
-			-- Just forward along whatever was returned
-			resolvedReturnValues = returnValues
+			return resolvedApiFunction(unpack(allApiFunctionArgs))
 		end
-		
-		-- Return the relevant output
-		return unpack(resolvedReturnValues)
 	end
 end
 

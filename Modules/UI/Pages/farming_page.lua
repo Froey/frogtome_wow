@@ -13,12 +13,15 @@ local FarmingPage = Frogtome.UI.Pages.Farming
 local GoldData = Frogtome.Data.GoldData
 local HiddenSettings = Frogtome.Settings.HiddenSettings
 local Log = Frogtome.Misc.Log
+local Money = Frogtome.Core.Money
+local Quest = Frogtome.Core.Quest
 local Session = Frogtome.Core.Session
 local Settings = Frogtome.Settings.Settings
 local Strings = Frogtome.UI.Strings
 local UI = Frogtome.UI.UI
 local UIConfig = Frogtome.UI.UIConfig
 local Utils = Frogtome.Misc.Utils
+local XP = Frogtome.Core.XP
 
 ----------------------------------
 -- Display Update Functionality --
@@ -33,34 +36,34 @@ function FarmingPage:CreateRoundedValueString(value)
 end
 
 function FarmingPage:CalculateResultingLevelAndXps(xp)
-	local level = Core:GetCurrentLevel()
-	if level >= Core:GetMaxLevel() then
+	local level = XP:GetCurrentLevel()
+	if level >= XP:GetMaxLevel() then
 		return level, 0, 0
 	end
 	
-	local currentXp = Core:GetCurrentXp() + xp
+	local currentXp = XP:GetCurrentXp() + xp
 	if currentXp == nil then
 		currentXp = 0
 	end
 	
-	local neededXp = Core:GetNeededXp()
+	local neededXp = XP:GetNeededXp()
 	if neededXp == nil then
 		neededXp = 0
 	end
 	
 	while not neededXp == 0 and currentXp >= neededXp do
 		level = level + 1
-		if level >= Core:GetMaxLevel() then
+		if level >= XP:GetMaxLevel() then
 			currentXp = 0
 			neededXp = 0
 		else
 			currentXp = currentXp - neededXp
-			neededXp = Core:GetNeededXpForLevel(level)
+			neededXp = XP:GetNeededXpForLevel(level)
 		end
 	end
 	
 	local color = UIConfig.GLOBAL_DATA_TEXT_COLOR
-	if level > Core:GetCurrentLevel() then
+	if level > XP:GetCurrentLevel() then
 		color = UIConfig.GLOBAL_POSITIVE_VALUE_COLOR
 	end
 	
@@ -68,7 +71,7 @@ function FarmingPage:CalculateResultingLevelAndXps(xp)
 end
 
 function FarmingPage:CalculateResultingMoney(copper)
-	return Core:GetMoneyInWholeCopper() + copper
+	return Money:GetMoneyInWholeCopper() + copper
 end
 
 function FarmingPage:CreateTimeUntilNextLevelString(sessionTimeSeconds)
@@ -132,16 +135,16 @@ function FarmingPage:UpdateExpandedFrameView(xpChanged, moneyChanged, miscellane
 		-- Gold View
 		
 		if moneyChanged or rateUpdate then
-			local totalGoldEarnedRate = Utils:CopperToCoinString(Session:GetEarnedMoneyPerHourInCopper(sessionTimeSeconds, 0), UIConfig.FARMING_PAGE_COIN_ICON_RES)
+			local totalGoldEarnedRate = Money:CopperToCoinString(Session:GetEarnedMoneyPerHourInCopper(sessionTimeSeconds, 0), UIConfig.FARMING_PAGE_COIN_ICON_RES)
 			FarmingPage.Page.ExpandedFrameView.GoldView.TotalGoldEarnedRateText:SetText(totalGoldEarnedRate)
 			
-			local questGoldEarnedRate = Utils:CopperToCoinString(Session:GetQuestMoneyPerHourInCopper(sessionTimeSeconds, 0), UIConfig.FARMING_PAGE_COIN_ICON_RES)
+			local questGoldEarnedRate = Money:CopperToCoinString(Session:GetQuestMoneyPerHourInCopper(sessionTimeSeconds, 0), UIConfig.FARMING_PAGE_COIN_ICON_RES)
 			FarmingPage.Page.ExpandedFrameView.GoldView.QuestGoldEarnedRateText:SetText(questGoldEarnedRate)
 			
-			local otherGoldEarnedRate = Utils:CopperToCoinString(Session:GetOtherMoneyPerHourInCopper(sessionTimeSeconds, 0), UIConfig.FARMING_PAGE_COIN_ICON_RES)
+			local otherGoldEarnedRate = Money:CopperToCoinString(Session:GetOtherMoneyPerHourInCopper(sessionTimeSeconds, 0), UIConfig.FARMING_PAGE_COIN_ICON_RES)
 			FarmingPage.Page.ExpandedFrameView.GoldView.OtherGoldEarnedRateText:SetText(otherGoldEarnedRate)
 			
-			local totalGoldSpentRate = Utils:CopperToCoinString(Session:GetSpentMoneyPerHourInCopper(sessionTimeSeconds, 0), UIConfig.FARMING_PAGE_COIN_ICON_RES)
+			local totalGoldSpentRate = Money:CopperToCoinString(Session:GetSpentMoneyPerHourInCopper(sessionTimeSeconds, 0), UIConfig.FARMING_PAGE_COIN_ICON_RES)
 			FarmingPage.Page.ExpandedFrameView.GoldView.TotalGoldSpentRateText:SetText(totalGoldSpentRate)
 		end
 		
@@ -170,10 +173,10 @@ function FarmingPage:UpdateExpandedFrameView(xpChanged, moneyChanged, miscellane
 		-- Gold View
 		
 		if moneyChanged or rateUpdate then
-			FarmingPage.Page.ExpandedFrameView.GoldView.TotalGoldEarnedRateText:SetText(Utils:CopperToCoinString(0, UIConfig.FARMING_PAGE_COIN_ICON_RES))
-			FarmingPage.Page.ExpandedFrameView.GoldView.QuestGoldEarnedRateText:SetText(Utils:CopperToCoinString(0, UIConfig.FARMING_PAGE_COIN_ICON_RES))
-			FarmingPage.Page.ExpandedFrameView.GoldView.OtherGoldEarnedRateText:SetText(Utils:CopperToCoinString(0, UIConfig.FARMING_PAGE_COIN_ICON_RES))
-			FarmingPage.Page.ExpandedFrameView.GoldView.TotalGoldSpentRateText:SetText(Utils:CopperToCoinString(0, UIConfig.FARMING_PAGE_COIN_ICON_RES))
+			FarmingPage.Page.ExpandedFrameView.GoldView.TotalGoldEarnedRateText:SetText(Money:CopperToCoinString(0, UIConfig.FARMING_PAGE_COIN_ICON_RES))
+			FarmingPage.Page.ExpandedFrameView.GoldView.QuestGoldEarnedRateText:SetText(Money:CopperToCoinString(0, UIConfig.FARMING_PAGE_COIN_ICON_RES))
+			FarmingPage.Page.ExpandedFrameView.GoldView.OtherGoldEarnedRateText:SetText(Money:CopperToCoinString(0, UIConfig.FARMING_PAGE_COIN_ICON_RES))
+			FarmingPage.Page.ExpandedFrameView.GoldView.TotalGoldSpentRateText:SetText(Money:CopperToCoinString(0, UIConfig.FARMING_PAGE_COIN_ICON_RES))
 		end
 		
 		-- Both Views
@@ -236,22 +239,22 @@ function FarmingPage:UpdateExpandedFrameView(xpChanged, moneyChanged, miscellane
 	-- Gold View
 	
 	if moneyChanged then
-		local totalGoldEarnedValue = Utils:CopperToCoinString(Session:GetEarnedMoneyInCopper(), UIConfig.FARMING_PAGE_COIN_ICON_RES)
+		local totalGoldEarnedValue = Money:CopperToCoinString(Session:GetEarnedMoneyInCopper(), UIConfig.FARMING_PAGE_COIN_ICON_RES)
 		FarmingPage.Page.ExpandedFrameView.GoldView.TotalGoldEarnedValueText:SetText(totalGoldEarnedValue)
 		
-		local questGoldEarnedValue = Utils:CopperToCoinString(Session:GetQuestMoneyInCopper(), UIConfig.FARMING_PAGE_COIN_ICON_RES)
+		local questGoldEarnedValue = Money:CopperToCoinString(Session:GetQuestMoneyInCopper(), UIConfig.FARMING_PAGE_COIN_ICON_RES)
 		FarmingPage.Page.ExpandedFrameView.GoldView.QuestGoldEarnedValueText:SetText(questGoldEarnedValue)
 		
 		local questGoldEarnedPercentage = FarmingPage:CreatePercentageString(Session:GetQuestMoneyInCopper(), Session:GetEarnedMoneyInCopper())
 		FarmingPage.Page.ExpandedFrameView.GoldView.QuestGoldEarnedPercentageText:SetText(questGoldEarnedPercentage)
 		
-		local otherGoldEarnedValue = Utils:CopperToCoinString(Session:GetOtherMoneyInCopper(), UIConfig.FARMING_PAGE_COIN_ICON_RES)
+		local otherGoldEarnedValue = Money:CopperToCoinString(Session:GetOtherMoneyInCopper(), UIConfig.FARMING_PAGE_COIN_ICON_RES)
 		FarmingPage.Page.ExpandedFrameView.GoldView.OtherGoldEarnedValueText:SetText(otherGoldEarnedValue)
 		
 		local otherGoldEarnedPercentage = FarmingPage:CreatePercentageString(Session:GetOtherMoneyInCopper(), Session:GetEarnedMoneyInCopper())
 		FarmingPage.Page.ExpandedFrameView.GoldView.OtherGoldEarnedPercentageText:SetText(otherGoldEarnedPercentage)
 		
-		local totalGoldSpentValue = Utils:CopperToCoinString(Session:GetSpentMoneyInCopper(), UIConfig.FARMING_PAGE_COIN_ICON_RES)
+		local totalGoldSpentValue = Money:CopperToCoinString(Session:GetSpentMoneyInCopper(), UIConfig.FARMING_PAGE_COIN_ICON_RES)
 		FarmingPage.Page.ExpandedFrameView.GoldView.TotalGoldSpentValueText:SetText(totalGoldSpentValue)
 		
 		local netGoldValue = Session:GetNetMoneyInCopper()
@@ -263,7 +266,7 @@ function FarmingPage:UpdateExpandedFrameView(xpChanged, moneyChanged, miscellane
 			netGoldValueString = "- "
 			netGoldColor = UIConfig.GLOBAL_NEGATIVE_VALUE_COLOR
 		end
-		netGoldValueString = netGoldValueString .. Utils:CopperToCoinString(math.abs(Session:GetNetMoneyInCopper()), UIConfig.FARMING_PAGE_COIN_ICON_RES)
+		netGoldValueString = netGoldValueString .. Money:CopperToCoinString(math.abs(Session:GetNetMoneyInCopper()), UIConfig.FARMING_PAGE_COIN_ICON_RES)
 		FarmingPage.Page.ExpandedFrameView.GoldView.NetGoldText:SetText(netGoldValueString)
 		UI:ApplyTextWidgetFont(FarmingPage.Page.ExpandedFrameView.GoldView.NetGoldText, netGoldColor)
 	end
@@ -275,21 +278,21 @@ function FarmingPage:UpdateExpandedFrameView(xpChanged, moneyChanged, miscellane
 	if miscellaneousChange then
 		local trackedOnly = Settings:IsShowingDataForTrackedQuestOnlyInFarmingPage()
 		
-		local questLogCompletedXpValue = AbbreviateNumbers(Core:GetQuestLogTurnInAbleXpReward(trackedOnly))
+		local questLogCompletedXpValue = AbbreviateNumbers(Quest:GetQuestLogTurnInAbleXpReward(trackedOnly))
 		FarmingPage.Page.ExpandedFrameView.XpView.QuestLogCurrentXpValueText:SetText(questLogCompletedXpValue)
-		local questLogPendingLevel, questLogPendingCurrentXp, questLogPendingNeededXp, questLogPendingXpColor = FarmingPage:CalculateResultingLevelAndXps(Core:GetQuestLogTurnInAbleXpReward(trackedOnly))
+		local questLogPendingLevel, questLogPendingCurrentXp, questLogPendingNeededXp, questLogPendingXpColor = FarmingPage:CalculateResultingLevelAndXps(Quest:GetQuestLogTurnInAbleXpReward(trackedOnly))
 		local questLogPendingXpTurnIn = Strings:Get("FARMING_PAGE_TURN_IN_RESULT_MAX_LEVEL")
-		if questLogPendingLevel < Core:GetMaxLevel() then
+		if questLogPendingLevel < XP:GetMaxLevel() then
 			questLogPendingXpTurnIn = Strings:Get("FARMING_PAGE_TURN_IN_RESULT_LEVEL_LABEL") .. " " .. questLogPendingLevel .. " (" .. Utils:PercentageString(questLogPendingCurrentXp, questLogPendingNeededXp, 0) .. ")"
 		end
 		FarmingPage.Page.ExpandedFrameView.XpView.QuestLogCurrentXpTurnInText:SetText(questLogPendingXpTurnIn)
 		UI:ApplyTextWidgetFont(FarmingPage.Page.ExpandedFrameView.XpView.QuestLogCurrentXpTurnInText, questLogPendingXpColor)
 		
-		local questLogTotalXpValue = AbbreviateNumbers(Core:GetQuestLogTotalXpReward(trackedOnly))
+		local questLogTotalXpValue = AbbreviateNumbers(Quest:GetQuestLogTotalXpReward(trackedOnly))
 		FarmingPage.Page.ExpandedFrameView.XpView.QuestLogTotalXpValueText:SetText(questLogTotalXpValue)
-		local questLogPossibleLevel, questLogPossibleCurrentXp, questLogPossibleNeededXp, questLogPossibleXpColor = FarmingPage:CalculateResultingLevelAndXps(Core:GetQuestLogTotalXpReward(trackedOnly))
+		local questLogPossibleLevel, questLogPossibleCurrentXp, questLogPossibleNeededXp, questLogPossibleXpColor = FarmingPage:CalculateResultingLevelAndXps(Quest:GetQuestLogTotalXpReward(trackedOnly))
 		local questLogPossibleXpTurnIn = Strings:Get("FARMING_PAGE_TURN_IN_RESULT_MAX_LEVEL")
-		if questLogPossibleLevel < Core:GetMaxLevel() then
+		if questLogPossibleLevel < XP:GetMaxLevel() then
 			questLogPossibleXpTurnIn = Strings:Get("FARMING_PAGE_TURN_IN_RESULT_LEVEL_LABEL") .. " " .. questLogPossibleLevel .. " (" .. Utils:PercentageString(questLogPossibleCurrentXp, questLogPossibleNeededXp, 0) .. ")"
 		end
 		FarmingPage.Page.ExpandedFrameView.XpView.QuestLogTotalXpTurnInText:SetText(questLogPossibleXpTurnIn)
@@ -301,25 +304,25 @@ function FarmingPage:UpdateExpandedFrameView(xpChanged, moneyChanged, miscellane
 	local goldGoalName = GoldData.GoldGoals[FarmingPage.GoldGoalIndex].Name
 	FarmingPage.Page.ExpandedFrameView.GoldView.GoldGoalNameText:SetText(goldGoalName)
 	
-	local goldGoalValue = Utils:CopperToCoinString(GoldData.GoldGoals[FarmingPage.GoldGoalIndex].Value, UIConfig.FARMING_PAGE_COIN_ICON_RES)
+	local goldGoalValue = Money:CopperToCoinString(GoldData.GoldGoals[FarmingPage.GoldGoalIndex].Value, UIConfig.FARMING_PAGE_COIN_ICON_RES)
 	FarmingPage.Page.ExpandedFrameView.GoldView.GoldGoalValueText:SetText(goldGoalValue)
 	
 	if moneyChanged then
-		local goldGoalProgress = Utils:PercentageString(Core:GetMoneyInWholeCopper(), GoldData.GoldGoals[FarmingPage.GoldGoalIndex].Value, 1)
+		local goldGoalProgress = Utils:PercentageString(Money:GetMoneyInWholeCopper(), GoldData.GoldGoals[FarmingPage.GoldGoalIndex].Value, 1)
 		FarmingPage.Page.ExpandedFrameView.GoldView.GoldGoalProgressText:SetText(goldGoalProgress)
 	end
 	
 	if miscellaneousChange then
 		local trackedOnly = Settings:IsShowingDataForTrackedQuestOnlyInFarmingPage()
 		
-		local questLogCompletedGoldValue = Utils:CopperToCoinString(Core:GetQuestLogTurnInAbleMonetaryRewardInWholeCopper(trackedOnly), UIConfig.FARMING_PAGE_COIN_ICON_RES)
+		local questLogCompletedGoldValue = Money:CopperToCoinString(Quest:GetQuestLogTurnInAbleMonetaryRewardInWholeCopper(trackedOnly), UIConfig.FARMING_PAGE_COIN_ICON_RES)
 		FarmingPage.Page.ExpandedFrameView.GoldView.QuestLogCurrentGoldValueText:SetText(questLogCompletedGoldValue)
-		local questLogPendingGoldTurnIn = Utils:CopperToCoinString(FarmingPage:CalculateResultingMoney(Core:GetQuestLogTurnInAbleMonetaryRewardInWholeCopper(trackedOnly)), UIConfig.FARMING_PAGE_COIN_ICON_RES)
+		local questLogPendingGoldTurnIn = Money:CopperToCoinString(FarmingPage:CalculateResultingMoney(Quest:GetQuestLogTurnInAbleMonetaryRewardInWholeCopper(trackedOnly)), UIConfig.FARMING_PAGE_COIN_ICON_RES)
 		FarmingPage.Page.ExpandedFrameView.GoldView.QuestLogCurrentGoldTurnInText:SetText(questLogPendingGoldTurnIn)
 		
-		local questLogTotalGoldValue = Utils:CopperToCoinString(Core:GetQuestLogTotalMonetaryRewardInWholeCopper(trackedOnly), UIConfig.FARMING_PAGE_COIN_ICON_RES)
+		local questLogTotalGoldValue = Money:CopperToCoinString(Quest:GetQuestLogTotalMonetaryRewardInWholeCopper(trackedOnly), UIConfig.FARMING_PAGE_COIN_ICON_RES)
 		FarmingPage.Page.ExpandedFrameView.GoldView.QuestLogTotalGoldValueText:SetText(questLogTotalGoldValue)
-		local questLogPossibleGoldTurnIn = Utils:CopperToCoinString(FarmingPage:CalculateResultingMoney(Core:GetQuestLogTotalMonetaryRewardInWholeCopper(trackedOnly)), UIConfig.FARMING_PAGE_COIN_ICON_RES)
+		local questLogPossibleGoldTurnIn = Money:CopperToCoinString(FarmingPage:CalculateResultingMoney(Quest:GetQuestLogTotalMonetaryRewardInWholeCopper(trackedOnly)), UIConfig.FARMING_PAGE_COIN_ICON_RES)
 		FarmingPage.Page.ExpandedFrameView.GoldView.QuestLogTotalGoldTurnInText:SetText(questLogPossibleGoldTurnIn)
 	end
 end
@@ -370,13 +373,13 @@ function FarmingPage:UpdateCondensedFrameView(xpChanged, moneyChanged, miscellan
 	if xpChanged then
 		local averageQuestXpNeeded = Strings:Get("FARMING_PAGE_CONDENSED_AVERAGE_QUEST_LABEL") .. " " .. Strings:Get("FARMING_PAGE_UNKNOWN_AVERAGE")
 		if Session:GetQuestXp() > 0 then
-			averageQuestXpNeeded = Strings:Get("FARMING_PAGE_CONDENSED_AVERAGE_QUEST_LABEL") .. " " .. AbbreviateNumbers(math.ceil(Core:GetRemainingXp() / Session:GetAverageQuestXp()))
+			averageQuestXpNeeded = Strings:Get("FARMING_PAGE_CONDENSED_AVERAGE_QUEST_LABEL") .. " " .. AbbreviateNumbers(math.ceil(XP:GetRemainingXp() / Session:GetAverageQuestXp()))
 		end
 		FarmingPage.Page.CondensedFrameView.XpView.AverageQuestXpNeededText:SetText(averageQuestXpNeeded)
 		
 		local averageOtherXpNeeded = Strings:Get("FARMING_PAGE_CONDENSED_AVERAGE_OTHER_LABEL") .. " " .. Strings:Get("FARMING_PAGE_UNKNOWN_AVERAGE")
 		if Session:GetOtherXp() > 0 then
-			averageOtherXpNeeded = Strings:Get("FARMING_PAGE_CONDENSED_AVERAGE_OTHER_LABEL") .. " " .. AbbreviateNumbers(math.ceil(Core:GetRemainingXp() / Session:GetAverageOtherXp()))
+			averageOtherXpNeeded = Strings:Get("FARMING_PAGE_CONDENSED_AVERAGE_OTHER_LABEL") .. " " .. AbbreviateNumbers(math.ceil(XP:GetRemainingXp() / Session:GetAverageOtherXp()))
 		end
 		FarmingPage.Page.CondensedFrameView.XpView.AverageOtherXpNeededText:SetText(averageOtherXpNeeded)
 	end
@@ -393,7 +396,7 @@ function FarmingPage:UpdateCondensedFrameView(xpChanged, moneyChanged, miscellan
 			netGoldValueString = "- "
 			netGoldColor = UIConfig.GLOBAL_NEGATIVE_VALUE_COLOR
 		end
-		netGoldValueString = netGoldValueString .. Utils:CopperToCoinString(math.abs(Session:GetNetMoneyInCopper()), UIConfig.FARMING_PAGE_COIN_ICON_RES)
+		netGoldValueString = netGoldValueString .. Money:CopperToCoinString(math.abs(Session:GetNetMoneyInCopper()), UIConfig.FARMING_PAGE_COIN_ICON_RES)
 		FarmingPage.Page.CondensedFrameView.GoldView.NetGoldText:SetText(netGoldValueString)
 		UI:ApplyTextWidgetFont(FarmingPage.Page.CondensedFrameView.GoldView.NetGoldText, netGoldColor)
 	end
@@ -405,17 +408,17 @@ function FarmingPage:UpdateCondensedFrameView(xpChanged, moneyChanged, miscellan
 	if miscellaneousChange then
 		local trackedOnly = Settings:IsShowingDataForTrackedQuestOnlyInFarmingPage()
 		
-		local questLogPendingLevel, questLogPendingCurrentXp, questLogPendingNeededXp, questLogPendingXpColor = FarmingPage:CalculateResultingLevelAndXps(Core:GetQuestLogTurnInAbleXpReward(trackedOnly))
+		local questLogPendingLevel, questLogPendingCurrentXp, questLogPendingNeededXp, questLogPendingXpColor = FarmingPage:CalculateResultingLevelAndXps(Quest:GetQuestLogTurnInAbleXpReward(trackedOnly))
 		local questLogPendingXpTurnIn = Strings:Get("FARMING_PAGE_CONDENSED_TURN_IN_RESULT_COMPLETED_LABEL") .. " " .. Strings:Get("FARMING_PAGE_TURN_IN_RESULT_MAX_LEVEL")
-		if questLogPendingLevel < Core:GetMaxLevel() then
+		if questLogPendingLevel < XP:GetMaxLevel() then
 			questLogPendingXpTurnIn = Strings:Get("FARMING_PAGE_CONDENSED_TURN_IN_RESULT_COMPLETED_LABEL") .. " " .. Strings:Get("FARMING_PAGE_TURN_IN_RESULT_LEVEL_LABEL") .. " " .. questLogPendingLevel .. " (" .. Utils:PercentageString(questLogPendingCurrentXp, questLogPendingNeededXp, 1) .. ")"
 		end
 		FarmingPage.Page.CondensedFrameView.XpView.QuestLogCurrentXpTurnInText:SetText(questLogPendingXpTurnIn)
 		UI:ApplyTextWidgetFont(FarmingPage.Page.CondensedFrameView.XpView.QuestLogCurrentXpTurnInText, questLogPendingXpColor)
 		
-		local questLogPossibleLevel, questLogPossibleCurrentXp, questLogPossibleNeededXp, questLogPossibleXpColor = FarmingPage:CalculateResultingLevelAndXps(Core:GetQuestLogTotalXpReward(trackedOnly))
+		local questLogPossibleLevel, questLogPossibleCurrentXp, questLogPossibleNeededXp, questLogPossibleXpColor = FarmingPage:CalculateResultingLevelAndXps(Quest:GetQuestLogTotalXpReward(trackedOnly))
 		local questLogPossibleXpTurnIn = Strings:Get("FARMING_PAGE_CONDENSED_TURN_IN_RESULT_TOTAL_LABEL") .. " " .. Strings:Get("FARMING_PAGE_TURN_IN_RESULT_MAX_LEVEL")
-		if questLogPossibleLevel < Core:GetMaxLevel() then
+		if questLogPossibleLevel < XP:GetMaxLevel() then
 			questLogPossibleXpTurnIn = Strings:Get("FARMING_PAGE_CONDENSED_TURN_IN_RESULT_TOTAL_LABEL") .. " " .. Strings:Get("FARMING_PAGE_TURN_IN_RESULT_LEVEL_LABEL") .. " " .. questLogPossibleLevel .. " (" .. Utils:PercentageString(questLogPossibleCurrentXp, questLogPossibleNeededXp, 1) .. ")"
 		end
 		FarmingPage.Page.CondensedFrameView.XpView.QuestLogTotalXpTurnInText:SetText(questLogPossibleXpTurnIn)
@@ -427,10 +430,10 @@ function FarmingPage:UpdateCondensedFrameView(xpChanged, moneyChanged, miscellan
 	if miscellaneousChange then
 		local trackedOnly = Settings:IsShowingDataForTrackedQuestOnlyInFarmingPage()
 		
-		local questLogPendingGoldTurnIn = Utils:CopperToCoinString(FarmingPage:CalculateResultingMoney(Core:GetQuestLogTurnInAbleMonetaryRewardInWholeCopper(trackedOnly)), UIConfig.FARMING_PAGE_COIN_ICON_RES)
+		local questLogPendingGoldTurnIn = Money:CopperToCoinString(FarmingPage:CalculateResultingMoney(Quest:GetQuestLogTurnInAbleMonetaryRewardInWholeCopper(trackedOnly)), UIConfig.FARMING_PAGE_COIN_ICON_RES)
 		FarmingPage.Page.CondensedFrameView.GoldView.QuestLogCurrentGoldTurnInText:SetText(questLogPendingGoldTurnIn)
 		
-		local questLogPossibleGoldTurnIn = Utils:CopperToCoinString(FarmingPage:CalculateResultingMoney(Core:GetQuestLogTotalMonetaryRewardInWholeCopper(trackedOnly)), UIConfig.FARMING_PAGE_COIN_ICON_RES)
+		local questLogPossibleGoldTurnIn = Money:CopperToCoinString(FarmingPage:CalculateResultingMoney(Quest:GetQuestLogTotalMonetaryRewardInWholeCopper(trackedOnly)), UIConfig.FARMING_PAGE_COIN_ICON_RES)
 		FarmingPage.Page.CondensedFrameView.GoldView.QuestLogTotalGoldTurnInText:SetText(questLogPossibleGoldTurnIn)
 	end
 end

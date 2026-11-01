@@ -65,14 +65,20 @@ Modules/Version/context.lua
 # ------------------------
 
 # The "core" of all functionality: Fundamental information gathering, data organization, etc.
-Modules/Core/core.lua
+Modules/Core/trait.lua
 Modules/Core/xp.lua
+Modules/Core/money.lua
+Modules/Core/quest.lua
+Modules/Core/inventory.lua
+Modules/Core/profession.lua
+Modules/Core/character.lua
+Modules/Core/zone.lua
+Modules/Core/dungeon.lua
 
 # "Listener" functionality that helps UI respond to in-game events
 Modules/Core/event.lua
 
-# The rest of all functionality, supporting all the different pages
-Modules/Core/character.lua
+# Broader systems functionality
 Modules/Core/session.lua
 Modules/Core/notes.lua
 Modules/Core/fun_facts.lua

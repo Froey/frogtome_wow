@@ -9,8 +9,12 @@ local Character = Frogtome.Core.Character
 local Context = Frogtome.Version.Context
 local Core = Frogtome.Core.Core
 local InfoData = Frogtome.Data.InfoData
+local Inventory = Frogtome.Core.Inventory
 local Log = Frogtome.Misc.Log
+local Money = Frogtome.Core.Money
+local Profession = Frogtome.Core.Profession
 local SavedData = Frogtome.Data.SavedData
+local Trait = Frogtome.Core.Trait
 local XP = Frogtome.Core.XP
 
 ----------------------------------------
@@ -58,7 +62,7 @@ Context:SetDependencies(
 	Character.CONTEXT_MODULE,
 	"GetRuleset",
 	{ Context.FOREVER_ID }, 
-	{ "GetCharacterServer" }
+	{}
 )
 function Character:GetRuleset()
 	if not Context:CheckDependencies(Character.CONTEXT_MODULE, "GetRuleset") then
@@ -109,7 +113,7 @@ function Character:GetRace()
 		return "Unknown"
 	end
 	
-	return API.GetCharacterFactionDataString()
+	return API.GetCharacterRaceDataString()
 end
 
 -- Returns the numerical ID for the current character's class.
@@ -317,13 +321,10 @@ end
 
 -- Creates and returns the info package for the current character's profession at the specified index.
 function Character:GenerateCurrentProfessionInfo(professionIndex)
-	local name, iconId, currentSkill, maxSkill = Core:GetProfessionInfo(professionIndex)
-	
 	local profession = {}
-	profession.Name = name
-	profession.IconId = iconId
-	profession.CurrentSkill = currentSkill
-	profession.MaxSkill = maxSkill
+	profession.Name = Profession:GetProfessionName(professionIndex)
+	profession.CurrentSkill = Profession:GetProfessionCurrentSkill(professionIndex)
+	profession.MaxSkill = Profession:GetProfessionMaxSkill(professionIndex)
 	
 	return profession
 end
@@ -332,14 +333,14 @@ end
 function Character:CreateCurrentInventoryInfo()
 	local inventory = {}
 	
-	inventory.TotalSize = Core:GetInventorySize(true)
+	inventory.TotalSize = Inventory:GetInventorySize(true)
 	
-	inventory.Backpack = Core:GetBackpackSize()
-	inventory.Bag1 = Core:GetBagSize(1)
-	inventory.Bag2 = Core:GetBagSize(2)
-	inventory.Bag3 = Core:GetBagSize(3)
-	inventory.Bag4 = Core:GetBagSize(4)
-	inventory.ReagentBag = Core:GetReagentBagSize()
+	inventory.Backpack = Inventory:GetBackpackSize()
+	inventory.Bag1 = Inventory:GetBagSize(1)
+	inventory.Bag2 = Inventory:GetBagSize(2)
+	inventory.Bag3 = Inventory:GetBagSize(3)
+	inventory.Bag4 = Inventory:GetBagSize(4)
+	inventory.ReagentBag = Inventory:GetReagentBagSize()
 	
 	return inventory
 end
@@ -366,32 +367,35 @@ function Character:GenerateCurrentCharacter()
 	character.FullName = Character:GetFullName()
 	character.Guild = Character:GetGuildName()
 	
-	character.Level = Core:GetCurrentLevel()
-	character.IsMaxLevel = Core:IsMaxLevel()
-	character.CurrentXp = Core:GetCurrentXp()
-	character.NeededXp = Core:GetNeededXp()
-	character.RestedXp = Core:GetRestedXp()
-	character.IsResting = Core:IsResting()
-	character.WellRestedRank = XP:GetWellRestedRank()
+	character.Level = XP:GetCurrentLevel()
+	character.IsMaxLevel = XP:IsMaxLevel()
+	character.CurrentXp = XP:GetCurrentXp()
+	character.NeededXp = XP:GetNeededXp()
+	character.RestedXp = XP:GetRestedXp()
+	character.IsResting = XP:IsResting()
+	character.WellRestedRank = Trait:GetWellRestedRank()
 	
-	if Core:IsFirstProfessionLearned() then
-		character.FirstProfession = Character:GenerateCurrentProfessionInfo(Core:GetFirstProfessionIndex())
+	if Profession:IsFirstProfessionLearned() then
+		character.FirstProfession = Character:GenerateCurrentProfessionInfo(Profession:GetFirstProfessionIndex())
 	end
-	if Core:IsSecondProfessionLearned() then
-		character.SecondProfession = Character:GenerateCurrentProfessionInfo(Core:GetSecondProfessionIndex())
+	if Profession:IsSecondProfessionLearned() then
+		character.SecondProfession = Character:GenerateCurrentProfessionInfo(Profession:GetSecondProfessionIndex())
 	end
-	if Core:IsFishingProfessionLearned() then
-		character.FishingProfession = Character:GenerateCurrentProfessionInfo(Core:GetFishingProfessionIndex())
+	if Profession:IsFishingProfessionLearned() then
+		character.FishingProfession = Character:GenerateCurrentProfessionInfo(Profession:GetFishingProfessionIndex())
 	end
-	if Core:IsCookingProfessionLearned() then
-		character.CookingProfession = Character:GenerateCurrentProfessionInfo(Core:GetCookingProfessionIndex())
+	if Profession:IsCookingProfessionLearned() then
+		character.CookingProfession = Character:GenerateCurrentProfessionInfo(Profession:GetCookingProfessionIndex())
 	end
-	if Core:IsFirstAidProfessionLearned() then
-		character.FirstAidProfession = Character:GenerateCurrentProfessionInfo(Core:GetFirstAidProfessionIndex())
+	if Profession:IsFirstAidProfessionLearned() then
+		character.FirstAidProfession = Character:GenerateCurrentProfessionInfo(Profession:GetFirstAidProfessionIndex())
+	end
+	if Profession:IsArchaeologyProfessionLearned() then
+		character.ArchaeologyProfession = Character:GenerateCurrentProfessionInfo(Profession:GetArchaeologyProfessionIndex())
 	end
 	
 	character.Inventory = Character:CreateCurrentInventoryInfo()
-	character.Money = Core:GetMoneyInWholeCopper()
+	character.Money = Money:GetMoneyInWholeCopper()
 	
 	return character
 end

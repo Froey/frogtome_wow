@@ -5,7 +5,9 @@ end
 Frogtome.Core.XP = {}
 
 local API = Frogtome.Core.API
+local Context = Frogtome.Version.Context
 local Log = Frogtome.Misc.Log
+local Trait = Frogtome.Core.Trait
 local Utils = Frogtome.Misc.Utils
 local XP = Frogtome.Core.XP
 local XpData = Frogtome.Data.XpData
@@ -14,28 +16,30 @@ local XpData = Frogtome.Data.XpData
 -- Local Configurables and Attributes --
 ----------------------------------------
 
+XP.CONTEXT_MODULE = "Frogtome.Core.XP"
+
 XP.MinLevel = 1
-XP.MaxLevel = API.GetCharacterMaxLevel()
 
 XP.BaseRestedCapFraction = 1.5
 XP.AdditionalRestedCapFractionPerRank = XP.BaseRestedCapFraction * 0.04
 XP.BaseRestedCapTimeWhenRestingInHours = 24 * 10
 XP.BaseRestedCapTimeWhenNotRestingInHours = XP.BaseRestedCapTimeWhenRestingInHours * 4
 
-XP.CachedWellRestedNodeInfo = nil
-XP.WellRestedNodeDiscoveryByTypeFloor = 0
-XP.WellRestedNodeDiscoveryByTypeCeiling = 5
-XP.WellRestedNodeDiscoveryBySystemFloor = 1
-XP.WellRestedNodeDiscoveryBySystemCeiling = 200
+-------------------------
+-- Core Data Functions --
+-------------------------
 
-XP.ExpectedWellRestedNodeName = "Well Rested"
-XP.ExpectedWellRestedNodeMaxRanks = 5
-
------------------------
--- Earned Experience --
------------------------
-
+Context:SetDependencies(
+	XP.CONTEXT_MODULE,
+	"GetCurrentLevel",
+	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ "GetCharacterLevel" }
+)
 function XP:GetCurrentLevel()
+	if not Context:CheckDependencies(XP.CONTEXT_MODULE, "GetCurrentLevel") then
+		return 1
+	end
+	
 	return API.GetCharacterLevel()
 end
 
@@ -43,8 +47,18 @@ function XP:GetMinLevel()
 	return XP.MinLevel
 end
 
+Context:SetDependencies(
+	XP.CONTEXT_MODULE,
+	"GetMaxLevel",
+	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ "GetCharacterMaxLevel" }
+)
 function XP:GetMaxLevel()
-	return XP.MaxLevel
+	if not Context:CheckDependencies(XP.CONTEXT_MODULE, "GetMaxLevel") then
+		return 60
+	end
+	
+	return API.GetCharacterMaxLevel()
 end
 
 function XP:ClampLevel(level)
@@ -52,8 +66,9 @@ function XP:ClampLevel(level)
 		return XP.MinLevel
 	end
 	
-	if level > XP.MaxLevel then
-		return XP.MaxLevel
+	local maxLevel = XP:GetMaxLevel()
+	if level > maxLevel then
+		return maxLevel
 	end
 	
 	return level
@@ -65,10 +80,20 @@ function XP:IsMaxLevel(level)
 	end
 	level = XP:ClampLevel(level)
 	
-	return level >= XP.MaxLevel
+	return level >= XP:GetMaxLevel()
 end
 
+Context:SetDependencies(
+	XP.CONTEXT_MODULE,
+	"GetCurrentXp",
+	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ "GetCharacterXp" }
+)
 function XP:GetCurrentXp()
+	if not Context:CheckDependencies(XP.CONTEXT_MODULE, "GetCurrentXp") then
+		return 0
+	end
+	
 	if XP:IsMaxLevel() then
 		return 0
 	end
@@ -76,7 +101,17 @@ function XP:GetCurrentXp()
 	return API.GetCharacterXp()
 end
 
+Context:SetDependencies(
+	XP.CONTEXT_MODULE,
+	"GetNeededXp",
+	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ "GetCharacterNeededXp" }
+)
 function XP:GetNeededXp(level)
+	if not Context:CheckDependencies(XP.CONTEXT_MODULE, "GetNeededXp") then
+		return 1
+	end
+	
 	if not level then
 		level = XP:GetCurrentLevel()
 	end
@@ -98,7 +133,17 @@ function XP:GetRemainingXp()
 	return XP:GetNeededXp() - XP:GetCurrentXp()
 end
 
+Context:SetDependencies(
+	XP.CONTEXT_MODULE,
+	"GetCurrentLifetimeXp",
+	{ Context.FOREVER_ID }, 
+	{}
+)
 function XP:GetCurrentLifetimeXp(currentLevel, currentXp)
+	if not Context:CheckDependencies(XP.CONTEXT_MODULE, "GetCurrentLifetimeXp") then
+		return 0
+	end
+	
 	if not currentLevel then
 		currentLevel = XP:GetCurrentLevel()
 	end
@@ -117,7 +162,17 @@ function XP:GetCurrentLifetimeXp(currentLevel, currentXp)
 	return lifetimeXp
 end
 
+Context:SetDependencies(
+	XP.CONTEXT_MODULE,
+	"GetNeededLifetimeXp",
+	{ Context.FOREVER_ID }, 
+	{}
+)
 function XP:GetNeededLifetimeXp()
+	if not Context:CheckDependencies(XP.CONTEXT_MODULE, "GetNeededLifetimeXp") then
+		return 1
+	end
+	
 	local lifetimeXpNeeded = 0
 	for level = XP.MinLevel, XP.MaxLevel do
 		lifetimeXpNeeded = lifetimeXpNeeded + XpData.NeededLevelXps[level]
@@ -130,15 +185,31 @@ function XP:GetRemainingLifetimeXp(currentLevel, currentXp)
 	return XP:GetNeededLifetimeXp() - XP:GetCurrentLifetimeXp(currentLevel, currentXp)
 end
 
------------------------
--- Rested Experience --
------------------------
-
+Context:SetDependencies(
+	XP.CONTEXT_MODULE,
+	"IsResting",
+	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ "IsCharacterResting" }
+)
 function XP:IsResting()
+	if not Context:CheckDependencies(XP.CONTEXT_MODULE, "IsResting") then
+		return false
+	end
+	
 	return API.IsCharacterResting()
 end
 
+Context:SetDependencies(
+	XP.CONTEXT_MODULE,
+	"GetRestedXp",
+	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ "GetCharacterRestedXp" }
+)
 function XP:GetRestedXp()
+	if not Context:CheckDependencies(XP.CONTEXT_MODULE, "GetRestedXp") then
+		return 0
+	end
+	
 	local restedXp = API.GetCharacterRestedXp()
 	if restedXp == nil then
 		return 0
@@ -151,7 +222,17 @@ function XP:HasRestedXp()
 	return XP:GetRestedXp() > 0
 end
 
+Context:SetDependencies(
+	XP.CONTEXT_MODULE,
+	"GetXpMultiplier",
+	{ Context.RETAIL_ID, Context.FOREVER_ID }, 
+	{ "GetCharacterRestedXpMultiplier" }
+)
 function XP:GetXpMultiplier()
+	if not Context:CheckDependencies(XP.CONTEXT_MODULE, "GetXpMultiplier") then
+		return 0
+	end
+	
 	local multiplier = API.GetCharacterRestedXpMultiplier()
 	if multipler == nul then
 		multiplier = 1
@@ -170,7 +251,7 @@ function XP:GetCurrentRestedCapFraction(restedXp, neededXp, wellRestedRank)
 	end
 	
 	if not wellRestedRank then
-		wellRestedRank = XP:GetWellRestedRank()
+		wellRestedRank = Trait:GetWellRestedRank()
 	end
 	
 	-- For a character loaded in right after creation, neededXp can be zero. Default to zero here in that case.
@@ -230,151 +311,4 @@ function XP:GetRemainingRestedCapTimeInDaysPlusHours(lastKnownRestedXp, neededXp
 	remainingRestedCapTimeInHours = remainingRestedCapTimeInHours % 24
 	
 	return remainingRestedCapTimeInDays, remainingRestedCapTimeInHours
-end
-
------------------------
--- Well Rested Trait --
------------------------
-
--- TODO: This stretches WELL BEYOND the scope of this module. This should probably be moved to elsewhere.
-function XP:GetNodeName(configId, nodeId, node)
-	if not API:AreAllSupported({ "GetTraitTreeNodeEntryInfo", "GetTraitTreeNodeEntryDefinitionInfo" }) then
-		return nil
-	end
-	
-	local entryId = nil
-	if node.activeEntry then
-		entryId = node.activeEntry.entryID
-	elseif node.entryIDs then
-		entryId = node.entryIDs[1]
-	end
-	if not entryId then
-		return nil
-	end
-	
-	local entry = API.GetTraitTreeNodeEntryInfo(configId, entryId)
-	if not entry then
-		return nil
-	end
-	
-	local definitionId = entry.definitionID
-	if not definitionId then
-		return nil
-	end
-	
-	local definition = API.GetTraitTreeNodeEntryDefinitionInfo(definitionId)
-	if not definition then
-		return nil
-	end
-	
-	-- We have something we can return the name of
-	
-	local overrideName = definition.overrideName
-	if overrideName and overrideName ~= "" then
-		return overrideName
-	end
-	
-	local spellId = definition.spellID
-	if spellId and API:IsSupported("GetSpellName") then
-		return API.GetSpellName(spellId)
-	end
-	
-	return nil
-end
-
-function XP:DiscoverWellRestedNode()
-	local foundConfigIds = {}
-	
-	-- Very debug-like code for the time being, while we figure out if Well Rested has a permanent ID
-	
-	-- Attempt to collect possible "Well Rested" traits by type
-	if API:IsSupported("GetTraitConfigIdsFromTypeId") then
-		for typeId = XP.WellRestedNodeDiscoveryByTypeFloor, XP.WellRestedNodeDiscoveryByTypeCeiling do
-			local configIds = API.GetTraitConfigIdsFromTypeId(typeId)
-			if configIds then
-				for _, configId in ipairs(configIds) do
-					if foundConfigIds[configId] == nil then
-						foundConfigIds[configId] = "Type ID: " .. tostring(typeId)
-					end
-				end
-			end
-		end
-	else
-		Log:Dev("Skipping discovery of \"Well Rested\" trait via types.")
-	end
-	
-	-- Collect possible "Well Rested" traits by system ID
-	if API:IsSupported("GetTraitConfigIdFromSystemId") then
-		for systemId = XP.WellRestedNodeDiscoveryBySystemFloor, XP.WellRestedNodeDiscoveryBySystemCeiling do
-			local configId = API.GetTraitConfigIdFromSystemId(systemId)
-			if configId and foundConfigIds[configId] == nil then
-				foundConfigIds[configId] = "System ID: " .. tostring(systemId)
-			end
-		end
-	else
-		Log:Dev("Skipping discovery of \"Well Rested\" trait via systems.")
-	end
-	
-	local traitTreeDivingDependencies = {
-		"GetTraitConfigInfo",
-		"GetTraitTreeNodeIds,"
-	}
-	
-	-- Get the actual "Well Rested" trait
-	if API:AreAllSupported({ "GetTraitConfigInfo", "GetTraitTreeNodeIds", "GetTraitTreeNodeInfo" }) then
-		for configId, _ in pairs(foundConfigIds) do
-			local configInfo = API.GetTraitConfigInfo(configId)
-			if configInfo and configInfo.treeIDs then
-				for _, treeId in ipairs(configInfo.treeIDs) do
-					local nodeIds = API.GetTraitTreeNodeIds(treeId)
-					if nodeIds then
-						for _, nodeId in ipairs(nodeIds) do
-							local node = API.GetTraitTreeNodeInfo(configId, nodeId)
-							if node then
-								local nodeName = XP:GetNodeName(configId, nodeId, node)
-								if nodeName == XP.ExpectedWellRestedNodeName and node.maxRanks == XP.ExpectedWellRestedNodeMaxRanks then
-									Log:Dev("Found \"Well Rested\": " .. tostring(configId) .. ", " .. tostring(nodeId))
-									XP.CachedWellRestedNodeInfo = {
-										["ConfigId"] = configId,
-										["NodeId"] = nodeId
-									}
-									return
-								else
-									-- debug code for narrowing it down?
-								end
-							end
-						end
-					end
-				end
-			end
-		end
-	else
-		Log:Dev("Did not have necessary dependencies to search trait trees for \"Well Rested\".")
-	end
-	
-	Log:Dev("Did not find \"Well Rested\".")
-	XP.CachedWellRestedNodeInfo = {}
-end
-
-function XP:GetWellRestedRank(forceCacheReset)
-	if not XP.CachedWellRestedNodeInfo or forceCacheReset then
-		-- XXX: Does the timing of this matter? Do we need to try to discover this multiple times?
-		-- XXX: This may do absolutely nothing until the feature is unlocked with the first legacy talent
-		XP:DiscoverWellRestedNode()
-	end
-	
-	if not XP.CachedWellRestedNodeInfo.ConfigId or not XP.CachedWellRestedNodeInfo.NodeId then
-		-- We don't have what we need to get info for "Well Rested". Return a default of zero
-		return 0
-	end
-	
-	local wellRestedConfigId = XP.CachedWellRestedNodeInfo.ConfigId
-	local wellRestedNodeId = XP.CachedWellRestedNodeInfo.NodeId
-	local wellRestedNode = API.GetTraitTreeNodeInfo(wellRestedConfigId, wellRestedNodeId)
-	
-	if wellRestedNode.ranksPurchased then
-		return wellRestedNode.ranksPurchased
-	else
-		return wellRestedNode.currentRank
-	end
 end

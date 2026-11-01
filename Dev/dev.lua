@@ -4,6 +4,7 @@ if not Frogtome.Dev then
 end
 Frogtome.Dev.Dev = {}
 
+local API = Frogtome.Root.API
 local Character = Frogtome.Core.Character
 local Dev = Frogtome.Dev.Dev
 local HiddenSettings = Frogtome.Settings.HiddenSettings
@@ -145,10 +146,10 @@ function Dev:FindUnknownQuests(xpRelatedChange)
 				-- This is a new quest we picked up - generate data for it.
 				local newQuest = {}
 				newQuest.ID = quest.questID
-				newQuest.FactionRestriction = Character:GetFactionDataString()
+				newQuest.FactionRestriction = Character:GetFaction()
 				newQuest.Name = quest.title
 				newQuest.Zone = nil
-				if API.IsSupported("GetCharacterZone") then
+				if API:IsSupported("GetCharacterZone") then
 					newQuest.Zone = API.GetCharacterZone()
 				end
 				newQuest.Level = quest.level

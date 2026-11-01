@@ -7,16 +7,19 @@ if not Frogtome.UI.Pages then
 end
 Frogtome.UI.Pages.Questing = {}
 
-local Core = Frogtome.Core.Core
+local Dungeon = Frogtome.Core.Dungeon
 local DungeonData = Frogtome.Data.DungeonData
-local Event = Frogtome.Core.Event
-local Log = Frogtome.Misc.Log
+local Event = Frogtome.Root.Event
+local Log = Frogtome.Root.Log
+local Quest = Frogtome.Core.Quest
 local QuestingPage = Frogtome.UI.Pages.Questing
 local Settings = Frogtome.Settings.Settings
 local Strings = Frogtome.UI.Strings
 local UI = Frogtome.UI.UI
 local UIConfig = Frogtome.UI.UIConfig
-local Utils = Frogtome.Misc.Utils
+local Utils = Frogtome.Root.Utils
+local XP = Frogtome.Core.XP
+local Zone = Frogtome.Core.Zone
 local ZoneData = Frogtome.Data.ZoneData
 
 ----------------------------------
@@ -41,7 +44,7 @@ function QuestingPage:CreateLevelRangeString(minLevel, maxLevel)
 	if minLevel < maxLevel then
 		local levelRangeString = tostring(minLevel) .. "-" .. tostring(maxLevel)
 		
-		local currentLevel = Core:GetCurrentLevel()
+		local currentLevel = XP:GetCurrentLevel()
 		local distanceFromMinLevel = currentLevel - minLevel
 		local distanceFromMaxLevel = maxLevel - currentLevel
 		
@@ -70,7 +73,7 @@ function QuestingPage:CreateLevelRangeString(minLevel, maxLevel)
 end
 
 function QuestingPage:CreateZoneQuestCompletionString(zone)
-	local quests = Core:GetZoneQuestsForFaction(zone)
+	local quests = Zone:GetZoneQuestsForFaction(zone)
 	
 	if #quests == 0 then
 		return "N/A", UIConfig.GLOBAL_DISABLED_DATA_TEXT_COLOR
@@ -78,7 +81,7 @@ function QuestingPage:CreateZoneQuestCompletionString(zone)
 	
 	local completedQuests = 0
 	for _, quest in ipairs(quests) do
-		if Core:HasCompletedQuest(quest.ID, true) then
+		if Quest:HasCompletedQuest(quest.ID, true) then
 			completedQuests = completedQuests + 1
 		end
 	end
@@ -96,17 +99,17 @@ function QuestingPage:CreateZoneQuestCompletionString(zone)
 end
 
 function QuestingPage:CreateZoneQuestXpString(zone)
-	local quests = Core:GetZoneQuestsForFaction(zone)
+	local quests = Zone:GetZoneQuestsForFaction(zone)
 	
 	if #quests == 0 then
 		return "N/A", UIConfig.GLOBAL_DISABLED_DATA_TEXT_COLOR
 	end
 	
-	local currentLevel = Core:GetCurrentLevel()
+	local currentLevel = XP:GetCurrentLevel()
 	
 	local availableXp = 0
 	for _, quest in ipairs(quests) do
-		if not Core:HasCompletedQuest(quest.ID, true) then
+		if not Quest:HasCompletedQuest(quest.ID, true) then
 			availableXp = availableXp + quest.XP
 		end
 	end
@@ -129,7 +132,7 @@ function QuestingPage:CreateZoneQuestCompletionTooltip(zone)
 		}
 	end
 	
-	local quests = Core:GetIncompleteZoneQuestsForFaction(zone, nil, true)
+	local quests = Zone:GetIncompleteZoneQuestsForFaction(zone, nil, true)
 	if #quests == 0 then
 		return {
 			{
@@ -172,13 +175,13 @@ function QuestingPage:CreateZoneQuestCompletionTooltip(zone)
 	for index, quest in ipairs(questsForTooltip) do
 		if index <= UIConfig.QUESTING_PAGE_QUEST_TOOLTIP_LIMIT then
 			local lineColor = UIConfig.GLOBAL_DATA_TEXT_COLOR
-			if Core:HasCompletedQuest(quest.ID, true) then
+			if Quest:HasCompletedQuest(quest.ID, true) then
 				lineColor = UIConfig.GLOBAL_QUEST_COMPLETED_COLOR
-			elseif Core:CanTurnInQuest(quest.ID, true) then
+			elseif Quest:CanTurnInQuest(quest.ID, true) then
 				lineColor = UIConfig.GLOBAL_QUEST_READY_COLOR
-			elseif Core:IsOnQuest(quest.ID, true) then
+			elseif Quest:IsOnQuest(quest.ID, true) then
 				lineColor = UIConfig.GLOBAL_QUEST_IN_PROGRESS_COLOR
-			elseif Core:HasCompletedPrereqQuestsForQuest(quest.ID) then
+			elseif Quest:HasCompletedPrereqQuestsForQuest(quest.ID) then
 				lineColor = UIConfig.GLOBAL_QUEST_AVAILABLE_COLOR
 			else
 				lineColor = UIConfig.GLOBAL_QUEST_LOCKED_COLOR
@@ -209,7 +212,7 @@ function QuestingPage:CreateZoneQuestCompletionTooltip(zone)
 end
 
 function QuestingPage:CreateDungeonPreQuestCompletionString(dungeon)
-	local preQuests = Core:GetDungeonPreQuestsForFaction(dungeon)
+	local preQuests = Dungeon:GetDungeonPreQuestsForFaction(dungeon)
 	
 	if #preQuests == 0 then
 		return "N/A", UIConfig.GLOBAL_DISABLED_DATA_TEXT_COLOR
@@ -217,7 +220,7 @@ function QuestingPage:CreateDungeonPreQuestCompletionString(dungeon)
 	
 	local completedPreQuests = 0
 	for _, preQuest in ipairs(preQuests) do
-		if Core:HasCompletedQuest(preQuest.ID, true) then
+		if Quest:HasCompletedQuest(preQuest.ID, true) then
 			completedPreQuests = completedPreQuests + 1
 		end
 	end
@@ -244,7 +247,7 @@ function QuestingPage:CreateDungeonPreQuestCompletionTooltip(dungeon)
 		}
 	end
 	
-	local preQuests = Core:GetDungeonPreQuestsForFaction(dungeon)
+	local preQuests = Dungeon:GetDungeonPreQuestsForFaction(dungeon)
 	if #preQuests == 0 then
 		return {
 			{
@@ -285,13 +288,13 @@ function QuestingPage:CreateDungeonPreQuestCompletionTooltip(dungeon)
 	
 	for _, quest in ipairs(questsForTooltip) do
 		local lineColor = UIConfig.GLOBAL_DATA_TEXT_COLOR
-		if Core:HasCompletedQuest(quest.ID, true) then
+		if Quest:HasCompletedQuest(quest.ID, true) then
 			lineColor = UIConfig.GLOBAL_QUEST_COMPLETED_COLOR
-		elseif Core:CanTurnInQuest(quest.ID, true) then
+		elseif Quest:CanTurnInQuest(quest.ID, true) then
 			lineColor = UIConfig.GLOBAL_QUEST_READY_COLOR
-		elseif Core:IsOnQuest(quest.ID, true) then
+		elseif Quest:IsOnQuest(quest.ID, true) then
 			lineColor = UIConfig.GLOBAL_QUEST_IN_PROGRESS_COLOR
-		elseif Core:HasCompletedPrereqQuestsForQuest(quest.ID) then
+		elseif Quest:HasCompletedPrereqQuestsForQuest(quest.ID) then
 			lineColor = UIConfig.GLOBAL_QUEST_AVAILABLE_COLOR
 		else
 			lineColor = UIConfig.GLOBAL_QUEST_LOCKED_COLOR
@@ -313,14 +316,14 @@ function QuestingPage:CreateDungeonPreQuestCompletionTooltip(dungeon)
 end
 
 function QuestingPage:CreateDungeonQuestsToBringString(dungeon)
-	local quests = Core:GetDungeonQuestsForFaction(dungeon)
+	local quests = Dungeon:GetDungeonQuestsForFaction(dungeon)
 	
 	local heldQuests = 0
 	local completedQuests = 0
 	for _, quest in ipairs(quests) do
-		if Core:HasCompletedQuest(quest.ID, true) then
+		if Quest:HasCompletedQuest(quest.ID, true) then
 			completedQuests = completedQuests + 1
-		elseif Core:IsOnQuest(quest.ID, true) then
+		elseif Quest:IsOnQuest(quest.ID, true) then
 			heldQuests = heldQuests + 1
 		end
 	end
@@ -352,7 +355,7 @@ function QuestingPage:CreateDungeonQuestsToBringTooltip(dungeon)
 		}
 	end
 	
-	local quests = Core:GetDungeonQuestsForFaction(dungeon)
+	local quests = Dungeon:GetDungeonQuestsForFaction(dungeon)
 	if #quests == 0 then
 		return {
 			{
@@ -393,11 +396,11 @@ function QuestingPage:CreateDungeonQuestsToBringTooltip(dungeon)
 	
 	for _, quest in ipairs(questsForTooltip) do
 		local lineColor = UIConfig.GLOBAL_DATA_TEXT_COLOR
-		if Core:HasCompletedQuest(quest.ID, true) then
+		if Quest:HasCompletedQuest(quest.ID, true) then
 			lineColor = UIConfig.GLOBAL_QUEST_IRRELEVANT_COLOR
-		elseif Core:IsOnQuest(quest.ID, true) then
+		elseif Quest:IsOnQuest(quest.ID, true) then
 			lineColor = UIConfig.GLOBAL_QUEST_IN_PROGRESS_COLOR
-		elseif Core:HasCompletedPrereqQuestsForQuest(quest.ID) then
+		elseif Quest:HasCompletedPrereqQuestsForQuest(quest.ID) then
 			lineColor = UIConfig.GLOBAL_QUEST_AVAILABLE_COLOR
 		else
 			lineColor = UIConfig.GLOBAL_QUEST_LOCKED_COLOR
@@ -419,17 +422,17 @@ function QuestingPage:CreateDungeonQuestsToBringTooltip(dungeon)
 end
 
 function QuestingPage:CreateDungeonQuestCompletionString(dungeon)
-	local quests = Core:GetDungeonQuestsForFaction(dungeon)
-	local midQuests = Core:GetDungeonMidQuestsForFaction(dungeon)
+	local quests = Dungeon:GetDungeonQuestsForFaction(dungeon)
+	local midQuests = Dungeon:GetDungeonMidQuestsForFaction(dungeon)
 	
 	local completedQuests = 0
 	for _, quest in ipairs(quests) do
-		if Core:HasCompletedQuest(quest.ID, true) then
+		if Quest:HasCompletedQuest(quest.ID, true) then
 			completedQuests = completedQuests + 1
 		end
 	end
 	for _, midQuest in ipairs(midQuests) do
-		if Core:HasCompletedQuest(midQuest.ID, true) then
+		if Quest:HasCompletedQuest(midQuest.ID, true) then
 			completedQuests = completedQuests + 1
 		end
 	end
@@ -461,8 +464,8 @@ function QuestingPage:CreateDungeonQuestCompletionTooltip(dungeon)
 		}
 	end
 	
-	local quests = Core:GetDungeonQuestsForFaction(dungeon)
-	local midQuests = Core:GetDungeonMidQuestsForFaction(dungeon)
+	local quests = Dungeon:GetDungeonQuestsForFaction(dungeon)
+	local midQuests = Dungeon:GetDungeonMidQuestsForFaction(dungeon)
 	if #quests == 0 and #midQuests == 0 then
 		return {
 			{
@@ -506,13 +509,13 @@ function QuestingPage:CreateDungeonQuestCompletionTooltip(dungeon)
 	
 	for _, quest in ipairs(questsForTooltip) do
 		local lineColor = UIConfig.GLOBAL_DATA_TEXT_COLOR
-		if Core:HasCompletedQuest(quest.ID, true) then
+		if Quest:HasCompletedQuest(quest.ID, true) then
 			lineColor = UIConfig.GLOBAL_QUEST_COMPLETED_COLOR
-		elseif Core:CanTurnInQuest(quest.ID, true) then
+		elseif Quest:CanTurnInQuest(quest.ID, true) then
 			lineColor = UIConfig.GLOBAL_QUEST_READY_COLOR
-		elseif Core:IsOnQuest(quest.ID, true) then
+		elseif Quest:IsOnQuest(quest.ID, true) then
 			lineColor = UIConfig.GLOBAL_QUEST_IN_PROGRESS_COLOR
-		elseif Core:HasCompletedPrereqQuestsForQuest(quest.ID) then
+		elseif Quest:HasCompletedPrereqQuestsForQuest(quest.ID) then
 			lineColor = UIConfig.GLOBAL_QUEST_AVAILABLE_COLOR
 		else
 			lineColor = UIConfig.GLOBAL_QUEST_LOCKED_COLOR
@@ -540,9 +543,9 @@ end
 function QuestingPage:UpdateExpandedFrameView()
 	local zones
 	if Settings:IsHidingCompletedZonesInQuestingPage() then
-		zones = Core:GetIncompleteZonesForFaction()
+		zones = Zone:GetIncompleteZonesForFaction()
 	else
-		zones = Core:GetZonesForFaction()
+		zones = Zone:GetZonesForFaction()
 	end
 	
 	local zoneRows = QuestingPage.Page.ZoneRows
@@ -576,9 +579,9 @@ function QuestingPage:UpdateExpandedFrameView()
 	
 	local dungeons
 	if Settings:IsHidingCompletedDungeonsInQuestingPage() then
-		dungeons = Core:GetIncompleteDungeonsForFaction()
+		dungeons = Dungeon:GetIncompleteDungeonsForFaction()
 	else
-		dungeons = Core:GetDungeonsForFaction()
+		dungeons = Dungeon:GetDungeonsForFaction()
 	end
 	
 	local dungeonRows = QuestingPage.Page.DungeonRows
@@ -586,7 +589,7 @@ function QuestingPage:UpdateExpandedFrameView()
 	for dungeonRowIndex, dungeonRow in ipairs(dungeonRows) do
 		if dungeonRowIndex <= #dungeons then
 			local dungeon = dungeons[dungeonRowIndex]
-			local dungeonZone = Core:GetDungeonZone(dungeon)
+			local dungeonZone = Dungeon:GetDungeonZone(dungeon)
 			
 			local dungeonLevelRangeText, dungeonLevelRangeColor = QuestingPage:CreateLevelRangeString(dungeon.MinLevel, dungeon.MaxLevel)
 			dungeonRow.DungeonLevelRange:SetText(dungeonLevelRangeText)
@@ -621,10 +624,10 @@ function QuestingPage:UpdateExpandedFrameView()
 end
 
 function QuestingPage:UpdateCondensedFrameView()
-	local dungeon = Core:GetIncompleteDungeonsForFaction()[1]
+	local dungeon = Dungeon:GetIncompleteDungeonsForFaction()[1]
 	
 	if dungeon then
-		local dungeonZone = Core:GetDungeonZone(dungeon)
+		local dungeonZone = Dungeon:GetDungeonZone(dungeon)
 		
 		local dungeonLevelRangeText, dungeonLevelRangeColor = QuestingPage:CreateLevelRangeString(dungeon.MinLevel, dungeon.MaxLevel)
 		QuestingPage.Page.CondensedFrameView.DungeonLevelRange:SetText(dungeonLevelRangeText)
@@ -734,9 +737,9 @@ function QuestingPage:BuildExpandedFrameView(page)
 		UI:ApplyMultiLineTooltipToWidget(zoneRow.ZoneQuestCompletion, "ANCHOR_RIGHT", function()
 			local zones
 			if Settings:IsHidingCompletedZonesInQuestingPage() then
-				zones = Core:GetIncompleteZonesForFaction()
+				zones = Zone:GetIncompleteZonesForFaction()
 			else
-				zones = Core:GetZonesForFaction()
+				zones = Zone:GetZonesForFaction()
 			end
 			
 			return QuestingPage:CreateZoneQuestCompletionTooltip(zones[zoneRow.ZoneIndex])
@@ -786,9 +789,9 @@ function QuestingPage:BuildExpandedFrameView(page)
 		UI:ApplyMultiLineTooltipToWidget(dungeonRow.DungeonPreQuestCompletion, "ANCHOR_RIGHT", function()
 			local dungeons
 			if Settings:IsHidingCompletedDungeonsInQuestingPage() then
-				dungeons = Core:GetIncompleteDungeonsForFaction()
+				dungeons = Dungeon:GetIncompleteDungeonsForFaction()
 			else
-				dungeons = Core:GetDungeonsForFaction()
+				dungeons = Dungeon:GetDungeonsForFaction()
 			end
 			
 			return QuestingPage:CreateDungeonPreQuestCompletionTooltip(dungeons[dungeonRow.DungeonIndex])
@@ -797,9 +800,9 @@ function QuestingPage:BuildExpandedFrameView(page)
 		UI:ApplyMultiLineTooltipToWidget(dungeonRow.DungeonQuests, "ANCHOR_RIGHT", function()
 			local dungeons
 			if Settings:IsHidingCompletedDungeonsInQuestingPage() then
-				dungeons = Core:GetIncompleteDungeonsForFaction()
+				dungeons = Dungeon:GetIncompleteDungeonsForFaction()
 			else
-				dungeons = Core:GetDungeonsForFaction()
+				dungeons = Dungeon:GetDungeonsForFaction()
 			end
 			
 			return QuestingPage:CreateDungeonQuestsToBringTooltip(dungeons[dungeonRow.DungeonIndex])
@@ -808,9 +811,9 @@ function QuestingPage:BuildExpandedFrameView(page)
 		UI:ApplyMultiLineTooltipToWidget(dungeonRow.DungeonQuestCompletion, "ANCHOR_RIGHT", function()
 			local dungeons
 			if Settings:IsHidingCompletedDungeonsInQuestingPage() then
-				dungeons = Core:GetIncompleteDungeonsForFaction()
+				dungeons = Dungeon:GetIncompleteDungeonsForFaction()
 			else
-				dungeons = Core:GetDungeonsForFaction()
+				dungeons = Dungeon:GetDungeonsForFaction()
 			end
 			
 			return QuestingPage:CreateDungeonQuestCompletionTooltip(dungeons[dungeonRow.DungeonIndex])
@@ -849,15 +852,15 @@ function QuestingPage:BuildCondensedFrameView(page)
 	view.DungeonName = UI:CreateTableText(dungeonTableParams, view, "", UIConfig.GLOBAL_DATA_TEXT_COLOR, 4, 2)
 	view.DungeonPreQuestCompletion = UI:CreateTableText(dungeonTableParams, view, "", UIConfig.GLOBAL_DATA_TEXT_COLOR, 5, 2)
 	UI:ApplyMultiLineTooltipToWidget(view.DungeonPreQuestCompletion, "ANCHOR_RIGHT", function()
-		return QuestingPage:CreateDungeonPreQuestCompletionTooltip(Core:GetIncompleteDungeonsForFaction()[1])
+		return QuestingPage:CreateDungeonPreQuestCompletionTooltip(Dungeon:GetIncompleteDungeonsForFaction()[1])
 	end)
 	view.DungeonQuests = UI:CreateTableText(dungeonTableParams, view, "", UIConfig.GLOBAL_DATA_TEXT_COLOR, 6, 2)
 	UI:ApplyMultiLineTooltipToWidget(view.DungeonQuests, "ANCHOR_RIGHT", function()
-		return QuestingPage:CreateDungeonQuestsToBringTooltip(Core:GetIncompleteDungeonsForFaction()[1])
+		return QuestingPage:CreateDungeonQuestsToBringTooltip(Dungeon:GetIncompleteDungeonsForFaction()[1])
 	end)
 	view.DungeonQuestCompletion = UI:CreateTableText(dungeonTableParams, view, "", UIConfig.GLOBAL_DATA_TEXT_COLOR, 7, 2)
 	UI:ApplyMultiLineTooltipToWidget(view.DungeonQuestCompletion, "ANCHOR_RIGHT", function()
-		return QuestingPage:CreateDungeonQuestCompletionTooltip(Core:GetIncompleteDungeonsForFaction()[1])
+		return QuestingPage:CreateDungeonQuestCompletionTooltip(Dungeon:GetIncompleteDungeonsForFaction()[1])
 	end)
 	
 	return view

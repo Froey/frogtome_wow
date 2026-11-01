@@ -7,7 +7,7 @@ if not Frogtome.UI.Pages then
 end
 Frogtome.UI.Pages.SettingsPage = {}
 
-local Log = Frogtome.Misc.Log
+local Log = Frogtome.Root.Log
 local Settings = Frogtome.Settings.Settings
 local SettingsPage = Frogtome.UI.Pages.SettingsPage
 local Strings = Frogtome.UI.Strings

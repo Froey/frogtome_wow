@@ -1,14 +1,17 @@
 local _, Frogtome = ...
-if not Frogtome.Core then
-	Frogtome.Core = {}
+if not Frogtome.Features then
+	Frogtome.Features = {}
 end
-Frogtome.Core.Session = {}
+Frogtome.Features.Session = {}
 
-local Core = Frogtome.Core.Core
-local LevelData = Frogtome.Data.LevelData
-local Log = Frogtome.Misc.Log
-local Session = Frogtome.Core.Session
-local Utils = Frogtome.Misc.Utils
+local API = Frogtome.Root.API
+local Log = Frogtome.Root.Log
+local Money = Frogtome.Core.Money
+local Quest = Frogtome.Core.Quest
+local Session = Frogtome.Features.Session
+local Utils = Frogtome.Root.Utils
+local XP = Frogtome.Core.XP
+local XpData = Frogtome.Data.XpData
 
 ------------------------
 -- Session Management --
@@ -54,7 +57,10 @@ function Session:ResetSession()
 	local session = {}
 	Session.Session = session
 	
-	session.StartTimeSeconds = GetTime()
+	session.StartTimeSeconds = -1
+	if API:IsSupported("GetSystemTimeInSeconds") then
+		session.StartTimeSeconds = API.GetSystemTimeInSeconds()
+	end
 	session.PauseTimeSeconds = nil
 	
 	session.SessionLevels = 0
@@ -78,19 +84,19 @@ function Session:ResetSession()
 	
 	-- The session update process will handle cases where the character may not yet be fully loaded
 	
-	session.LastKnownLevel = Core:GetCurrentLevel()
+	session.LastKnownLevel = XP:GetCurrentLevel()
 	
-	session.LastKnownCurrentXp = Core:GetCurrentXp()
-	session.LastKnownNeededXp = Core:GetNeededXp()
-	session.LastKnownRemainingXp = Core:GetRemainingXp()
+	session.LastKnownCurrentXp = XP:GetCurrentXp()
+	session.LastKnownNeededXp = XP:GetNeededXp()
+	session.LastKnownRemainingXp = XP:GetRemainingXp()
 	
-	session.LastKnownTurnInAbleQuestXp = Core:GetQuestLogTurnInAbleXpReward()
-	session.LastKnownTotalQuestXp = Core:GetQuestLogTotalXpReward()
+	session.LastKnownTurnInAbleQuestXp = Quest:GetQuestLogTurnInAbleXpReward()
+	session.LastKnownTotalQuestXp = Quest:GetQuestLogTotalXpReward()
 	
-	session.LastKnownCopper = Core:GetMoneyInWholeCopper()
+	session.LastKnownCopper = Money:GetMoneyInWholeCopper()
 	
-	session.LastKnownTurnInAbleQuestCopper = Core:GetQuestLogTurnInAbleMonetaryRewardInWholeCopper()
-	session.LastKnownTotalQuestCopper = Core:GetQuestLogTotalMonetaryRewardInWholeCopper()
+	session.LastKnownTurnInAbleQuestCopper = Quest:GetQuestLogTurnInAbleMonetaryRewardInWholeCopper()
+	session.LastKnownTotalQuestCopper = Quest:GetQuestLogTotalMonetaryRewardInWholeCopper()
 	
 	Session:RelinquishLock()
 end
@@ -104,21 +110,30 @@ end
 function Session:TogglePausedSession()
 	local session = Session.Session
 	
-	if Session:IsSessionPaused() then
-		-- Resume the session (with the original elapsed time)
-		local elapsedSessionTimeSeconds = session.PauseTimeSeconds - session.StartTimeSeconds
-		session.StartTimeSeconds = GetTime() - elapsedSessionTimeSeconds
-		session.PauseTimeSeconds = nil
+	if API:IsSupported("GetSystemTimeInSeconds") then
+		if Session:IsSessionPaused() then
+			-- Resume the session (with the original elapsed time)
+			local elapsedSessionTimeSeconds = session.PauseTimeSeconds - session.StartTimeSeconds
+			session.StartTimeSeconds = API.GetSystemTimeInSeconds() - elapsedSessionTimeSeconds
+			session.PauseTimeSeconds = nil
+		else
+			-- Pause the session
+			session.PauseTimeSeconds = API.GetSystemTimeInSeconds()
+		end
 	else
-		-- Pause the session
-		session.PauseTimeSeconds = GetTime()
+		if Session:IsSessionPaused() then
+			session.StartTimeSeconds = -1
+			session.PauseTimeSeconds = nil
+		else
+			session.PauseTimeSeconds = -1
+		end
 	end
 end
 
 -- Updates the session's timer as well as all session metrics.
 function Session:UpdateSession()
 	if not Session:ClaimLock() then
-		Log.Error("Cannot update the session!")
+		Log:Error("Cannot update the session!")
 		return
 	end
 	
@@ -127,39 +142,39 @@ function Session:UpdateSession()
 	-- First, snapshot before-and-after information that we can derive other information out of.
 	
 	local oldLevel = session.LastKnownLevel
-	local newLevel = Core:GetCurrentLevel()
+	local newLevel = XP:GetCurrentLevel()
 	session.LastKnownLevel = newLevel
 	
 	local oldCurrentXp = session.LastKnownCurrentXp
-	local newCurrentXp = Core:GetCurrentXp()
+	local newCurrentXp = XP:GetCurrentXp()
 	session.LastKnownCurrentXp = newCurrentXp
 	
 	local oldNeededXp = session.LastKnownNeededXp
-	local newNeededXp = Core:GetNeededXp()
+	local newNeededXp = XP:GetNeededXp()
 	session.LastKnownNeededXp = newNeededXp
 	
 	local oldRemainingXp = session.LastKnownRemainingXp
-	local newRemainingXp = Core:GetRemainingXp()
+	local newRemainingXp = XP:GetRemainingXp()
 	session.LastKnownRemainingXp = newRemainingXp
 	
 	local oldTurnInAbleQuestXp = session.LastKnownTurnInAbleQuestXp
-	local newTurnInAbleQuestXp = Core:GetQuestLogTurnInAbleXpReward()
+	local newTurnInAbleQuestXp = Quest:GetQuestLogTurnInAbleXpReward()
 	session.LastKnownTurnInAbleQuestXp = newTurnInAbleQuestXp
 	
 	local oldTotalQuestXp = session.LastKnownTotalQuestXp
-	local newTotalQuestXp = Core:GetQuestLogTotalXpReward()
+	local newTotalQuestXp = Quest:GetQuestLogTotalXpReward()
 	session.LastKnownTotalQuestXp = newTotalQuestXp
 	
 	local oldCopper = session.LastKnownCopper
-	local newCopper = Core:GetMoneyInWholeCopper()
+	local newCopper = Money:GetMoneyInWholeCopper()
 	session.LastKnownCopper = newCopper
 	
 	local oldTurnInAbleQuestCopper = session.LastKnownTurnInAbleQuestCopper
-	local newTurnInAbleQuestCopper = Core:GetQuestLogTurnInAbleMonetaryRewardInWholeCopper()
+	local newTurnInAbleQuestCopper = Quest:GetQuestLogTurnInAbleMonetaryRewardInWholeCopper()
 	session.LastKnownTurnInAbleQuestCopper = newTurnInAbleQuestCopper
 	
 	local oldTotalQuestCopper = session.LastKnownTotalQuestCopper
-	local newTotalQuestCopper = Core:GetQuestLogTotalMonetaryRewardInWholeCopper()
+	local newTotalQuestCopper = Quest:GetQuestLogTotalMonetaryRewardInWholeCopper()
 	session.LastKnownTotalQuestCopper = newTotalQuestCopper
 	
 	-- Check if we're mid load or something of the sort - if so, let it do its thing and don't try to check for changes
@@ -195,7 +210,7 @@ function Session:UpdateSession()
 		-- Pass on this update - more are coming, and all snapshots following this update are now accurate...
 		-- ... though if this is quite a bit into the new session, some sort of load event was probably missed altogether.
 		if Session:GetSessionTimeSeconds() >= 5 then
-			Log:Warn("Load took longer than expected - session-related metrics may be inaccurate.")
+			Log:Dev("Load took longer than expected - session-related metrics may be inaccurate.")
 		end
 		Session.LoadComplete = true
 		Session:RelinquishLock()
@@ -218,7 +233,7 @@ function Session:UpdateSession()
 		if changedLevel then
 			-- It's possible (though ridiculously improbable) multiple level-ups were experienced at once, so make sure ALL XP progress is tracked.
 			for completedLevel = oldLevel, newLevel - 1 do
-				newCurrentXp = newCurrentXp + LevelData.NeededLevelXps[completedLevel]
+				newCurrentXp = newCurrentXp + XpData.NeededLevelXps[completedLevel]
 			end
 		end
 		
@@ -320,14 +335,18 @@ end
 function Session:GetSessionTimeSeconds()
 	local session = Session.Session
 	
-	if not session.StartTimeSeconds then
+	if not session.StartTimeSeconds or session.StartTimeSeconds == -1 then
 		return nil
 	end
 	
-	if Session:IsSessionPaused() then
-		return session.PauseTimeSeconds - session.StartTimeSeconds
+	if API:IsSupported("GetSystemTimeInSeconds") then
+		if Session:IsSessionPaused() then
+			return session.PauseTimeSeconds - session.StartTimeSeconds
+		else
+			return API.GetSystemTimeInSeconds() - session.StartTimeSeconds
+		end
 	else
-		return GetTime() - session.StartTimeSeconds
+		return -1
 	end
 end
 

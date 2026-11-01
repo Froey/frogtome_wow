@@ -1,10 +1,10 @@
 local _, Frogtome = ...
-if not Frogtome.Core then
-	Frogtome.Core = {}
+if not Frogtome.Root then
+	Frogtome.Root = {}
 end
-Frogtome.Core.Event = {}
+Frogtome.Root.Event = {}
 
-local Event = Frogtome.Core.Event
+local Event = Frogtome.Root.Event
 
 ----------------------------------
 -- Event Registration Functions --

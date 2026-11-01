@@ -1,10 +1,10 @@
 local _, Frogtome = ...
-if not Frogtome.Core then
-	Frogtome.Core = {}
+if not Frogtome.Features then
+	Frogtome.Features = {}
 end
-Frogtome.Core.Notes = {}
+Frogtome.Features.Notes = {}
 
-local Notes = Frogtome.Core.Notes
+local Notes = Frogtome.Features.Notes
 local SavedData = Frogtome.Data.SavedData
 
 -----------------------------

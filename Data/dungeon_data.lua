@@ -6,6 +6,10 @@ Frogtome.Data.DungeonData = {}
 
 local DungeonData = Frogtome.Data.DungeonData
 
+----------------------
+-- Data Definitions --
+----------------------
+
 -- A dictionary of dungeons, including IDs for quests associated with them.
 DungeonData.Dungeons = {
 	{

@@ -1,0 +1,154 @@
+local _, Frogtome = ...
+if not Frogtome.Root then
+	Frogtome.Root = {}
+end
+Frogtome.Root.API = {}
+
+local API = Frogtome.Root.API
+local Log = Frogtome.Root.Log
+
+----------------------------------------
+-- Local Configurables and Attributes --
+----------------------------------------
+
+API.ExclusionDefs = {}
+API.NamespaceDefs = {}
+API.FunctionDefs = {}
+
+---------------------
+-- Core API Hookup --
+---------------------
+
+-- Formats the provided namespace and function into a representative string value.
+function API:CreateApiString(apiNamespace, apiFunction)
+	local apiString = ""
+	
+	if apiNamespace then
+		apiString = apiString .. apiNamespace
+		if apiFunction then
+			apiString = apiString .. "."
+		end
+	end
+	
+	if apiFunction then
+		apiString = apiString .. apiFunction .. "()"
+	end
+	
+	return apiString
+end
+
+-- Attempts to resolve the provided namespace, returning the success of which and the resulting namespace.
+function API:ResolveApiNamespace(apiNamespace)
+	local resolvedApiNamespace = _G
+	if apiNamespace then
+		resolvedApiNamespace = _G[apiNamespace]
+	end
+	
+	return resolvedApiNamespace ~= nil, resolvedApiNamespace
+end
+
+-- Attempts to resolve the (provided namespace and) provided function, returning the success of which, the resulting namespace, and the resulting function.
+function API:ResolveApiFunction(apiNamespace, apiFunction)
+	local apiNamespaceResolved, resolvedApiNamespace = API:ResolveApiNamespace(apiNamespace)
+	if not apiNamespaceResolved then
+		return false, nil, nil
+	end
+	
+	local resolvedApiFunction = resolvedApiNamespace[apiFunction]
+	return resolvedApiFunction ~= nill, resolvedApiNamespace, resolvedApiFunction
+end
+
+-- Registers the provided information as a callable function in the API.
+function API:HookUp(projectExclusions, apiNamespace, apiFunction, apiFunctionExpectedArgCount, apiFunctionForcedArgs, hookupFunctionName, returnValueIndex)
+	-- Track exclusions, namespace, and function, for if/when we want to test their existence
+	API.ExclusionDefs[hookupFunctionName] = projectExclusions
+	API.NamespaceDefs[hookupFunctionName] = apiNamespace
+	API.FunctionDefs[hookupFunctionName] = apiFunction
+	
+	-- Wrap the abstract hookup of this API function within our own function for calling it
+	API[hookupFunctionName] = function(...)
+		local allApiFunctionArgs = {}
+		
+		-- Include arguments we've forced from hooking-up this API call
+		if apiFunctionForcedArgs then
+			for _, apiFunctonForcedArg in ipairs(apiFunctionForcedArgs) do
+				table.insert(allApiFunctionArgs, apiFunctonForcedArg)
+			end
+		end
+		
+		-- Include arguments supplied dynamically from elsewhere in the code
+		local apiFunctionSuppliedArgs = { ... }
+		for _, apiFunctionSuppliedArg in ipairs(apiFunctionSuppliedArgs) do
+			table.insert(allApiFunctionArgs, apiFunctionSuppliedArg)
+		end
+		
+		-- Confirm that we have the expected number of arguments
+		if #allApiFunctionArgs ~= apiFunctionExpectedArgCount then
+			Log:Error(tostring(apiNamespace) .. "." .. tostring(apiFunction) .. ": Expected " .. tostring(apiFunctionExpectedArgCount) .. " args, got " .. tostring(#allApiFunctionArgs) .. ".")
+			return
+		end
+		
+		-- Confirm that the API we want to call actually exists
+		local apiFunctionResolved, _, resolvedApiFunction = API:ResolveApiFunction(apiNamespace, apiFunction)
+		if not apiFunctionResolved then
+			Log:Error("Failed to call " .. API:CreateApiString(apiNamespace, apiFunction) .. " - doesn't exist.")
+		end
+		
+		-- Execute the actual call, and return the specific desired return value if directed
+		if returnValueIndex then
+			return select(returnValueIndex, resolvedApiFunction(unpack(allApiFunctionArgs)))
+		else
+			return resolvedApiFunction(unpack(allApiFunctionArgs))
+		end
+	end
+end
+
+----------------------
+-- API Verification --
+----------------------
+
+-- Returns whether or not the provided hookup is included for this project/flavor of the game.
+function API:IsIncluded(hookupFunctionName)
+	local hookupFunctionExclusions = API.ExclusionDefs[hookupFunctionName]
+	if #hookupFunctionExclusions > 0 then
+		for _, exclusion in ipairs(hookupFunctionExclusions) do
+			if exclusion == WOW_PROJECT_ID then
+				return false
+			end
+		end
+	end
+	
+	return true
+end
+
+function API:AreAllIncluded(hookupFunctionNames)
+	for _, hookupFunctionName in ipairs(hookupFunctionNames) do
+		if not API:IsIncluded(hookupFunctionName) then
+			return false
+		end
+	end
+	
+	return true
+end
+
+-- Returns whether or not the provided hookup can be successfully resolved to its intended API.
+function API:IsSupported(hookupFunctionName, ignoreInclusion)
+	if not ignoreInclusion and not API:IsIncluded(hookupFunctionName) then
+		return false
+	end
+	
+	local apiNamespace = API.NamespaceDefs[hookupFunctionName]
+	local apiFunction = API.FunctionDefs[hookupFunctionName]
+	
+	return API:ResolveApiFunction(apiNamespace, apiFunction)
+end
+
+function API:AreAllSupported(hookupFunctionNames, ignoreInclusion)
+	for _, hookupFunctionName in ipairs(hookupFunctionNames) do
+		if not API:IsSupported(hookupFunctionName, ignoreInclusion) then
+			return false
+		end
+	end
+	
+	return true
+end

@@ -357,9 +357,9 @@ function CharactersPage:UpdateExpandedFrameView()
 		end
 		
 		if Settings:IsShowingFactionColorsByAllegianceInCharactersPage() then
-			if (Character:GetFactionDataString() == "Alliance" and character.Faction == "Alliance") or (Character:GetFactionDataString() == "Horde" and character.Faction == "Horde") then
+			if (Character:GetFaction() == "Alliance" and character.Faction == "Alliance") or (Character:GetFaction() == "Horde" and character.Faction == "Horde") then
 				UI:ApplyTextWidgetFont(row.CharacterFactionText, UIConfig.GLOBAL_FRIENDLY_COLOR)
-			elseif (Character:GetFactionDataString() == "Alliance" and character.Faction ~= "Alliance") or (Character:GetFactionDataString() == "Horde" and character.Faction ~= "Horde") then
+			elseif (Character:GetFaction() == "Alliance" and character.Faction ~= "Alliance") or (Character:GetFaction() == "Horde" and character.Faction ~= "Horde") then
 				UI:ApplyTextWidgetFont(row.CharacterFactionText, UIConfig.GLOBAL_UNFRIENDLY_COLOR)
 			end
 		else
@@ -622,9 +622,9 @@ function CharactersPage:UpdateCondensedFrameView()
 	end
 	
 	if Settings:IsShowingFactionColorsByAllegianceInCharactersPage() then
-		if (Character:GetFactionDataString() == "Alliance" and character.Faction == "Alliance") or (Character:GetFactionDataString() == "Horde" and character.Faction == "Horde") then
+		if (Character:GetFaction() == "Alliance" and character.Faction == "Alliance") or (Character:GetFaction() == "Horde" and character.Faction == "Horde") then
 			UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterFactionText, UIConfig.GLOBAL_FRIENDLY_COLOR)
-		elseif (Character:GetFactionDataString() == "Alliance" and character.Faction ~= "Alliance") or (Character:GetFactionDataString() == "Horde" and character.Faction ~= "Horde") then
+		elseif (Character:GetFaction() == "Alliance" and character.Faction ~= "Alliance") or (Character:GetFaction() == "Horde" and character.Faction ~= "Horde") then
 			UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterFactionText, UIConfig.GLOBAL_UNFRIENDLY_COLOR)
 		end
 	else
@@ -1079,7 +1079,7 @@ function CharactersPage:BuildCondensedFrameView(page)
 	view.CharacterLevelText = UI:CreateTableText(generalTableParams, view, "", UIConfig.GLOBAL_DATA_TEXT_COLOR, 2, 1)
 	view.CharacterNameText = UI:CreateTableText(generalTableParams, view, "", UIConfig.GLOBAL_DATA_TEXT_COLOR, 3, 1)
 	UI:ApplyTooltipToWidget(view.CharacterNameText, "ANCHOR_RIGHT", function()
-		return CharactersPage:GetCharacterTooltip(Character:GetCharacter(Character:GetGUID()))
+		return CharactersPage:GetCharacterTooltip(Character:GetCharacter(Character:GetGuid()))
 	end)
 
 	view.CharacterNameText:SetWidth(UIConfig.CHARACTERS_PAGE_NAME_MAX_WIDTH)

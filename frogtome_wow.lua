@@ -340,8 +340,8 @@ if LDB then
 		
 		OnTooltipShow = function(tooltip)
 			tooltip:AddLine("|cff6bd43aFrogtome|r (" .. Version:GetCurrentLabel(true) .. ")")
-			tooltip:AddLine("|cff888888(Left Click):|r |cffffffffShow/hide Frogtome.")
-			tooltip:AddLine("|cff888888(Right Click):|r |cffffffffExpand/condense Frogtome.")
+			tooltip:AddLine("|cff888888(Left Click):|r |cffffffffShow / Hide")
+			tooltip:AddLine("|cff888888(Right Click):|r |cffffffffExpand / Condense")
 		end
 	})
 end

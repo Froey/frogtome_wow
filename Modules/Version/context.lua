@@ -32,7 +32,7 @@ Context.CONTEXT_DEFS = {
 	[Context.BCC_ID] = {
 		["ID"] = Context.BCC_ID,
 		["Label"] = "BCC Anniversary",
-		["Supported"] = true
+		["Supported"] = false
 	},
 	[Context.FOREVER_ID] = {
 		["ID"] = Context.FOREVER_ID,

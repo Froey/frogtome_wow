@@ -81,51 +81,51 @@ end
 -- Slash Command Arguments --
 -----------------------------
 
-Main.SlashCommandHelpString = "Slash Commands: /frogtome | /ft | /frog\nUsage: /frogtome [arg1] [arg2] ...\nOptional Arguments:\n   help : Shows help for Frogtome slash commands.\n   silent : Prevents other args from changing Frogtome's visibility.\n   show : Shows Frogtome.\n   hide : Hides Frogtome.\n   expanded : Uses the expanded (normal) view for Frogtome.\n   condensed : Uses the condensed view for Frogtome.\n   page [name [view]] : Show a specific Frogtome page by name.\n      (For Characters/Farming/Notes, the view is also needed.)"
+Main.SlashCommandHelpString = "Slash Commands: /frogtome | /ft | /frog\nUsage: /frogtome [arg1] [arg2] ...\nOptional Arguments:\n   help : Shows help for Frogtome slash commands.\n   show : Shows Frogtome.\n   hide : Hides Frogtome.\n   toggle : Toggles Frogtome's visibility.\n   expanded : Uses the expanded (normal) view for Frogtome.\n   condensed : Uses the condensed view for Frogtome.\n   page [name [view]] : Show a specific Frogtome page by name.\n      (For Characters/Farming/Notes, the view is also needed.)"
 
 Main.SlashCommandArgsDict = {
 	["help"] = function()
 		Log:Special(Main.SlashCommandHelpString, 0xFFFFAA)
-		return nil, nil
-	end,
-	["silent"] = function()
-		return false, nil
+		return false, nil, nil
 	end,
 	["show"] = function()
-		return true, true
+		return false, true, true
 	end,
 	["hide"] = function()
-		return true, false
+		return false, true, false
+	end,
+	["toggle"] = function()
+		return true, false, nil
 	end,
 	["expanded"] = function()
 		Settings:SetShowingCondensedView(false)
-		return nil, nil
+		return nil, nil, nil
 	end,
 	["condensed"] = function()
 		Settings:SetShowingCondensedView(true)
-		return nil, nil
+		return nil, nil, nil
 	end,
 	["page"] = {
 		["characters"] = {
 			["information"] = function()
 				MainFrame:SelectPage("CharactersPage")
 				CharactersPage:SelectView(1)
-				return nil, nil
+				return nil, nil, nil
 			end,
 			["experience"] = function()
 				MainFrame:SelectPage("CharactersPage")
 				CharactersPage:SelectView(2)
-				return nil, nil
+				return nil, nil, nil
 			end,
 			["inventory"] = function()
 				MainFrame:SelectPage("CharactersPage")
 				CharactersPage:SelectView(3)
-				return nil, nil
+				return nil, nil, nil
 			end,
 			["professions"] = function()
 				MainFrame:SelectPage("CharactersPage")
 				CharactersPage:SelectView(4)
-				return nil, nil
+				return nil, nil, nil
 			end
 		},
 		["farming"] = {
@@ -134,82 +134,82 @@ Main.SlashCommandArgsDict = {
 				if not FarmingPage.ShowingXpView then
 					FarmingPage:OnSwitchViewButtonClicked()
 				end
-				return nil, nil
+				return nil, nil, nil
 			end,
 			["gold"] = function()
 				MainFrame:SelectPage("FarmingPage")
 				if FarmingPage.ShowingXpView then
 					FarmingPage:OnSwitchViewButtonClicked()
 				end
-				return nil, nil
+				return nil, nil, nil
 			end
 		},
 		["questing"] = function()
 			MainFrame:SelectPage("QuestingPage")
-			return nil, nil
+			return nil, nil, nil
 		end,
 		["notes"] = {
 			["account"] = function()
 				MainFrame:SelectPage("NotesPage")
 				NotesPage:OnAccountButtonClicked()
-				return nil, nil
+				return nil, nil, nil
 			end,
 			["character"] = function()
 				MainFrame:SelectPage("NotesPage")
 				NotesPage:OnCharacterButtonClicked()
-				return nil, nil
+				return nil, nil, nil
 			end
 		},
 		["settings"] = function()
 			MainFrame:SelectPage("SettingsPage")
-			return nil, nil
+			return nil, nil, nil
 		end
 	},
 	["dev"] = {
 		["ll"] = {
 			["1"] = function()
 				HiddenSettings:SetLogLevel(1)
-				return nil, nil
+				return nil, nil, nil
 			end,
 			["2"] = function()
 				HiddenSettings:SetLogLevel(2)
-				return nil, nil
+				return nil, nil, nil
 			end,
 			["3"] = function()
 				HiddenSettings:SetLogLevel(3)
-				return nil, nil
+				return nil, nil, nil
 			end,
 			["4"] = function()
 				HiddenSettings:SetLogLevel(4)
-				return nil, nil
+				return nil, nil, nil
 			end,
 			["5"] = function()
 				HiddenSettings:SetLogLevel(5)
-				return nil, nil
+				return nil, nil, nil
 			end,
 			["6"] = function()
 				HiddenSettings:SetLogLevel(6)
-				return nil, nil
+				return nil, nil, nil
 			end
 		},
 		["ql"] = {
 			["tracked"] = function()
 				Dev:PrintQuestLog(true)
-				return nil, nil
+				return nil, nil, nil
 			end,
 			["all"] = function()
 				Dev:PrintQuestLog(false)
-				return nil, nil
+				return nil, nil, nil
 			end
 		},
 		["dql"] = {
 			["tracked"] = function()
 				Dev:PrintDungeonQuestLog(true)
-				return nil, nil
+				return nil, nil, nil
 			end,
 			["all"] = function()
 				Dev:PrintDungeonQuestLog(false)
-				return nil, nil
+				return nil, nil, nil
 			end
 		}
 	}
@@ -232,8 +232,8 @@ function Main:FindAndExecuteSlashCommandArg(args, argIndex, argDict)
 	
 	-- Case 2: The arg points directly to a function. Execute the function and return the results
 	if type(argEntry) == "function" then
-		local shouldForceMainFrameView, forcedMainFrameView = argEntry()
-		return argIndex + 1, shouldForceMainFrameView, forcedMainFrameView
+		local shouldToggleMainFrameView, shouldForceMainFrameView, forcedMainFrameView = argEntry()
+		return argIndex + 1, shouldToggleMainFrameView, shouldForceMainFrameView, forcedMainFrameView
 	end
 	
 	-- Case 3: The arg should instead be pointing to another dictionary. Get the results of searching deeper
@@ -253,10 +253,11 @@ function Main:OnSlashCommand(args)
 	-- Perform a recursive search of the args dictionary for each of the supplied (sub-)arguments
 	local argIndex = 1
 	while argIndex ~= nil and argIndex <= #argList do
-		-- Any present arguments means we shouldn't just simply toggle the view
-		shouldStillToggleMainFrameView = false
+		local nextArgIndex, shouldToggleMainFrameView, shouldForceMainFrameView, forcedMainFrameView = Main:FindAndExecuteSlashCommandArg(argList, argIndex, Main.SlashCommandArgsDict)
 		
-		local nextArgIndex, shouldForceMainFrameView, forcedMainFrameView = Main:FindAndExecuteSlashCommandArg(argList, argIndex, Main.SlashCommandArgsDict)
+		if shouldStillToggleMainFrameView and not (shouldToggleMainFrameView == nil) and not shouldToggleMainFrameView then
+			shouldStillToggleMainFrameView = false
+		end
 		
 		if shouldStillForceMainFrameView == nil then
 			shouldStillForceMainFrameView = shouldForceMainFrameView

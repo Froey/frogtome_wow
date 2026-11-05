@@ -120,13 +120,7 @@ function Profession:GetCookingProfessionIndex()
 		return nil
 	end
 	
-	if Context:IsRetailProject() then
-		return Profession:GetThirdSecondaryProfessionIndex()
-	elseif Context:IsForeverProject() then
-		return Profession:GetSecondSecondaryProfessionIndex()
-	end
-	
-	return nil
+	return Profession:GetThirdSecondaryProfessionIndex()
 end
 
 -- Returns the index of the fishing profession for the current player.
@@ -141,13 +135,7 @@ function Profession:GetFishingProfessionIndex()
 		return nil
 	end
 	
-	if Context:IsRetailProject() then
-		return Profession:GetSecondSecondaryProfessionIndex()
-	elseif Context:IsForeverProject() then
-		return Profession:GetFirstSecondaryProfessionIndex()
-	end
-	
-	return nil
+	return Profession:GetSecondSecondaryProfessionIndex()
 end
 
 -- Returns the index of the first aid profession for the current player.
@@ -162,7 +150,7 @@ function Profession:GetFirstAidProfessionIndex()
 		return nil
 	end
 	
-	return Profession:GetThirdSecondaryProfessionIndex()
+	return Profession:GetFirstSecondaryProfessionIndex()
 end
 
 -- Returns the index of the archaeology profession for the current player.

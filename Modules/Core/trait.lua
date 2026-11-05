@@ -93,7 +93,7 @@ function Trait:GetNodeRank(configId, nodeId)
 		return 0
 	end
 	
-	local node = API.GetTraitTreeNodeInfo(wellRestedConfigId, wellRestedNodeId)
+	local node = API.GetTraitTreeNodeInfo(configId, noteId)
 	
 	if node.ranksPurchased then
 		return node.ranksPurchased

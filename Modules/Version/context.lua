@@ -171,7 +171,7 @@ API:HookUp({}, nil, "IsAltKeyDown", 0, nil, "IsAltKeyDown")
 API:HookUp({}, nil, "GetRealmName", 0, nil, "GetCharacterServer")
 API:HookUp({}, nil, "UnitGUID", 1, { "player" }, "GetCharacterGuid")
 API:HookUp({}, nil, "UnitName", 1, { "player" }, "GetCharacterFirstName", 1)
-API:HookUp({Context.RETAIL_ID, Context.BCC_ID}, nil, "UnitName", 1, { "player" }, "GetCharacterLastName", 2)
+API:HookUp({ Context.RETAIL_ID, Context.BCC_ID }, nil, "UnitName", 1, { "player" }, "GetCharacterLastName", 2)
 API:HookUp({}, nil, "UnitSex", 1, { "player" }, "GetCharacterBodyTypeId")
 API:HookUp({}, nil, "UnitFactionGroup", 1, { "player" }, "GetCharacterFactionDataString", 1)
 API:HookUp({}, nil, "UnitRace", 1, { "player" }, "GetCharacterRaceDataString", 1)
@@ -236,18 +236,18 @@ API:HookUp({}, "C_CurrencyInfo", "GetCoinTextureString", 2, nil, "GetCoinStringF
 -- Supported API Calls: C_QuestLog --
 -------------------------------------
 
-API:HookUp({Context.BCC_ID}, "C_QuestLog", "GetQuestType", 1, nil, "GetQuestType")
+API:HookUp({ Context.BCC_ID }, "C_QuestLog", "GetQuestType", 1, nil, "GetQuestType")
 API:HookUp({}, "C_QuestLog", "IsQuestFlaggedCompleted", 1, nil, "IsQuestCompletedForCharacter")
-API:HookUp({Context.BCC_ID}, "C_QuestLog", "GetNumQuestLogEntries", 0, nil, "GetCharacterQuestLogSize")
-API:HookUp({Context.BCC_ID}, "C_QuestLog", "GetInfo", 1, nil, "GetQuestInfoFromCharacterQuestLog")
-API:HookUp({Context.BCC_ID}, "C_QuestLog", "IsComplete", 1, nil, "IsQuestReadyForTurnInForCharacter")
-API:HookUp({Context.BCC_ID}, "C_QuestLog", "GetQuestIDForQuestWatchIndex", 1, nil, "GetQuestIdAtCharacterWatchIndex")
+API:HookUp({ Context.BCC_ID }, "C_QuestLog", "GetNumQuestLogEntries", 0, nil, "GetCharacterQuestLogSize")
+API:HookUp({ Context.BCC_ID }, "C_QuestLog", "GetInfo", 1, nil, "GetQuestInfoFromCharacterQuestLog")
+API:HookUp({ Context.BCC_ID }, "C_QuestLog", "IsComplete", 1, nil, "IsQuestReadyForTurnInForCharacter")
+API:HookUp({ Context.BCC_ID }, "C_QuestLog", "GetQuestIDForQuestWatchIndex", 1, nil, "GetQuestIdAtCharacterWatchIndex")
 
 -----------------------------------
 -- Supported API Calls: C_Traits --
 -----------------------------------
 
-API:HookUp({Context.RETAIL_ID, Context.BCC_ID}, "C_Traits", "GetConfigIDsByType", 1, nil, "GetTraitConfigIdsFromTypeId")
+API:HookUp({ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, "C_Traits", "GetConfigIDsByType", 1, nil, "GetTraitConfigIdsFromTypeId")
 API:HookUp({}, "C_Traits", "GetConfigIDBySystemID", 1, nil, "GetTraitConfigIdFromSystemId")
 API:HookUp({}, "C_Traits", "GetConfigInfo", 1, nil, "GetTraitConfigInfo")
 API:HookUp({}, "C_Traits", "GetTreeNodes", 1, nil, "GetTraitTreeNodeIds")

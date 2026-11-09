@@ -15,6 +15,7 @@ local Log = Frogtome.Root.Log
 local Money = Frogtome.Core.Money
 local Settings = Frogtome.Settings.Settings
 local Strings = Frogtome.UI.Strings
+local Trait = Frogtome.Core.Trait
 local UI = Frogtome.UI.UI
 local UIConfig = Frogtome.UI.UIConfig
 local UIData = Frogtome.Data.UIData
@@ -1108,6 +1109,16 @@ function CharactersPage:Build(parent)
 	page.CondensedFrameView = condensedView
 	
 	Event:SetCharacterEventListenerForWidget(page, CharactersPage.OnCharacterUpdateEvent)
+	
+	Event:RegisterTickUpdateListener(500, function()
+		if not Trait:WasTraitFound(Trait.WellRestedName) then
+			Trait:TryResolveTrait(Trait.WellRestedName)
+			
+			if Trait:WasTraitFound(Trait.WellRestedName) then
+				CharactersPage:UpdateDisplay(true)
+			end
+		end
+	end)
 	
 	return page
 end

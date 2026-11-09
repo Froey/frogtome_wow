@@ -250,7 +250,7 @@ function XP:GetCurrentRestedCapFraction(restedXp, neededXp, wellRestedRank)
 	end
 	
 	if not wellRestedRank then
-		wellRestedRank = Trait:GetWellRestedRank()
+		wellRestedRank = Trait:GetTraitRank(Trait.WellRestedName)
 	end
 	
 	-- For a character loaded in right after creation, neededXp can be zero. Default to zero here in that case.

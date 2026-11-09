@@ -21,13 +21,23 @@ Trait.NodeDiscoveryByTypeCeiling = 5
 Trait.NodeDiscoveryBySystemFloor = 1
 Trait.NodeDiscoveryBySystemCeiling = 200
 
-Trait.CachedWellRestedNodeInfo = nil
-Trait.ExpectedWellRestedNodeName = "Well Rested"
-Trait.ExpectedWellRestedNodeMaxRanks = 5
+Trait.WellRestedNodeId = 110301
+Trait.WellRestedName = "Well Rested"
+Trait.WellRestedMaxRank = 5
 
 -------------------------
 -- Core Data Functions --
 -------------------------
+
+function Trait:CreateTraitInfoCache(nodeId, name, maxRank)
+	return {
+		["ConfigId"] = nil,
+		["NodeId"] = nodeId,
+		["Name"] = name,
+		["MaxRank"] = maxRank,
+		["WasFound"] = false
+	}
+end
 
 Context:SetDependencies(
 	Trait.CONTEXT_MODULE,
@@ -108,10 +118,12 @@ Context:SetDependencies(
 	{ Context.RETAIL_ID, Context.BCC_ID, Context.FOREVER_ID }, 
 	{ "GetTraitConfigInfo", "GetTraitTreeNodeIds", "GetTraitTreeNodeInfo" }
 )
-function Trait:FindNode(expectedNodeName, expectedNodeMaxRanks)
+function Trait:FindNode(trait)
 	if not Context:CheckDependencies(Trait.CONTEXT_MODULE, "FindNode") then
-		return nil
+		return false
 	end
+	
+	trait.WasFound = false
 	
 	local foundConfigIds = {}
 	
@@ -127,8 +139,6 @@ function Trait:FindNode(expectedNodeName, expectedNodeMaxRanks)
 				end
 			end
 		end
-	else
-		Log:Dev("Skipping discovery of \"" .. expectedNodeName .. "\" trait via types.")
 	end
 	
 	-- Collect possible trait nodes by system ID
@@ -139,8 +149,6 @@ function Trait:FindNode(expectedNodeName, expectedNodeMaxRanks)
 				foundConfigIds[configId] = "System ID: " .. tostring(systemId)
 			end
 		end
-	else
-		Log:Dev("Skipping discovery of \"" .. expectedNodeName .. "\" trait via systems.")
 	end
 	
 	-- Get the actual trait node, caching its info if successful
@@ -148,20 +156,39 @@ function Trait:FindNode(expectedNodeName, expectedNodeMaxRanks)
 		local configInfo = API.GetTraitConfigInfo(configId)
 		if configInfo and configInfo.treeIDs then
 			for _, treeId in ipairs(configInfo.treeIDs) do
-				local nodeIds = API.GetTraitTreeNodeIds(treeId)
-				if nodeIds then
-					for _, nodeId in ipairs(nodeIds) do
-						local node = API.GetTraitTreeNodeInfo(configId, nodeId)
-						if node then
-							local nodeName = Trait:GetNodeName(configId, nodeId, node)
-							if nodeName == expectedNodeName and node.maxRanks == expectedNodeMaxRanks then
-								Log:Dev("Found \"" .. expectedNodeName .. "\": config=" .. tostring(configId) .. ", node=" .. tostring(nodeId))
-								return {
-									["ConfigId"] = configId,
-									["NodeId"] = nodeId
-								}
-							else
-								-- debug code for narrowing it down?
+				local node = nil
+				if trait.NodeId then
+					local node = API.GetTraitTreeNodeInfo(configId, trait.NodeId)
+					if node then
+						--print("testing")
+						
+						local nodeName = Trait:GetNodeName(configId, trait.NodeId, node)
+						--print(nodeName)
+						if nodeName == trait.Name and node.maxRanks == trait.MaxRank then
+							Log:Dev("Found \"" .. trait.Name .. "\": config=" .. tostring(configId) .. ", node=" .. tostring(trait.NodeId))
+							
+							trait.ConfigId = configId
+							trait.WasFound = true
+							
+							return true
+						end
+					end
+				else
+					local nodeIds = API.GetTraitTreeNodeIds(treeId)
+					if nodeIds then
+						for _, nodeId in ipairs(nodeIds) do
+							local node = API.GetTraitTreeNodeInfo(configId, nodeId)
+							if node then
+								local nodeName = Trait:GetNodeName(configId, nodeId, node)
+								if nodeName == trait.Name and node.maxRanks == trait.MaxRank then
+									Log:Dev("Found \"" .. trait.Name .. "\": config=" .. tostring(configId) .. ", node=" .. tostring(nodeId))
+									
+									trait.ConfigId = configId
+									trait.NodeId = nodeId
+									trait.WasFound = true
+									
+									return true
+								end
 							end
 						end
 					end
@@ -170,25 +197,51 @@ function Trait:FindNode(expectedNodeName, expectedNodeMaxRanks)
 		end
 	end
 	
-	Log:Dev("Did not find \"" .. expectedNodeName .. "\".")
-	return {}
+	--print(trait.WasFound)
+	return false
 end
 
-----------------------------------
--- Traits-of-Interest Functions --
-----------------------------------
+--------------------------------
+-- Trait Monitoring Functions --
+--------------------------------
 
-function Trait:GetWellRestedRank(forceCacheReset)
-	if not Trait.CachedWellRestedNodeInfo or forceCacheReset then
-		-- XXX: Does the timing of this matter? Do we need to try to discover this multiple times?
-		-- XXX: This may do absolutely nothing until the feature is unlocked with the first legacy talent
-		Trait.CachedWellRestedNodeInfo = Trait:FindNode(Trait.ExpectedWellRestedNodeName, Trait.ExpectedWellRestedNodeMaxRanks)
+Trait.RegisteredTraits = {}
+Trait.RegisteredTraits[Trait.WellRestedName] = Trait:CreateTraitInfoCache(Trait.WellRestedNodeId, Trait.WellRestedName, Trait.WellRestedMaxRank)
+
+function Trait:WasTraitFound(traitName)
+	if not Trait.RegisteredTraits[traitName] then
+		return false
 	end
 	
-	if not Trait.CachedWellRestedNodeInfo.ConfigId or not Trait.CachedWellRestedNodeInfo.NodeId then
-		-- We don't have what we need to get info for "Well Rested". Return a default of zero
+	return Trait.RegisteredTraits[traitName].WasFound
+end
+
+function Trait:TryResolveTrait(traitName, forceSearch)
+	if Trait:WasTraitFound(traitName) and not forceSearch then
+		return true
+	end
+	
+	if not Trait.RegisteredTraits[traitName] then
+		return false
+	end
+	
+	local trait = Trait.RegisteredTraits[traitName]
+	return Trait:FindNode(trait)
+end
+
+function Trait:GetTraitRank(traitName)
+	if not Trait:WasTraitFound(traitName) then
 		return 0
 	end
 	
-	return Trait:GetNodeRank(Trait.CachedWellRestedNodeInfo.ConfigId, Trait.CachedWellRestedNodeInfo.NodeId)
+	local trait = Trait.RegisteredTraits[traitName]
+	return Trait:GetNodeRank(trait.ConfigId, trait.NodeId)
+end
+
+function Trait:GetTraitMaxRank(traitName)
+	if not Trait.RegisteredTraits[traitName] then
+		return false
+	end
+	
+	return Trait.RegisteredTaits[traitName].MaxRanks
 end

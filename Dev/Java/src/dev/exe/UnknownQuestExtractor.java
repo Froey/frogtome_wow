@@ -22,6 +22,8 @@ public class UnknownQuestExtractor {
 		// Reconcile any unknown quests with their known counterparts, if they exist; something got updated if a counterpart exists.
 		Map<String, DataQuest> reconciledQuestMap = new HashMap<>();
 		for (DataQuest unknownQuest : unknownQuestMap.values()) {
+			System.out.println(unknownQuest.getName());
+			
 			DataQuest knownCounterpartQuest = knownQuestMap.get(unknownQuest.getId());
 			if (knownCounterpartQuest != null) {
 				String newId = unknownQuest.getId();
@@ -62,7 +64,7 @@ public class UnknownQuestExtractor {
 		List<DataQuest> sortedMergedQuests = mergedQuestMap.values().stream().sorted().toList();
 		
 		// Create the Lua code to write out.
-		String luaCode = "local _, Frogtome = ...\nif not Frogtome.Data then\n\tFrogtome.Data = {}\nend\nFrogtome.Data.QuestData = {}\n\nlocal QuestData = Frogtome.Data.QuestData\n\nQuestData.Quests = {\n";
+		String luaCode = "local _, Frogtome = ...\nif not Frogtome.Data then\n\tFrogtome.Data = {}\nend\nFrogtome.Data.QuestData = {}\n\nlocal QuestData = Frogtome.Data.QuestData\n\n----------------------\n-- Data Definitions --\n----------------------\n\nQuestData.Quests = {\n";
 		for (int questIndex = 0; questIndex < sortedMergedQuests.size(); questIndex++) {
 			luaCode += sortedMergedQuests.get(questIndex).getLuaCodeString(1);
 			if (questIndex < sortedMergedQuests.size() - 1) {

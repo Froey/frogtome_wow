@@ -377,7 +377,7 @@ function Character:GenerateCurrentCharacter()
 	character.NeededXp = XP:GetNeededXp()
 	character.RestedXp = XP:GetRestedXp()
 	character.IsResting = XP:IsResting()
-	character.WellRestedRank = Trait:GetWellRestedRank()
+	character.WellRestedRank = Trait:GetTraitRank(Trait.WellRestedName)
 	
 	if Profession:IsFirstProfessionLearned() then
 		character.FirstProfession = Character:GenerateCurrentProfessionInfo(Profession:GetFirstProfessionIndex())

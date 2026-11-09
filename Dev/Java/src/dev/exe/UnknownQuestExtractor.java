@@ -22,8 +22,6 @@ public class UnknownQuestExtractor {
 		// Reconcile any unknown quests with their known counterparts, if they exist; something got updated if a counterpart exists.
 		Map<String, DataQuest> reconciledQuestMap = new HashMap<>();
 		for (DataQuest unknownQuest : unknownQuestMap.values()) {
-			System.out.println(unknownQuest.getName());
-			
 			DataQuest knownCounterpartQuest = knownQuestMap.get(unknownQuest.getId());
 			if (knownCounterpartQuest != null) {
 				String newId = unknownQuest.getId();
@@ -38,7 +36,6 @@ public class UnknownQuestExtractor {
 				
 				String newZone = unknownQuest.getZone();
 				if (knownCounterpartQuest.getZone() != null) {
-					System.out.println(knownCounterpartQuest.getZone());
 					newZone = knownCounterpartQuest.getZone();
 				}
 				

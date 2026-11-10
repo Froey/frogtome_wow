@@ -13,6 +13,7 @@ local Event = Frogtome.Root.Event
 local Log = Frogtome.Root.Log
 local Quest = Frogtome.Core.Quest
 local QuestingPage = Frogtome.UI.Pages.Questing
+local QuestLog = Frogtome.Features.QuestLog
 local Settings = Frogtome.Settings.Settings
 local Strings = Frogtome.UI.Strings
 local UI = Frogtome.UI.UI
@@ -179,9 +180,9 @@ function QuestingPage:CreateZoneQuestCompletionTooltip(zone)
 				lineColor = UIConfig.GLOBAL_QUEST_COMPLETED_COLOR
 			elseif Quest:CanTurnInQuest(quest.ID, true) then
 				lineColor = UIConfig.GLOBAL_QUEST_READY_COLOR
-			elseif Quest:IsOnQuest(quest.ID, true) then
+			elseif QuestLog:IsOnQuest(quest.ID, true) then
 				lineColor = UIConfig.GLOBAL_QUEST_IN_PROGRESS_COLOR
-			elseif Quest:HasCompletedPrereqQuestsForQuest(quest.ID) then
+			elseif Quest:HasCompletedPrerequisiteQuests(quest.ID) then
 				lineColor = UIConfig.GLOBAL_QUEST_AVAILABLE_COLOR
 			else
 				lineColor = UIConfig.GLOBAL_QUEST_LOCKED_COLOR
@@ -292,9 +293,9 @@ function QuestingPage:CreateDungeonPreQuestCompletionTooltip(dungeon)
 			lineColor = UIConfig.GLOBAL_QUEST_COMPLETED_COLOR
 		elseif Quest:CanTurnInQuest(quest.ID, true) then
 			lineColor = UIConfig.GLOBAL_QUEST_READY_COLOR
-		elseif Quest:IsOnQuest(quest.ID, true) then
+		elseif QuestLog:IsOnQuest(quest.ID, true) then
 			lineColor = UIConfig.GLOBAL_QUEST_IN_PROGRESS_COLOR
-		elseif Quest:HasCompletedPrereqQuestsForQuest(quest.ID) then
+		elseif Quest:HasCompletedPrerequisiteQuests(quest.ID) then
 			lineColor = UIConfig.GLOBAL_QUEST_AVAILABLE_COLOR
 		else
 			lineColor = UIConfig.GLOBAL_QUEST_LOCKED_COLOR
@@ -323,7 +324,7 @@ function QuestingPage:CreateDungeonQuestsToBringString(dungeon)
 	for _, quest in ipairs(quests) do
 		if Quest:HasCompletedQuest(quest.ID, true) then
 			completedQuests = completedQuests + 1
-		elseif Quest:IsOnQuest(quest.ID, true) then
+		elseif QuestLog:IsOnQuest(quest.ID, true) then
 			heldQuests = heldQuests + 1
 		end
 	end
@@ -398,9 +399,9 @@ function QuestingPage:CreateDungeonQuestsToBringTooltip(dungeon)
 		local lineColor = UIConfig.GLOBAL_DATA_TEXT_COLOR
 		if Quest:HasCompletedQuest(quest.ID, true) then
 			lineColor = UIConfig.GLOBAL_QUEST_IRRELEVANT_COLOR
-		elseif Quest:IsOnQuest(quest.ID, true) then
+		elseif QuestLog:IsOnQuest(quest.ID, true) then
 			lineColor = UIConfig.GLOBAL_QUEST_IN_PROGRESS_COLOR
-		elseif Quest:HasCompletedPrereqQuestsForQuest(quest.ID) then
+		elseif Quest:HasCompletedPrerequisiteQuests(quest.ID) then
 			lineColor = UIConfig.GLOBAL_QUEST_AVAILABLE_COLOR
 		else
 			lineColor = UIConfig.GLOBAL_QUEST_LOCKED_COLOR
@@ -513,9 +514,9 @@ function QuestingPage:CreateDungeonQuestCompletionTooltip(dungeon)
 			lineColor = UIConfig.GLOBAL_QUEST_COMPLETED_COLOR
 		elseif Quest:CanTurnInQuest(quest.ID, true) then
 			lineColor = UIConfig.GLOBAL_QUEST_READY_COLOR
-		elseif Quest:IsOnQuest(quest.ID, true) then
+		elseif QuestLog:IsOnQuest(quest.ID, true) then
 			lineColor = UIConfig.GLOBAL_QUEST_IN_PROGRESS_COLOR
-		elseif Quest:HasCompletedPrereqQuestsForQuest(quest.ID) then
+		elseif Quest:HasCompletedPrerequisiteQuests(quest.ID) then
 			lineColor = UIConfig.GLOBAL_QUEST_AVAILABLE_COLOR
 		else
 			lineColor = UIConfig.GLOBAL_QUEST_LOCKED_COLOR

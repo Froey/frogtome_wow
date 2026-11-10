@@ -50,7 +50,7 @@ end
 -- Resets the session to its starting values, including a reset session timer.
 function Session:ResetSession()
 	if not Session:ClaimLock() then
-		Log.Error("Cannot reset the session!")
+		Log:Error("Cannot reset the session!")
 		return
 	end
 	
@@ -70,17 +70,11 @@ function Session:ResetSession()
 	session.SessionXpFromElsewhere = 0
 	session.SessionXpFromElsewhereCount = 0
 	
-	session.QuestXpReady = 0
-	session.QuestXpPossible = 0
-	
 	session.SessionNetCopper = 0
 	session.SessionEarnedCopper = 0
 	session.SessionEarnedCopperFromQuests = 0
 	session.SessionEarnedCopperFromElsewhere = 0
 	session.SessionSpentCopper = 0
-	
-	session.QuestCopperReady = 0
-	session.QuestCopperPossible = 0
 	
 	-- The session update process will handle cases where the character may not yet be fully loaded
 	
@@ -90,13 +84,9 @@ function Session:ResetSession()
 	session.LastKnownNeededXp = XP:GetNeededXp()
 	session.LastKnownRemainingXp = XP:GetRemainingXp()
 	
-	session.LastKnownTurnInAbleQuestXp = Quest:GetQuestLogTurnInAbleXpReward()
-	session.LastKnownTotalQuestXp = Quest:GetQuestLogTotalXpReward()
-	
 	session.LastKnownCopper = Money:GetMoneyInWholeCopper()
 	
-	session.LastKnownTurnInAbleQuestCopper = Quest:GetQuestLogTurnInAbleMonetaryRewardInWholeCopper()
-	session.LastKnownTotalQuestCopper = Quest:GetQuestLogTotalMonetaryRewardInWholeCopper()
+	session.LastKnownQuestLogSize = Quest:GetQuestLogSize()
 	
 	Session:RelinquishLock()
 end
@@ -157,25 +147,13 @@ function Session:UpdateSession()
 	local newRemainingXp = XP:GetRemainingXp()
 	session.LastKnownRemainingXp = newRemainingXp
 	
-	local oldTurnInAbleQuestXp = session.LastKnownTurnInAbleQuestXp
-	local newTurnInAbleQuestXp = Quest:GetQuestLogTurnInAbleXpReward()
-	session.LastKnownTurnInAbleQuestXp = newTurnInAbleQuestXp
-	
-	local oldTotalQuestXp = session.LastKnownTotalQuestXp
-	local newTotalQuestXp = Quest:GetQuestLogTotalXpReward()
-	session.LastKnownTotalQuestXp = newTotalQuestXp
-	
 	local oldCopper = session.LastKnownCopper
 	local newCopper = Money:GetMoneyInWholeCopper()
 	session.LastKnownCopper = newCopper
 	
-	local oldTurnInAbleQuestCopper = session.LastKnownTurnInAbleQuestCopper
-	local newTurnInAbleQuestCopper = Quest:GetQuestLogTurnInAbleMonetaryRewardInWholeCopper()
-	session.LastKnownTurnInAbleQuestCopper = newTurnInAbleQuestCopper
-	
-	local oldTotalQuestCopper = session.LastKnownTotalQuestCopper
-	local newTotalQuestCopper = Quest:GetQuestLogTotalMonetaryRewardInWholeCopper()
-	session.LastKnownTotalQuestCopper = newTotalQuestCopper
+	local oldQuestLogSize = session.LastKnownQuestLogSize
+	local newQuestLogSize = Quest:GetQuestLogSize()
+	session.LastKnownQuestLogSize = newQuestLogSize
 	
 	-- Check if we're mid load or something of the sort - if so, let it do its thing and don't try to check for changes
 	
@@ -184,11 +162,8 @@ function Session:UpdateSession()
 	missingSnapshot = missingSnapshot or not oldCurrentXp or not newCurrentXp
 	missingSnapshot = missingSnapshot or not oldNeededXp or not newNeededXp
 	missingSnapshot = missingSnapshot or not oldRemainingXp or not newRemainingXp
-	missingSnapshot = missingSnapshot or not oldTurnInAbleQuestXp or not newTurnInAbleQuestXp
-	missingSnapshot = missingSnapshot or not oldTotalQuestXp or not newTotalQuestXp
 	missingSnapshot = missingSnapshot or not oldCopper or not newCopper
-	missingSnapshot = missingSnapshot or not oldTurnInAbleQuestCopper or not newTurnInAbleQuestCopper
-	missingSnapshot = missingSnapshot or not oldTotalQuestCopper or not newTotalQuestCopper
+	missingSnapshot = missingSnapshot or not oldQuestLogSize or not newQuestLogSize
 	
 	if missingSnapshot then
 		-- Evidently something is trying to load - shouldn't be missing data otherwise
@@ -243,18 +218,6 @@ function Session:UpdateSession()
 		changedXp = true
 	end
 	
-	local changedQuestXpReady = false
-	if newTurnInAbleQuestXp ~= oldTurnInAbleQuestXp then
-		session.QuestXpReady = newTurnInAbleQuestXp
-		changedQuestXpReady = true
-	end
-	
-	local changedQuestXpTotal = false
-	if newTotalQuestXp ~= oldTotalQuestXp then
-		session.QuestXpPossible = newTotalQuestXp
-		changedQuestXpTotal = true
-	end
-	
 	local copperDelta = 0
 	local changedMoney = false
 	if newCopper ~= oldCopper then
@@ -270,22 +233,10 @@ function Session:UpdateSession()
 		changedMoney = true
 	end
 	
-	local changedQuestMoneyReady = false
-	if newTurnInAbleQuestCopper ~= oldTurnInAbleQuestCopper then
-		session.QuestCopperReady = newTurnInAbleQuestCopper
-		changedQuestMoneyReady = true
-	end
-	
-	local changedQuestMoneyTotal = false
-	if newTotalQuestCopper ~= oldTotalQuestCopper then
-		session.QuestCopperPossible = newTotalQuestCopper
-		changedQuestMoneyTotal = true
-	end
-	
 	-- Derive some final auxilliary information.
 	
-	local justTurnedInXpQuest = changedXp and changedQuestXpReady and newTurnInAbleQuestXp < oldTurnInAbleQuestXp
-	local justTurnedInMoneyQuest = changedMoney and changedQuestMoneyReady and newTurnInAbleQuestCopper < oldTurnInAbleQuestCopper
+	local justTurnedInXpQuest = changedXp and newQuestLogSize < oldQuestLogSize
+	local justTurnedInMoneyQuest = changedMoney and newQuestLogSize < oldQuestLogSize
 	local justTurnedInQuest = justTurnedInXpQuest or justTurnedInMoneyQuest
 	
 	if changedXp and xpDelta > 0 then
@@ -306,13 +257,16 @@ function Session:UpdateSession()
 		end
 	end
 	
-	-- Fire appropriate listeners depending on what all has changed.
+	-- Create a manifest of what infomation has changed
 	
-	local xpRelatedChange = changedXp or changedQuestXpReady or changedQuestXpTotal
-	local moneyRelatedChange = changedMoney or changedQuestMoneyReady or changedQuestMoneyTotal
+	local changeManifest = {}
+	changeManifest.CharacterXp = changedXp
+	changeManifest.CharacterMoney = changedMoney
+	
+	-- Fire off registered listeners with the created change manifest
 	
 	for _, listener in ipairs(Session.SessionListeners) do
-		listener(xpRelatedChange, moneyRelatedChange, true)
+		listener(changeManifest)
 	end
 	
 	-- Finally, release the lock.

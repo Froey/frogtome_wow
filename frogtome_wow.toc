@@ -74,6 +74,7 @@ Modules/Core/dungeon.lua
 # -- Feature Functionality --
 # ---------------------------
 
+Modules/Features/quest_log.lua
 Modules/Features/session.lua
 Modules/Features/notes.lua
 Modules/Features/fun_facts.lua

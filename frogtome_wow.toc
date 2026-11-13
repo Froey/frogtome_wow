@@ -1,6 +1,6 @@
 ## Interface: 16001, 20506, 120105
 ## Title: |cff6bd43aFrogtome|r
-## Version: 1.0.4 (BETA)
+## Version: 1.0.4
 ## Notes: Collection of account, character, and grind-related information - all in one lightweight addon!
 ## Author: Froey
 ## IconTexture: Interface\AddOns\frogtome_wow\Resources\Icons\frogtome.tga

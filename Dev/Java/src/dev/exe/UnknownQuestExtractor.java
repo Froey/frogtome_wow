@@ -36,7 +36,6 @@ public class UnknownQuestExtractor {
 				
 				String newZone = unknownQuest.getZone();
 				if (knownCounterpartQuest.getZone() != null) {
-					System.out.println(knownCounterpartQuest.getZone());
 					newZone = knownCounterpartQuest.getZone();
 				}
 				
@@ -62,7 +61,7 @@ public class UnknownQuestExtractor {
 		List<DataQuest> sortedMergedQuests = mergedQuestMap.values().stream().sorted().toList();
 		
 		// Create the Lua code to write out.
-		String luaCode = "local _, Frogtome = ...\nif not Frogtome.Data then\n\tFrogtome.Data = {}\nend\nFrogtome.Data.QuestData = {}\n\nlocal QuestData = Frogtome.Data.QuestData\n\nQuestData.Quests = {\n";
+		String luaCode = "local _, Frogtome = ...\nif not Frogtome.Data then\n\tFrogtome.Data = {}\nend\nFrogtome.Data.QuestData = {}\n\nlocal QuestData = Frogtome.Data.QuestData\n\n----------------------\n-- Data Definitions --\n----------------------\n\nQuestData.Quests = {\n";
 		for (int questIndex = 0; questIndex < sortedMergedQuests.size(); questIndex++) {
 			luaCode += sortedMergedQuests.get(questIndex).getLuaCodeString(1);
 			if (questIndex < sortedMergedQuests.size() - 1) {

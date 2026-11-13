@@ -20,7 +20,7 @@ public class Data {
 	private static String ADDON_ROOT_DIR_NAME = "frogtome_wow";
 	private static String ADDON_DATA_DIR_NAME = "Data";
 	
-	private static String GAME_VERSION_ROOT_DIR_NAME = "_classic_beta_";
+	private static String GAME_VERSION_ROOT_DIR_NAME = "_forever_";
 	private static String WTF_DIR_NAME = "WTF";
 	private static String ACCOUNT_DIR_NAME = "Account";
 	private static String SAVED_VARIABLES_DIR_NAME = "SavedVariables";

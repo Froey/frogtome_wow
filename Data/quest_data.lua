@@ -59,6 +59,18 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[8] = {
+		["ID"] = 8,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "A Rogue's Deal",
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 5,
+		["XP"] = 110,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[9] = {
 		["ID"] = 9,
 		["FactionRestriction"] = "Alliance",
@@ -244,9 +256,9 @@ QuestData.Quests = {
 		["ID"] = 25,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Stonetalon Standstill",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Ashenvale",
+		["Level"] = 25,
+		["XP"] = 2000,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -1510,9 +1522,9 @@ QuestData.Quests = {
 		["ID"] = 185,
 		["FactionRestriction"] = nil,
 		["Name"] = "Tiger Mastery",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 31,
+		["XP"] = 1250,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -1522,9 +1534,9 @@ QuestData.Quests = {
 		["ID"] = 186,
 		["FactionRestriction"] = nil,
 		["Name"] = "Tiger Mastery",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 33,
+		["XP"] = 1300,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -1534,9 +1546,9 @@ QuestData.Quests = {
 		["ID"] = 187,
 		["FactionRestriction"] = nil,
 		["Name"] = "Tiger Mastery",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 35,
+		["XP"] = 2050,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -1546,9 +1558,9 @@ QuestData.Quests = {
 		["ID"] = 188,
 		["FactionRestriction"] = nil,
 		["Name"] = "Tiger Mastery",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 37,
+		["XP"] = 2850,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -1558,9 +1570,9 @@ QuestData.Quests = {
 		["ID"] = 189,
 		["FactionRestriction"] = nil,
 		["Name"] = "Bloodscalp Ears",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 35,
+		["XP"] = 2050,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -1570,9 +1582,9 @@ QuestData.Quests = {
 		["ID"] = 190,
 		["FactionRestriction"] = nil,
 		["Name"] = "Panther Mastery",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 31,
+		["XP"] = 1250,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -1582,9 +1594,9 @@ QuestData.Quests = {
 		["ID"] = 191,
 		["FactionRestriction"] = nil,
 		["Name"] = "Panther Mastery",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 33,
+		["XP"] = 1300,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -1594,9 +1606,9 @@ QuestData.Quests = {
 		["ID"] = 192,
 		["FactionRestriction"] = nil,
 		["Name"] = "Panther Mastery",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 38,
+		["XP"] = 2150,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -1606,9 +1618,9 @@ QuestData.Quests = {
 		["ID"] = 193,
 		["FactionRestriction"] = nil,
 		["Name"] = "Panther Mastery",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 40,
+		["XP"] = 3150,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -1618,9 +1630,9 @@ QuestData.Quests = {
 		["ID"] = 194,
 		["FactionRestriction"] = nil,
 		["Name"] = "Raptor Mastery",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 34,
+		["XP"] = 1350,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -1630,9 +1642,9 @@ QuestData.Quests = {
 		["ID"] = 195,
 		["FactionRestriction"] = nil,
 		["Name"] = "Raptor Mastery",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 36,
+		["XP"] = 1400,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -1642,9 +1654,9 @@ QuestData.Quests = {
 		["ID"] = 196,
 		["FactionRestriction"] = nil,
 		["Name"] = "Raptor Mastery",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 41,
+		["XP"] = 2450,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -1654,9 +1666,9 @@ QuestData.Quests = {
 		["ID"] = 197,
 		["FactionRestriction"] = nil,
 		["Name"] = "Raptor Mastery",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 43,
+		["XP"] = 3600,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -1693,6 +1705,18 @@ QuestData.Quests = {
 		["Zone"] = nil,
 		["Level"] = -1,
 		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[201] = {
+		["ID"] = 201,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Investigate the Camp",
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 32,
+		["XP"] = 260,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -1786,9 +1810,9 @@ QuestData.Quests = {
 		["ID"] = 209,
 		["FactionRestriction"] = nil,
 		["Name"] = "Skullsplitter Tusks",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 42,
+		["XP"] = 3450,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -1798,9 +1822,9 @@ QuestData.Quests = {
 		["ID"] = 213,
 		["FactionRestriction"] = nil,
 		["Name"] = "Hostile Takeover",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 36,
+		["XP"] = 2800,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -1835,9 +1859,9 @@ QuestData.Quests = {
 		["ID"] = 216,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Between a Rock and a Thistlefur",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Ashenvale",
+		["Level"] = 24,
+		["XP"] = 1950,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -1975,6 +1999,18 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[232] = {
+		["ID"] = 232,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Errand for Apothecary Zinge",
+		["Zone"] = "Undercity",
+		["Level"] = 45,
+		["XP"] = 390,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[233] = {
 		["ID"] = 233,
 		["FactionRestriction"] = "Alliance",
@@ -1999,6 +2035,18 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[235] = {
+		["ID"] = 235,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Ashenvale Hunt",
+		["Zone"] = "Orgrimmar",
+		["Level"] = 20,
+		["XP"] = 160,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[237] = {
 		["ID"] = 237,
 		["FactionRestriction"] = "Alliance",
@@ -2011,6 +2059,18 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[238] = {
+		["ID"] = 238,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Errand for Apothecary Zinge",
+		["Zone"] = "Undercity",
+		["Level"] = 45,
+		["XP"] = 390,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[240] = {
 		["ID"] = 240,
 		["FactionRestriction"] = "Alliance",
@@ -2018,6 +2078,18 @@ QuestData.Quests = {
 		["Zone"] = nil,
 		["Level"] = -1,
 		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[243] = {
+		["ID"] = 243,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Into the Field",
+		["Zone"] = "Undercity",
+		["Level"] = 46,
+		["XP"] = 2000,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -2724,9 +2796,9 @@ QuestData.Quests = {
 		["ID"] = 338,
 		["FactionRestriction"] = nil,
 		["Name"] = "The Green Hills of Stranglethorn",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 40,
+		["XP"] = 4700,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -2736,9 +2808,9 @@ QuestData.Quests = {
 		["ID"] = 339,
 		["FactionRestriction"] = nil,
 		["Name"] = "Chapter I",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 40,
+		["XP"] = 775,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -2748,9 +2820,9 @@ QuestData.Quests = {
 		["ID"] = 340,
 		["FactionRestriction"] = nil,
 		["Name"] = "Chapter II",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 40,
+		["XP"] = 775,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -2760,9 +2832,9 @@ QuestData.Quests = {
 		["ID"] = 341,
 		["FactionRestriction"] = nil,
 		["Name"] = "Chapter III",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 40,
+		["XP"] = 775,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -2772,9 +2844,9 @@ QuestData.Quests = {
 		["ID"] = 342,
 		["FactionRestriction"] = nil,
 		["Name"] = "Chapter IV",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 40,
+		["XP"] = 775,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -2783,10 +2855,10 @@ QuestData.Quests = {
 	[348] = {
 		["ID"] = 348,
 		["FactionRestriction"] = nil,
-		["Name"] = "Strangletorn Fever",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Name"] = "Stranglethorn Fever",
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 45,
+		["XP"] = 5850,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -2820,8 +2892,8 @@ QuestData.Quests = {
 		["ID"] = 356,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Rear Guard Patrol",
-		["Zone"] = nil,
-		["Level"] = -1,
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 11,
 		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
@@ -2844,9 +2916,9 @@ QuestData.Quests = {
 		["ID"] = 358,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Graverobbers",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 8,
+		["XP"] = 700,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -2876,13 +2948,25 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[363] = {
+		["ID"] = 363,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Rude Awakening",
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 1,
+		["XP"] = 40,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[364] = {
 		["ID"] = 364,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Mindless Ones",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 2,
+		["XP"] = 170,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -2892,9 +2976,9 @@ QuestData.Quests = {
 		["ID"] = 365,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Fields of Grief",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 7,
+		["XP"] = 625,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -2916,9 +3000,9 @@ QuestData.Quests = {
 		["ID"] = 367,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "A New Plague",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 6,
+		["XP"] = 550,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -3024,7 +3108,7 @@ QuestData.Quests = {
 		["ID"] = 376,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Damned",
-		["Zone"] = nil,
+		["Zone"] = "Tirisfal Glades",
 		["Level"] = 2,
 		["XP"] = 170,
 		["PrereqQuests"] = {
@@ -3073,9 +3157,9 @@ QuestData.Quests = {
 		["ID"] = 380,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Night Web's Hollow",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 4,
+		["XP"] = 360,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -3085,9 +3169,9 @@ QuestData.Quests = {
 		["ID"] = 381,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Scarlet Crusade",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 4,
+		["XP"] = 360,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -3097,9 +3181,21 @@ QuestData.Quests = {
 		["ID"] = 382,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Red Messenger",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 5,
+		["XP"] = 675,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[383] = {
+		["ID"] = 383,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Vital Intelligence",
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 5,
+		["XP"] = 340,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -3195,9 +3291,9 @@ QuestData.Quests = {
 		["ID"] = 398,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "WANTED: Maggot Eye",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 10,
+		["XP"] = 850,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -3207,9 +3303,9 @@ QuestData.Quests = {
 		["ID"] = 404,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "A Putrid Task",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 6,
+		["XP"] = 410,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -3339,9 +3435,9 @@ QuestData.Quests = {
 		["ID"] = 421,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Prove Your Worth",
-		["Zone"] = nil,
-		["Level"] = 10,
-		["XP"] = 850,
+		["Zone"] = "Silverpine Forest",
+		["Level"] = 11,
+		["XP"] = 875,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -3351,9 +3447,9 @@ QuestData.Quests = {
 		["ID"] = 422,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Arugal's Folly",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Silverpine Forest",
+		["Level"] = 11,
+		["XP"] = 875,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -3411,9 +3507,21 @@ QuestData.Quests = {
 		["ID"] = 427,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "At War With The Scarlet Crusade",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 8,
+		["XP"] = 700,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[428] = {
+		["ID"] = 428,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Lost Deathstalkers",
+		["Zone"] = "Silverpine Forest",
+		["Level"] = 12,
+		["XP"] = 230,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -3471,7 +3579,7 @@ QuestData.Quests = {
 		["ID"] = 437,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Dead Fields",
-		["Zone"] = nil,
+		["Zone"] = "Silverpine Forest",
 		["Level"] = 14,
 		["XP"] = 975,
 		["PrereqQuests"] = {
@@ -3483,9 +3591,9 @@ QuestData.Quests = {
 		["ID"] = 438,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Decrepit Ferry",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Silverpine Forest",
+		["Level"] = 16,
+		["XP"] = 875,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -3543,7 +3651,7 @@ QuestData.Quests = {
 		["ID"] = 447,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "A Recipe For Death",
-		["Zone"] = nil,
+		["Zone"] = "Silverpine Forest",
 		["Level"] = 12,
 		["XP"] = 900,
 		["PrereqQuests"] = {
@@ -3555,9 +3663,9 @@ QuestData.Quests = {
 		["ID"] = 450,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "A Recipe For Death",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Undercity",
+		["Level"] = 15,
+		["XP"] = 1350,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -3567,9 +3675,9 @@ QuestData.Quests = {
 		["ID"] = 451,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "A Recipe For Death",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Silverpine Forest",
+		["Level"] = 18,
+		["XP"] = 2050,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -3795,7 +3903,7 @@ QuestData.Quests = {
 		["ID"] = 477,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Border Crossings",
-		["Zone"] = nil,
+		["Zone"] = "Silverpine Forest",
 		["Level"] = 14,
 		["XP"] = 975,
 		["PrereqQuests"] = {
@@ -3807,9 +3915,9 @@ QuestData.Quests = {
 		["ID"] = 478,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Maps and Runes",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Silverpine Forest",
+		["Level"] = 14,
+		["XP"] = 750,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -3819,9 +3927,33 @@ QuestData.Quests = {
 		["ID"] = 479,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Ambermill Investigations",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Silverpine Forest",
+		["Level"] = 16,
+		["XP"] = 1150,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[481] = {
+		["ID"] = 481,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Dalar's Analysis",
+		["Zone"] = "Silverpine Forest",
+		["Level"] = 14,
+		["XP"] = 100,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[482] = {
+		["ID"] = 482,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Dalaran's Intentions",
+		["Zone"] = "Silverpine Forest",
+		["Level"] = 14,
+		["XP"] = 100,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -3950,10 +4082,22 @@ QuestData.Quests = {
 	[494] = {
 		["ID"] = 494,
 		["FactionRestriction"] = "Horde",
-		["Name"] = "Time to Strike",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Name"] = "Time To Strike",
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 20,
+		["XP"] = 775,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[495] = {
+		["ID"] = 495,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Crown of Will",
+		["Zone"] = "Undercity",
+		["Level"] = 39,
+		["XP"] = 300,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -3963,9 +4107,9 @@ QuestData.Quests = {
 		["ID"] = 496,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Elixir of Suffering",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 22,
+		["XP"] = 180,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -3975,9 +4119,9 @@ QuestData.Quests = {
 		["ID"] = 498,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Rescue",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 22,
+		["XP"] = 2200,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -3987,9 +4131,9 @@ QuestData.Quests = {
 		["ID"] = 499,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Elixir of Suffering",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 22,
+		["XP"] = 1750,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4011,9 +4155,9 @@ QuestData.Quests = {
 		["ID"] = 501,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Elixir of Pain",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 24,
+		["XP"] = 1950,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4023,9 +4167,9 @@ QuestData.Quests = {
 		["ID"] = 502,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Elixir of Pain",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 24,
+		["XP"] = 2900,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4035,9 +4179,9 @@ QuestData.Quests = {
 		["ID"] = 503,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Gol'dir",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 36,
+		["XP"] = 2800,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4095,9 +4239,9 @@ QuestData.Quests = {
 		["ID"] = 509,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Elixir of Agony",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 28,
+		["XP"] = 2300,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4143,9 +4287,9 @@ QuestData.Quests = {
 		["ID"] = 513,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Elixir of Agony",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 28,
+		["XP"] = 1150,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4155,9 +4299,9 @@ QuestData.Quests = {
 		["ID"] = 515,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Elixir of Agony",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Undercity",
+		["Level"] = 30,
+		["XP"] = 3050,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4167,9 +4311,9 @@ QuestData.Quests = {
 		["ID"] = 516,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Beren's Peril",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Silverpine Forest",
+		["Level"] = 21,
+		["XP"] = 1250,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4179,9 +4323,9 @@ QuestData.Quests = {
 		["ID"] = 517,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Elixir of Agony",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 30,
+		["XP"] = 1200,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4287,9 +4431,9 @@ QuestData.Quests = {
 		["ID"] = 527,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Battle of Hillsbrad",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 24,
+		["XP"] = 1950,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4299,9 +4443,9 @@ QuestData.Quests = {
 		["ID"] = 528,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Battle of Hillsbrad",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 25,
+		["XP"] = 2000,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4311,9 +4455,9 @@ QuestData.Quests = {
 		["ID"] = 529,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Battle of Hillsbrad",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 26,
+		["XP"] = 2100,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4335,9 +4479,9 @@ QuestData.Quests = {
 		["ID"] = 532,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Battle of Hillsbrad",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 26,
+		["XP"] = 2100,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4347,9 +4491,9 @@ QuestData.Quests = {
 		["ID"] = 533,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Infiltration",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 34,
+		["XP"] = 2700,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4383,9 +4527,9 @@ QuestData.Quests = {
 		["ID"] = 539,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Battle of Hillsbrad",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 28,
+		["XP"] = 2300,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4407,9 +4551,9 @@ QuestData.Quests = {
 		["ID"] = 541,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Battle of Hillsbrad",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 30,
+		["XP"] = 2450,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4431,9 +4575,9 @@ QuestData.Quests = {
 		["ID"] = 544,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Prison Break In",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 33,
+		["XP"] = 3300,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4443,9 +4587,9 @@ QuestData.Quests = {
 		["ID"] = 545,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Dalaran Patrols",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 35,
+		["XP"] = 2050,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4455,9 +4599,9 @@ QuestData.Quests = {
 		["ID"] = 546,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Souvenirs of Death",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 25,
+		["XP"] = 2550,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4467,9 +4611,9 @@ QuestData.Quests = {
 		["ID"] = 547,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Humbert's Sword",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 30,
+		["XP"] = 3050,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4479,9 +4623,9 @@ QuestData.Quests = {
 		["ID"] = 549,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "WANTED: Syndicate Personnel",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 22,
+		["XP"] = 1750,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4503,9 +4647,9 @@ QuestData.Quests = {
 		["ID"] = 552,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Helcular's Revenge",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 33,
+		["XP"] = 2650,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4515,9 +4659,9 @@ QuestData.Quests = {
 		["ID"] = 553,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Helcular's Revenge",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 33,
+		["XP"] = 3300,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4539,9 +4683,9 @@ QuestData.Quests = {
 		["ID"] = 556,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Stone Tokens",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 33,
+		["XP"] = 2650,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4551,9 +4695,9 @@ QuestData.Quests = {
 		["ID"] = 557,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Bracers of Binding",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 33,
+		["XP"] = 2650,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4635,9 +4779,9 @@ QuestData.Quests = {
 		["ID"] = 567,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Dangerous!",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 28,
+		["XP"] = 2300,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4647,9 +4791,9 @@ QuestData.Quests = {
 		["ID"] = 568,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Defense of Grom'gol",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 36,
+		["XP"] = 2800,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4659,9 +4803,9 @@ QuestData.Quests = {
 		["ID"] = 569,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Defense of Grom'gol",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 37,
+		["XP"] = 2850,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4671,9 +4815,9 @@ QuestData.Quests = {
 		["ID"] = 570,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Mok'thardin's Enchantment",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 38,
+		["XP"] = 2150,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4683,9 +4827,9 @@ QuestData.Quests = {
 		["ID"] = 571,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Mok'thardin's Enchantment",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 41,
+		["XP"] = 2450,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4695,9 +4839,9 @@ QuestData.Quests = {
 		["ID"] = 572,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Mok'thardin's Enchantment",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 41,
+		["XP"] = 2450,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4707,9 +4851,9 @@ QuestData.Quests = {
 		["ID"] = 573,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Mok'thardin's Enchantment",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 44,
+		["XP"] = 4650,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4731,9 +4875,9 @@ QuestData.Quests = {
 		["ID"] = 575,
 		["FactionRestriction"] = nil,
 		["Name"] = "Supply and Demand",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 31,
+		["XP"] = 1250,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4743,9 +4887,9 @@ QuestData.Quests = {
 		["ID"] = 576,
 		["FactionRestriction"] = nil,
 		["Name"] = "Keep An Eye Out",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 42,
+		["XP"] = 2550,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4755,9 +4899,9 @@ QuestData.Quests = {
 		["ID"] = 577,
 		["FactionRestriction"] = nil,
 		["Name"] = "Some Assembly Required",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 36,
+		["XP"] = 1400,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4779,9 +4923,9 @@ QuestData.Quests = {
 		["ID"] = 580,
 		["FactionRestriction"] = nil,
 		["Name"] = "Whiskey Slim's Lost Grog",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Undercity",
+		["Level"] = 50,
+		["XP"] = 4700,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4791,9 +4935,9 @@ QuestData.Quests = {
 		["ID"] = 581,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Hunt for Yenniku",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 34,
+		["XP"] = 2000,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4803,8 +4947,20 @@ QuestData.Quests = {
 		["ID"] = 582,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Headhunting",
-		["Zone"] = nil,
-		["Level"] = -1,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 37,
+		["XP"] = 2100,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[583] = {
+		["ID"] = 583,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Welcome to the Jungle",
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 30,
 		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
@@ -4815,9 +4971,9 @@ QuestData.Quests = {
 		["ID"] = 584,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Bloodscalp Clan Heads",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 41,
+		["XP"] = 3300,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4827,9 +4983,9 @@ QuestData.Quests = {
 		["ID"] = 585,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Speaking with Nezzliok",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 40,
+		["XP"] = 2350,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4839,9 +4995,9 @@ QuestData.Quests = {
 		["ID"] = 586,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Speaking with Gan'zulah",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 46,
+		["XP"] = 4050,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4851,9 +5007,9 @@ QuestData.Quests = {
 		["ID"] = 587,
 		["FactionRestriction"] = nil,
 		["Name"] = "Up to Snuff",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 41,
+		["XP"] = 1650,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4911,9 +5067,9 @@ QuestData.Quests = {
 		["ID"] = 595,
 		["FactionRestriction"] = nil,
 		["Name"] = "The Bloodsail Buccaneers",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 41,
+		["XP"] = 2450,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4923,9 +5079,9 @@ QuestData.Quests = {
 		["ID"] = 596,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Bloody Bone Necklaces",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 37,
+		["XP"] = 2100,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4935,9 +5091,9 @@ QuestData.Quests = {
 		["ID"] = 597,
 		["FactionRestriction"] = nil,
 		["Name"] = "The Bloodsail Buccaneers",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 41,
+		["XP"] = 2450,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4947,9 +5103,9 @@ QuestData.Quests = {
 		["ID"] = 598,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Split Bone Necklace",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 42,
+		["XP"] = 3450,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4959,9 +5115,9 @@ QuestData.Quests = {
 		["ID"] = 599,
 		["FactionRestriction"] = nil,
 		["Name"] = "The Bloodsail Buccaneers",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 41,
+		["XP"] = 825,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4971,9 +5127,9 @@ QuestData.Quests = {
 		["ID"] = 600,
 		["FactionRestriction"] = nil,
 		["Name"] = "Venture Company Mining",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 41,
+		["XP"] = 3300,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -4995,9 +5151,9 @@ QuestData.Quests = {
 		["ID"] = 604,
 		["FactionRestriction"] = nil,
 		["Name"] = "The Bloodsail Buccaneers",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 43,
+		["XP"] = 3600,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -5007,9 +5163,9 @@ QuestData.Quests = {
 		["ID"] = 605,
 		["FactionRestriction"] = nil,
 		["Name"] = "Singing Blue Shards",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 35,
+		["XP"] = 2750,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -5019,9 +5175,9 @@ QuestData.Quests = {
 		["ID"] = 606,
 		["FactionRestriction"] = nil,
 		["Name"] = "Scaring Shaky",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 41,
+		["XP"] = 3300,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -5031,9 +5187,9 @@ QuestData.Quests = {
 		["ID"] = 607,
 		["FactionRestriction"] = nil,
 		["Name"] = "Return to MacKinley",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 41,
+		["XP"] = 2450,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -5055,9 +5211,9 @@ QuestData.Quests = {
 		["ID"] = 609,
 		["FactionRestriction"] = nil,
 		["Name"] = "Voodoo Dues",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 44,
+		["XP"] = 3750,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -5115,9 +5271,9 @@ QuestData.Quests = {
 		["ID"] = 617,
 		["FactionRestriction"] = nil,
 		["Name"] = "Akiris by the Bundle",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 43,
+		["XP"] = 3600,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -5127,9 +5283,9 @@ QuestData.Quests = {
 		["ID"] = 621,
 		["FactionRestriction"] = nil,
 		["Name"] = "Zanzil's Secret",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 44,
+		["XP"] = 3750,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -5175,9 +5331,9 @@ QuestData.Quests = {
 		["ID"] = 628,
 		["FactionRestriction"] = nil,
 		["Name"] = "Excelsior",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 38,
+		["XP"] = 2850,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -5187,9 +5343,9 @@ QuestData.Quests = {
 		["ID"] = 629,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Vile Reef",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 37,
+		["XP"] = 2850,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -5250,6 +5406,18 @@ QuestData.Quests = {
 		["Zone"] = nil,
 		["Level"] = -1,
 		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[638] = {
+		["ID"] = 638,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Trollbane",
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 37,
+		["XP"] = 700,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -5358,6 +5526,30 @@ QuestData.Quests = {
 		["Zone"] = nil,
 		["Level"] = -1,
 		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[649] = {
+		["ID"] = 649,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Ripple Recovery",
+		["Zone"] = "Orgrimmar",
+		["Level"] = 48,
+		["XP"] = 440,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[650] = {
+		["ID"] = 650,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Ripple Recovery",
+		["Zone"] = "Orgrimmar",
+		["Level"] = 48,
+		["XP"] = 4400,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -5583,9 +5775,9 @@ QuestData.Quests = {
 		["ID"] = 676,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Hammer May Fall",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 32,
+		["XP"] = 2550,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -5799,9 +5991,9 @@ QuestData.Quests = {
 		["ID"] = 703,
 		["FactionRestriction"] = nil,
 		["Name"] = "Barbecued Buzzard Wings",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Badlands",
+		["Level"] = 40,
+		["XP"] = 2350,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -5824,9 +6016,9 @@ QuestData.Quests = {
 		["ID"] = 705,
 		["FactionRestriction"] = nil,
 		["Name"] = "Pearl Diving",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Badlands",
+		["Level"] = 37,
+		["XP"] = 3550,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -5860,9 +6052,9 @@ QuestData.Quests = {
 		["ID"] = 709,
 		["FactionRestriction"] = nil,
 		["Name"] = "Solution to Doom",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Badlands",
+		["Level"] = 40,
+		["XP"] = 6150,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -5872,9 +6064,9 @@ QuestData.Quests = {
 		["ID"] = 710,
 		["FactionRestriction"] = nil,
 		["Name"] = "Study of the Elements: Rock",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Badlands",
+		["Level"] = 37,
+		["XP"] = 2850,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -5884,9 +6076,9 @@ QuestData.Quests = {
 		["ID"] = 711,
 		["FactionRestriction"] = nil,
 		["Name"] = "Study of the Elements: Rock",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Badlands",
+		["Level"] = 39,
+		["XP"] = 3000,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -5896,9 +6088,9 @@ QuestData.Quests = {
 		["ID"] = 712,
 		["FactionRestriction"] = nil,
 		["Name"] = "Study of the Elements: Rock",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Badlands",
+		["Level"] = 42,
+		["XP"] = 3450,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -5908,9 +6100,9 @@ QuestData.Quests = {
 		["ID"] = 713,
 		["FactionRestriction"] = nil,
 		["Name"] = "Coolant Heads Prevail",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Badlands",
+		["Level"] = 37,
+		["XP"] = 2850,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -5932,9 +6124,9 @@ QuestData.Quests = {
 		["ID"] = 716,
 		["FactionRestriction"] = nil,
 		["Name"] = "Stone Is Better than Cloth",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Badlands",
+		["Level"] = 42,
+		["XP"] = 2550,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -6066,6 +6258,18 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[728] = {
+		["ID"] = 728,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "To the Undercity for Yagyin's Digest",
+		["Zone"] = "Badlands",
+		["Level"] = 40,
+		["XP"] = 775,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[729] = {
 		["ID"] = 729,
 		["FactionRestriction"] = "Alliance",
@@ -6126,6 +6330,18 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[736] = {
+		["ID"] = 736,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Star, the Hand and the Heart",
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 44,
+		["XP"] = 5600,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[737] = {
 		["ID"] = 737,
 		["FactionRestriction"] = nil,
@@ -6176,13 +6392,25 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[742] = {
+		["ID"] = 742,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Ashenvale Hunt",
+		["Zone"] = "Thunder Bluff",
+		["Level"] = 20,
+		["XP"] = 160,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[743] = {
 		["ID"] = 743,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Dangers of the Windfury",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Mulgore",
+		["Level"] = 8,
+		["XP"] = 700,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -6192,9 +6420,9 @@ QuestData.Quests = {
 		["ID"] = 745,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Sharing the Land",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Mulgore",
+		["Level"] = 8,
+		["XP"] = 700,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -6204,9 +6432,9 @@ QuestData.Quests = {
 		["ID"] = 746,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Dwarven Digging",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Mulgore",
+		["Level"] = 8,
+		["XP"] = 700,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -6216,9 +6444,9 @@ QuestData.Quests = {
 		["ID"] = 747,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Hunt Begins",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Mulgore",
+		["Level"] = 2,
+		["XP"] = 170,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -6228,9 +6456,9 @@ QuestData.Quests = {
 		["ID"] = 748,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Poison Water",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Mulgore",
+		["Level"] = 5,
+		["XP"] = 450,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -6252,9 +6480,9 @@ QuestData.Quests = {
 		["ID"] = 750,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Hunt Continues",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Mulgore",
+		["Level"] = 3,
+		["XP"] = 250,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -6272,13 +6500,25 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[752] = {
+		["ID"] = 752,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "A Humble Task",
+		["Zone"] = "Mulgore",
+		["Level"] = 2,
+		["XP"] = 85,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[753] = {
 		["ID"] = 753,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "A Humble Task",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Mulgore",
+		["Level"] = 3,
+		["XP"] = 250,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -6291,6 +6531,18 @@ QuestData.Quests = {
 		["Zone"] = nil,
 		["Level"] = -1,
 		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[755] = {
+		["ID"] = 755,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Rites of the Earthmother",
+		["Zone"] = "Mulgore",
+		["Level"] = 3,
+		["XP"] = 250,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -6312,7 +6564,7 @@ QuestData.Quests = {
 		["ID"] = 757,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Rite of Strength",
-		["Zone"] = nil,
+		["Zone"] = "Mulgore",
 		["Level"] = 4,
 		["XP"] = 450,
 		["PrereqQuests"] = {
@@ -6360,9 +6612,9 @@ QuestData.Quests = {
 		["ID"] = 761,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Swoop Hunting",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Mulgore",
+		["Level"] = 6,
+		["XP"] = 675,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -6377,6 +6629,18 @@ QuestData.Quests = {
 		["XP"] = 0,
 		["PrereqQuests"] = {
 			726
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[763] = {
+		["ID"] = 763,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Rites of the Earthmother",
+		["Zone"] = "Mulgore",
+		["Level"] = 5,
+		["XP"] = 340,
+		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
 		}
@@ -6417,6 +6681,18 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[767] = {
+		["ID"] = 767,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Rite of Vision",
+		["Zone"] = "Mulgore",
+		["Level"] = 6,
+		["XP"] = 55,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[770] = {
 		["ID"] = 770,
 		["FactionRestriction"] = "Horde",
@@ -6433,9 +6709,9 @@ QuestData.Quests = {
 		["ID"] = 771,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Rite of Vision",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Mulgore",
+		["Level"] = 7,
+		["XP"] = 625,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -6493,7 +6769,7 @@ QuestData.Quests = {
 		["ID"] = 780,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Battleboars",
-		["Zone"] = nil,
+		["Zone"] = "Mulgore",
 		["Level"] = 4,
 		["XP"] = 450,
 		["PrereqQuests"] = {
@@ -6517,9 +6793,9 @@ QuestData.Quests = {
 		["ID"] = 782,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Broken Alliances",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Badlands",
+		["Level"] = 43,
+		["XP"] = 3600,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -6541,7 +6817,7 @@ QuestData.Quests = {
 		["ID"] = 784,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Vanquish the Betrayers",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 7,
 		["XP"] = 625,
 		["PrereqQuests"] = {
@@ -6553,7 +6829,7 @@ QuestData.Quests = {
 		["ID"] = 786,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Thwarting Kolkar Aggression",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 8,
 		["XP"] = 700,
 		["PrereqQuests"] = {
@@ -6565,7 +6841,7 @@ QuestData.Quests = {
 		["ID"] = 788,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Cutting Teeth",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 2,
 		["XP"] = 170,
 		["PrereqQuests"] = {
@@ -6577,7 +6853,7 @@ QuestData.Quests = {
 		["ID"] = 789,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Sting of the Scorpid",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 3,
 		["XP"] = 250,
 		["PrereqQuests"] = {
@@ -6589,7 +6865,7 @@ QuestData.Quests = {
 		["ID"] = 790,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Sarkoth",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 5,
 		["XP"] = 450,
 		["PrereqQuests"] = {
@@ -6601,7 +6877,7 @@ QuestData.Quests = {
 		["ID"] = 791,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Carry Your Weight",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 7,
 		["XP"] = 625,
 		["PrereqQuests"] = {
@@ -6613,7 +6889,7 @@ QuestData.Quests = {
 		["ID"] = 792,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Vile Familiars",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 4,
 		["XP"] = 450,
 		["PrereqQuests"] = {
@@ -6626,9 +6902,9 @@ QuestData.Quests = {
 		["ID"] = 793,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Broken Alliances",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Undercity",
+		["Level"] = 50,
+		["XP"] = 5900,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -6638,7 +6914,7 @@ QuestData.Quests = {
 		["ID"] = 794,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Burning Blade Medallion",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 5,
 		["XP"] = 675,
 		["PrereqQuests"] = {
@@ -6650,7 +6926,7 @@ QuestData.Quests = {
 		["ID"] = 804,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Sarkoth",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 5,
 		["XP"] = 110,
 		["PrereqQuests"] = {
@@ -6663,7 +6939,7 @@ QuestData.Quests = {
 		["ID"] = 805,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Report to Sen'jin Village",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 5,
 		["XP"] = 230,
 		["PrereqQuests"] = {
@@ -6675,7 +6951,7 @@ QuestData.Quests = {
 		["ID"] = 806,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Dark Storms",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 12,
 		["XP"] = 900,
 		["PrereqQuests"] = {
@@ -6687,7 +6963,7 @@ QuestData.Quests = {
 		["ID"] = 808,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Minshina's Skull",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 9,
 		["XP"] = 775,
 		["PrereqQuests"] = {
@@ -6699,7 +6975,7 @@ QuestData.Quests = {
 		["ID"] = 809,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Ak'Zeloth",
-		["Zone"] = nil,
+		["Zone"] = "Orgrimmar",
 		["Level"] = 13,
 		["XP"] = 460,
 		["PrereqQuests"] = {
@@ -6723,7 +6999,7 @@ QuestData.Quests = {
 		["ID"] = 815,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Break a Few Eggs",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 8,
 		["XP"] = 700,
 		["PrereqQuests"] = {
@@ -6735,7 +7011,7 @@ QuestData.Quests = {
 		["ID"] = 816,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Lost But Not Forgotten",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 11,
 		["XP"] = 875,
 		["PrereqQuests"] = {
@@ -6747,7 +7023,7 @@ QuestData.Quests = {
 		["ID"] = 817,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Practical Prey",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 8,
 		["XP"] = 700,
 		["PrereqQuests"] = {
@@ -6759,7 +7035,7 @@ QuestData.Quests = {
 		["ID"] = 818,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "A Solvent Spirit",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 7,
 		["XP"] = 625,
 		["PrereqQuests"] = {
@@ -6771,7 +7047,7 @@ QuestData.Quests = {
 		["ID"] = 819,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Chen's Empty Keg",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 15,
 		["XP"] = 1050,
 		["PrereqQuests"] = {
@@ -6783,7 +7059,7 @@ QuestData.Quests = {
 		["ID"] = 821,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Chen's Empty Keg",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 15,
 		["XP"] = 1350,
 		["PrereqQuests"] = {
@@ -6795,9 +7071,9 @@ QuestData.Quests = {
 		["ID"] = 822,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Chen's Empty Keg",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 24,
+		["XP"] = 975,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -6807,7 +7083,7 @@ QuestData.Quests = {
 		["ID"] = 823,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Report to Orgnil",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 7,
 		["XP"] = 320,
 		["PrereqQuests"] = {
@@ -6831,7 +7107,7 @@ QuestData.Quests = {
 		["ID"] = 825,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "From The Wreckage....",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 8,
 		["XP"] = 700,
 		["PrereqQuests"] = {
@@ -6843,7 +7119,7 @@ QuestData.Quests = {
 		["ID"] = 826,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Zalazane",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 10,
 		["XP"] = 850,
 		["PrereqQuests"] = {
@@ -6855,9 +7131,21 @@ QuestData.Quests = {
 		["ID"] = 827,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Skull Rock",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Durotar",
+		["Level"] = 12,
+		["XP"] = 900,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[828] = {
+		["ID"] = 828,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Margoz",
+		["Zone"] = "Durotar",
+		["Level"] = 12,
+		["XP"] = 90,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -6867,9 +7155,9 @@ QuestData.Quests = {
 		["ID"] = 829,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Neeru Fireblade",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Durotar",
+		["Level"] = 12,
+		["XP"] = 460,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -6879,7 +7167,7 @@ QuestData.Quests = {
 		["ID"] = 830,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Admiral's Orders",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 7,
 		["XP"] = 625,
 		["PrereqQuests"] = {
@@ -6891,7 +7179,7 @@ QuestData.Quests = {
 		["ID"] = 831,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Admiral's Orders",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 7,
 		["XP"] = 625,
 		["PrereqQuests"] = {
@@ -6903,7 +7191,7 @@ QuestData.Quests = {
 		["ID"] = 832,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Burning Shadows",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 12,
 		["XP"] = 675,
 		["PrereqQuests"] = {
@@ -6927,7 +7215,7 @@ QuestData.Quests = {
 		["ID"] = 834,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Winds in the Desert",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 9,
 		["XP"] = 775,
 		["PrereqQuests"] = {
@@ -6939,7 +7227,7 @@ QuestData.Quests = {
 		["ID"] = 835,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Securing the Lines",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 11,
 		["XP"] = 875,
 		["PrereqQuests"] = {
@@ -6963,7 +7251,7 @@ QuestData.Quests = {
 		["ID"] = 837,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Encroachment",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 10,
 		["XP"] = 625,
 		["PrereqQuests"] = {
@@ -6975,7 +7263,7 @@ QuestData.Quests = {
 		["ID"] = 840,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Conscript of the Horde",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 12,
 		["XP"] = 460,
 		["PrereqQuests"] = {
@@ -6987,7 +7275,7 @@ QuestData.Quests = {
 		["ID"] = 842,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Crossroads Conscription",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 12,
 		["XP"] = 900,
 		["PrereqQuests"] = {
@@ -6999,9 +7287,9 @@ QuestData.Quests = {
 		["ID"] = 843,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Gann's Reclamation",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 23,
+		["XP"] = 1850,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -7011,7 +7299,7 @@ QuestData.Quests = {
 		["ID"] = 844,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Plainstrider Menace",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 12,
 		["XP"] = 900,
 		["PrereqQuests"] = {
@@ -7023,9 +7311,9 @@ QuestData.Quests = {
 		["ID"] = 845,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Zhevra",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 13,
+		["XP"] = 900,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -7059,7 +7347,7 @@ QuestData.Quests = {
 		["ID"] = 848,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Fungal Spores",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 15,
 		["XP"] = 1050,
 		["PrereqQuests"] = {
@@ -7083,9 +7371,9 @@ QuestData.Quests = {
 		["ID"] = 850,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Kolkar Leaders",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 16,
+		["XP"] = 875,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -7095,9 +7383,9 @@ QuestData.Quests = {
 		["ID"] = 851,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Verog the Dervish",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 18,
+		["XP"] = 1000,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -7107,9 +7395,21 @@ QuestData.Quests = {
 		["ID"] = 852,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Hezrul Bloodmark",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 19,
+		["XP"] = 1100,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[853] = {
+		["ID"] = 853,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Apothecary Zamah",
+		["Zone"] = "The Barrens",
+		["Level"] = 15,
+		["XP"] = 800,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -7119,9 +7419,9 @@ QuestData.Quests = {
 		["ID"] = 855,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Centaur Bracers",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 14,
+		["XP"] = 1250,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -7131,9 +7431,9 @@ QuestData.Quests = {
 		["ID"] = 858,
 		["FactionRestriction"] = nil,
 		["Name"] = "Ignition",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 18,
+		["XP"] = 1350,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -7167,9 +7467,9 @@ QuestData.Quests = {
 		["ID"] = 863,
 		["FactionRestriction"] = nil,
 		["Name"] = "The Escape",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 18,
+		["XP"] = 1700,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -7179,7 +7479,7 @@ QuestData.Quests = {
 		["ID"] = 865,
 		["FactionRestriction"] = nil,
 		["Name"] = "Raptor Horns",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 18,
 		["XP"] = 1350,
 		["PrereqQuests"] = {
@@ -7203,7 +7503,7 @@ QuestData.Quests = {
 		["ID"] = 867,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Harpy Raiders",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 15,
 		["XP"] = 1050,
 		["PrereqQuests"] = {
@@ -7215,9 +7515,9 @@ QuestData.Quests = {
 		["ID"] = 868,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Egg Hunt",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 22,
+		["XP"] = 1750,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -7227,7 +7527,7 @@ QuestData.Quests = {
 		["ID"] = 869,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Raptor Thieves",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 13,
 		["XP"] = 900,
 		["PrereqQuests"] = {
@@ -7239,7 +7539,7 @@ QuestData.Quests = {
 		["ID"] = 870,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Forgotten Pools",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 13,
 		["XP"] = 675,
 		["PrereqQuests"] = {
@@ -7252,7 +7552,7 @@ QuestData.Quests = {
 		["ID"] = 871,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Disrupt the Attacks",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 12,
 		["XP"] = 900,
 		["PrereqQuests"] = {
@@ -7264,7 +7564,7 @@ QuestData.Quests = {
 		["ID"] = 872,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Disruption Ends",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 15,
 		["XP"] = 1050,
 		["PrereqQuests"] = {
@@ -7288,7 +7588,7 @@ QuestData.Quests = {
 		["ID"] = 875,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Harpy Lieutenants",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 16,
 		["XP"] = 1150,
 		["PrereqQuests"] = {
@@ -7300,9 +7600,9 @@ QuestData.Quests = {
 		["ID"] = 876,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Serena Bloodfeather",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 20,
+		["XP"] = 1950,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -7312,7 +7612,7 @@ QuestData.Quests = {
 		["ID"] = 877,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Stagnant Oasis",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 16,
 		["XP"] = 1150,
 		["PrereqQuests"] = {
@@ -7325,9 +7625,9 @@ QuestData.Quests = {
 		["ID"] = 878,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Tribes at War",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 21,
+		["XP"] = 1650,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -7349,9 +7649,9 @@ QuestData.Quests = {
 		["ID"] = 880,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Altered Beings",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 16,
+		["XP"] = 1150,
 		["PrereqQuests"] = {
 			877
 		},
@@ -7362,9 +7662,9 @@ QuestData.Quests = {
 		["ID"] = 881,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Echeyakee",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 16,
+		["XP"] = 1450,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -7422,7 +7722,7 @@ QuestData.Quests = {
 		["ID"] = 887,
 		["FactionRestriction"] = nil,
 		["Name"] = "Southsea Freebooters",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 14,
 		["XP"] = 750,
 		["PrereqQuests"] = {
@@ -7434,7 +7734,7 @@ QuestData.Quests = {
 		["ID"] = 888,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Stolen Booty",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 16,
 		["XP"] = 1150,
 		["PrereqQuests"] = {
@@ -7446,7 +7746,7 @@ QuestData.Quests = {
 		["ID"] = 890,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Missing Shipment",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 14,
 		["XP"] = 100,
 		["PrereqQuests"] = {
@@ -7458,7 +7758,7 @@ QuestData.Quests = {
 		["ID"] = 891,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Guns of Northwatch",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 20,
 		["XP"] = 1550,
 		["PrereqQuests"] = {
@@ -7470,7 +7770,7 @@ QuestData.Quests = {
 		["ID"] = 892,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Missing Shipment",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 14,
 		["XP"] = 100,
 		["PrereqQuests"] = {
@@ -7494,7 +7794,7 @@ QuestData.Quests = {
 		["ID"] = 894,
 		["FactionRestriction"] = nil,
 		["Name"] = "Samophlange",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 14,
 		["XP"] = 750,
 		["PrereqQuests"] = {
@@ -7506,7 +7806,7 @@ QuestData.Quests = {
 		["ID"] = 895,
 		["FactionRestriction"] = nil,
 		["Name"] = "WANTED: Baron Longshore",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 16,
 		["XP"] = 1150,
 		["PrereqQuests"] = {
@@ -7518,7 +7818,7 @@ QuestData.Quests = {
 		["ID"] = 896,
 		["FactionRestriction"] = nil,
 		["Name"] = "Miner's Fortune",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 18,
 		["XP"] = 1700,
 		["PrereqQuests"] = {
@@ -7542,9 +7842,9 @@ QuestData.Quests = {
 		["ID"] = 898,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Free From the Hold",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 20,
+		["XP"] = 1950,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -7554,7 +7854,7 @@ QuestData.Quests = {
 		["ID"] = 899,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Consumed by Hatred",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 20,
 		["XP"] = 1950,
 		["PrereqQuests"] = {
@@ -7566,9 +7866,9 @@ QuestData.Quests = {
 		["ID"] = 900,
 		["FactionRestriction"] = nil,
 		["Name"] = "Samophlange",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 14,
+		["XP"] = 490,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -7578,9 +7878,9 @@ QuestData.Quests = {
 		["ID"] = 901,
 		["FactionRestriction"] = nil,
 		["Name"] = "Samophlange",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 14,
+		["XP"] = 750,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -7590,9 +7890,9 @@ QuestData.Quests = {
 		["ID"] = 902,
 		["FactionRestriction"] = nil,
 		["Name"] = "Samophlange",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 16,
+		["XP"] = 1150,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -7602,9 +7902,9 @@ QuestData.Quests = {
 		["ID"] = 903,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Prowlers of the Barrens",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 15,
+		["XP"] = 1050,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -7614,9 +7914,9 @@ QuestData.Quests = {
 		["ID"] = 905,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Angry Scytheclaws",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 17,
+		["XP"] = 1250,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -7662,9 +7962,9 @@ QuestData.Quests = {
 		["ID"] = 914,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Leaders of the Fang",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Thunder Bluff",
+		["Level"] = 22,
+		["XP"] = 4300,
 		["PrereqQuests"] = {
 			1490
 		},
@@ -7762,6 +8062,18 @@ QuestData.Quests = {
 		["Zone"] = nil,
 		["Level"] = -1,
 		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[924] = {
+		["ID"] = 924,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Demon Seed",
+		["Zone"] = "The Barrens",
+		["Level"] = 14,
+		["XP"] = 1250,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -8083,7 +8395,7 @@ QuestData.Quests = {
 		["ID"] = 959,
 		["FactionRestriction"] = nil,
 		["Name"] = "Trouble at the Docks",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 18,
 		["XP"] = 2650,
 		["PrereqQuests"] = {
@@ -8095,9 +8407,9 @@ QuestData.Quests = {
 		["ID"] = 962,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Serpentbloom",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Thunder Bluff",
+		["Level"] = 18,
+		["XP"] = 3300,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -8491,9 +8803,9 @@ QuestData.Quests = {
 		["ID"] = 1013,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Book of Ur",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 26,
+		["XP"] = 5600,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -8503,9 +8815,9 @@ QuestData.Quests = {
 		["ID"] = 1014,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Arugal Must Die",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Undercity",
+		["Level"] = 27,
+		["XP"] = 8850,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -8755,8 +9067,8 @@ QuestData.Quests = {
 		["ID"] = 1048,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Into The Scarlet Monastery",
-		["Zone"] = nil,
-		["Level"] = -1,
+		["Zone"] = "Undercity",
+		["Level"] = 42,
 		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
@@ -8767,9 +9079,9 @@ QuestData.Quests = {
 		["ID"] = 1049,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Compendium of the Fallen",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Alterac Mountains",
+		["Level"] = 38,
+		["XP"] = 8450,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -8791,9 +9103,9 @@ QuestData.Quests = {
 		["ID"] = 1051,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Vorrel's Revenge",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Scarlet Monastery",
+		["Level"] = 33,
+		["XP"] = 3300,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -8865,9 +9177,9 @@ QuestData.Quests = {
 		["ID"] = 1058,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Jin'Zil's Forest Magic",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stonetalon Mountains",
+		["Level"] = 26,
+		["XP"] = 2100,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -8877,8 +9189,8 @@ QuestData.Quests = {
 		["ID"] = 1060,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Letter to Jin'Zil",
-		["Zone"] = nil,
-		["Level"] = -1,
+		["Zone"] = "The Barrens",
+		["Level"] = 20,
 		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
@@ -8889,7 +9201,7 @@ QuestData.Quests = {
 		["ID"] = 1061,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Spirits of Stonetalon",
-		["Zone"] = nil,
+		["Zone"] = "Orgrimmar",
 		["Level"] = 17,
 		["XP"] = 320,
 		["PrereqQuests"] = {
@@ -8901,8 +9213,20 @@ QuestData.Quests = {
 		["ID"] = 1062,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Goblin Invaders",
-		["Zone"] = nil,
-		["Level"] = -1,
+		["Zone"] = "The Barrens",
+		["Level"] = 19,
+		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1063] = {
+		["ID"] = 1063,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Elder Crone",
+		["Zone"] = "The Barrens",
+		["Level"] = 18,
 		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
@@ -8925,9 +9249,9 @@ QuestData.Quests = {
 		["ID"] = 1068,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Shredding Machines",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 23,
+		["XP"] = 1850,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -8937,7 +9261,7 @@ QuestData.Quests = {
 		["ID"] = 1069,
 		["FactionRestriction"] = nil,
 		["Name"] = "Deepmoss Spider Eggs",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 20,
 		["XP"] = 1950,
 		["PrereqQuests"] = {
@@ -9021,9 +9345,9 @@ QuestData.Quests = {
 		["ID"] = 1087,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Cenarius' Legacy",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stonetalon Mountains",
+		["Level"] = 25,
+		["XP"] = 1500,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -9033,9 +9357,9 @@ QuestData.Quests = {
 		["ID"] = 1088,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Ordanus",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stonetalon Mountains",
+		["Level"] = 29,
+		["XP"] = 2350,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -9045,9 +9369,9 @@ QuestData.Quests = {
 		["ID"] = 1089,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Den",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stonetalon Mountains",
+		["Level"] = 29,
+		["XP"] = 2950,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -9080,10 +9404,22 @@ QuestData.Quests = {
 	[1093] = {
 		["ID"] = 1093,
 		["FactionRestriction"] = nil,
-		["Name"] = "Super Reaver 6000",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Name"] = "Super Reaper 6000",
+		["Zone"] = "Stonetalon Mountains",
+		["Level"] = 21,
+		["XP"] = 1650,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1094] = {
+		["ID"] = 1094,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Further Instructions",
+		["Zone"] = "Stonetalon Mountains",
+		["Level"] = 21,
+		["XP"] = 825,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -9093,9 +9429,9 @@ QuestData.Quests = {
 		["ID"] = 1095,
 		["FactionRestriction"] = nil,
 		["Name"] = "Further Instructions",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 27,
+		["XP"] = 1100,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -9105,9 +9441,9 @@ QuestData.Quests = {
 		["ID"] = 1096,
 		["FactionRestriction"] = nil,
 		["Name"] = "Gerenzo Wrenchwhistle",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stonetalon Mountains",
+		["Level"] = 27,
+		["XP"] = 2200,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -9117,9 +9453,9 @@ QuestData.Quests = {
 		["ID"] = 1098,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Deathstalkers in Shadowfang",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 25,
+		["XP"] = 5350,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -9154,9 +9490,9 @@ QuestData.Quests = {
 		["ID"] = 1102,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "A Vengeful Fate",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Thunder Bluff",
+		["Level"] = 34,
+		["XP"] = 8500,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -9166,9 +9502,9 @@ QuestData.Quests = {
 		["ID"] = 1104,
 		["FactionRestriction"] = nil,
 		["Name"] = "Salt Flat Venom",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Thousand Needles",
+		["Level"] = 30,
+		["XP"] = 1850,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -9178,9 +9514,21 @@ QuestData.Quests = {
 		["ID"] = 1105,
 		["FactionRestriction"] = nil,
 		["Name"] = "Hardened Shells",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Thousand Needles",
+		["Level"] = 30,
+		["XP"] = 2450,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1106] = {
+		["ID"] = 1106,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Martek the Exiled",
+		["Zone"] = "Thousand Needles",
+		["Level"] = 35,
+		["XP"] = 1350,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -9190,9 +9538,9 @@ QuestData.Quests = {
 		["ID"] = 1107,
 		["FactionRestriction"] = nil,
 		["Name"] = "Encrusted Tail Fins",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Thousand Needles",
+		["Level"] = 35,
+		["XP"] = 3450,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -9202,9 +9550,9 @@ QuestData.Quests = {
 		["ID"] = 1109,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Going, Going, Guano!",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Undercity",
+		["Level"] = 33,
+		["XP"] = 6950,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -9214,9 +9562,33 @@ QuestData.Quests = {
 		["ID"] = 1110,
 		["FactionRestriction"] = nil,
 		["Name"] = "Rocket Car Parts",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Thousand Needles",
+		["Level"] = 31,
+		["XP"] = 2500,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1111] = {
+		["ID"] = 1111,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Wharfmaster Dizzywig",
+		["Zone"] = "Thousand Needles",
+		["Level"] = 36,
+		["XP"] = 1400,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1112] = {
+		["ID"] = 1112,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Parts for Kravel",
+		["Zone"] = "The Barrens",
+		["Level"] = 36,
+		["XP"] = 1400,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -9226,11 +9598,23 @@ QuestData.Quests = {
 		["ID"] = 1113,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Hearts of Zeal",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Undercity",
+		["Level"] = 33,
+		["XP"] = 7850,
 		["PrereqQuests"] = {
 			1109
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1114] = {
+		["ID"] = 1114,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Delivery to the Gnomes",
+		["Zone"] = "Thousand Needles",
+		["Level"] = 36,
+		["XP"] = 700,
+		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
 		}
@@ -9266,6 +9650,30 @@ QuestData.Quests = {
 		["Zone"] = nil,
 		["Level"] = -1,
 		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1130] = {
+		["ID"] = 1130,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Melor Sends Word",
+		["Zone"] = "The Barrens",
+		["Level"] = 30,
+		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1131] = {
+		["ID"] = 1131,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Steelsnap",
+		["Zone"] = "Thunder Bluff",
+		["Level"] = 30,
+		["XP"] = 2450,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -9360,9 +9768,33 @@ QuestData.Quests = {
 		["ID"] = 1144,
 		["FactionRestriction"] = nil,
 		["Name"] = "Willix the Importer",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Razorfen Kraul",
+		["Level"] = 30,
+		["XP"] = 7250,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1145] = {
+		["ID"] = 1145,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Swarm Grows",
+		["Zone"] = "The Barrens",
+		["Level"] = 33,
+		["XP"] = 1300,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1146] = {
+		["ID"] = 1146,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Swarm Grows",
+		["Zone"] = "Orgrimmar",
+		["Level"] = 33,
+		["XP"] = 1950,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -9372,9 +9804,9 @@ QuestData.Quests = {
 		["ID"] = 1147,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Swarm Grows",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Thousand Needles",
+		["Level"] = 35,
+		["XP"] = 2750,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -9384,9 +9816,9 @@ QuestData.Quests = {
 		["ID"] = 1148,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Parts of the Swarm",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Thousand Needles",
+		["Level"] = 35,
+		["XP"] = 2750,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -9396,8 +9828,8 @@ QuestData.Quests = {
 		["ID"] = 1149,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Test of Faith",
-		["Zone"] = nil,
-		["Level"] = -1,
+		["Zone"] = "Thousand Needles",
+		["Level"] = 26,
 		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
@@ -9408,9 +9840,9 @@ QuestData.Quests = {
 		["ID"] = 1150,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Test of Endurance",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Thousand Needles",
+		["Level"] = 30,
+		["XP"] = 2450,
 		["PrereqQuests"] = {
 			1149
 		},
@@ -9420,10 +9852,10 @@ QuestData.Quests = {
 	[1151] = {
 		["ID"] = 1151,
 		["FactionRestriction"] = "Horde",
-		["Name"] = "Test of Faith",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Name"] = "Test of Strength",
+		["Zone"] = "Thousand Needles",
+		["Level"] = 30,
+		["XP"] = 3050,
 		["PrereqQuests"] = {
 			1150
 		},
@@ -9434,9 +9866,9 @@ QuestData.Quests = {
 		["ID"] = 1152,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Test of Lore",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Thousand Needles",
+		["Level"] = 30,
+		["XP"] = 1200,
 		["PrereqQuests"] = {
 			1151
 		},
@@ -9459,9 +9891,9 @@ QuestData.Quests = {
 		["ID"] = 1154,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Test of Lore",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stonetalon Mountains",
+		["Level"] = 30,
+		["XP"] = 1850,
 		["PrereqQuests"] = {
 			1152
 		},
@@ -9472,9 +9904,9 @@ QuestData.Quests = {
 		["ID"] = 1159,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Test of Lore",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stonetalon Mountains",
+		["Level"] = 30,
+		["XP"] = 1200,
 		["PrereqQuests"] = {
 			6627
 		},
@@ -9485,11 +9917,23 @@ QuestData.Quests = {
 		["ID"] = 1160,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Test of Lore",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Undercity",
+		["Level"] = 36,
+		["XP"] = 5000,
 		["PrereqQuests"] = {
 			1159
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1164] = {
+		["ID"] = 1164,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "To Steal From Thieves",
+		["Zone"] = "Ashenvale",
+		["Level"] = 36,
+		["XP"] = 2800,
+		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
 		}
@@ -9498,9 +9942,9 @@ QuestData.Quests = {
 		["ID"] = 1166,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Overlord Mok'Morokk's Concern",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 43,
+		["XP"] = 4450,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -9510,9 +9954,9 @@ QuestData.Quests = {
 		["ID"] = 1168,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Army of the Black Dragon",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 43,
+		["XP"] = 3600,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -9522,9 +9966,33 @@ QuestData.Quests = {
 		["ID"] = 1169,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Identifying the Brood",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 43,
+		["XP"] = 5350,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1170] = {
+		["ID"] = 1170,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Brood of Onyxia",
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 43,
+		["XP"] = 360,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1171] = {
+		["ID"] = 1171,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Brood of Onyxia",
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 43,
+		["XP"] = 360,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -9558,9 +10026,9 @@ QuestData.Quests = {
 		["ID"] = 1175,
 		["FactionRestriction"] = nil,
 		["Name"] = "A Bump in the Road",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Thousand Needles",
+		["Level"] = 33,
+		["XP"] = 2650,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -9570,8 +10038,20 @@ QuestData.Quests = {
 		["ID"] = 1176,
 		["FactionRestriction"] = nil,
 		["Name"] = "Load Lightening",
-		["Zone"] = nil,
-		["Level"] = -1,
+		["Zone"] = "Thousand Needles",
+		["Level"] = 30,
+		["XP"] = 1850,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1177] = {
+		["ID"] = 1177,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Hungry!",
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 36,
 		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
@@ -9582,9 +10062,9 @@ QuestData.Quests = {
 		["ID"] = 1178,
 		["FactionRestriction"] = nil,
 		["Name"] = "Goblin Sponsorship",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Thousand Needles",
+		["Level"] = 37,
+		["XP"] = 700,
 		["PrereqQuests"] = {
 			1176
 		},
@@ -9607,9 +10087,9 @@ QuestData.Quests = {
 		["ID"] = 1180,
 		["FactionRestriction"] = nil,
 		["Name"] = "Goblin Sponsorship",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 37,
+		["XP"] = 700,
 		["PrereqQuests"] = {
 			1178
 		},
@@ -9620,9 +10100,9 @@ QuestData.Quests = {
 		["ID"] = 1181,
 		["FactionRestriction"] = nil,
 		["Name"] = "Goblin Sponsorship",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 37,
+		["XP"] = 290,
 		["PrereqQuests"] = {
 			1180
 		},
@@ -9633,9 +10113,9 @@ QuestData.Quests = {
 		["ID"] = 1182,
 		["FactionRestriction"] = nil,
 		["Name"] = "Goblin Sponsorship",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 37,
+		["XP"] = 2850,
 		["PrereqQuests"] = {
 			1181
 		},
@@ -9646,11 +10126,23 @@ QuestData.Quests = {
 		["ID"] = 1183,
 		["FactionRestriction"] = nil,
 		["Name"] = "Goblin Sponsorship",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 37,
+		["XP"] = 700,
 		["PrereqQuests"] = {
 			1182
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1184] = {
+		["ID"] = 1184,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Parts of the Swarm",
+		["Zone"] = "The Barrens",
+		["Level"] = 35,
+		["XP"] = 1350,
+		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
 		}
@@ -9731,6 +10223,42 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[1195] = {
+		["ID"] = 1195,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Sacred Flame",
+		["Zone"] = "Thunder Bluff",
+		["Level"] = 25,
+		["XP"] = 2550,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1196] = {
+		["ID"] = 1196,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Sacred Flame",
+		["Zone"] = "Thunder Bluff",
+		["Level"] = 29,
+		["XP"] = 600,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1197] = {
+		["ID"] = 1197,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Sacred Flame",
+		["Zone"] = "Thousand Needles",
+		["Level"] = 29,
+		["XP"] = 2350,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[1198] = {
 		["ID"] = 1198,
 		["FactionRestriction"] = "Alliance",
@@ -9772,8 +10300,8 @@ QuestData.Quests = {
 		["ID"] = 1201,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Theramore Spies",
-		["Zone"] = nil,
-		["Level"] = -1,
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 35,
 		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
@@ -9784,8 +10312,8 @@ QuestData.Quests = {
 		["ID"] = 1202,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Theramore Docks",
-		["Zone"] = nil,
-		["Level"] = -1,
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 35,
 		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
@@ -9868,9 +10396,9 @@ QuestData.Quests = {
 		["ID"] = 1221,
 		["FactionRestriction"] = nil,
 		["Name"] = "Blueleaf Tubers",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 26,
+		["XP"] = 5000,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -9924,6 +10452,18 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[1251] = {
+		["ID"] = 1251,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Black Shield",
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 35,
+		["XP"] = 700,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[1258] = {
 		["ID"] = 1258,
 		["FactionRestriction"] = "Alliance",
@@ -9960,6 +10500,30 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[1268] = {
+		["ID"] = 1268,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Suspicious Hoofprints",
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 35,
+		["XP"] = 1350,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1269] = {
+		["ID"] = 1269,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Lieutenant Paval Reethe",
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 37,
+		["XP"] = 700,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[1270] = {
 		["ID"] = 1270,
 		["FactionRestriction"] = "Horde",
@@ -9976,8 +10540,8 @@ QuestData.Quests = {
 		["ID"] = 1273,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Questioning Reethe",
-		["Zone"] = nil,
-		["Level"] = -1,
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 37,
 		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
@@ -9990,6 +10554,18 @@ QuestData.Quests = {
 		["Name"] = "Researching the Corruption",
 		["Zone"] = nil,
 		["Level"] = -1,
+		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1276] = {
+		["ID"] = 1276,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Black Shield",
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 37,
 		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
@@ -10024,8 +10600,20 @@ QuestData.Quests = {
 		["ID"] = 1322,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Black Shield",
-		["Zone"] = nil,
-		["Level"] = -1,
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 37,
+		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1323] = {
+		["ID"] = 1323,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Black Shield",
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 37,
 		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
@@ -10039,6 +10627,30 @@ QuestData.Quests = {
 		["Zone"] = nil,
 		["Level"] = -1,
 		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1361] = {
+		["ID"] = 1361,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Regthar Deathgate",
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 32,
+		["XP"] = 650,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1362] = {
+		["ID"] = 1362,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Kolkar of Desolace",
+		["Zone"] = "Thousand Needles",
+		["Level"] = 32,
+		["XP"] = 650,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -10080,6 +10692,18 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[1372] = {
+		["ID"] = 1372,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Nothing But The Truth",
+		["Zone"] = "Duskwood",
+		["Level"] = 42,
+		["XP"] = 350,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[1382] = {
 		["ID"] = 1382,
 		["FactionRestriction"] = "Alliance",
@@ -10087,6 +10711,18 @@ QuestData.Quests = {
 		["Zone"] = nil,
 		["Level"] = -1,
 		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1383] = {
+		["ID"] = 1383,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Nothing But The Truth",
+		["Zone"] = "Duskwood",
+		["Level"] = 42,
+		["XP"] = 4300,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -10188,6 +10824,18 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[1394] = {
+		["ID"] = 1394,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Final Passage",
+		["Zone"] = "Undercity",
+		["Level"] = 36,
+		["XP"] = 4200,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[1396] = {
 		["ID"] = 1396,
 		["FactionRestriction"] = "Alliance",
@@ -10204,9 +10852,21 @@ QuestData.Quests = {
 		["ID"] = 1419,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Coyote Thieves",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Badlands",
+		["Level"] = 40,
+		["XP"] = 3150,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1420] = {
+		["ID"] = 1420,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Report to Helgrum",
+		["Zone"] = "Badlands",
+		["Level"] = 40,
+		["XP"] = 2350,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -10228,9 +10888,9 @@ QuestData.Quests = {
 		["ID"] = 1424,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Pool of Tears",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Swamp of Sorrows",
+		["Level"] = 43,
+		["XP"] = 4450,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -10292,6 +10952,30 @@ QuestData.Quests = {
 		["Zone"] = nil,
 		["Level"] = -1,
 		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1431] = {
+		["ID"] = 1431,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Alliance Relations",
+		["Zone"] = "Orgrimmar",
+		["Level"] = 30,
+		["XP"] = 600,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1432] = {
+		["ID"] = 1432,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Alliance Relations",
+		["Zone"] = "Orgrimmar",
+		["Level"] = 30,
+		["XP"] = 1200,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -10592,7 +11276,7 @@ QuestData.Quests = {
 		["ID"] = 1483,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Ziz Fizziks",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 21,
 		["XP"] = 420,
 		["PrereqQuests"] = {
@@ -10617,9 +11301,9 @@ QuestData.Quests = {
 		["ID"] = 1486,
 		["FactionRestriction"] = nil,
 		["Name"] = "Deviate Hides",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 17,
+		["XP"] = 3100,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -10629,9 +11313,9 @@ QuestData.Quests = {
 		["ID"] = 1487,
 		["FactionRestriction"] = nil,
 		["Name"] = "Deviate Eradication",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Mulgore",
+		["Level"] = 21,
+		["XP"] = 4000,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -10653,9 +11337,9 @@ QuestData.Quests = {
 		["ID"] = 1489,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Hamuul Runetotem",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 16,
+		["XP"] = 290,
 		["PrereqQuests"] = {
 			880
 		},
@@ -10666,9 +11350,9 @@ QuestData.Quests = {
 		["ID"] = 1490,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Nara Wildmane",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Thunder Bluff",
+		["Level"] = 16,
+		["XP"] = 120,
 		["PrereqQuests"] = {
 			1489
 		},
@@ -10679,9 +11363,9 @@ QuestData.Quests = {
 		["ID"] = 1491,
 		["FactionRestriction"] = nil,
 		["Name"] = "Smart Drinks",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 18,
+		["XP"] = 2650,
 		["PrereqQuests"] = {
 			865
 		},
@@ -10692,9 +11376,57 @@ QuestData.Quests = {
 		["ID"] = 1492,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Wharfmaster Dizzywig",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 11,
 		["XP"] = 440,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1498] = {
+		["ID"] = 1498,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Path of Defense",
+		["Zone"] = "The Barrens",
+		["Level"] = 10,
+		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1502] = {
+		["ID"] = 1502,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Thun'grim Firegaze",
+		["Zone"] = "The Barrens",
+		["Level"] = 10,
+		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1503] = {
+		["ID"] = 1503,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Forged Steel",
+		["Zone"] = "The Barrens",
+		["Level"] = 10,
+		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1505] = {
+		["ID"] = 1505,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Veteran Uzzek",
+		["Zone"] = "Orgrimmar",
+		["Level"] = 10,
+		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -10704,7 +11436,7 @@ QuestData.Quests = {
 		["ID"] = 1516,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Call of Earth",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 4,
 		["XP"] = 270,
 		["PrereqQuests"] = {
@@ -10716,7 +11448,7 @@ QuestData.Quests = {
 		["ID"] = 1517,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Call of Earth",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 4,
 		["XP"] = 270,
 		["PrereqQuests"] = {
@@ -10728,7 +11460,7 @@ QuestData.Quests = {
 		["ID"] = 1518,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Call of Earth",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 4,
 		["XP"] = 450,
 		["PrereqQuests"] = {
@@ -10832,6 +11564,18 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[1656] = {
+		["ID"] = 1656,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "A Task Unfinished",
+		["Zone"] = "Mulgore",
+		["Level"] = 5,
+		["XP"] = 110,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[1690] = {
 		["ID"] = 1690,
 		["FactionRestriction"] = nil,
@@ -10856,6 +11600,54 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[1823] = {
+		["ID"] = 1823,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Speak with Ruga",
+		["Zone"] = "Orgrimmar",
+		["Level"] = 20,
+		["XP"] = 160,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1824] = {
+		["ID"] = 1824,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Trial at the Field of Giants",
+		["Zone"] = "The Barrens",
+		["Level"] = 20,
+		["XP"] = 1550,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1825] = {
+		["ID"] = 1825,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Speak with Thun'grim",
+		["Zone"] = "The Barrens",
+		["Level"] = 20,
+		["XP"] = 775,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1838] = {
+		["ID"] = 1838,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Brutal Armor",
+		["Zone"] = "The Barrens",
+		["Level"] = 30,
+		["XP"] = 3650,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[1882] = {
 		["ID"] = 1882,
 		["FactionRestriction"] = "Horde",
@@ -10872,9 +11664,213 @@ QuestData.Quests = {
 		["ID"] = 1883,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Speak with Un'thuwa",
-		["Zone"] = nil,
+		["Zone"] = "Orgrimmar",
 		["Level"] = 10,
 		["XP"] = 85,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1884] = {
+		["ID"] = 1884,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Ju-Ju Heaps",
+		["Zone"] = "Durotar",
+		["Level"] = 10,
+		["XP"] = 850,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1943] = {
+		["ID"] = 1943,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Speak with Deino",
+		["Zone"] = "Undercity",
+		["Level"] = 26,
+		["XP"] = 210,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1944] = {
+		["ID"] = 1944,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Waters of Xavian",
+		["Zone"] = "Orgrimmar",
+		["Level"] = 26,
+		["XP"] = 2100,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1945] = {
+		["ID"] = 1945,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Laughing Sisters",
+		["Zone"] = "Orgrimmar",
+		["Level"] = 26,
+		["XP"] = 1600,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1947] = {
+		["ID"] = 1947,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Journey to the Marsh",
+		["Zone"] = "Alterac Mountains",
+		["Level"] = 38,
+		["XP"] = 290,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1948] = {
+		["ID"] = 1948,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Items of Power",
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 40,
+		["XP"] = 3150,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1949] = {
+		["ID"] = 1949,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Hidden Secrets",
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 38,
+		["XP"] = 1450,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1950] = {
+		["ID"] = 1950,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Get the Scoop",
+		["Zone"] = "Thousand Needles",
+		["Level"] = 30,
+		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1951] = {
+		["ID"] = 1951,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Rituals of Power",
+		["Zone"] = "Thousand Needles",
+		["Level"] = 40,
+		["XP"] = 6300,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1953] = {
+		["ID"] = 1953,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Return to the Marsh",
+		["Zone"] = "Undercity",
+		["Level"] = 40,
+		["XP"] = 320,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1954] = {
+		["ID"] = 1954,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Infernal Orb",
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 40,
+		["XP"] = 2350,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1955] = {
+		["ID"] = 1955,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Exorcism",
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 40,
+		["XP"] = 2350,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1956] = {
+		["ID"] = 1956,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Power in Uldaman",
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 40,
+		["XP"] = 7800,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1957] = {
+		["ID"] = 1957,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Mana Surges",
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 40,
+		["XP"] = 2350,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1959] = {
+		["ID"] = 1959,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Report to Anastasia",
+		["Zone"] = "Thunder Bluff",
+		["Level"] = 15,
+		["XP"] = 110,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1960] = {
+		["ID"] = 1960,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Investigate the Alchemist Shop",
+		["Zone"] = "Undercity",
+		["Level"] = 16,
+		["XP"] = 1150,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[1961] = {
+		["ID"] = 1961,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Gathering Materials",
+		["Zone"] = "Undercity",
+		["Level"] = 15,
+		["XP"] = 800,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -10992,7 +11988,7 @@ QuestData.Quests = {
 		["ID"] = 2161,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "A Peon's Burden",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 5,
 		["XP"] = 110,
 		["PrereqQuests"] = {
@@ -11067,9 +12063,9 @@ QuestData.Quests = {
 		["ID"] = 2202,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Uldaman Reagent Run",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Badlands",
+		["Level"] = 42,
+		["XP"] = 6750,
 		["PrereqQuests"] = {
 			2258
 		},
@@ -11118,9 +12114,9 @@ QuestData.Quests = {
 		["ID"] = 2258,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Badlands Reagent Run",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Badlands",
+		["Level"] = 39,
+		["XP"] = 3000,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -11130,9 +12126,21 @@ QuestData.Quests = {
 		["ID"] = 2278,
 		["FactionRestriction"] = nil,
 		["Name"] = "The Platinum Discs",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Uldaman",
+		["Level"] = 47,
+		["XP"] = 8200,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[2280] = {
+		["ID"] = 2280,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Platinum Discs",
+		["Zone"] = "Uldaman",
+		["Level"] = 47,
+		["XP"] = 5250,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -11142,9 +12150,9 @@ QuestData.Quests = {
 		["ID"] = 2283,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Necklace Recovery",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 41,
+		["XP"] = 4800,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -11154,9 +12162,9 @@ QuestData.Quests = {
 		["ID"] = 2284,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Necklace Recovery, Take 2",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Orgrimmar",
+		["Level"] = 41,
+		["XP"] = 4800,
 		["PrereqQuests"] = {
 			2283
 		},
@@ -11219,9 +12227,9 @@ QuestData.Quests = {
 		["ID"] = 2342,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Reclaimed Treasures",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Thunder Bluff",
+		["Level"] = 43,
+		["XP"] = 7000,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -11243,8 +12251,8 @@ QuestData.Quests = {
 		["ID"] = 2418,
 		["FactionRestriction"] = nil,
 		["Name"] = "Power Stones",
-		["Zone"] = nil,
-		["Level"] = -1,
+		["Zone"] = "Badlands",
+		["Level"] = 36,
 		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
@@ -11258,6 +12266,18 @@ QuestData.Quests = {
 		["Zone"] = "Teldrassil",
 		["Level"] = 6,
 		["XP"] = 410,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[2440] = {
+		["ID"] = 2440,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Platinum Discs",
+		["Zone"] = "Thunder Bluff",
+		["Level"] = 47,
+		["XP"] = 420,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -11506,10 +12526,10 @@ QuestData.Quests = {
 	[2770] = {
 		["ID"] = 2770,
 		["FactionRestriction"] = nil,
-		["Name"] = "Ghaz'rilla",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Name"] = "Gahz'rilla",
+		["Zone"] = "Undercity",
+		["Level"] = 50,
+		["XP"] = 14200,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -11567,9 +12587,9 @@ QuestData.Quests = {
 		["ID"] = 2841,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Rig Wars",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stonetalon Mountains",
+		["Level"] = 35,
+		["XP"] = 8200,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -11579,9 +12599,9 @@ QuestData.Quests = {
 		["ID"] = 2842,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Chief Engineer Scooty",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 35,
+		["XP"] = 280,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -11628,9 +12648,9 @@ QuestData.Quests = {
 		["ID"] = 2846,
 		["FactionRestriction"] = nil,
 		["Name"] = "Tiara of the Deep",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 46,
+		["XP"] = 12100,
 		["PrereqQuests"] = {
 			2861
 		},
@@ -11641,9 +12661,9 @@ QuestData.Quests = {
 		["ID"] = 2861,
 		["FactionRestriction"] = nil,
 		["Name"] = "Tabetha's Task",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Durotar",
+		["Level"] = 46,
+		["XP"] = 410,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -11668,6 +12688,18 @@ QuestData.Quests = {
 		["Zone"] = nil,
 		["Level"] = -1,
 		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[2864] = {
+		["ID"] = 2864,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Tran'rek",
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 45,
+		["XP"] = 390,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -11740,6 +12772,18 @@ QuestData.Quests = {
 		["Zone"] = nil,
 		["Level"] = -1,
 		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[2872] = {
+		["ID"] = 2872,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Stoley's Debt",
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 45,
+		["XP"] = 390,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -11857,9 +12901,9 @@ QuestData.Quests = {
 		["ID"] = 2904,
 		["FactionRestriction"] = nil,
 		["Name"] = "A Fine Mess",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Gnomeregan",
+		["Level"] = 30,
+		["XP"] = 5800,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -11945,6 +12989,18 @@ QuestData.Quests = {
 		["Zone"] = nil,
 		["Level"] = -1,
 		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[2932] = {
+		["ID"] = 2932,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Grim Message",
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 42,
+		["XP"] = 3450,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -12054,8 +13110,44 @@ QuestData.Quests = {
 		["ID"] = 2945,
 		["FactionRestriction"] = nil,
 		["Name"] = "Grime-Encrusted Ring",
-		["Zone"] = nil,
-		["Level"] = -1,
+		["Zone"] = "Gnomeregan",
+		["Level"] = 34,
+		["XP"] = 6400,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[2949] = {
+		["ID"] = 2949,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Return of the Ring",
+		["Zone"] = "Gnomeregan",
+		["Level"] = 34,
+		["XP"] = 6400,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[2950] = {
+		["ID"] = 2950,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Nogg's Ring Redo",
+		["Zone"] = "Orgrimmar",
+		["Level"] = 35,
+		["XP"] = 2750,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[2951] = {
+		["ID"] = 2951,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Sparklematic 5200!",
+		["Zone"] = "Gnomeregan",
+		["Level"] = 30,
 		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
@@ -12318,6 +13410,18 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[2995] = {
+		["ID"] = 2995,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Lines of Communication",
+		["Zone"] = "Undercity",
+		["Level"] = 47,
+		["XP"] = 3150,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[3042] = {
 		["ID"] = 3042,
 		["FactionRestriction"] = nil,
@@ -12358,7 +13462,7 @@ QuestData.Quests = {
 		["ID"] = 3084,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Rune-Inscribed Tablet",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 1,
 		["XP"] = 40,
 		["PrereqQuests"] = {
@@ -12370,7 +13474,19 @@ QuestData.Quests = {
 		["ID"] = 3086,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Glyphic Tablet",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
+		["Level"] = 1,
+		["XP"] = 40,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[3088] = {
+		["ID"] = 3088,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Encrypted Parchment",
+		["Zone"] = "Durotar",
 		["Level"] = 1,
 		["XP"] = 40,
 		["PrereqQuests"] = {
@@ -12385,6 +13501,30 @@ QuestData.Quests = {
 		["Zone"] = nil,
 		["Level"] = -1,
 		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[3092] = {
+		["ID"] = 3092,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Etched Note",
+		["Zone"] = "Mulgore",
+		["Level"] = 1,
+		["XP"] = 40,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[3094] = {
+		["ID"] = 3094,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Verdant Note",
+		["Zone"] = "Mulgore",
+		["Level"] = 1,
+		["XP"] = 40,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -12522,13 +13662,25 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[3261] = {
+		["ID"] = 3261,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Jorn Skyseer",
+		["Zone"] = "The Barrens",
+		["Level"] = 18,
+		["XP"] = 140,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[3281] = {
 		["ID"] = 3281,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Stolen Silver",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 18,
+		["XP"] = 1350,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -12538,9 +13690,9 @@ QuestData.Quests = {
 		["ID"] = 3341,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Bring the End",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Undercity",
+		["Level"] = 42,
+		["XP"] = 9050,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -12618,6 +13770,18 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[3369] = {
+		["ID"] = 3369,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "In Nightmares",
+		["Zone"] = "The Barrens",
+		["Level"] = 25,
+		["XP"] = 2000,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[3372] = {
 		["ID"] = 3372,
 		["FactionRestriction"] = "Alliance",
@@ -12646,7 +13810,7 @@ QuestData.Quests = {
 		["ID"] = 3376,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Break Sharptusk!",
-		["Zone"] = nil,
+		["Zone"] = "Mulgore",
 		["Level"] = 5,
 		["XP"] = 675,
 		["PrereqQuests"] = {
@@ -12927,9 +14091,9 @@ QuestData.Quests = {
 		["ID"] = 3523,
 		["FactionRestriction"] = nil,
 		["Name"] = "Scourge of the Downs",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Razorfen Downs",
+		["Level"] = 37,
+		["XP"] = 675,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -12951,9 +14115,9 @@ QuestData.Quests = {
 		["ID"] = 3525,
 		["FactionRestriction"] = nil,
 		["Name"] = "Extinguishing the Idol",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Razorfen Downs",
+		["Level"] = 37,
+		["XP"] = 10100,
 		["PrereqQuests"] = {
 			3523
 		},
@@ -13182,7 +14346,7 @@ QuestData.Quests = {
 		["ID"] = 3901,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Rattling the Rattlecages",
-		["Zone"] = nil,
+		["Zone"] = "Tirisfal Glades",
 		["Level"] = 3,
 		["XP"] = 250,
 		["PrereqQuests"] = {
@@ -13194,9 +14358,9 @@ QuestData.Quests = {
 		["ID"] = 3902,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Scavenging Deathknell",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 3,
+		["XP"] = 320,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -13290,9 +14454,9 @@ QuestData.Quests = {
 		["ID"] = 3921,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Wenikee Boltbucket",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 14,
+		["XP"] = 490,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -13302,9 +14466,21 @@ QuestData.Quests = {
 		["ID"] = 3922,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Nugget Slugs",
-		["Zone"] = nil,
-		["Level"] = -1,
+		["Zone"] = "The Barrens",
+		["Level"] = 15,
 		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[3923] = {
+		["ID"] = 3923,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Rilli Greasygob",
+		["Zone"] = "The Barrens",
+		["Level"] = 18,
+		["XP"] = 340,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -13313,9 +14489,9 @@ QuestData.Quests = {
 	[3924] = {
 		["ID"] = 3924,
 		["FactionRestriction"] = "Horde",
-		["Name"] = "Chen's Empty Keg",
-		["Zone"] = nil,
-		["Level"] = -1,
+		["Name"] = "Samophlange Manual",
+		["Zone"] = "Orgrimmar",
+		["Level"] = 19,
 		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
@@ -13373,10 +14549,10 @@ QuestData.Quests = {
 	[4021] = {
 		["ID"] = 4021,
 		["FactionRestriction"] = "Horde",
-		["Name"] = "Counterattack",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Name"] = "Counterattack!",
+		["Zone"] = "The Barrens",
+		["Level"] = 20,
+		["XP"] = 1950,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -13882,7 +15058,7 @@ QuestData.Quests = {
 		["ID"] = 4402,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Galgar's Cactus Apple Surprise",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 3,
 		["XP"] = 380,
 		["PrereqQuests"] = {
@@ -14046,11 +15222,23 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[4542] = {
+		["ID"] = 4542,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Message to Freewind Post",
+		["Zone"] = "Thousand Needles",
+		["Level"] = 25,
+		["XP"] = 500,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[4641] = {
 		["ID"] = 4641,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Your Place in the World",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 1,
 		["XP"] = 40,
 		["PrereqQuests"] = {
@@ -14250,6 +15438,18 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[4767] = {
+		["ID"] = 4767,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Wind Rider",
+		["Zone"] = "Thousand Needles",
+		["Level"] = 29,
+		["XP"] = 1750,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[4770] = {
 		["ID"] = 4770,
 		["FactionRestriction"] = "Horde",
@@ -14339,9 +15539,9 @@ QuestData.Quests = {
 		["ID"] = 4821,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Alien Egg",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Thousand Needles",
+		["Level"] = 26,
+		["XP"] = 2100,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -14351,9 +15551,9 @@ QuestData.Quests = {
 		["ID"] = 4841,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Pacify the Centaur",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Thousand Needles",
+		["Level"] = 25,
+		["XP"] = 2000,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -14411,8 +15611,8 @@ QuestData.Quests = {
 		["ID"] = 4865,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Serpent Wild",
-		["Zone"] = nil,
-		["Level"] = -1,
+		["Zone"] = "Thousand Needles",
+		["Level"] = 26,
 		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
@@ -14483,7 +15683,7 @@ QuestData.Quests = {
 		["ID"] = 4921,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Lost in Battle",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 20,
 		["XP"] = 1150,
 		["PrereqQuests"] = {
@@ -14579,7 +15779,7 @@ QuestData.Quests = {
 		["ID"] = 5041,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Supplies for the Crossroads",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 14,
 		["XP"] = 975,
 		["PrereqQuests"] = {
@@ -14687,9 +15887,9 @@ QuestData.Quests = {
 		["ID"] = 5064,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Grimtotem Spying",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Thousand Needles",
+		["Level"] = 28,
+		["XP"] = 2300,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -14771,8 +15971,8 @@ QuestData.Quests = {
 		["ID"] = 5088,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Arikara",
-		["Zone"] = nil,
-		["Level"] = -1,
+		["Zone"] = "Thousand Needles",
+		["Level"] = 28,
 		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
@@ -14879,9 +16079,9 @@ QuestData.Quests = {
 		["ID"] = 5147,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "WANTED: Arnak Grimtotem",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Thousand Needles",
+		["Level"] = 29,
+		["XP"] = 2350,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -15379,6 +16579,18 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[5361] = {
+		["ID"] = 5361,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Family Tree",
+		["Zone"] = "Thousand Needles",
+		["Level"] = 35,
+		["XP"] = 2050,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[5381] = {
 		["ID"] = 5381,
 		["FactionRestriction"] = nil,
@@ -15419,7 +16631,7 @@ QuestData.Quests = {
 		["ID"] = 5441,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Lazy Peons",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 4,
 		["XP"] = 450,
 		["PrereqQuests"] = {
@@ -15443,9 +16655,9 @@ QuestData.Quests = {
 		["ID"] = 5481,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Gordo's Task",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 5,
+		["XP"] = 230,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -15671,7 +16883,7 @@ QuestData.Quests = {
 		["ID"] = 5722,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Searching for the Lost Satchel",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 16,
 		["XP"] = 1800,
 		["PrereqQuests"] = {
@@ -15683,7 +16895,7 @@ QuestData.Quests = {
 		["ID"] = 5723,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Testing an Enemy's Strength",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 15,
 		["XP"] = 2150,
 		["PrereqQuests"] = {
@@ -15695,9 +16907,9 @@ QuestData.Quests = {
 		["ID"] = 5724,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Returning the Lost Satchel",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Ragefire Chasm",
+		["Level"] = 16,
+		["XP"] = 2950,
 		["PrereqQuests"] = {
 			5722
 		},
@@ -15708,7 +16920,7 @@ QuestData.Quests = {
 		["ID"] = 5725,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Power to Destroy...",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 16,
 		["XP"] = 2950,
 		["PrereqQuests"] = {
@@ -15720,7 +16932,7 @@ QuestData.Quests = {
 		["ID"] = 5726,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Hidden Enemies",
-		["Zone"] = nil,
+		["Zone"] = "Orgrimmar",
 		["Level"] = 12,
 		["XP"] = 900,
 		["PrereqQuests"] = {
@@ -15732,9 +16944,9 @@ QuestData.Quests = {
 		["ID"] = 5727,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Hidden Enemies",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Orgrimmar",
+		["Level"] = 12,
+		["XP"] = 460,
 		["PrereqQuests"] = {
 			5726
 		},
@@ -15745,11 +16957,35 @@ QuestData.Quests = {
 		["ID"] = 5728,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Hidden Enemies",
-		["Zone"] = nil,
+		["Zone"] = "Orgrimmar",
 		["Level"] = 16,
 		["XP"] = 2350,
 		["PrereqQuests"] = {
 			5727
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[5729] = {
+		["ID"] = 5729,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Hidden Enemies",
+		["Zone"] = "Orgrimmar",
+		["Level"] = 15,
+		["XP"] = 110,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[5730] = {
+		["ID"] = 5730,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Hidden Enemies",
+		["Zone"] = "Orgrimmar",
+		["Level"] = 16,
+		["XP"] = 1450,
+		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
 		}
@@ -15770,9 +17006,21 @@ QuestData.Quests = {
 		["ID"] = 5761,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Slaying the Beast",
-		["Zone"] = nil,
+		["Zone"] = "Orgrimmar",
 		["Level"] = 16,
 		["XP"] = 2350,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[5762] = {
+		["ID"] = 5762,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Hemet Nesingwary",
+		["Zone"] = "Thousand Needles",
+		["Level"] = 31,
+		["XP"] = 1250,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -15833,6 +17081,18 @@ QuestData.Quests = {
 		["Zone"] = nil,
 		["Level"] = -1,
 		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[5881] = {
+		["ID"] = 5881,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Calling in the Reserves",
+		["Zone"] = "Stonetalon Mountains",
+		["Level"] = 28,
+		["XP"] = 1150,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -16178,9 +17438,9 @@ QuestData.Quests = {
 		["ID"] = 6282,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Harpies Threaten",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stonetalon Mountains",
+		["Level"] = 26,
+		["XP"] = 2100,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -16190,9 +17450,9 @@ QuestData.Quests = {
 		["ID"] = 6283,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Bloodfury Bloodline",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stonetalon Mountains",
+		["Level"] = 26,
+		["XP"] = 2100,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -16202,9 +17462,21 @@ QuestData.Quests = {
 		["ID"] = 6284,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Arachnophobia",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stonetalon Mountains",
+		["Level"] = 21,
+		["XP"] = 1650,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[6301] = {
+		["ID"] = 6301,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Cycle of Rebirth",
+		["Zone"] = "Stonetalon Mountains",
+		["Level"] = 23,
+		["XP"] = 1400,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -16226,7 +17498,7 @@ QuestData.Quests = {
 		["ID"] = 6365,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Meats to Orgrimmar",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 10,
 		["XP"] = 210,
 		["PrereqQuests"] = {
@@ -16238,9 +17510,9 @@ QuestData.Quests = {
 		["ID"] = 6381,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "New Life",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stonetalon Mountains",
+		["Level"] = 25,
+		["XP"] = 2000,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -16250,7 +17522,7 @@ QuestData.Quests = {
 		["ID"] = 6384,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Ride to Orgrimmar",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 10,
 		["XP"] = 420,
 		["PrereqQuests"] = {
@@ -16262,7 +17534,7 @@ QuestData.Quests = {
 		["ID"] = 6385,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Doras the Wind Rider Master",
-		["Zone"] = nil,
+		["Zone"] = "Orgrimmar",
 		["Level"] = 10,
 		["XP"] = 210,
 		["PrereqQuests"] = {
@@ -16274,7 +17546,7 @@ QuestData.Quests = {
 		["ID"] = 6386,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Return to the Crossroads",
-		["Zone"] = nil,
+		["Zone"] = "Orgrimmar",
 		["Level"] = 10,
 		["XP"] = 1050,
 		["PrereqQuests"] = {
@@ -16310,9 +17582,9 @@ QuestData.Quests = {
 		["ID"] = 6393,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Elemental War",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stonetalon Mountains",
+		["Level"] = 25,
+		["XP"] = 2000,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -16322,7 +17594,7 @@ QuestData.Quests = {
 		["ID"] = 6394,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Thazz'ril's Pick",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 4,
 		["XP"] = 450,
 		["PrereqQuests"] = {
@@ -16335,9 +17607,9 @@ QuestData.Quests = {
 		["ID"] = 6395,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Marla's Last Wish",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 5,
+		["XP"] = 450,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -16371,9 +17643,9 @@ QuestData.Quests = {
 		["ID"] = 6441,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Satyr Horns",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Ashenvale",
+		["Level"] = 26,
+		["XP"] = 2100,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -16383,8 +17655,8 @@ QuestData.Quests = {
 		["ID"] = 6442,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Naga at the Zoram Strand",
-		["Zone"] = nil,
-		["Level"] = -1,
+		["Zone"] = "Ashenvale",
+		["Level"] = 19,
 		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
@@ -16394,9 +17666,9 @@ QuestData.Quests = {
 	[6461] = {
 		["ID"] = 6461,
 		["FactionRestriction"] = "Horde",
-		["Name"] = "Blood Feathers",
-		["Zone"] = nil,
-		["Level"] = -1,
+		["Name"] = "Blood Feeders",
+		["Zone"] = "Stonetalon Mountains",
+		["Level"] = 19,
 		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
@@ -16407,9 +17679,9 @@ QuestData.Quests = {
 		["ID"] = 6462,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Troll Charm",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Ashenvale",
+		["Level"] = 24,
+		["XP"] = 1950,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -16442,10 +17714,10 @@ QuestData.Quests = {
 	[6503] = {
 		["ID"] = 6503,
 		["FactionRestriction"] = "Horde",
-		["Name"] = "ashenvale Outrunners",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Name"] = "Ashenvale Outrunners",
+		["Zone"] = "Ashenvale",
+		["Level"] = 24,
+		["XP"] = 1950,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -16455,9 +17727,9 @@ QuestData.Quests = {
 		["ID"] = 6504,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Lost Pages",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Ashenvale",
+		["Level"] = 30,
+		["XP"] = 3650,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -16467,9 +17739,9 @@ QuestData.Quests = {
 		["ID"] = 6521,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "An Unholy Alliance",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Undercity",
+		["Level"] = 36,
+		["XP"] = 7350,
 		["PrereqQuests"] = {
 			6522
 		},
@@ -16480,9 +17752,9 @@ QuestData.Quests = {
 		["ID"] = 6522,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "An Unholy Alliance",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Razorfen Kraul",
+		["Level"] = 36,
+		["XP"] = 5900,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -16500,12 +17772,24 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[6541] = {
+		["ID"] = 6541,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Report to Kadrak",
+		["Zone"] = "The Barrens",
+		["Level"] = 19,
+		["XP"] = 150,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[6543] = {
 		["ID"] = 6543,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Warsong Reports",
-		["Zone"] = nil,
-		["Level"] = -1,
+		["Zone"] = "The Barrens",
+		["Level"] = 19,
 		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
@@ -16516,9 +17800,9 @@ QuestData.Quests = {
 		["ID"] = 6544,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Torek's Assault",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Ashenvale",
+		["Level"] = 24,
+		["XP"] = 2400,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -16528,8 +17812,8 @@ QuestData.Quests = {
 		["ID"] = 6548,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Avenge My Village",
-		["Zone"] = nil,
-		["Level"] = -1,
+		["Zone"] = "The Barrens",
+		["Level"] = 18,
 		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
@@ -16540,9 +17824,21 @@ QuestData.Quests = {
 		["ID"] = 6561,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Blackfathom Villainy",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Blackfathom Deeps",
+		["Level"] = 27,
+		["XP"] = 7850,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[6562] = {
+		["ID"] = 6562,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Trouble in the Deeps",
+		["Zone"] = "Stonetalon Mountains",
+		["Level"] = 22,
+		["XP"] = 440,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -16552,9 +17848,21 @@ QuestData.Quests = {
 		["ID"] = 6563,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Essence of Aku'Mai",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Ashenvale",
+		["Level"] = 22,
+		["XP"] = 1750,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[6564] = {
+		["ID"] = 6564,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Allegiance to the Old Gods",
+		["Zone"] = "Blackfathom Deeps",
+		["Level"] = 22,
+		["XP"] = 1300,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -16564,9 +17872,9 @@ QuestData.Quests = {
 		["ID"] = 6565,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Allegiance to the Old Gods",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Ashenvale",
+		["Level"] = 26,
+		["XP"] = 6300,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -16576,9 +17884,9 @@ QuestData.Quests = {
 		["ID"] = 6571,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Warsong Supplies",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Ashenvale",
+		["Level"] = 27,
+		["XP"] = 2750,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -16612,9 +17920,9 @@ QuestData.Quests = {
 		["ID"] = 6621,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "King of the Foulweald",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Ashenvale",
+		["Level"] = 26,
+		["XP"] = 2650,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -16624,9 +17932,9 @@ QuestData.Quests = {
 		["ID"] = 6626,
 		["FactionRestriction"] = nil,
 		["Name"] = "A Host of Evil",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 35,
+		["XP"] = 8200,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -16636,11 +17944,23 @@ QuestData.Quests = {
 		["ID"] = 6627,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Test of Lore",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stonetalon Mountains",
+		["Level"] = 30,
+		["XP"] = 250,
 		["PrereqQuests"] = {
 			1154
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[6628] = {
+		["ID"] = 6628,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Test of Lore",
+		["Zone"] = "Undercity",
+		["Level"] = 30,
+		["XP"] = 250,
+		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
 		}
@@ -16649,8 +17969,8 @@ QuestData.Quests = {
 		["ID"] = 6629,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Kill Grundig Darkcloud",
-		["Zone"] = nil,
-		["Level"] = -1,
+		["Zone"] = "The Barrens",
+		["Level"] = 18,
 		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
@@ -16697,9 +18017,9 @@ QuestData.Quests = {
 		["ID"] = 6921,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Amongst the Ruins",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Ashenvale",
+		["Level"] = 27,
+		["XP"] = 6550,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -16709,9 +18029,9 @@ QuestData.Quests = {
 		["ID"] = 6922,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Baron Aquanis",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Blackfathom Deeps",
+		["Level"] = 30,
+		["XP"] = 7250,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -16721,9 +18041,9 @@ QuestData.Quests = {
 		["ID"] = 6981,
 		["FactionRestriction"] = nil,
 		["Name"] = "The Glowing Shard",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Wailing Caverns",
+		["Level"] = 26,
+		["XP"] = 5150,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -16854,9 +18174,9 @@ QuestData.Quests = {
 		["ID"] = 7068,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Shadowshard Fragments",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Durotar",
+		["Level"] = 42,
+		["XP"] = 6750,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -16878,9 +18198,9 @@ QuestData.Quests = {
 		["ID"] = 7321,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Soothing Turtle Bisque",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 31,
+		["XP"] = 2500,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -17582,6 +18902,18 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[8551] = {
+		["ID"] = 8551,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Captain's Chest",
+		["Zone"] = "Undercity",
+		["Level"] = 47,
+		["XP"] = 3150,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[8741] = {
 		["ID"] = 8741,
 		["FactionRestriction"] = nil,
@@ -17702,6 +19034,42 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[78823] = {
+		["ID"] = 78823,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Terror of the Desert Skies",
+		["Zone"] = "Badlands",
+		["Level"] = 40,
+		["XP"] = 1550,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[78830] = {
+		["ID"] = 78830,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Terror of the Desert Skies",
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 40,
+		["XP"] = 3900,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[79007] = {
+		["ID"] = 79007,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "... and that note you found",
+		["Zone"] = "The Barrens",
+		["Level"] = 22,
+		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[79008] = {
 		["ID"] = 79008,
 		["FactionRestriction"] = "Alliance",
@@ -17709,6 +19077,18 @@ QuestData.Quests = {
 		["Zone"] = nil,
 		["Level"] = 22,
 		["XP"] = 1750,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[79192] = {
+		["ID"] = 79192,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Stepping Stones",
+		["Zone"] = "Westfall",
+		["Level"] = 24,
+		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -17762,6 +19142,54 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[79974] = {
+		["ID"] = 79974,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Wet Job",
+		["Zone"] = "Stonetalon Mountains",
+		["Level"] = 32,
+		["XP"] = 2550,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[79975] = {
+		["ID"] = 79975,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Eagle's Fist",
+		["Zone"] = "Loch Modan",
+		["Level"] = 32,
+		["XP"] = 2550,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[79976] = {
+		["ID"] = 79976,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "This Must Be The Place",
+		["Zone"] = "Arathi Highlands",
+		["Level"] = 32,
+		["XP"] = 1950,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[79980] = {
+		["ID"] = 79980,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Scramble",
+		["Zone"] = "Stonetalon Mountains",
+		["Level"] = 24,
+		["XP"] = 200,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[81570] = {
 		["ID"] = 81570,
 		["FactionRestriction"] = nil,
@@ -17769,6 +19197,18 @@ QuestData.Quests = {
 		["Zone"] = nil,
 		["Level"] = -1,
 		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[82084] = {
+		["ID"] = 82084,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "A Lesson in Literacy",
+		["Zone"] = "Undercity",
+		["Level"] = 45,
+		["XP"] = 3900,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -17790,9 +19230,9 @@ QuestData.Quests = {
 		["ID"] = 86576,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Bloodfury Trinkets",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stonetalon Mountains",
+		["Level"] = 26,
+		["XP"] = 2100,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -17874,9 +19314,9 @@ QuestData.Quests = {
 		["ID"] = 86784,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Sticks and Bones",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 7,
+		["XP"] = 625,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -17970,9 +19410,33 @@ QuestData.Quests = {
 		["ID"] = 90902,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Rediscovering the Light",
-		["Zone"] = nil,
+		["Zone"] = "Tirisfal Glades",
 		["Level"] = 2,
 		["XP"] = 85,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[91208] = {
+		["ID"] = 91208,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Coming to Terms",
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 4,
+		["XP"] = 180,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[91209] = {
+		["ID"] = 91209,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Continue Your Training",
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 4,
+		["XP"] = 90,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18241,9 +19705,9 @@ QuestData.Quests = {
 		["ID"] = 92401,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "A Frightened Request",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Silverpine Forest",
+		["Level"] = 22,
+		["XP"] = 4600,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18265,9 +19729,9 @@ QuestData.Quests = {
 		["ID"] = 92421,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Light's Justice",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 22,
+		["XP"] = 4600,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18277,9 +19741,21 @@ QuestData.Quests = {
 		["ID"] = 92422,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Wrath of Rath'mael",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 22,
+		["XP"] = 4600,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[92434] = {
+		["ID"] = 92434,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Blood in the Streets",
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 34,
+		["XP"] = 270,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18289,7 +19765,7 @@ QuestData.Quests = {
 		["ID"] = 92460,
 		["FactionRestriction"] = nil,
 		["Name"] = "Coming of Age",
-		["Zone"] = nil,
+		["Zone"] = "Zephras Isle",
 		["Level"] = 1,
 		["XP"] = 40,
 		["PrereqQuests"] = {
@@ -18301,7 +19777,7 @@ QuestData.Quests = {
 		["ID"] = 92461,
 		["FactionRestriction"] = nil,
 		["Name"] = "Harmony in Balance",
-		["Zone"] = nil,
+		["Zone"] = "Zephras Isle",
 		["Level"] = 1,
 		["XP"] = 80,
 		["PrereqQuests"] = {
@@ -18313,9 +19789,9 @@ QuestData.Quests = {
 		["ID"] = 92462,
 		["FactionRestriction"] = nil,
 		["Name"] = "Infestation Investigation",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 2,
+		["XP"] = 170,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18325,9 +19801,21 @@ QuestData.Quests = {
 		["ID"] = 92463,
 		["FactionRestriction"] = nil,
 		["Name"] = "The Cirrusfly Queen",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 3,
+		["XP"] = 320,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[92464] = {
+		["ID"] = 92464,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Elemental Unrest",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 3,
+		["XP"] = 25,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18337,9 +19825,9 @@ QuestData.Quests = {
 		["ID"] = 92465,
 		["FactionRestriction"] = nil,
 		["Name"] = "Agitators",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 3,
+		["XP"] = 250,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18357,13 +19845,49 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[92469] = {
+		["ID"] = 92469,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Return to Rorian",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 4,
+		["XP"] = 35,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[92470] = {
 		["ID"] = 92470,
 		["FactionRestriction"] = nil,
 		["Name"] = "Foul Matriarch",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 5,
+		["XP"] = 550,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[92471] = {
+		["ID"] = 92471,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Aetheen of the Gales",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 4,
+		["XP"] = 35,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[92472] = {
+		["ID"] = 92472,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Next Step",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 5,
+		["XP"] = 230,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18373,9 +19897,33 @@ QuestData.Quests = {
 		["ID"] = 92473,
 		["FactionRestriction"] = nil,
 		["Name"] = "Aggressive Encroachment",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 4,
+		["XP"] = 360,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[92474] = {
+		["ID"] = 92474,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Falling With Style",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 2,
+		["XP"] = 85,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[92514] = {
+		["ID"] = 92514,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Welcome to Shen'dar Village",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 6,
+		["XP"] = 140,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18385,9 +19933,9 @@ QuestData.Quests = {
 		["ID"] = 92515,
 		["FactionRestriction"] = nil,
 		["Name"] = "The Problem With Prideclaws",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 6,
+		["XP"] = 550,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18397,7 +19945,7 @@ QuestData.Quests = {
 		["ID"] = 92516,
 		["FactionRestriction"] = nil,
 		["Name"] = "Hippogryph Harassment",
-		["Zone"] = nil,
+		["Zone"] = "Zephras Isle",
 		["Level"] = 7,
 		["XP"] = 625,
 		["PrereqQuests"] = {
@@ -18409,9 +19957,9 @@ QuestData.Quests = {
 		["ID"] = 92517,
 		["FactionRestriction"] = nil,
 		["Name"] = "The Criminal Element",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 7,
+		["XP"] = 480,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18433,9 +19981,9 @@ QuestData.Quests = {
 		["ID"] = 92528,
 		["FactionRestriction"] = nil,
 		["Name"] = "Among the Faithful",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 8,
+		["XP"] = 350,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18445,9 +19993,21 @@ QuestData.Quests = {
 		["ID"] = 92529,
 		["FactionRestriction"] = nil,
 		["Name"] = "Falaath Village",
-		["Zone"] = nil,
+		["Zone"] = "Zephras Isle",
 		["Level"] = 8,
 		["XP"] = 350,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[92532] = {
+		["ID"] = 92532,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Warrior's Path",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 2,
+		["XP"] = 85,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18457,9 +20017,9 @@ QuestData.Quests = {
 		["ID"] = 92544,
 		["FactionRestriction"] = nil,
 		["Name"] = "Al'Aketh Thugs",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 5,
+		["XP"] = 550,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18469,9 +20029,9 @@ QuestData.Quests = {
 		["ID"] = 92550,
 		["FactionRestriction"] = nil,
 		["Name"] = "Havoc in the Highlands",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 8,
+		["XP"] = 700,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18481,9 +20041,9 @@ QuestData.Quests = {
 		["ID"] = 92551,
 		["FactionRestriction"] = nil,
 		["Name"] = "Stolen Supplies",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 8,
+		["XP"] = 525,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18493,9 +20053,45 @@ QuestData.Quests = {
 		["ID"] = 92553,
 		["FactionRestriction"] = nil,
 		["Name"] = "Restocking the Larders",
-		["Zone"] = nil,
+		["Zone"] = "Zephras Isle",
 		["Level"] = 6,
 		["XP"] = 410,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[92579] = {
+		["ID"] = 92579,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "To Valanaar",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 8,
+		["XP"] = 180,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[92595] = {
+		["ID"] = 92595,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Windshapers",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 6,
+		["XP"] = 140,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[92598] = {
+		["ID"] = 92598,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Gift of Skysight",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 4,
+		["XP"] = 180,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18505,9 +20101,9 @@ QuestData.Quests = {
 		["ID"] = 92640,
 		["FactionRestriction"] = nil,
 		["Name"] = "Desperate Times",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 11,
+		["XP"] = 650,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18517,9 +20113,9 @@ QuestData.Quests = {
 		["ID"] = 92642,
 		["FactionRestriction"] = nil,
 		["Name"] = "Disrupting Logistics",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 11,
+		["XP"] = 440,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18529,9 +20125,9 @@ QuestData.Quests = {
 		["ID"] = 92643,
 		["FactionRestriction"] = nil,
 		["Name"] = "The Turncoat",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 11,
+		["XP"] = 650,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18541,9 +20137,9 @@ QuestData.Quests = {
 		["ID"] = 92644,
 		["FactionRestriction"] = nil,
 		["Name"] = "Unfortunate News",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 11,
+		["XP"] = 440,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18552,10 +20148,10 @@ QuestData.Quests = {
 	[92645] = {
 		["ID"] = 92645,
 		["FactionRestriction"] = nil,
-		["Name"] = "Breaking the Barrier",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Name"] = "Breaking the Breaker",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 11,
+		["XP"] = 650,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18565,9 +20161,9 @@ QuestData.Quests = {
 		["ID"] = 92646,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Confront Lorthuna",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 12,
+		["XP"] = 460,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18577,9 +20173,9 @@ QuestData.Quests = {
 		["ID"] = 92679,
 		["FactionRestriction"] = nil,
 		["Name"] = "Blood Tithe",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 9,
+		["XP"] = 390,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18589,9 +20185,9 @@ QuestData.Quests = {
 		["ID"] = 92682,
 		["FactionRestriction"] = nil,
 		["Name"] = "Make Yourself Useful",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 9,
+		["XP"] = 775,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18601,9 +20197,9 @@ QuestData.Quests = {
 		["ID"] = 92683,
 		["FactionRestriction"] = nil,
 		["Name"] = "Flutterfly Dust",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 9,
+		["XP"] = 600,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18613,9 +20209,9 @@ QuestData.Quests = {
 		["ID"] = 92684,
 		["FactionRestriction"] = nil,
 		["Name"] = "Ornery Ornery Galestriders",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 9,
+		["XP"] = 600,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18625,9 +20221,9 @@ QuestData.Quests = {
 		["ID"] = 92685,
 		["FactionRestriction"] = nil,
 		["Name"] = "The Hills Have Eyes",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 9,
+		["XP"] = 775,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18637,9 +20233,33 @@ QuestData.Quests = {
 		["ID"] = 92693,
 		["FactionRestriction"] = nil,
 		["Name"] = "Standing Our Ground",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 9,
+		["XP"] = 200,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[92698] = {
+		["ID"] = 92698,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "What Is My Purpose?",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 9,
+		["XP"] = 200,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[92700] = {
+		["ID"] = 92700,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Grand Skyseer",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 9,
+		["XP"] = 80,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18649,9 +20269,9 @@ QuestData.Quests = {
 		["ID"] = 92703,
 		["FactionRestriction"] = nil,
 		["Name"] = "Deliver the News",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 9,
+		["XP"] = 600,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18661,7 +20281,7 @@ QuestData.Quests = {
 		["ID"] = 92706,
 		["FactionRestriction"] = nil,
 		["Name"] = "WANTED: Bruuz",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 20,
 		["XP"] = 1950,
 		["PrereqQuests"] = {
@@ -18676,6 +20296,18 @@ QuestData.Quests = {
 		["Zone"] = nil,
 		["Level"] = -1,
 		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[92708] = {
+		["ID"] = 92708,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "A Grand Adventure",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 12,
+		["XP"] = 90,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18883,6 +20515,18 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[92871] = {
+		["ID"] = 92871,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "In Service of Zephras",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 11,
+		["XP"] = 220,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[92872] = {
 		["ID"] = 92872,
 		["FactionRestriction"] = "Alliance",
@@ -18899,9 +20543,21 @@ QuestData.Quests = {
 		["ID"] = 92880,
 		["FactionRestriction"] = nil,
 		["Name"] = "Return to Valanaar",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 11,
+		["XP"] = 440,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[92881] = {
+		["ID"] = 92881,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The High Elder's Request",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 11,
+		["XP"] = 90,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18923,9 +20579,21 @@ QuestData.Quests = {
 		["ID"] = 92947,
 		["FactionRestriction"] = nil,
 		["Name"] = "Making Our Move",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 12,
+		["XP"] = 900,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[93036] = {
+		["ID"] = 93036,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Infiltrating the Cult",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 8,
+		["XP"] = 70,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18934,10 +20602,34 @@ QuestData.Quests = {
 	[93065] = {
 		["ID"] = 93065,
 		["FactionRestriction"] = nil,
-		["Name"] = "Preparing for Battle",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Name"] = "Prepare for Battle",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 12,
+		["XP"] = 460,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[93090] = {
+		["ID"] = 93090,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "What Comes Next",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 13,
+		["XP"] = 460,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[93159] = {
+		["ID"] = 93159,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Strange Hermit",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 13,
+		["XP"] = 230,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18946,10 +20638,10 @@ QuestData.Quests = {
 	[93160] = {
 		["ID"] = 93160,
 		["FactionRestriction"] = nil,
-		["Name"] = "The Forest's Bountry",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Name"] = "The Forest's Bounty",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 13,
+		["XP"] = 675,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18959,7 +20651,7 @@ QuestData.Quests = {
 		["ID"] = 93165,
 		["FactionRestriction"] = nil,
 		["Name"] = "Mercy Falls on Deaf Ears",
-		["Zone"] = nil,
+		["Zone"] = "Zephras Isle",
 		["Level"] = 13,
 		["XP"] = 900,
 		["PrereqQuests"] = {
@@ -18971,9 +20663,9 @@ QuestData.Quests = {
 		["ID"] = 93172,
 		["FactionRestriction"] = nil,
 		["Name"] = "Free the Hollows",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 13,
+		["XP"] = 675,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -18981,11 +20673,11 @@ QuestData.Quests = {
 	},
 	[93176] = {
 		["ID"] = 93176,
-		["FactionRestriction"] = "Alliance",
+		["FactionRestriction"] = nil,
 		["Name"] = "My Little Friends",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Swamp of Sorrows",
+		["Level"] = 35,
+		["XP"] = 2750,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19007,9 +20699,9 @@ QuestData.Quests = {
 		["ID"] = 93317,
 		["FactionRestriction"] = nil,
 		["Name"] = "Crab Season",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 9,
+		["XP"] = 600,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19019,7 +20711,7 @@ QuestData.Quests = {
 		["ID"] = 93318,
 		["FactionRestriction"] = nil,
 		["Name"] = "WANTED: Vulgara the Insatiable",
-		["Zone"] = nil,
+		["Zone"] = "Zephras Isle",
 		["Level"] = 9,
 		["XP"] = 775,
 		["PrereqQuests"] = {
@@ -19031,9 +20723,9 @@ QuestData.Quests = {
 		["ID"] = 93319,
 		["FactionRestriction"] = nil,
 		["Name"] = "Pilfered Windstones",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 7,
+		["XP"] = 480,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19043,9 +20735,9 @@ QuestData.Quests = {
 		["ID"] = 93320,
 		["FactionRestriction"] = nil,
 		["Name"] = "Tower Defense",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 11,
+		["XP"] = 440,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19091,9 +20783,9 @@ QuestData.Quests = {
 		["ID"] = 93552,
 		["FactionRestriction"] = nil,
 		["Name"] = "Harvesting Windstones",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 4,
+		["XP"] = 360,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19123,13 +20815,25 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[93680] = {
+		["ID"] = 93680,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Key to the City",
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 33,
+		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[93735] = {
 		["ID"] = 93735,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Broken Construct",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 9,
+		["XP"] = 600,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19139,9 +20843,9 @@ QuestData.Quests = {
 		["ID"] = 93736,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Unwelcome Spirits",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 9,
+		["XP"] = 775,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19151,9 +20855,9 @@ QuestData.Quests = {
 		["ID"] = 93737,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Broken Construct",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 9,
+		["XP"] = 775,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19163,9 +20867,21 @@ QuestData.Quests = {
 		["ID"] = 93738,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Broken Construct",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 9,
+		["XP"] = 600,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[93739] = {
+		["ID"] = 93739,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Exploring the Horde",
+		["Zone"] = "Orgrimmar",
+		["Level"] = 13,
+		["XP"] = 1150,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19175,9 +20891,9 @@ QuestData.Quests = {
 		["ID"] = 93740,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Blood for Blood",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 11,
+		["XP"] = 650,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19187,9 +20903,9 @@ QuestData.Quests = {
 		["ID"] = 93746,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "A Firm Response",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 9,
+		["XP"] = 600,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19219,13 +20935,25 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[93836] = {
+		["ID"] = 93836,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Fate of Zephras",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 12,
+		["XP"] = 460,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[93926] = {
 		["ID"] = 93926,
 		["FactionRestriction"] = nil,
 		["Name"] = "The Western Watch",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 8,
+		["XP"] = 350,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19235,9 +20963,21 @@ QuestData.Quests = {
 		["ID"] = 93927,
 		["FactionRestriction"] = nil,
 		["Name"] = "A Last Request",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 8,
+		["XP"] = 525,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[93948] = {
+		["ID"] = 93948,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Deliver the Signet",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 9,
+		["XP"] = 390,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19247,9 +20987,9 @@ QuestData.Quests = {
 		["ID"] = 93949,
 		["FactionRestriction"] = nil,
 		["Name"] = "Bugged",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 8,
+		["XP"] = 700,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19259,7 +20999,7 @@ QuestData.Quests = {
 		["ID"] = 93951,
 		["FactionRestriction"] = nil,
 		["Name"] = "A Little Beauty",
-		["Zone"] = nil,
+		["Zone"] = "Zephras Isle",
 		["Level"] = 7,
 		["XP"] = 480,
 		["PrereqQuests"] = {
@@ -19271,9 +21011,21 @@ QuestData.Quests = {
 		["ID"] = 93958,
 		["FactionRestriction"] = nil,
 		["Name"] = "The Inner Sanctum",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 12,
+		["XP"] = 900,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[94003] = {
+		["ID"] = 94003,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Skybreaker Bulwark",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 10,
+		["XP"] = 850,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19283,9 +21035,9 @@ QuestData.Quests = {
 		["ID"] = 94411,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Meddlesome Mages",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 6,
+		["XP"] = 410,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19303,13 +21055,61 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[94414] = {
+		["ID"] = 94414,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Anchors of Zephras",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 2,
+		["XP"] = 85,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[94484] = {
+		["ID"] = 94484,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Unnerving Silence",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 11,
+		["XP"] = 220,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[94485] = {
+		["ID"] = 94485,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Tears of the Lady",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 12,
+		["XP"] = 230,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[94486] = {
 		["ID"] = 94486,
 		["FactionRestriction"] = nil,
 		["Name"] = "Feathers for Binding",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 11,
+		["XP"] = 875,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[94487] = {
+		["ID"] = 94487,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Unwanted and Unworthy",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 11,
+		["XP"] = 875,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19319,9 +21119,9 @@ QuestData.Quests = {
 		["ID"] = 94488,
 		["FactionRestriction"] = nil,
 		["Name"] = "The Ties That Bind",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 11,
+		["XP"] = 875,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19331,9 +21131,9 @@ QuestData.Quests = {
 		["ID"] = 94489,
 		["FactionRestriction"] = nil,
 		["Name"] = "The Wounds of Betrayal",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 12,
+		["XP"] = 900,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19343,9 +21143,21 @@ QuestData.Quests = {
 		["ID"] = 94490,
 		["FactionRestriction"] = nil,
 		["Name"] = "Ripped Missive",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 12,
+		["XP"] = 900,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[94491] = {
+		["ID"] = 94491,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Fate of the Den",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 12,
+		["XP"] = 460,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19355,9 +21167,9 @@ QuestData.Quests = {
 		["ID"] = 94568,
 		["FactionRestriction"] = nil,
 		["Name"] = "The Cult's True Plans",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 11,
+		["XP"] = 440,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19367,9 +21179,9 @@ QuestData.Quests = {
 		["ID"] = 94896,
 		["FactionRestriction"] = nil,
 		["Name"] = "Aid For The Refugees",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 11,
+		["XP"] = 875,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19379,9 +21191,9 @@ QuestData.Quests = {
 		["ID"] = 94897,
 		["FactionRestriction"] = nil,
 		["Name"] = "The Fate of a Loved One",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 11,
+		["XP"] = 875,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19394,6 +21206,18 @@ QuestData.Quests = {
 		["Zone"] = nil,
 		["Level"] = -1,
 		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[95141] = {
+		["ID"] = 95141,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Report to Rog'mar",
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 38,
+		["XP"] = 290,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19427,9 +21251,9 @@ QuestData.Quests = {
 		["ID"] = 95204,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Crest of Lordaeron",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Ruins of Lordaeron",
+		["Level"] = 22,
+		["XP"] = 5450,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19463,9 +21287,9 @@ QuestData.Quests = {
 		["ID"] = 95216,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The New Plague",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Undercity",
+		["Level"] = 22,
+		["XP"] = 5450,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19507,11 +21331,23 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[95349] = {
+		["ID"] = 95349,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Earthen Ring",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 13,
+		["XP"] = 90,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[95350] = {
 		["ID"] = 95350,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Welcome to Azeroth",
-		["Zone"] = nil,
+		["Zone"] = "Mulgore",
 		["Level"] = 13,
 		["XP"] = 675,
 		["PrereqQuests"] = {
@@ -19526,6 +21362,18 @@ QuestData.Quests = {
 		["Zone"] = nil,
 		["Level"] = -1,
 		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[95385] = {
+		["ID"] = 95385,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Torn Mystical Scroll",
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 43,
+		["XP"] = 3600,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19603,13 +21451,61 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[95663] = {
+		["ID"] = 95663,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Dragonmaw Rumors",
+		["Zone"] = "Arathi Highlands",
+		["Level"] = 31,
+		["XP"] = 550,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[95664] = {
+		["ID"] = 95664,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Elder Knowledge",
+		["Zone"] = "Excavation Site: Wetlands",
+		["Level"] = 31,
+		["XP"] = 1400,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[95682] = {
+		["ID"] = 95682,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Open the Maw",
+		["Zone"] = "Wetlands",
+		["Level"] = 31,
+		["XP"] = 6950,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[95697] = {
+		["ID"] = 95697,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Changing Tastes",
+		["Zone"] = "Orgrimmar",
+		["Level"] = 31,
+		["XP"] = 6950,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[95748] = {
 		["ID"] = 95748,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Gurubashi Legends of Old",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 40,
+		["XP"] = 3150,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19619,9 +21515,9 @@ QuestData.Quests = {
 		["ID"] = 95770,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Locating the Lost City",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 40,
+		["XP"] = 3150,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19631,9 +21527,9 @@ QuestData.Quests = {
 		["ID"] = 95773,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Enemies in the Water",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 37,
+		["XP"] = 2850,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19651,13 +21547,61 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[95775] = {
+		["ID"] = 95775,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Drowned City",
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 40,
+		["XP"] = 8450,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[95776] = {
+		["ID"] = 95776,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Only Good Brinescale...",
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 38,
+		["XP"] = 9500,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[95789] = {
+		["ID"] = 95789,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Shady Saltseers",
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 40,
+		["XP"] = 10450,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[95791] = {
+		["ID"] = 95791,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Saltseer Captain",
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 40,
+		["XP"] = 10450,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[95805] = {
 		["ID"] = 95805,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Grace of An'she and Mu'sha",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Mulgore",
+		["Level"] = 4,
+		["XP"] = 360,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19691,9 +21635,9 @@ QuestData.Quests = {
 		["ID"] = 95981,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Watching the Roads",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Silverpine Forest",
+		["Level"] = 20,
+		["XP"] = 1550,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19717,6 +21661,42 @@ QuestData.Quests = {
 		["Name"] = "WANTED: Incinerator Gar'im",
 		["Zone"] = nil,
 		["Level"] = -1,
+		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[96078] = {
+		["ID"] = 96078,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "A Tale Spun Around the Fire",
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 40,
+		["XP"] = 2350,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[96101] = {
+		["ID"] = 96101,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Great Outdoors",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 6,
+		["XP"] = 410,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[96102] = {
+		["ID"] = 96102,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Camping 101: Tailoring",
+		["Zone"] = "Durotar",
+		["Level"] = 6,
 		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
@@ -19766,6 +21746,66 @@ QuestData.Quests = {
 		["Zone"] = nil,
 		["Level"] = -1,
 		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[96241] = {
+		["ID"] = 96241,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Talkin' bout Toxins, Mon",
+		["Zone"] = "Mulgore",
+		["Level"] = 29,
+		["XP"] = 2350,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[96259] = {
+		["ID"] = 96259,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Defending the Dead",
+		["Zone"] = "Mulgore",
+		["Level"] = 29,
+		["XP"] = 2350,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[96260] = {
+		["ID"] = 96260,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Stronger than Steel",
+		["Zone"] = "Mulgore",
+		["Level"] = 29,
+		["XP"] = 1750,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[96261] = {
+		["ID"] = 96261,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Broodmother",
+		["Zone"] = "Mulgore",
+		["Level"] = 30,
+		["XP"] = 3050,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[96294] = {
+		["ID"] = 96294,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "A Darker Truth",
+		["Zone"] = "Mulgore",
+		["Level"] = 30,
+		["XP"] = 1850,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19872,7 +21912,19 @@ QuestData.Quests = {
 		["ID"] = 96604,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Great Outdoors",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
+		["Level"] = 6,
+		["XP"] = 410,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[96605] = {
+		["ID"] = 96605,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Great Outdoors",
+		["Zone"] = "Mulgore",
 		["Level"] = 6,
 		["XP"] = 410,
 		["PrereqQuests"] = {
@@ -19885,6 +21937,18 @@ QuestData.Quests = {
 		["FactionRestriction"] = "Alliance",
 		["Name"] = "The Great Outdoors",
 		["Zone"] = "Teldrassil",
+		["Level"] = 6,
+		["XP"] = 410,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[96607] = {
+		["ID"] = 96607,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Great Outdoors",
+		["Zone"] = "Tirisfal Glades",
 		["Level"] = 6,
 		["XP"] = 410,
 		["PrereqQuests"] = {
@@ -19940,11 +22004,35 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[96638] = {
+		["ID"] = 96638,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Adventurer",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 6,
+		["XP"] = 410,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[96646] = {
+		["ID"] = 96646,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Camping 101: Cooking",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 6,
+		["XP"] = 270,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[96652] = {
 		["ID"] = 96652,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "The Adventurer",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 6,
 		["XP"] = 410,
 		["PrereqQuests"] = {
@@ -19956,9 +22044,69 @@ QuestData.Quests = {
 		["ID"] = 96655,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Camping 101: Cooking",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 6,
 		["XP"] = 270,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[96656] = {
+		["ID"] = 96656,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Adventurer",
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 6,
+		["XP"] = 410,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[96658] = {
+		["ID"] = 96658,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Camping 101: Cooking",
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 6,
+		["XP"] = 270,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[96659] = {
+		["ID"] = 96659,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Adventurer",
+		["Zone"] = "Mulgore",
+		["Level"] = 6,
+		["XP"] = 410,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[96661] = {
+		["ID"] = 96661,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Camping 101: Cooking",
+		["Zone"] = "Mulgore",
+		["Level"] = 6,
+		["XP"] = 270,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[96774] = {
+		["ID"] = 96774,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Ancient Gurubashi Idol",
+		["Zone"] = "Orgrimmar",
+		["Level"] = 40,
+		["XP"] = 8800,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -19968,7 +22116,7 @@ QuestData.Quests = {
 		["ID"] = 96821,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Legging It",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 6,
 		["XP"] = 550,
 		["PrereqQuests"] = {
@@ -19980,7 +22128,7 @@ QuestData.Quests = {
 		["ID"] = 96822,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "For Honor",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 7,
 		["XP"] = 480,
 		["PrereqQuests"] = {
@@ -19992,9 +22140,33 @@ QuestData.Quests = {
 		["ID"] = 96825,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "This Fruit Could Bite Back",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 6,
 		["XP"] = 550,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[96873] = {
+		["ID"] = 96873,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "A Pain in the Neck",
+		["Zone"] = "Durotar",
+		["Level"] = 8,
+		["XP"] = 525,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[96874] = {
+		["ID"] = 96874,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "This Is Spinal Axe",
+		["Zone"] = "Orgrimmar",
+		["Level"] = 10,
+		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -20060,13 +22232,61 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[96984] = {
+		["ID"] = 96984,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Heart of Disruption",
+		["Zone"] = "Silverpine Forest",
+		["Level"] = 33,
+		["XP"] = 9400,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[96986] = {
+		["ID"] = 96986,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Grave Knight",
+		["Zone"] = "Ashenvale",
+		["Level"] = 33,
+		["XP"] = 9400,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[96987] = {
+		["ID"] = 96987,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Opportunistic Education",
+		["Zone"] = "Silverpine Forest",
+		["Level"] = 33,
+		["XP"] = 9400,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[96988] = {
+		["ID"] = 96988,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Source of Power",
+		["Zone"] = "Undercity",
+		["Level"] = 33,
+		["XP"] = 9400,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[97003] = {
 		["ID"] = 97003,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Chol'aruk the Ravener",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 21,
+		["XP"] = 4100,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -20108,11 +22328,23 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[97196] = {
+		["ID"] = 97196,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Coldbringer's Eye",
+		["Zone"] = "Mulgore",
+		["Level"] = 41,
+		["XP"] = 8600,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[97223] = {
 		["ID"] = 97223,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Bloodtalon Matriarch",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 9,
 		["XP"] = 775,
 		["PrereqQuests"] = {
@@ -20124,7 +22356,7 @@ QuestData.Quests = {
 		["ID"] = 97225,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Forgotten Loa Idols",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 9,
 		["XP"] = 775,
 		["PrereqQuests"] = {
@@ -20148,7 +22380,7 @@ QuestData.Quests = {
 		["ID"] = 97242,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Yelmak's Medley",
-		["Zone"] = nil,
+		["Zone"] = "Orgrimmar",
 		["Level"] = 15,
 		["XP"] = 110,
 		["PrereqQuests"] = {
@@ -20160,7 +22392,7 @@ QuestData.Quests = {
 		["ID"] = 97246,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Meal Appeal",
-		["Zone"] = nil,
+		["Zone"] = "Orgrimmar",
 		["Level"] = 15,
 		["XP"] = 110,
 		["PrereqQuests"] = {
@@ -20172,7 +22404,7 @@ QuestData.Quests = {
 		["ID"] = 97249,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Favorite Food",
-		["Zone"] = nil,
+		["Zone"] = "Orgrimmar",
 		["Level"] = 15,
 		["XP"] = 110,
 		["PrereqQuests"] = {
@@ -20184,9 +22416,9 @@ QuestData.Quests = {
 		["ID"] = 97250,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Wrongly Blamed, Justly Corrected",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "The Barrens",
+		["Level"] = 23,
+		["XP"] = 2300,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -20196,7 +22428,7 @@ QuestData.Quests = {
 		["ID"] = 97253,
 		["FactionRestriction"] = nil,
 		["Name"] = "Parts and Pieces",
-		["Zone"] = nil,
+		["Zone"] = "The Barrens",
 		["Level"] = 15,
 		["XP"] = 1050,
 		["PrereqQuests"] = {
@@ -20220,7 +22452,7 @@ QuestData.Quests = {
 		["ID"] = 97275,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Whuut's the Rush",
-		["Zone"] = nil,
+		["Zone"] = "Orgrimmar",
 		["Level"] = 15,
 		["XP"] = 800,
 		["PrereqQuests"] = {
@@ -20244,7 +22476,7 @@ QuestData.Quests = {
 		["ID"] = 97279,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Wayward Weapons",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 2,
 		["XP"] = 170,
 		["PrereqQuests"] = {
@@ -20256,7 +22488,7 @@ QuestData.Quests = {
 		["ID"] = 97281,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "A Simmering Storm",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 11,
 		["XP"] = 875,
 		["PrereqQuests"] = {
@@ -20268,7 +22500,7 @@ QuestData.Quests = {
 		["ID"] = 97282,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Stormy Potential",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 10,
 		["XP"] = 850,
 		["PrereqQuests"] = {
@@ -20288,13 +22520,73 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[97287] = {
+		["ID"] = 97287,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Shrewd Negotiations",
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 33,
+		["XP"] = 270,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[97288] = {
 		["ID"] = 97288,
 		["FactionRestriction"] = "Horde",
-		["Name"] = "Abominable Creatures",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Name"] = "Unending Torment",
+		["Zone"] = "Ruins of Lordaeron",
+		["Level"] = 21,
+		["XP"] = 3450,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[97289] = {
+		["ID"] = 97289,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Unending Torment",
+		["Zone"] = "Undercity",
+		["Level"] = 21,
+		["XP"] = 1650,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[97290] = {
+		["ID"] = 97290,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Unending Torment",
+		["Zone"] = "Undercity",
+		["Level"] = 21,
+		["XP"] = 1650,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[97291] = {
+		["ID"] = 97291,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Unending Torment",
+		["Zone"] = "Undercity",
+		["Level"] = 21,
+		["XP"] = 1650,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[97292] = {
+		["ID"] = 97292,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Unending Torment",
+		["Zone"] = "Undercity",
+		["Level"] = 21,
+		["XP"] = 1650,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -20304,7 +22596,7 @@ QuestData.Quests = {
 		["ID"] = 97326,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Rocks to Rests",
-		["Zone"] = nil,
+		["Zone"] = "Orgrimmar",
 		["Level"] = 15,
 		["XP"] = 550,
 		["PrereqQuests"] = {
@@ -20316,9 +22608,9 @@ QuestData.Quests = {
 		["ID"] = 97328,
 		["FactionRestriction"] = nil,
 		["Name"] = "Anything of Value",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 35,
+		["XP"] = 2750,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -20328,9 +22620,9 @@ QuestData.Quests = {
 		["ID"] = 97329,
 		["FactionRestriction"] = nil,
 		["Name"] = "Where's the Key?",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 35,
+		["XP"] = 2750,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -20340,9 +22632,21 @@ QuestData.Quests = {
 		["ID"] = 97331,
 		["FactionRestriction"] = nil,
 		["Name"] = "Zimmix's Great Escape",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 35,
+		["XP"] = 2750,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[97332] = {
+		["ID"] = 97332,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Twice Misplaced Trust",
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 41,
+		["XP"] = 3300,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -20360,6 +22664,18 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[97386] = {
+		["ID"] = 97386,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "The Offense of Grom'gol",
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 44,
+		["XP"] = 4650,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[97420] = {
 		["ID"] = 97420,
 		["FactionRestriction"] = "Alliance",
@@ -20372,13 +22688,25 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[97453] = {
+		["ID"] = 97453,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Weed Whacked",
+		["Zone"] = "Stranglethorn Vale",
+		["Level"] = 38,
+		["XP"] = 1450,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[97538] = {
 		["ID"] = 97538,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Pigments for Paints",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Thunder Bluff",
+		["Level"] = 26,
+		["XP"] = 2100,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -20396,11 +22724,71 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[97663] = {
+		["ID"] = 97663,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Supplies and Studies",
+		["Zone"] = "Badlands",
+		["Level"] = 40,
+		["XP"] = 3150,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[97884] = {
+		["ID"] = 97884,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Armory of Sunnyglade",
+		["Zone"] = "Undercity",
+		["Level"] = 40,
+		["XP"] = 3150,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[97901] = {
+		["ID"] = 97901,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Camping 101: Enchanting",
+		["Zone"] = "Durotar",
+		["Level"] = 6,
+		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[97903] = {
+		["ID"] = 97903,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Camping 101: First Aid",
+		["Zone"] = "Durotar",
+		["Level"] = 6,
+		["XP"] = 270,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[97904] = {
+		["ID"] = 97904,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Camping 101: Fishing",
+		["Zone"] = "Durotar",
+		["Level"] = 6,
+		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[97905] = {
 		["ID"] = 97905,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Camping 101: Herbalism",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 6,
 		["XP"] = 270,
 		["PrereqQuests"] = {
@@ -20412,7 +22800,7 @@ QuestData.Quests = {
 		["ID"] = 97908,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Camping 101: Skinning",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 6,
 		["XP"] = 270,
 		["PrereqQuests"] = {
@@ -20444,6 +22832,18 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[97936] = {
+		["ID"] = 97936,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Camping 101: Skinning",
+		["Zone"] = "Mulgore",
+		["Level"] = 6,
+		["XP"] = 270,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[97948] = {
 		["ID"] = 97948,
 		["FactionRestriction"] = "Alliance",
@@ -20463,6 +22863,66 @@ QuestData.Quests = {
 		["Zone"] = nil,
 		["Level"] = 6,
 		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[97960] = {
+		["ID"] = 97960,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Camping 101: Skinning",
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 6,
+		["XP"] = 270,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[97964] = {
+		["ID"] = 97964,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Camping 101: Blacksmithing",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 6,
+		["XP"] = 270,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[97965] = {
+		["ID"] = 97965,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Camping 101: First Aid",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 6,
+		["XP"] = 270,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[97967] = {
+		["ID"] = 97967,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Camping 101: Fishing",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 6,
+		["XP"] = 270,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[97970] = {
+		["ID"] = 97970,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Camping 101: Mining",
+		["Zone"] = "Zephras Isle",
+		["Level"] = 6,
+		["XP"] = 270,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -20504,6 +22964,18 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[97985] = {
+		["ID"] = 97985,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Thundering Hearts",
+		["Zone"] = "Undercity",
+		["Level"] = 33,
+		["XP"] = 3300,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[98013] = {
 		["ID"] = 98013,
 		["FactionRestriction"] = "Alliance",
@@ -20511,6 +22983,18 @@ QuestData.Quests = {
 		["Zone"] = nil,
 		["Level"] = -1,
 		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[98024] = {
+		["ID"] = 98024,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Journey to the Crossroads",
+		["Zone"] = "Orgrimmar",
+		["Level"] = 13,
+		["XP"] = 460,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -20592,9 +23076,9 @@ QuestData.Quests = {
 		["ID"] = 98069,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Stolen Freewind Supplies",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Thousand Needles",
+		["Level"] = 30,
+		["XP"] = 2450,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -20604,9 +23088,9 @@ QuestData.Quests = {
 		["ID"] = 98070,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Stop the Screeching",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Thousand Needles",
+		["Level"] = 30,
+		["XP"] = 2450,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -20652,9 +23136,9 @@ QuestData.Quests = {
 		["ID"] = 98094,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Scout Support",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 25,
+		["XP"] = 1000,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -20664,9 +23148,9 @@ QuestData.Quests = {
 		["ID"] = 98095,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Valuable Vantages",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Hillsbrad Foothills",
+		["Level"] = 25,
+		["XP"] = 2000,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -20696,6 +23180,18 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[98192] = {
+		["ID"] = 98192,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Skin Careful, Skin Sharp",
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 43,
+		["XP"] = 3600,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[98197] = {
 		["ID"] = 98197,
 		["FactionRestriction"] = "Alliance",
@@ -20703,6 +23199,18 @@ QuestData.Quests = {
 		["Zone"] = nil,
 		["Level"] = -1,
 		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[98205] = {
+		["ID"] = 98205,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Whelps are the Worst!",
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 44,
+		["XP"] = 3750,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -20727,6 +23235,18 @@ QuestData.Quests = {
 		["Zone"] = nil,
 		["Level"] = -1,
 		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[98215] = {
+		["ID"] = 98215,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Dragon Scales, Post Burnt Tails",
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 44,
+		["XP"] = 3750,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -20780,6 +23300,18 @@ QuestData.Quests = {
 		["LinkedQuests"] = {
 		}
 	},
+	[98231] = {
+		["ID"] = 98231,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Active Ingredient",
+		["Zone"] = "Dustwallow Marsh",
+		["Level"] = 44,
+		["XP"] = 3750,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
 	[98240] = {
 		["ID"] = 98240,
 		["FactionRestriction"] = "Alliance",
@@ -20810,6 +23342,18 @@ QuestData.Quests = {
 		["Name"] = "Trying Times",
 		["Zone"] = nil,
 		["Level"] = -1,
+		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[98248] = {
+		["ID"] = 98248,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Shipping Label",
+		["Zone"] = "Thunder Bluff",
+		["Level"] = 60,
 		["XP"] = 0,
 		["PrereqQuests"] = {
 		},
@@ -20976,9 +23520,9 @@ QuestData.Quests = {
 		["ID"] = 98389,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "A Light in the Darkness",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 4,
+		["XP"] = 360,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -21120,9 +23664,33 @@ QuestData.Quests = {
 		["ID"] = 98512,
 		["FactionRestriction"] = nil,
 		["Name"] = "Al'Aketh Assassins",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Zephras Isle",
+		["Level"] = 11,
+		["XP"] = 875,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[98601] = {
+		["ID"] = 98601,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "A Difficult Path",
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 1,
+		["XP"] = 40,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[98823] = {
+		["ID"] = 98823,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Earthen Echo",
+		["Zone"] = "Thunder Bluff",
+		["Level"] = 31,
+		["XP"] = 6950,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -21156,7 +23724,7 @@ QuestData.Quests = {
 		["ID"] = 99048,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "A Missing Hand",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 9,
 		["XP"] = 80,
 		["PrereqQuests"] = {
@@ -21168,7 +23736,7 @@ QuestData.Quests = {
 		["ID"] = 99049,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Threat from Below",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 9,
 		["XP"] = 390,
 		["PrereqQuests"] = {
@@ -21192,7 +23760,7 @@ QuestData.Quests = {
 		["ID"] = 99051,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Threat from Below",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 11,
 		["XP"] = 875,
 		["PrereqQuests"] = {
@@ -21204,7 +23772,7 @@ QuestData.Quests = {
 		["ID"] = 99052,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Threat from Below",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 11,
 		["XP"] = 1100,
 		["PrereqQuests"] = {
@@ -21219,6 +23787,18 @@ QuestData.Quests = {
 		["Zone"] = nil,
 		["Level"] = -1,
 		["XP"] = 0,
+		["PrereqQuests"] = {
+		},
+		["LinkedQuests"] = {
+		}
+	},
+	[99079] = {
+		["ID"] = 99079,
+		["FactionRestriction"] = "Horde",
+		["Name"] = "Longwalker Malah",
+		["Zone"] = "Mulgore",
+		["Level"] = 9,
+		["XP"] = 80,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -21240,9 +23820,9 @@ QuestData.Quests = {
 		["ID"] = 99108,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Sparring Match",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Mulgore",
+		["Level"] = 6,
+		["XP"] = 270,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -21252,7 +23832,7 @@ QuestData.Quests = {
 		["ID"] = 99123,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Lost in the Shadows",
-		["Zone"] = nil,
+		["Zone"] = "Durotar",
 		["Level"] = 8,
 		["XP"] = 700,
 		["PrereqQuests"] = {
@@ -21299,10 +23879,10 @@ QuestData.Quests = {
 	[99134] = {
 		["ID"] = 99134,
 		["FactionRestriction"] = "Horde",
-		["Name"] = "Dscipline",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Name"] = "Discipline",
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 6,
+		["XP"] = 410,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -21312,9 +23892,9 @@ QuestData.Quests = {
 		["ID"] = 99141,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Patience",
-		["Zone"] = nil,
-		["Level"] = -1,
-		["XP"] = 0,
+		["Zone"] = "Tirisfal Glades",
+		["Level"] = 6,
+		["XP"] = 410,
 		["PrereqQuests"] = {
 		},
 		["LinkedQuests"] = {
@@ -21384,7 +23964,7 @@ QuestData.Quests = {
 		["ID"] = 99156,
 		["FactionRestriction"] = "Horde",
 		["Name"] = "Rear Guard Patrol",
-		["Zone"] = nil,
+		["Zone"] = "Tirisfal Glades",
 		["Level"] = 13,
 		["XP"] = 900,
 		["PrereqQuests"] = {

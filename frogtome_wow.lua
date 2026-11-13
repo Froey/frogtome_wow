@@ -12,6 +12,7 @@ local Log = Frogtome.Root.Log
 local Main = Frogtome.Main
 local MainFrame = Frogtome.UI.MainFrame
 local NotesPage = Frogtome.UI.Pages.Notes
+local QuestLog = Frogtome.Features.QuestLog
 local SavedData = Frogtome.Data.SavedData
 local Session = Frogtome.Features.Session
 local Settings = Frogtome.Settings.Settings
@@ -54,8 +55,8 @@ function Main:Initialize()
 	
 	-- This HAS to happen after the UI is set up
 	Log:Debug("Performing post-UI initializations...")
+	QuestLog:InitializeQuestLog()
 	Session:InitializeSession()
-	Session:ResetSession()
 	
 	Dev:InitializeDevTools()
 	
@@ -199,16 +200,6 @@ Main.SlashCommandArgsDict = {
 			end,
 			["all"] = function()
 				Dev:PrintQuestLog(false)
-				return nil, nil, nil
-			end
-		},
-		["dql"] = {
-			["tracked"] = function()
-				Dev:PrintDungeonQuestLog(true)
-				return nil, nil, nil
-			end,
-			["all"] = function()
-				Dev:PrintDungeonQuestLog(false)
 				return nil, nil, nil
 			end
 		}

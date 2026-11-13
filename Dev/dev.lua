@@ -11,6 +11,7 @@ local HiddenSettings = Frogtome.Settings.HiddenSettings
 local Log = Frogtome.Root.Log
 local Quest = Frogtome.Core.Quest
 local QuestData = Frogtome.Data.QuestData
+local QuestLog = Frogtome.Features.QuestLog
 local SavedData = Frogtome.Data.SavedData
 local Session = Frogtome.Features.Session
 local XP = Frogtome.Core.XP
@@ -33,8 +34,11 @@ function Dev:InitializeDevTools()
 	end
 	Dev.CurrentQuestIds = {}
 	
-	Session:RegisterListener(function(xpRelatedChange)
-		Dev:FindUnknownQuests(xpRelatedChange)
+	QuestLog:RegisterListener(function(changeManifest)
+		Dev:FindUnknownQuests(changeManifest.QuestLog == true or changeManifest.TotalQuestXp == true or changeManifest.TotalQuestMoney == true)
+	end)
+	Session:RegisterListener(function(changeManifest)
+		Dev:FindUnknownQuests(changeManifest.CharacterXp == true)
 	end)
 	Dev:FindUnknownQuests(true)
 	
@@ -68,20 +72,9 @@ end
 function Dev:PrintQuestLog(trackedOnly)
 	Log:Dev("Quest Log:")
 	
-	for _, quest in ipairs(Quest:GetQuestsInQuestLog(trackedOnly)) do
-		local questId = quest.questID
-		local questTitle = quest.title
-		
-		Log:Dev(" -- [" .. tostring(questId) .. "] \"" .. questTitle .. "\"")
-	end
-end
-
-function Dev:PrintDungeonQuestLog(trackedOnly)
-	Log:Dev("Dungeon Quests in Quest Log:")
-	
-	for _, quest in ipairs(Quest:GetDungeonQuestsInQuestLog(trackedOnly)) do
-		local questId = quest.questID
-		local questTitle = quest.title
+	for _, quest in ipairs(QuestLog:GetQuests(trackedOnly)) do
+		local questId = quest.ID
+		local questName = quest.Name
 		
 		Log:Dev(" -- [" .. tostring(questId) .. "] \"" .. questTitle .. "\"")
 	end
@@ -107,15 +100,15 @@ function Dev:DoesQuestMatchExpectedQuest(quest, expectedQuest, fromSaved)
 		-- Only trust XP data when we know this quest's level is within an acceptable range of the current character (and when it's in the character's quest log).
 		-- But if that condition IS met, then we definitely want to confirm that the XP data we have on record is correct.
 		local levelDiff = quest.Level - XP:GetCurrentLevel()
-		if not fromSaved and Quest:IsOnQuest(quest.ID) and (-5 <= levelDiff and levelDiff <= 7) then
-			quest.XP = Quest:GetQuestXpReward(quest.ID)
+		if not fromSaved and QuestLog:IsOnQuest(quest.ID) and (-5 <= levelDiff and levelDiff <= 7) then
+			quest.XP = Quest:GetRealTimeQuestXp(quest.ID)
 			questsMatch = questsMatch and quest.XP == expectedQuest.XP
 		end
 	else
 		-- If we can't find this quest, still try to grab its XP info.
 		local levelDiff = quest.Level - XP:GetCurrentLevel()
-		if not fromSaved and Quest:IsOnQuest(quest.ID) and (-5 <= levelDiff and levelDiff <= 7) then
-			quest.XP = Quest:GetQuestXpReward(quest.ID)
+		if not fromSaved and QuestLog:IsOnQuest(quest.ID) and (-5 <= levelDiff and levelDiff <= 7) then
+			quest.XP = Quest:GetRealTimeQuestXp(quest.ID)
 		end
 		
 		questsMatch = false
@@ -126,17 +119,18 @@ end
 
 function Dev:FindUnknownQuests(xpRelatedChange)
 	if xpRelatedChange then
+		
 		local newCurrentLevel = XP:GetCurrentLevel()
 		local questIdsInQuestLog = {}
 		
-		for _, quest in ipairs(Quest:GetQuestsInQuestLog()) do
-			table.insert(questIdsInQuestLog, quest.questID)
+		for _, quest in pairs(QuestLog:GetQuests()) do
+			table.insert(questIdsInQuestLog, quest.ID)
 			
 			local foundQuestInQuestLog = false
 			if Dev.CurrentLevel and newCurrentLevel == Dev.CurrentLevel then
 				-- Only update if we just picked this quest up
 				for _, questId in pairs(Dev.CurrentQuestIds) do
-					if quest.questID == questId then
+					if quest.ID == questId then
 						foundQuestInQuestLog = true
 					end
 				end
@@ -145,14 +139,14 @@ function Dev:FindUnknownQuests(xpRelatedChange)
 			if not foundQuestInQuestLog then
 				-- This is a new quest we picked up - generate data for it.
 				local newQuest = {}
-				newQuest.ID = quest.questID
+				newQuest.ID = quest.ID
 				newQuest.FactionRestriction = Character:GetFaction()
-				newQuest.Name = quest.title
+				newQuest.Name = quest.Name
 				newQuest.Zone = nil
 				if API:IsSupported("GetCharacterZone") then
 					newQuest.Zone = API.GetCharacterZone()
 				end
-				newQuest.Level = quest.level
+				newQuest.Level = quest.Level
 				newQuest.XP = 0 -- This will be reconciled when we can guarantee it will be accurate
 				newQuest.PrereqQuests = {}
 				newQuest.LinkedQuests = {}
@@ -161,6 +155,10 @@ function Dev:FindUnknownQuests(xpRelatedChange)
 				if not Dev:DoesQuestMatchExpectedQuest(newQuest, dataQuest, false) then
 					local savedQuest = SavedData:GetGlobalSavedData().Dev.UnknownQuests[newQuest.ID]
 					
+					if savedQuest and not (savedQuest.Zone == nil or savedQuest.Zone == "") then
+						newQuest.Zone = savedQuest.Zone
+					end
+					
 					-- At this point, fall back to whatever XP data we have gathered previously if we can no longer gather it
 					if newQuest.XP == 0 and savedQuest and savedQuest.XP > 0 then
 						newQuest.XP = savedQuest.XP
@@ -168,11 +166,6 @@ function Dev:FindUnknownQuests(xpRelatedChange)
 					
 					if not Dev:DoesQuestMatchExpectedQuest(newQuest, savedQuest, false) then
 						Log:Dev("[DEV] NEW OR UPDATED: (" .. tostring(newQuest.ID) .. ") \"" .. newQuest.Name .. "\"", 0xBBFFBB)
-						
-						if newQuest.XP == 0 and savedQuest and savedQuest.XP > 0 then
-							newQuest.XP = savedQuest.XP
-						end
-						
 						SavedData:GetGlobalSavedData().Dev.UnknownQuests[newQuest.ID] = newQuest
 					end
 				end

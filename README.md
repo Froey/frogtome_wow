@@ -2,7 +2,7 @@
 
 ### Froey's Game Tools for Organization, Management, and Efficiency
 
-v1.0.4 (BETA)
+v1.0.4
 
 ## Description
 

@@ -24,9 +24,9 @@ Version.VERSION_IS_BETA = "IsBeta"
 
 Version.CURRENT_VERSION = {
 	[Version.VERSION_MAJOR_ID] = 1,
-	[Version.VERSION_MINOR_ID] = 0,
-	[Version.VERSION_PATCH_ID] = 4,
-	[Version.VERSION_IS_BETA] = false
+	[Version.VERSION_MINOR_ID] = 1,
+	[Version.VERSION_PATCH_ID] = 0,
+	[Version.VERSION_IS_BETA] = true
 }
 
 function Version:GetCurrentMajorId()

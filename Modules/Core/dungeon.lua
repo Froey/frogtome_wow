@@ -47,7 +47,7 @@ function Dungeon:GetAllDungeonsForFaction(faction)
 	local dungeons = {}
 	for _, dungeon in ipairs(Dungeon:GetAllDungeons()) do
 		local dungeonZone = Dungeon:GetDungeonZone(dungeon)
-		if not dungeonZone.IsCity or dungeonZone.Territory == faction then
+		if dungeonZone and (not dungeonZone.IsCity or dungeonZone.Territory == faction) then
 			table.insert(dungeons, dungeon)
 		elseif #Dungeon:GetDungeonQuestsForFaction(dungeon, faction) > 0 or #Dungeon:GetDungeonMidQuestsForFaction(dungeon, faction) > 0 then
 			table.insert(dungeons, dungeon)
@@ -86,7 +86,7 @@ function Dungeon:GetDungeonsForFaction(level, faction)
 	local dungeons = {}
 	for _, dungeon in ipairs(Dungeon:GetDungeons(level)) do
 		local dungeonZone = Dungeon:GetDungeonZone(dungeon)
-		if not dungeonZone.IsCity or dungeonZone.Territory == faction then
+		if dungeonZone and (not dungeonZone.IsCity or dungeonZone.Territory == faction) then
 			table.insert(dungeons, dungeon)
 		elseif #Dungeon:GetDungeonQuestsForFaction(dungeon, faction) > 0 or #Dungeon:GetDungeonMidQuestsForFaction(dungeon, faction) > 0 then
 			table.insert(dungeons, dungeon)
@@ -251,7 +251,7 @@ function Dungeon:GetIncompleteDungeonsForFaction(level, faction)
 	local dungeons = {}
 	for _, dungeon in ipairs(Dungeon:GetIncompleteDungeons(level)) do
 		local dungeonZone = Dungeon:GetDungeonZone(dungeon)
-		if not dungeonZone.IsCity or dungeonZone.Territory == faction then
+		if dungeonZone and (not dungeonZone.IsCity or dungeonZone.Territory == faction) then
 			table.insert(dungeons, dungeon)
 		elseif #Dungeon:GetIncompleteDungeonQuestsForFaction(dungeon, faction) > 0 or #Dungeon:GetDungeonMidQuestsForFaction(dungeon, faction) > 0 then
 			table.insert(dungeons, dungeon)

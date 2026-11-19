@@ -60,6 +60,12 @@ function Event:RegisterWidgetForInventoryEvents(widget)
 	widget:RegisterEvent("BAG_UPDATE")
 end
 
+-- Registers the provided widget to listen to trait events. The widget must sill set its own "OnEvent" listener.
+function Event:RegisterWidgetForTraitEvents(widget)
+	widget:RegisterEvent("PLAYER_TALENT_UPDATE")
+	widget:RegisterEvent("CHARACTER_POINTS_CHANGED")
+end
+
 -- Registers the provided widget to listen to bank events. The widget must sill set its own "OnEvent" listener.
 function Event:RegisterWidgetForBankEvents(widget)
 	widget:RegisterEvent("PLAYERBANKSLOTS_CHANGED")
@@ -88,6 +94,7 @@ function Event:SetCharacterEventListenerForWidget(widget, listener)
 	Event:RegisterWidgetForRestedXpEvents(widget)
 	Event:RegisterWidgetForProfessionEvents(widget)
 	Event:RegisterWidgetForInventoryEvents(widget)
+	Event:RegisterWidgetForTraitEvents(widget)
 	Event:RegisterWidgetForBankEvents(widget)
 	Event:RegisterWidgetForGuildEvents(widget)
 	

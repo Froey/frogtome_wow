@@ -1110,12 +1110,12 @@ function CharactersPage:Build(parent)
 	
 	Event:SetCharacterEventListenerForWidget(page, CharactersPage.OnCharacterUpdateEvent)
 	
-	Event:RegisterTickUpdateListener(500, function()
+	Event:RegisterTickUpdateListener(1000, function()
 		if not Trait:WasTraitFound(Trait.WellRestedName) then
 			Trait:TryResolveTrait(Trait.WellRestedName)
 			
 			if Trait:WasTraitFound(Trait.WellRestedName) then
-				CharactersPage:UpdateDisplay(true)
+				CharactersPage:OnCharacterUpdateEvent()
 			end
 		end
 	end)

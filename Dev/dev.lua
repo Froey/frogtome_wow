@@ -97,18 +97,23 @@ function Dev:DoesQuestMatchExpectedQuest(quest, expectedQuest, fromSaved)
 		
 		questsMatch = questsMatch and quest.Level == expectedQuest.Level
 		
-		-- Only trust XP data when we know this quest's level is within an acceptable range of the current character (and when it's in the character's quest log).
-		-- But if that condition IS met, then we definitely want to confirm that the XP data we have on record is correct.
-		local levelDiff = quest.Level - XP:GetCurrentLevel()
-		if not fromSaved and QuestLog:IsOnQuest(quest.ID) and (-5 <= levelDiff and levelDiff <= 7) then
-			quest.XP = Quest:GetRealTimeQuestXp(quest.ID)
-			questsMatch = questsMatch and quest.XP == expectedQuest.XP
+		
+		if not XP:IsMaxLevel() then
+			-- Only trust XP data when we know this quest's level is within an acceptable range of the current character (and when it's in the character's quest log).
+			-- But if that condition IS met, then we definitely want to confirm that the XP data we have on record is correct.
+			local levelDiff = quest.Level - XP:GetCurrentLevel()
+			if not fromSaved and QuestLog:IsOnQuest(quest.ID) and (-5 <= levelDiff and levelDiff <= 7) then
+				quest.XP = Quest:GetRealTimeQuestXp(quest.ID)
+				questsMatch = questsMatch and quest.XP == expectedQuest.XP
+			end
 		end
 	else
-		-- If we can't find this quest, still try to grab its XP info.
-		local levelDiff = quest.Level - XP:GetCurrentLevel()
-		if not fromSaved and QuestLog:IsOnQuest(quest.ID) and (-5 <= levelDiff and levelDiff <= 7) then
-			quest.XP = Quest:GetRealTimeQuestXp(quest.ID)
+		if not XP:IsMaxLevel() then
+			-- If we can't find this quest, still try to grab its XP info.
+			local levelDiff = quest.Level - XP:GetCurrentLevel()
+			if not fromSaved and QuestLog:IsOnQuest(quest.ID) and (-5 <= levelDiff and levelDiff <= 7) then
+				quest.XP = Quest:GetRealTimeQuestXp(quest.ID)
+			end
 		end
 		
 		questsMatch = false

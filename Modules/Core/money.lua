@@ -22,6 +22,12 @@ Money.SILVER_TO_GOLD_RATE = .01
 Money.GOLD_TO_COPPER_RATE = 10000
 Money.GOLD_TO_SILVER_RATE = 100
 
+-- Relevancy thresholds for the currency in World of Warcraft
+Money.COPPER_RELEVANCY_THRESHOLD = 10000
+Money.COPPER_RELEVANCY_FACTOR = 100
+Money.SILVER_RELEVANCY_THRESHOLD = 1000000
+Money.SILVER_RELEVANCY_FACTOR = 10000
+
 -------------------------
 -- Core Data Functions --
 -------------------------
@@ -210,6 +216,30 @@ function Money:ConvertSilverCoins(gold)
 	return gold, 0, 0
 end
 
+-------------------------------
+-- Money Truncating Function --
+-------------------------------
+
+function Money:TruncateCopperToRelevancy(copper)
+	if copper >= Money.SILVER_RELEVANCY_THRESHOLD then
+		return copper - (copper % Money.SILVER_RELEVANCY_FACTOR)
+	end
+
+	if copper >= Money.COPPER_RELEVANCY_THRESHOLD then
+		return copper - (copper % Money.COPPER_RELEVANCY_FACTOR)
+	end
+
+	return copper
+end
+
+function Money:TruncateSilverToRelevancy(silver)
+	return Money:CopperToWholeSilver(Money:TruncateCopperToRelevancy(Money:SilverToWholeCopper(silver)))
+end
+
+function Money:TruncateGoldToRelevancy(gold)
+	return Money:CopperToWholeGold(Money:TruncateCopperToRelevancy(Money:GoldToWholeCopper(gold)))
+end
+
 ----------------------------
 -- Money String Functions --
 ----------------------------
@@ -227,6 +257,10 @@ function Money:CopperToCoinString(copper, coinIconResolution)
 	end
 	
 	copper = math.floor(copper)
+	if true then -- TODO: Replace with setting
+		copper = Money:TruncateCopperToRelevancy(copper)
+	end
+
 	return API.GetCoinStringFromCopper(copper, coinIconResolution)
 end
 
@@ -243,6 +277,10 @@ function Money:SilverToCoinString(silver, coinIconResolution)
 	end
 	
 	local copper = Money:SilverToWholeCopper(silver)
+	if true then -- TODO: Replace with setting
+		copper = Money:TruncateCopperToRelevancy(copper)
+	end
+
 	return API.GetCoinStringFromCopper(copper, coinIconResolution)
 end
 
@@ -259,5 +297,9 @@ function Money:GoldToCoinString(gold, coinIconResolution)
 	end
 	
 	local copper = Money:GoldToWholeCopper(gold)
+	if true then -- TODO: Replace with setting
+		copper = Money:TruncateCopperToRelevancy(copper)
+	end
+
 	return API.GetCoinStringFromCopper(copper, coinIconResolution)
 end

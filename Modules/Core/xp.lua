@@ -240,7 +240,7 @@ function XP:GetXpMultiplier()
 	return multiplier
 end
 
-function XP:GetCurrentRestedCapFraction(restedXp, neededXp, wellRestedRank)
+function XP:GetCurrentRestedCapFraction(restedXp, neededXp, wellRestedRank, isResting, timeSinceLastKnownRestedXpInHours)
 	if not restedXp then
 		restedXp = XP:GetRestedXp()
 	end
@@ -252,6 +252,14 @@ function XP:GetCurrentRestedCapFraction(restedXp, neededXp, wellRestedRank)
 	if not wellRestedRank then
 		wellRestedRank = Trait:GetTraitRank(Trait.WellRestedName)
 	end
+
+	if isResting == nil then
+		isResting = XP:IsResting()
+	end
+
+	if not timeSinceLastKnownRestedXpInHours then
+		timeSinceLastKnownRestedXpInHours = 0
+	end
 	
 	-- For a character loaded in right after creation, neededXp can be zero. Default to zero here in that case.
 	if not neededXp or neededXp == 0 then
@@ -260,12 +268,25 @@ function XP:GetCurrentRestedCapFraction(restedXp, neededXp, wellRestedRank)
 	
 	local restedXpCapFraction = XP.BaseRestedCapFraction + (XP.AdditionalRestedCapFractionPerRank * wellRestedRank)
 	local restedXpCapAmount = neededXp * restedXpCapFraction
+
+	-- Add whatever time has passed since the last known rested XP state as additional fraction amount
+	if timeSinceLastKnownRestedXpInHours > 0 then
+		local additionalRestedXpCapFraction = timeSinceLastKnownRestedXpInHours / XP:GetTotalRestedCapTimeInHours(isResting)
+		if additionalRestedXpCapFraction > 1 then
+			additionalRestedXpCapFraction = 1
+		end
+
+		restedXp = restedXp + (restedXpCapAmount * additionalRestedXpCapFraction)
+		if restedXp > restedXpCapAmount then
+			restedXp = restedXpCapAmount
+		end
+	end
 	
 	return Utils:Fraction(restedXp, restedXpCapAmount)
 end
 
-function XP:GetRemainingRestedCapFraction(restedXp, neededXp, wellRestedRank)
-	return 1 - XP:GetCurrentRestedCapFraction(restedXp, neededXp, wellRestedRank)
+function XP:GetRemainingRestedCapFraction(restedXp, neededXp, wellRestedRank, timeSinceLastKnownRestedXpInHours)
+	return 1 - XP:GetCurrentRestedCapFraction(restedXp, neededXp, wellRestedRank, timeSinceLastKnownRestedXpInHours)
 end
 
 function XP:GetTotalRestedCapTimeInHours(isResting)

@@ -17,6 +17,7 @@ local Quest = Frogtome.Core.Quest
 local QuestLog = Frogtome.Features.QuestLog
 local Session = Frogtome.Features.Session
 local Settings = Frogtome.Settings.Settings
+local State = Frogtome.Features.State
 local Strings = Frogtome.UI.Strings
 local UI = Frogtome.UI.UI
 local UIConfig = Frogtome.UI.UIConfig
@@ -927,8 +928,7 @@ function FarmingPage:Build(parent)
 	end)
 	
 	Event:SetSessionEventListenerForWidget(page, function()
-		QuestLog:UpdateQuestLog()
-		Session:UpdateSession()
+		State:Update()
 	end)
 	
 	local ticker = Event:RegisterTickUpdateListener(250, function()

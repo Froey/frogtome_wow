@@ -203,6 +203,14 @@ function QuestLog:HasAnyQuests(trackedOnly)
 	return QuestLog.QuestCount > 0
 end
 
+function QuestLog:GetQuestCount(trackedOnly)
+	if trackedOnly then
+		return QuestLog:GetTrackedQuestCount()
+	end
+
+	return QuestLog.QuestCount
+end
+
 function QuestLog:GetQuests(trackedOnly)
 	if trackedOnly then
 		return QuestLog:GetAllTrackedQuests()
@@ -231,6 +239,10 @@ function QuestLog:HasAnyTrackedQuests()
 	return QuestLog.TrackedQuestCount > 0
 end
 
+function QuestLog:GetTrackedQuestCount()
+	return QuestLog.TrackedQuestCount
+end
+
 function QuestLog:GetTrackedQuests()
 	return QuestLog.TrackedQuests
 end
@@ -249,6 +261,14 @@ function QuestLog:HasAnyTurnInAbleQuests(trackedOnly)
 	end
 	
 	return QuestLog.TurnInAbleQuestCount > 0
+end
+
+function QuestLog:GetTurnInAbleQuestCount(trackedOnly)
+	if trackedOnly then
+		return QuestLog:GetTrackedTurnInAbleQuestCount()
+	end
+
+	return QuestLog.TurnInAbleQuestCount
 end
 
 function QuestLog:GetTurnInAbleQuests(trackedOnly)
@@ -277,6 +297,10 @@ end
 
 function QuestLog:HasAnyTrackedTurnInAbleQuests()
 	return QuestLog.TrackedTurnInAbleQuestCount > 0
+end
+
+function QuestLog:GetTrackedTurnInAbleQuestCount()
+	return QuestLog.TrackedTurnInAbleQuestCount
 end
 
 function QuestLog:GetTrackedTurnInAbleQuests()

@@ -86,7 +86,9 @@ function Session:ResetSession()
 	
 	session.LastKnownCopper = Money:GetMoneyInWholeCopper()
 	
-	session.LastKnownQuestLogSize = Quest:GetQuestLogSize()
+	session.LastKnownQuestCount = QuestLog:GetQuestCount()
+	session.LastKnownQuestXp = QuestLog:GetTotalQuestXp()
+	session.LastKnownQuestCopper = QuestLog:GetTotalQuestMoneyInCopper()
 	
 	Session:RelinquishLock()
 end
@@ -150,11 +152,19 @@ function Session:UpdateSession()
 	local oldCopper = session.LastKnownCopper
 	local newCopper = Money:GetMoneyInWholeCopper()
 	session.LastKnownCopper = newCopper
-	
-	local oldQuestLogSize = session.LastKnownQuestLogSize
-	local newQuestLogSize = Quest:GetQuestLogSize()
-	session.LastKnownQuestLogSize = newQuestLogSize
-	
+
+	local oldQuestCount = session.LastKnownQuestCount
+	local newQuestCount = QuestLog:GetQuestCount()
+	session.LastKnownQuestCount = newQuestCount
+
+	local oldQuestXp = session.LastKnownQuestXp
+	local newQuestXp = QuestLog:GetTotalQuestXp()
+	session.LastKnownQuestXp = newQuestXp
+
+	local oldQuestCopper = session.LastKnownQuestCopepr
+	local newQuestCopper = QuestLog:GetTotalQuestMoneyInCopper()
+	session.LastKnownQuestCopper = newQuestCopper
+
 	-- Check if we're mid load or something of the sort - if so, let it do its thing and don't try to check for changes
 	
 	local missingSnapshot = false
@@ -163,7 +173,9 @@ function Session:UpdateSession()
 	missingSnapshot = missingSnapshot or not oldNeededXp or not newNeededXp
 	missingSnapshot = missingSnapshot or not oldRemainingXp or not newRemainingXp
 	missingSnapshot = missingSnapshot or not oldCopper or not newCopper
-	missingSnapshot = missingSnapshot or not oldQuestLogSize or not newQuestLogSize
+	missingSnapshot = missingSnapshot or not oldQuestCount or not newQuestCount
+	missingSnapshot = missingSnapshot or not oldQuestXp or not newQuestXp
+	missingSnapshot = missingSnapshot or not oldQuestCopper or not newQuestCopper
 	
 	if missingSnapshot then
 		-- Evidently something is trying to load - shouldn't be missing data otherwise
@@ -235,8 +247,10 @@ function Session:UpdateSession()
 	
 	-- Derive some final auxilliary information.
 	
-	local justTurnedInXpQuest = changedXp and newQuestLogSize < oldQuestLogSize
-	local justTurnedInMoneyQuest = changedMoney and newQuestLogSize < oldQuestLogSize
+	-- The change of quest log size and the gaining of quest rewards does not happen simultaneously;
+	-- use the actual change in xp/money to determine if we just handed in a quest, not a change in quest log size
+	local justTurnedInXpQuest = changedXp and newQuestXp < oldQuestXp
+	local justTurnedInMoneyQuest = changedMoney and newQuestCopper < oldQuestCopper
 	local justTurnedInQuest = justTurnedInXpQuest or justTurnedInMoneyQuest
 	
 	if changedXp and xpDelta > 0 then

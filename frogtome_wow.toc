@@ -76,6 +76,7 @@ Modules/Core/dungeon.lua
 
 Modules/Features/quest_log.lua
 Modules/Features/session.lua
+Modules/Features/state.lua
 Modules/Features/notes.lua
 Modules/Features/fun_facts.lua
 

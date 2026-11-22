@@ -259,16 +259,14 @@ function FarmingPage:UpdateExpandedFrameView(changeManifest, rateUpdate)
 		FarmingPage.Page.ExpandedFrameView.GoldView.TotalGoldSpentValueText:SetText(totalGoldSpentValue)
 		
 		local netGoldValue = Session:GetNetMoneyInCopper()
-		local netGoldValueString = ""
 		local netGoldColor = UIConfig.GLOBAL_NEUTRAL_VALUE_COLOR
 		if netGoldValue > 0 then
 			netGoldColor = UIConfig.GLOBAL_POSITIVE_VALUE_COLOR
 		elseif netGoldValue < 0 then
-			netGoldValueString = "- "
 			netGoldColor = UIConfig.GLOBAL_NEGATIVE_VALUE_COLOR
 		end
-		netGoldValueString = netGoldValueString .. Money:CopperToCoinString(math.abs(Session:GetNetMoneyInCopper()), UIConfig.FARMING_PAGE_COIN_ICON_RES)
-		FarmingPage.Page.ExpandedFrameView.GoldView.NetGoldText:SetText(netGoldValueString)
+		netGoldValueString = Money:CopperToCoinString(Session:GetNetMoneyInCopper(), UIConfig.FARMING_PAGE_COIN_ICON_RES)
+		FarmingPage.Page.ExpandedFrameView.GoldView.NetGoldText:SetText(Money:CopperToCoinString(netGoldValue, UIConfig.FARMING_PAGE_COIN_ICON_RES))
 		UI:ApplyTextWidgetFont(FarmingPage.Page.ExpandedFrameView.GoldView.NetGoldText, netGoldColor)
 	end
 	
@@ -927,8 +925,9 @@ function FarmingPage:Build(parent)
 		FarmingPage:UpdateDisplay(false, changeManifest, false)
 	end)
 	
-	Event:SetSessionEventListenerForWidget(page, function()
-		State:Update()
+	Event:SetSessionEventListenerForWidget(page, function(self, event, ...)
+		local arg1, arg2, arg3 = ...
+		State:Update(event, arg1, arg2, arg3)
 	end)
 	
 	local ticker = Event:RegisterTickUpdateListener(250, function()

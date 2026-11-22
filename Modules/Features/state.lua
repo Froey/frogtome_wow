@@ -17,7 +17,16 @@ function State:Initialize()
     Session:InitializeSession()
 end
 
-function State:Update()
+function State:Update(event, arg1, arg2, arg3)
     QuestLog:UpdateQuestLog()
-    Session:UpdateSession()
+	
+	local questTurnedIn = event == "QUEST_TURNED_IN"
+	local questXp = arg2
+	local questMoney = arg3
+	
+	if questTurnedIn then
+    	Session:UpdateSession(true, questXp, questMoney)
+	else
+		Session:UpdateSession(false)
+	end
 end

@@ -153,8 +153,8 @@ function XP:GetCurrentLifetimeXp(currentLevel, currentXp)
 	end
 	-- TODO: do local level-up if currentXp is really high?
 	
-	local lifetimeXp = currentLevel
-	for completedLevel = XP.MinLevel, level - 1 do
+	local lifetimeXp = 0
+	for completedLevel = XP.MinLevel, currentLevel - 1 do
 		lifetimeXp = lifetimeXp + XpData.NeededLevelXps[completedLevel]
 	end
 	
@@ -173,7 +173,7 @@ function XP:GetNeededLifetimeXp()
 	end
 	
 	local lifetimeXpNeeded = 0
-	for level = XP.MinLevel, XP.MaxLevel do
+	for level = XP.MinLevel, XP:GetMaxLevel() do
 		lifetimeXpNeeded = lifetimeXpNeeded + XpData.NeededLevelXps[level]
 	end
 	

@@ -417,7 +417,9 @@ function CharactersPage:UpdateExpandedFrameView()
 			
 			-- On initial load, this fraction can be undefined (needed XP can be 0)
 			if character.RestedXp and character.NeededXp and character.NeededXp > 0 then
-				local currentRestedCapFraction = XP:GetCurrentRestedCapFraction(character.RestedXp, character.NeededXp, character.WellRestedRank)
+				local timeSinceCharacterSnapshotInHours = (currentTimeSeconds - character.Timestamp) / 60 / 60
+
+				local currentRestedCapFraction = XP:GetCurrentRestedCapFraction(character.RestedXp, character.NeededXp, character.WellRestedRank, character.IsResting, timeSinceCharacterSnapshotInHours)
 				local remainingRestedCapFraction = 1 - currentRestedCapFraction
 				
 				if remainingRestedCapFraction < 0 then
@@ -433,7 +435,6 @@ function CharactersPage:UpdateExpandedFrameView()
 					UI:ApplyTextWidgetFont(row.CharacterRestCapPercentageText, UIConfig.GLOBAL_DATA_TEXT_COLOR)
 				end
 				
-				local timeSinceCharacterSnapshotInHours = (currentTimeSeconds - character.Timestamp) / 60 / 60
 				local remainingRestedCapTimeInDays, remainingRestedCapTimeInHours = XP:GetRemainingRestedCapTimeInDaysPlusHours(character.RestedXp, character.NeededXp, character.WellRestedRank, character.IsResting, timeSinceCharacterSnapshotInHours)
 				
 				if remainingRestedCapTimeInDays > 0 or remainingRestedCapTimeInHours > 0 then
@@ -662,7 +663,9 @@ function CharactersPage:UpdateCondensedFrameView()
 		
 		-- On initial load, this fraction can be undefined (needed XP can be 0)
 		if character.RestedXp and character.NeededXp and character.NeededXp > 0 then
-			local currentRestedCapFraction = XP:GetCurrentRestedCapFraction(character.RestedXp, character.NeededXp, character.WellRestedRank)
+			local timeSinceCharacterSnapshotInHours = (currentTimeSeconds - character.Timestamp) / 60 / 60
+			
+			local currentRestedCapFraction = XP:GetCurrentRestedCapFraction(character.RestedXp, character.NeededXp, character.WellRestedRank, character.IsResting, timeSinceCharacterSnapshotInHours)
 			local remainingRestedCapFraction = 1 - currentRestedCapFraction
 			
 			if remainingRestedCapFraction < 0 then
@@ -678,7 +681,6 @@ function CharactersPage:UpdateCondensedFrameView()
 				UI:ApplyTextWidgetFont(CharactersPage.Page.CondensedFrameView.CharacterRestCapPercentageText, UIConfig.GLOBAL_DATA_TEXT_COLOR)
 			end
 			
-			local timeSinceCharacterSnapshotInHours = (currentTimeSeconds - character.Timestamp) / 60 / 60
 			local remainingRestedCapTimeInDays, remainingRestedCapTimeInHours = XP:GetRemainingRestedCapTimeInDaysPlusHours(character.RestedXp, character.NeededXp, character.WellRestedRank, character.IsResting, timeSinceCharacterSnapshotInHours)
 			
 			if remainingRestedCapTimeInDays > 0 or remainingRestedCapTimeInHours > 0 then

@@ -7,6 +7,7 @@ Frogtome.Core.Money = {}
 local API = Frogtome.Root.API
 local Context = Frogtome.Version.Context
 local Money = Frogtome.Core.Money
+local Settings = Frogtome.Settings.Settings
 
 ----------------------------------------
 -- Local Configurables and Attributes --
@@ -257,7 +258,7 @@ function Money:CopperToCoinString(copper, coinIconResolution)
 	end
 	
 	copper = math.floor(copper)
-	if true then -- TODO: Replace with setting
+	if Settings:IsTruncatingMoney() then
 		copper = Money:TruncateCopperToRelevancy(copper)
 	end
 
@@ -277,7 +278,7 @@ function Money:SilverToCoinString(silver, coinIconResolution)
 	end
 	
 	local copper = Money:SilverToWholeCopper(silver)
-	if true then -- TODO: Replace with setting
+	if Settings:IsTruncatingMoney() then
 		copper = Money:TruncateCopperToRelevancy(copper)
 	end
 
@@ -297,7 +298,7 @@ function Money:GoldToCoinString(gold, coinIconResolution)
 	end
 	
 	local copper = Money:GoldToWholeCopper(gold)
-	if true then -- TODO: Replace with setting
+	if Settings:IsTruncatingMoney() then
 		copper = Money:TruncateCopperToRelevancy(copper)
 	end
 

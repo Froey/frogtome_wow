@@ -160,7 +160,7 @@ function Session:UpdateSession(questTurnedIn, questXp, questMoney)
 	local oldQuestXp = session.LastKnownQuestXp
 	local newQuestXp = QuestLog:GetTotalQuestXp()
 	session.LastKnownQuestXp = newQuestXp
-
+	
 	local oldQuestCopper = session.LastKnownQuestCopper
 	local newQuestCopper = QuestLog:GetTotalQuestMoneyInCopper()
 	session.LastKnownQuestCopper = newQuestCopper

@@ -182,6 +182,16 @@ function SettingsPage:BuildExpandedFrameView(page)
 		Settings:SetAccountValue(Settings.SHOW_FUN_FACTS, value)
 	end, 3, rowIndex, 0, math.ceil(UIConfig.SETTINGS_PAGE_LINE_FONT_SIZE / 2) + 2)
 	view.SettingFields[Settings.SHOW_FUN_FACTS].ReloadIndicator = UI:CreateTableText(settingsTableParams, tableFrame, Strings:Get("SETTINGS_PAGE_RELOAD_INDICATOR"), UIConfig.SETTINGS_PAGE_RELOAD_INDICATOR_COLOR, 4, rowIndex, 0, UIConfig.SETTINGS_PAGE_RELOAD_INDICATOR_OFFSET_Y)
+	y = y - UIConfig.SETTINGS_PAGE_LINE_FONT_SIZE - UIConfig.SETTINGS_PAGE_LINE_GROUP_SPACING
+	rowIndex = rowIndex + 1
+	
+	UI:SetTableRowParameters(settingsTableParams, rowIndex, y, nil, UIConfig.SETTINGS_PAGE_LINE_FONT_SIZE)
+	view.SettingFields[Settings.TRUNCATE_MONEY] = {}
+	view.SettingFields[Settings.TRUNCATE_MONEY].Label = UI:CreateTableText(settingsTableParams, tableFrame, Strings:Get("SETTINGS_PAGE_GENERAL_TRUNCATE_MONEY"), UIConfig.GLOBAL_LABEL_TEXT_COLOR, 2, rowIndex)
+	view.SettingFields[Settings.TRUNCATE_MONEY].Account = UI:CreateTableCheckbox(settingsTableParams, tableFrame, false, function(value)
+		Settings:SetAccountValue(Settings.TRUNCATE_MONEY, value)
+	end, 3, rowIndex, 0, math.ceil(UIConfig.SETTINGS_PAGE_LINE_FONT_SIZE / 2) + 2)
+	view.SettingFields[Settings.TRUNCATE_MONEY].ReloadIndicator = UI:CreateTableText(settingsTableParams, tableFrame, Strings:Get("SETTINGS_PAGE_RELOAD_INDICATOR"), UIConfig.SETTINGS_PAGE_RELOAD_INDICATOR_COLOR, 4, rowIndex, 0, UIConfig.SETTINGS_PAGE_RELOAD_INDICATOR_OFFSET_Y)
 	y = y - UIConfig.SETTINGS_PAGE_LINE_FONT_SIZE - UIConfig.SETTINGS_PAGE_SECTION_END_SPACING
 	rowIndex = rowIndex + 1
 	

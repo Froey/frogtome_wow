@@ -33,6 +33,11 @@ Settings.CharSettingFlags[Settings.SHOW_FUN_FACTS] = false
 Settings.ReloadFlags[Settings.SHOW_FUN_FACTS] = false
 Settings.Defaults[Settings.SHOW_FUN_FACTS] = false
 
+Settings.TRUNCATE_MONEY = "TruncateMoney"
+Settings.CharSettingFlags[Settings.TRUNCATE_MONEY] = false
+Settings.ReloadFlags[Settings.TRUNCATE_MONEY] = false
+Settings.Defaults[Settings.TRUNCATE_MONEY] = true
+
 -- Interface Settings - Character-Specific
 
 Settings.CHAR_SPECIFIC_SETTINGS = "CharSpecificSettings"
@@ -329,6 +334,14 @@ end
 
 function Settings:SetShowingFunFacts(value, listener)
 	Settings:Set(Settings.SHOW_FUN_FACTS, value, listener)
+end
+
+function Settings:IsTruncatingMoney()
+	return Settings:Get(Settings.TRUNCATE_MONEY)
+end
+
+function Settings:SetTruncatingMoney(value, listener)
+	Settings:Set(Settings.TRUNCATE_MONEY, value, listener)
 end
 
 -- Interface Settings - Character-Specific

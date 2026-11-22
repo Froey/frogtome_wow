@@ -4,12 +4,13 @@ if not Frogtome.Features then
 end
 Frogtome.Features.FunFacts = {}
 
-local Characters = Frogtome.Core.Characters
+local Character = Frogtome.Core.Character
 local Event = Frogtome.Root.Event
 local FunFacts = Frogtome.Features.FunFacts
 local Log = Frogtome.Root.Log
 local Settings = Frogtome.Settings.Settings
 local Utils = Frogtome.Root.Utils
+local XP = Frogtome.Core.XP
 
 ------------------------------
 -- Fun Fact Utility Methods --
@@ -91,7 +92,7 @@ function FunFacts:GetProfessionSummary()
 		}
 	}
 	
-	for _, character in ipairs(Characters:GetCharacters()) do
+	for _, character in ipairs(Character:GetCharacters()) do
 		if character.FirstProfession then
 			professionSummary[character.FirstProfession.Name].Count = professionSummary[character.FirstProfession.Name].Count + 1
 			professionSummary[character.FirstProfession.Name].TotalSkill = professionSummary[character.FirstProfession.Name].TotalSkill + character.FirstProfession.CurrentSkill
@@ -126,7 +127,7 @@ function FunFacts:GenerateLifetimeBoarXPFunFact()
 		return nil
 	end
 	
-	local totalLifetimeXp = XP:GetLifetimeXp()
+	local totalLifetimeXp = XP:GetCurrentLifetimeXp()
 	local totalLifetimeBoars = totalLifetimeXp / 50
 	
 	local funFact = "You've earned a total of " .. BreakUpLargeNumbers(totalLifetimeXp) .. " lifetime XP on this character! That's the equivalent of " .. BreakUpLargeNumbers(totalLifetimeBoars, 1) .. " Level 1 Boars!... Y'know, if they all actually offered XP..."
@@ -139,9 +140,9 @@ function FunFacts:GenerateLifetimeXpFunFact()
 		return nil
 	end
 	
-	local totalLifetimeXp = XP:GetLifetimeXp()
-	local neededLifetimeXp = XP:GetLifetimeXpNeeded()
-	local lifetimeXpPercentage = XP:GetLifetimeXpPercentageString(2)
+	local totalLifetimeXp = XP:GetCurrentLifetimeXp()
+	local neededLifetimeXp = XP:GetNeededLifetimeXp()
+	local lifetimeXpPercentage = Utils:PercentageString(totalLifetimeXp, neededLifetimeXp, 2)
 	
 	local funFact = "You have " .. BreakUpLargeNumbers(totalLifetimeXp) .. " of the " .. BreakUpLargeNumbers(math.floor(neededLifetimeXp)) .. " (" .. lifetimeXpPercentage .. ") total XP you need to reach max level! " .. FunFacts:GetRandomInspirational()
 	

@@ -225,11 +225,11 @@ function Money:TruncateCopperToRelevancy(copper)
 	if copper >= Money.SILVER_RELEVANCY_THRESHOLD then
 		return copper - (copper % Money.SILVER_RELEVANCY_FACTOR)
 	end
-
+	
 	if copper >= Money.COPPER_RELEVANCY_THRESHOLD then
 		return copper - (copper % Money.COPPER_RELEVANCY_FACTOR)
 	end
-
+	
 	return copper
 end
 
@@ -261,8 +261,19 @@ function Money:CopperToCoinString(copper, coinIconResolution)
 	if Settings:IsTruncatingMoney() then
 		copper = Money:TruncateCopperToRelevancy(copper)
 	end
-
-	return API.GetCoinStringFromCopper(copper, coinIconResolution)
+	
+	local addLeadingNegativeSign = false
+	if copper < 0 then
+		addLeadingNegativeSign = true
+	end
+	copper = math.abs(copper)
+	
+	local coinString = API.GetCoinStringFromCopper(copper, coinIconResolution)
+	if addLeadingNegativeSign then
+		coinString = "- " .. coinString
+	end
+	
+	return coinString
 end
 
 -- Returns the decorative string of coins corresponding to the provided value of silver, using the provided resolution for coin icons.
@@ -278,11 +289,7 @@ function Money:SilverToCoinString(silver, coinIconResolution)
 	end
 	
 	local copper = Money:SilverToWholeCopper(silver)
-	if Settings:IsTruncatingMoney() then
-		copper = Money:TruncateCopperToRelevancy(copper)
-	end
-
-	return API.GetCoinStringFromCopper(copper, coinIconResolution)
+	return Money:CopperToCoinString(copper, coinIconResolution)
 end
 
 -- Returns the decorative string of coins corresponding to the provided value of gold, using the provided resolution for coin icons.
@@ -298,9 +305,5 @@ function Money:GoldToCoinString(gold, coinIconResolution)
 	end
 	
 	local copper = Money:GoldToWholeCopper(gold)
-	if Settings:IsTruncatingMoney() then
-		copper = Money:TruncateCopperToRelevancy(copper)
-	end
-
-	return API.GetCoinStringFromCopper(copper, coinIconResolution)
+	return Money:CopperToCoinString(copper, coinIconResolution)
 end

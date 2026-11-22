@@ -7,7 +7,7 @@ Frogtome.Features.Session = {}
 local API = Frogtome.Root.API
 local Log = Frogtome.Root.Log
 local Money = Frogtome.Core.Money
-local Quest = Frogtome.Core.Quest
+local QuestLog = Frogtome.Features.QuestLog
 local Session = Frogtome.Features.Session
 local Utils = Frogtome.Root.Utils
 local XP = Frogtome.Core.XP
@@ -86,7 +86,9 @@ function Session:ResetSession()
 	
 	session.LastKnownCopper = Money:GetMoneyInWholeCopper()
 	
-	session.LastKnownQuestLogSize = Quest:GetQuestLogSize()
+	session.LastKnownQuestCount = QuestLog:GetQuestCount()
+	session.LastKnownQuestXp = QuestLog:GetTotalQuestXp()
+	session.LastKnownQuestCopper = QuestLog:GetTotalQuestMoneyInCopper()
 	
 	Session:RelinquishLock()
 end
@@ -121,7 +123,7 @@ function Session:TogglePausedSession()
 end
 
 -- Updates the session's timer as well as all session metrics.
-function Session:UpdateSession()
+function Session:UpdateSession(questTurnedIn, questXp, questMoney)
 	if not Session:ClaimLock() then
 		Log:Error("Cannot update the session!")
 		return
@@ -150,11 +152,19 @@ function Session:UpdateSession()
 	local oldCopper = session.LastKnownCopper
 	local newCopper = Money:GetMoneyInWholeCopper()
 	session.LastKnownCopper = newCopper
+
+	local oldQuestCount = session.LastKnownQuestCount
+	local newQuestCount = QuestLog:GetQuestCount()
+	session.LastKnownQuestCount = newQuestCount
+
+	local oldQuestXp = session.LastKnownQuestXp
+	local newQuestXp = QuestLog:GetTotalQuestXp()
+	session.LastKnownQuestXp = newQuestXp
 	
-	local oldQuestLogSize = session.LastKnownQuestLogSize
-	local newQuestLogSize = Quest:GetQuestLogSize()
-	session.LastKnownQuestLogSize = newQuestLogSize
-	
+	local oldQuestCopper = session.LastKnownQuestCopper
+	local newQuestCopper = QuestLog:GetTotalQuestMoneyInCopper()
+	session.LastKnownQuestCopper = newQuestCopper
+
 	-- Check if we're mid load or something of the sort - if so, let it do its thing and don't try to check for changes
 	
 	local missingSnapshot = false
@@ -163,19 +173,21 @@ function Session:UpdateSession()
 	missingSnapshot = missingSnapshot or not oldNeededXp or not newNeededXp
 	missingSnapshot = missingSnapshot or not oldRemainingXp or not newRemainingXp
 	missingSnapshot = missingSnapshot or not oldCopper or not newCopper
-	missingSnapshot = missingSnapshot or not oldQuestLogSize or not newQuestLogSize
+	missingSnapshot = missingSnapshot or not oldQuestCount or not newQuestCount
+	missingSnapshot = missingSnapshot or not oldQuestXp or not newQuestXp
+	missingSnapshot = missingSnapshot or not oldQuestCopper or not newQuestCopper
 	
 	if missingSnapshot then
 		-- Evidently something is trying to load - shouldn't be missing data otherwise
 		Session.LoadComplete = false
 		
-		Log:Debug("Could not update session - missing info from being mid-load?")
+		Log:Error("Could not update session - missing info from being mid-load?")
 		Session:RelinquishLock()
 		return
 	end
 	
 	if Session:IsSessionPaused() then
-		Log:Debug("Skipping rest of session update - session is paused.")
+		Log:Error("Skipping rest of session update - session is paused.")
 		Session:RelinquishLock()
 		return
 	end
@@ -235,26 +247,34 @@ function Session:UpdateSession()
 	
 	-- Derive some final auxilliary information.
 	
-	local justTurnedInXpQuest = changedXp and newQuestLogSize < oldQuestLogSize
-	local justTurnedInMoneyQuest = changedMoney and newQuestLogSize < oldQuestLogSize
-	local justTurnedInQuest = justTurnedInXpQuest or justTurnedInMoneyQuest
+	local justTurnedInXpQuest = questTurnedIn and questXp > 0
+	local justTurnedInMoneyQuest = questTurnedIn and questMoney > 0
 	
-	if changedXp and xpDelta > 0 then
-		if justTurnedInXpQuest then
-			session.SessionXpFromQuests = session.SessionXpFromQuests + xpDelta
-			session.SessionXpFromQuestsCount = session.SessionXpFromQuestsCount + 1
-		else
-			session.SessionXpFromElsewhere = session.SessionXpFromElsewhere + xpDelta
-			session.SessionXpFromElsewhereCount = session.SessionXpFromElsewhereCount + 1
-		end
+	if justTurnedInXpQuest then
+		session.SessionXpFromQuests = session.SessionXpFromQuests + questXp
+		session.SessionXpFromQuestsCount = session.SessionXpFromQuestsCount + 1
+		
+		-- This gets caught separately as an independent XP event; proactively discount it
+		session.SessionXpFromElsewhere = session.SessionXpFromElsewhere - questXp
+		session.SessionXpFromElsewhereCount = session.SessionXpFromElsewhereCount - 1
+		
+		-- Make sure this fires listeners
+		changedXp = true
+	elseif changedXp and xpDelta > 0 then
+		session.SessionXpFromElsewhere = session.SessionXpFromElsewhere + xpDelta
+		session.SessionXpFromElsewhereCount = session.SessionXpFromElsewhereCount + 1
 	end
 	
-	if changedMoney and copperDelta > 0 then
-		if justTurnedInMoneyQuest then
-			session.SessionEarnedCopperFromQuests = session.SessionEarnedCopperFromQuests + copperDelta
-		else
-			session.SessionEarnedCopperFromElsewhere = session.SessionEarnedCopperFromElsewhere + copperDelta
-		end
+	if justTurnedInMoneyQuest then
+		session.SessionEarnedCopperFromQuests = session.SessionEarnedCopperFromQuests + questMoney
+		
+		-- This gets caught separately as an independent money event; proactively discount it
+		session.SessionEarnedCopperFromElsewhere = session.SessionEarnedCopperFromElsewhere - questMoney
+		
+		-- Make sure this fires listeners
+		changedMoney = true
+	elseif changedMoney and copperDelta > 0 then
+		session.SessionEarnedCopperFromElsewhere = session.SessionEarnedCopperFromElsewhere + copperDelta
 	end
 	
 	-- Create a manifest of what infomation has changed

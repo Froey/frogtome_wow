@@ -181,13 +181,13 @@ function Session:UpdateSession(questTurnedIn, questXp, questMoney)
 		-- Evidently something is trying to load - shouldn't be missing data otherwise
 		Session.LoadComplete = false
 		
-		Log:Error("Could not update session - missing info from being mid-load?")
+		Log:Debug("Could not update session - missing info from being mid-load?")
 		Session:RelinquishLock()
 		return
 	end
 	
 	if Session:IsSessionPaused() then
-		Log:Error("Skipping rest of session update - session is paused.")
+		Log:Debug("Skipping rest of session update - session is paused.")
 		Session:RelinquishLock()
 		return
 	end

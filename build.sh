@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="v1.0.6"
+VERSION="v1.1.0_BETA"
 
 # Define targets
 TARGET_DIR="."
